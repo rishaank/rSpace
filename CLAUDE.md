@@ -87,6 +87,9 @@ buttons and tab labels, hairline rules instead of cards.
   32px the `r` is dropped and the pin runs solid.
 - The mock `9:41` status bar only renders in the ≥480px desktop preview frame.
   Real phones get their own.
+- `.device` is `height: 100dvh`, not `min-height`. With `min-height` a long
+  screen grows past the viewport, the page itself scrolls instead of `.scroll`,
+  and the tab bar slides under Safari's floating toolbar.
 - The tab bar pads with `env(safe-area-inset-bottom)` only. Do not add a fixed
   bottom padding — Safari already reserves that strip and it double-pads.
 
@@ -104,6 +107,9 @@ All of these cost real debugging time. Do not undo them.
   and falls back to the drawn map, including a paint check a few seconds in.
 - The **Geocoding API is a separate product** and is not enabled on the key.
   Neighborhood names come from Places `addressComponents`, not the Geocoder.
+- Seed rows carry no `google_place_id`, so `lookupPlace()` finds the listing by
+  name and location via `Place.searchByText`. That one call returns the photo,
+  live rating, and review count for the detail screen.
 - Every Google call returns `null` on failure instead of throwing. Screens must
   degrade — the profiler to the nearest seeded neighborhood, the address field
   to the seeded list, the map to the drawn one. Silent hangs were the original

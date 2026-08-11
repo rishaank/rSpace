@@ -161,6 +161,39 @@ const PRICE_LEVELS = {
   VERY_EXPENSIVE: 4,
 };
 
+/**
+ * Finds a seeded place on Google by name and location, and returns its photo
+ * plus live rating. The seed rows carry no google_place_id, so this is the
+ * only way to reach the real listing.
+ */
+export async function lookupPlace({ name, address, lat, lng }) {
+  const places = await library("places");
+  if (!places) return null;
+
+  try {
+    const { places: found } = await places.Place.searchByText({
+      textQuery: `${name} ${address ?? ""}`.trim(),
+      fields: ["id", "photos", "rating", "userRatingCount", "priceLevel", "businessStatus"],
+      locationBias: { center: { lat, lng }, radius: 2000 },
+      maxResultCount: 1,
+    });
+
+    const match = found?.[0];
+    if (!match) return null;
+
+    return {
+      id: match.id,
+      photo: match.photos?.[0]?.getURI({ maxWidth: 780, maxHeight: 400 }) ?? null,
+      rating: match.rating ?? null,
+      reviews: match.userRatingCount ?? null,
+      price_level: PRICE_LEVELS[match.priceLevel] ?? null,
+      closed: match.businessStatus === "CLOSED_PERMANENTLY",
+    };
+  } catch {
+    return null;
+  }
+}
+
 /** Live rating, review count, and price level for one place, or null. */
 export async function placeDetails(placeId) {
   const places = await library("places");

@@ -121,8 +121,11 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
         gestureHandling: "greedy",
       });
 
+      // A rejected map leaves the marker library in a state where the
+      // constructor throws; that must not take the whole effect down.
       markers.current.forEach((m) => (m.map = null));
-      markers.current = places.map((place) => {
+      markers.current = places.flatMap((place) => {
+        try {
         const el = document.createElement("button");
         el.type = "button";
         el.className = [
@@ -137,11 +140,14 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
         el.textContent = String(variant === "need" ? place.need : place.total);
         el.addEventListener("click", () => onSelect(place.id));
 
-        return new AdvancedMarkerElement({
-          map: map.current,
-          position: { lat: place.lat, lng: place.lng },
-          content: el,
-        });
+          return new AdvancedMarkerElement({
+            map: map.current,
+            position: { lat: place.lat, lng: place.lng },
+            content: el,
+          });
+        } catch {
+          return [];
+        }
       });
 
       const bounds = new maps.LatLngBounds();

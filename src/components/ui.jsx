@@ -26,6 +26,7 @@ const PATHS = {
     </>
   ),
   filters: <path d="M3 6h18M7 12h10M10 18h4" />,
+  star: <path d="M12 3.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.6 9.7l5.8-.8L12 3.6z" />,
 };
 
 export function Icon({ name, size = 21, filled = false, ...rest }) {
@@ -80,6 +81,41 @@ export function Wordmark({ size = 56, light = false }) {
     <span className={`wordmark${light ? " light" : ""}`} style={{ fontSize: size }}>
       <span className="r">r</span>Space
     </span>
+  );
+}
+
+/* Five stars, filled to the nearest half by clipping the last one. */
+export function Stars({ rating, reviews, size = 16 }) {
+  if (rating == null) return null;
+
+  return (
+    <div className="stars">
+      <div className="row" role="img" aria-label={`${rating} out of 5`}>
+        {[0, 1, 2, 3, 4].map((i) => {
+          const fill = Math.max(0, Math.min(1, rating - i));
+          return (
+            <span key={i} style={{ position: "relative", width: size, height: size, display: "block" }}>
+              <Icon name="star" size={size} style={{ position: "absolute", inset: 0, opacity: 0.35 }} />
+              <span
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: `${fill * 100}%`,
+                  overflow: "hidden",
+                }}
+              >
+                <Icon name="star" size={size} filled />
+              </span>
+            </span>
+          );
+        })}
+      </div>
+      {reviews != null && (
+        <span className="count">
+          {rating.toFixed(1)} · {reviews.toLocaleString()} review{reviews === 1 ? "" : "s"}
+        </span>
+      )}
+    </div>
   );
 }
 

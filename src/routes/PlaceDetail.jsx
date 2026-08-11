@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useApp } from "../lib/store";
-import { hasMapsKey, placeDetails, transitMinutes } from "../lib/google";
+import { hasMapsKey, lookupPlace, transitMinutes } from "../lib/google";
 import { FACTORS, formatMiles, scorePlace } from "../lib/scoring";
-import { Alarm, AppBar, Device, Meter, SaveButton } from "../components/ui";
+import { Alarm, AppBar, Device, Meter, SaveButton, Stars } from "../components/ui";
 
 // 13 · /place/:id — Detail  ·  25 · Google data unavailable  ·  26 · Closed
 export default function PlaceDetail() {
@@ -15,16 +15,20 @@ export default function PlaceDetail() {
   const [live, setLive] = useState(null);
   const [stale, setStale] = useState(false);
 
-  // Ratings and transit are pulled fresh; the stored row is the fallback.
+  // Photo and rating come from the live listing; the stored row is the
+  // fallback for everything except the photo, which has no stored form.
   useEffect(() => {
-    if (!place || !hasMapsKey || !place.google_place_id) return;
+    if (!place || !hasMapsKey) return;
     let alive = true;
 
-    Promise.all([placeDetails(place.google_place_id), transitMinutes(origin, place)])
-      .then(([details, minutes]) => {
+    Promise.all([lookupPlace(place), transitMinutes(origin, place)])
+      .then(([found, minutes]) => {
         if (!alive) return;
-        if (!details) return setStale(true);
-        setLive({ ...details, transit_minutes: minutes });
+        if (!found) return setStale(true);
+        setLive({
+          ...Object.fromEntries(Object.entries(found).filter(([, v]) => v != null)),
+          transit_minutes: minutes,
+        });
         setStale(minutes == null);
       })
       .catch(() => alive && setStale(true));
@@ -49,6 +53,9 @@ export default function PlaceDetail() {
           height: 196,
           flex: "none",
           background: "#d5d8c6",
+          backgroundImage: merged.photo ? `url("${merged.photo}")` : undefined,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
           position: "relative",
           display: "flex",
           alignItems: "flex-end",
@@ -67,9 +74,11 @@ export default function PlaceDetail() {
         <div style={{ position: "absolute", top: 20, right: 20, background: "var(--paper)" }}>
           <SaveButton saved={saved} onClick={() => toggleFavorite(place.id)} size={36} />
         </div>
-        <div className="meta" style={{ background: "var(--paper)", padding: "4px 9px", color: "var(--text-3)" }}>
-          Photo — Google Places
-        </div>
+        {merged.photo && (
+          <div className="meta" style={{ background: "var(--paper)", padding: "4px 9px" }}>
+            Photo · Google Places
+          </div>
+        )}
       </div>
 
       <div className="scroll">
@@ -90,7 +99,8 @@ export default function PlaceDetail() {
             {place.name}
           </h2>
           <p className="aside" style={{ fontSize: 17, color: "var(--text-4)", paddingTop: 7 }}>
-            {place.address} · {place.price_level === 0 ? "Free entry" : "Entry fee"} · {place.hours}
+            {place.address} ({formatMiles(miles)}) ·{" "}
+            {place.price_level === 0 ? "Free entry" : "Entry fee"} · {place.hours}
           </p>
         </div>
 
@@ -115,24 +125,21 @@ export default function PlaceDetail() {
             />
           ))}
 
-          <p
-            className="aside"
-            style={{ fontSize: 15.5, paddingTop: 9, color: stale ? "var(--clay)" : "var(--text-5)" }}
-          >
-            {stale
-              ? "*Transit weight redistributed across the other four factors."
-              : "Weighted by your priorities · adjust in profile"}
-          </p>
+          {stale && (
+            <p className="aside" style={{ fontSize: 15.5, paddingTop: 9, color: "var(--clay)" }}>
+              *Transit weight redistributed across the other four factors.
+            </p>
+          )}
         </div>
 
-        <div className="pad" style={{ padding: "16px 24px 24px", display: "grid", gap: 8 }}>
+        <div className="pad" style={{ padding: "16px 24px 24px", display: "grid", gap: 10 }}>
           <div className="eyebrow">From the reviews</div>
-          <p className="prose" style={{ fontSize: 17.5, color: "var(--text-2)" }}>
-            &ldquo;{merged.quote}&rdquo;
-          </p>
-          <div className="meta" style={{ color: "var(--text-5)" }}>
-            Google review · {merged.rating} avg of {merged.reviews} · {formatMiles(miles)} away
-          </div>
+          <Stars rating={merged.rating} reviews={merged.reviews} />
+          {merged.quote && (
+            <p className="prose" style={{ fontSize: 17.5, color: "var(--text-2)" }}>
+              &ldquo;{merged.quote}&rdquo;
+            </p>
+          )}
         </div>
       </div>
 
