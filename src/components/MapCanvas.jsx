@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { hasMapsKey, loadMaps } from "../lib/google";
 
-const MAP_ID = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID ?? "DEMO_MAP_ID";
+// Advanced markers require a real Map ID from Google Cloud. Google's sample
+// "DEMO_MAP_ID" initialises a container that never paints, so without a real
+// one we use the drawn map from the design instead of a blank panel.
+const MAP_ID = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID;
+const hasMapId = Boolean(MAP_ID) && MAP_ID !== "DEMO_MAP_ID";
 
 // Where a lat/lng lands inside the paper map, as a percentage of the frame.
 // The band is inset so nothing hides behind the header or the bottom sheet.
@@ -27,7 +31,7 @@ function boundsOf(points) {
  * design otherwise. Pins carry the score; the selected one is filled.
  */
 export default function MapCanvas(props) {
-  if (hasMapsKey && !props.loading) return <LiveMap {...props} />;
+  if (hasMapsKey && hasMapId && !props.loading) return <LiveMap {...props} />;
   return <PaperMap {...props} />;
 }
 
@@ -144,6 +148,12 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
       places.forEach((p) => bounds.extend({ lat: p.lat, lng: p.lng }));
       if (origin) bounds.extend(origin);
       if (places.length) map.current.fitBounds(bounds, 56);
+
+      // Belt and braces: if nothing has painted by now the map is wedged
+      // (a rejected Map ID does this quietly), so show the drawn one.
+      setTimeout(() => {
+        if (live && !host.current?.querySelector("canvas, img")) setFailed(true);
+      }, 4000);
     })().catch((error) => {
       // The paper map is a fine fallback, but a silent one hides real bugs.
       console.warn("[map] falling back to the drawn map:", error);

@@ -26,7 +26,7 @@ what you have — each key is picked up independently:
 |---|---|
 | `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` | Real auth and persistence |
 | `VITE_GOOGLE_MAPS_API_KEY` | Live map, address autocomplete, live ratings, transit times |
-| `VITE_GOOGLE_MAPS_MAP_ID` | Styled markers (`DEMO_MAP_ID` is fine in dev) |
+| `VITE_GOOGLE_MAPS_MAP_ID` | Swaps the drawn map for the live Google map (needs a real Map ID) |
 
 Enable **Maps JavaScript API**, **Places API (New)**, and **Routes API** on the
 Google key, and restrict it by HTTP referrer. The referrer list needs both the
