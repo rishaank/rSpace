@@ -23,17 +23,23 @@ export default function OnboardingPlace() {
 
   useEffect(() => {
     let live = true;
-    geolocate().then(async (result) => {
+
+    (async () => {
+      const result = await geolocate();
       if (!live) return;
       if (result.error) return setState("denied");
 
-      const label = hasMapsKey
-        ? await neighborhoodFor(result)
-        : `${nearestNeighborhood(result).name}, San José`;
+      // Reverse geocoding is a bonus: it needs the Geocoding API, which is a
+      // separate product. Without it we name the nearest known neighborhood.
+      const label =
+        (hasMapsKey ? await neighborhoodFor(result) : null) ??
+        `${nearestNeighborhood(result).name}, San José`;
+
       if (!live) return;
-      setDetected({ ...result, location: label ?? "Your area" });
+      setDetected({ ...result, location: label });
       setState("detected");
-    });
+    })().catch(() => live && setState("denied"));
+
     return () => {
       live = false;
     };

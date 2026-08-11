@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { hasMapsKey, loadMaps } from "../lib/google";
 
 const MAP_ID = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID ?? "DEMO_MAP_ID";
@@ -26,7 +26,13 @@ function boundsOf(points) {
  * Renders the Google map when a key is configured, and the paper map from the
  * design otherwise. Pins carry the score; the selected one is filled.
  */
-export default function MapCanvas({
+export default function MapCanvas(props) {
+  if (hasMapsKey && !props.loading) return <LiveMap {...props} />;
+  return <PaperMap {...props} />;
+}
+
+/** The design's drawn map — also the fallback whenever Google is unavailable. */
+function PaperMap({
   places,
   selectedId,
   onSelect,
@@ -35,18 +41,6 @@ export default function MapCanvas({
   loading = false,
   heat = [],
 }) {
-  if (hasMapsKey && !loading) {
-    return (
-      <LiveMap
-        places={places}
-        selectedId={selectedId}
-        onSelect={onSelect}
-        origin={origin}
-        variant={variant}
-      />
-    );
-  }
-
   const points = places.length ? places : [{ lat: 37.3352, lng: -121.8911 }];
   const bounds = boundsOf(origin ? [...points, origin] : points);
 
@@ -97,16 +91,25 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
   const host = useRef(null);
   const map = useRef(null);
   const markers = useRef([]);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     let live = true;
 
-    loadMaps().then(async (maps) => {
+    (async () => {
+      const maps = await loadMaps();
+      if (!live || !host.current) return;
+      if (!maps?.importLibrary) return setFailed(true);
+
+      // Under `loading=async` the libraries have to be imported before their
+      // constructors are used — `new maps.Map()` off the global renders blank.
+      const [{ Map }, { AdvancedMarkerElement }] = await Promise.all([
+        maps.importLibrary("maps"),
+        maps.importLibrary("marker"),
+      ]);
       if (!live || !host.current) return;
 
-      const { AdvancedMarkerElement } = await maps.importLibrary("marker");
-
-      map.current ??= new maps.Map(host.current, {
+      map.current ??= new Map(host.current, {
         mapId: MAP_ID,
         center: origin ?? { lat: 37.3352, lng: -121.8911 },
         zoom: 12,
@@ -141,12 +144,29 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
       places.forEach((p) => bounds.extend({ lat: p.lat, lng: p.lng }));
       if (origin) bounds.extend(origin);
       if (places.length) map.current.fitBounds(bounds, 56);
+    })().catch((error) => {
+      // The paper map is a fine fallback, but a silent one hides real bugs.
+      console.warn("[map] falling back to the drawn map:", error);
+      if (live) setFailed(true);
     });
 
     return () => {
       live = false;
     };
   }, [places, selectedId, origin, variant, onSelect]);
+
+  // Google unreachable: fall back to the paper map rather than a blank panel.
+  if (failed) {
+    return (
+      <PaperMap
+        places={places}
+        selectedId={selectedId}
+        onSelect={onSelect}
+        origin={origin}
+        variant={variant}
+      />
+    );
+  }
 
   return <div className="mapgl" ref={host} />;
 }

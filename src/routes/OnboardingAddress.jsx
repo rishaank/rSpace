@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { hasMapsKey, resolveSuggestion, suggestAddresses } from "../lib/google";
 import { NEIGHBORHOODS } from "../lib/seed";
-import { AppBar, Device, Field } from "../components/ui";
+import { Alarm, AppBar, Device, Field } from "../components/ui";
 
 // Without a Maps key the same field matches against the seeded neighborhoods,
 // so the flow still completes.
@@ -27,24 +27,42 @@ export default function OnboardingAddress() {
   const [suggestions, setSuggestions] = useState([]);
   const [chosen, setChosen] = useState(null);
 
+  const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState(false);
+
   useEffect(() => {
     if (!hasMapsKey) return setSuggestions(localSuggestions(query));
 
-    const timer = setTimeout(() => {
-      suggestAddresses(query).then(setSuggestions);
+    const timer = setTimeout(async () => {
+      const found = await suggestAddresses(query);
+      // Google unreachable or the query matched nothing — the seeded
+      // neighborhoods still get the profiler finished.
+      setSuggestions(found.length ? found : localSuggestions(query));
     }, 220);
+
     return () => clearTimeout(timer);
   }, [query]);
 
   async function confirm() {
     if (!chosen) return;
+    setBusy(true);
+    setFailed(false);
 
     // The full address is used once, to place the origin, then discarded.
     const point = chosen.point
       ? { lat: chosen.point.lat, lng: chosen.point.lng, location: `${chosen.main}, San José` }
-      : await resolveSuggestion(chosen.id);
+      : await resolveSuggestion(chosen);
 
-    await saveProfile({ location: point.location, lat: point.lat, lng: point.lng });
+    if (!point) {
+      setBusy(false);
+      return setFailed(true);
+    }
+
+    await saveProfile({
+      location: point.location ?? `${chosen.main}, San José`,
+      lat: point.lat,
+      lng: point.lng,
+    });
     navigate("/onboarding/interests");
   }
 
@@ -93,15 +111,22 @@ export default function OnboardingAddress() {
         )}
 
         <div className="pad" style={{ paddingTop: 22 }}>
-          <div className="notice">
-            We keep only the neighborhood on your profile. The full address is used once, to measure
-            distances, and then discarded.
-          </div>
+          {failed ? (
+            <Alarm title="Couldn't place that address">
+              We reached Google but couldn&rsquo;t pin that result. Pick another suggestion, or go
+              back and choose a neighborhood.
+            </Alarm>
+          ) : (
+            <div className="notice">
+              We keep only the neighborhood on your profile. The full address is used once, to
+              measure distances, and then discarded.
+            </div>
+          )}
         </div>
 
         <div className="foot pad" style={{ padding: "16px 24px 34px" }}>
-          <button type="button" className="btn" disabled={!chosen} onClick={confirm}>
-            Confirm address
+          <button type="button" className="btn" disabled={!chosen || busy} onClick={confirm}>
+            {busy ? "Locating…" : "Confirm address"}
           </button>
         </div>
       </div>

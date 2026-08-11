@@ -65,7 +65,12 @@ export function AppProvider({ children }) {
     setFavorites([]);
   }
 
-  const origin = profile?.lat != null ? { lat: profile.lat, lng: profile.lng } : null;
+  // Stable identity: the map effect keys off this, and a fresh object every
+  // render would tear the map down and rebuild it on every state change.
+  const origin = useMemo(
+    () => (profile?.lat != null ? { lat: profile.lat, lng: profile.lng } : null),
+    [profile?.lat, profile?.lng]
+  );
 
   // Closed listings stay reachable by link but never rank.
   const places = useMemo(() => allPlaces.filter((p) => !p.closed), [allPlaces]);
