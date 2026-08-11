@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { hasMapsKey, loadMaps } from "../lib/google";
+import { hasMapsKey, loadMaps, mapsAuthFailure } from "../lib/google";
 
 // Advanced markers require a real Map ID from Google Cloud. Google's sample
 // "DEMO_MAP_ID" initialises a container that never paints, so without a real
@@ -149,11 +149,20 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
       if (origin) bounds.extend(origin);
       if (places.length) map.current.fitBounds(bounds, 56);
 
-      // Belt and braces: if nothing has painted by now the map is wedged
-      // (a rejected Map ID does this quietly), so show the drawn one.
+      // Google can initialise the container and then replace it with its own
+      // "Something went wrong" panel, which paints no tiles. Either way, show
+      // the drawn map — but say why, so the cause is not invisible.
       setTimeout(() => {
-        if (live && !host.current?.querySelector("canvas, img")) setFailed(true);
-      }, 4000);
+        if (!live) return;
+        const painted = host.current?.querySelector("canvas, img");
+        if (painted) return;
+        console.error(
+          "[rSpace] The Google map loaded but never painted, so the drawn map is " +
+            "being shown instead. " +
+            (mapsAuthFailure() ?? "No auth failure was reported — check the console for a Google ...MapError.")
+        );
+        setFailed(true);
+      }, 6000);
     })().catch((error) => {
       // The paper map is a fine fallback, but a silent one hides real bugs.
       console.warn("[map] falling back to the drawn map:", error);

@@ -12,6 +12,12 @@ export const hasMapsKey = Boolean(key);
 const LOAD_TIMEOUT_MS = 10000;
 
 let loader = null;
+let authFailure = null;
+
+/** Google calls this global on a key, referrer, or billing problem. */
+export function mapsAuthFailure() {
+  return authFailure;
+}
 
 /** Resolves the maps namespace, or null if it can't be loaded. */
 export function loadMaps() {
@@ -31,6 +37,13 @@ export function loadMaps() {
     }
 
     window[done] = () => finish(window.google?.maps ?? null);
+
+    // Google reports key / referrer / billing problems only through this
+    // global and a console line — there is no promise to catch.
+    window.gm_authFailure = () => {
+      authFailure = "Google rejected the API key for Maps JavaScript. Check the browser console for the exact ...MapError (usually RefererNotAllowedMapError or BillingNotEnabledMapError).";
+      console.error("[rSpace] " + authFailure);
+    };
 
     const script = document.createElement("script");
     script.src =
