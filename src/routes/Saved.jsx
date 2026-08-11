@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { formatMiles } from "../lib/scoring";
-import { Device, TabBar } from "../components/ui";
+import { Device, SaveButton, TabBar } from "../components/ui";
 
 // 14 · /saved — Favorites   ·   24 · /saved — Nothing saved yet
 export default function Saved() {
@@ -15,7 +15,7 @@ export default function Saved() {
           Saved places
         </div>
         {saved.length > 0 && (
-          <div className="meta" style={{ display: "block", paddingTop: 4, letterSpacing: ".14em", color: "var(--label)" }}>
+          <div className="meta" style={{ display: "block", paddingTop: 4, color: "var(--label)" }}>
             {saved.length} saved · sorted by score
           </div>
         )}
@@ -35,15 +35,12 @@ export default function Saved() {
                       {place.price_level === 0 ? "free" : "paid"}
                     </div>
                   </Link>
-                  <button
-                    type="button"
-                    className="heart"
-                    style={{ background: "none", border: 0, cursor: "pointer" }}
-                    aria-label={`Remove ${place.name} from saved`}
+                  <SaveButton
+                    saved
+                    bare
                     onClick={() => toggleFavorite(place.id)}
-                  >
-                    ♥
-                  </button>
+                    label={`Remove ${place.name} from saved`}
+                  />
                 </div>
               ))}
             </div>

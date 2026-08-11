@@ -34,7 +34,7 @@ export default function Profile() {
               <div style={{ fontWeight: 500, fontSize: 31, lineHeight: 1.1, letterSpacing: "-.02em", color: "var(--paper)" }}>
                 {profile.name}
               </div>
-              <div className="meta" style={{ letterSpacing: ".14em", color: "var(--sage)", display: "block", paddingTop: 6 }}>
+              <div className="meta" style={{ color: "var(--sage)", display: "block", paddingTop: 6 }}>
                 {profile.age} · {profile.location}
               </div>
             </div>

@@ -44,13 +44,14 @@ export default function Adopt() {
                 {a.name}
               </div>
               <div
-                className="eyebrow"
                 style={{
-                  fontSize: 11,
-                  letterSpacing: ".12em",
+                  fontFamily: "var(--sans)",
+                  fontWeight: 600,
+                  fontSize: 13,
                   color: "var(--paper)",
                   background: "var(--moss)",
-                  padding: "3px 8px",
+                  padding: "3px 9px",
+                  flex: "none",
                 }}
               >
                 {a.category}
@@ -80,10 +81,9 @@ export function AdoptTabs() {
     textAlign: "center",
     fontFamily: "var(--sans)",
     fontWeight: isActive ? 700 : 600,
-    fontSize: 11.5,
-    letterSpacing: ".14em",
-    textTransform: "uppercase",
-    color: isActive ? "var(--ink)" : "var(--text-5)",
+    fontSize: 14,
+    letterSpacing: ".01em",
+    color: isActive ? "var(--ink)" : "var(--label)",
     borderBottom: isActive ? "2px solid var(--pine)" : "none",
     textDecoration: "none",
   });

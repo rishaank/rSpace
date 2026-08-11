@@ -1,4 +1,4 @@
-# Third Space
+# rSpace
 
 A guide to the public places in San José worth spending time in — parks, courts,
 libraries, community centers — scored against what each person actually cares
@@ -6,7 +6,7 @@ about. Built for the Janyaa Social Innovation Challenge 2026.
 
 **Live: [rspace-rishaank.vercel.app](https://rspace-rishaank.vercel.app)**
 
-Implemented one-to-one from `Third Space — App Screens.dc.html`: all 26 screens
+Implemented one-to-one from `Third Space - App Screens.dc.html`: all 26 screens
 across six flows, mobile web at 390 × 844.
 
 ## Running it

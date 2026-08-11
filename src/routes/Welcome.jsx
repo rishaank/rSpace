@@ -1,6 +1,6 @@
 import { Link, Navigate } from "react-router-dom";
 import { useApp } from "../lib/store";
-import { Device } from "../components/ui";
+import { Device, Mark, Wordmark } from "../components/ui";
 
 // 01 · / — Welcome
 export default function Welcome() {
@@ -12,16 +12,32 @@ export default function Welcome() {
     <Device tone="pine">
       <div className="scroll" style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ padding: "44px 30px 0" }}>
-          <div className="eyebrow" style={{ color: "var(--sage)", letterSpacing: ".24em" }}>
+          {/* The one tracked label the design keeps, over the pine ground. */}
+          <div
+            style={{
+              fontFamily: "var(--sans)",
+              fontWeight: 700,
+              fontSize: 11.5,
+              letterSpacing: ".24em",
+              textTransform: "uppercase",
+              color: "var(--sage)",
+            }}
+          >
             San José · Bay Area
           </div>
           <h1
             className="display lg"
-            style={{ color: "var(--paper)", paddingTop: 18, margin: 0 }}
+            style={{
+              color: "var(--paper)",
+              paddingTop: 18,
+              margin: 0,
+              display: "flex",
+              alignItems: "center",
+              gap: 14,
+            }}
           >
-            Third
-            <br />
-            Space
+            <Mark size={46} ink="var(--paper)" letter="var(--pine)" />
+            <Wordmark size={54} light />
           </h1>
           <div style={{ width: 72, height: 2, background: "var(--sage)", margin: "26px 0" }} />
           <p style={{ fontSize: 21, lineHeight: 1.45, color: "#dfe6d3", margin: 0 }}>

@@ -1,5 +1,105 @@
 import { NavLink, useNavigate } from "react-router-dom";
 
+/* ── Icons ────────────────────────────────────────────────────────
+   One stroked 24×24 set, from the design. `filled` applies to the
+   heart only, which doubles as the saved state.                     */
+
+const PATHS = {
+  heart: <path d="M12 20.2C12 20.2 3.6 14.9 3.6 9.4A4.6 4.6 0 0 1 12 6.7a4.6 4.6 0 0 1 8.4 2.7c0 5.5-8.4 10.8-8.4 10.8z" />,
+  map: (
+    <>
+      <path d="M9 3 3 5.5v15L9 18l6 3 6-2.5v-15L15 6 9 3z" />
+      <path d="M9 3v15M15 6v15" />
+    </>
+  ),
+  sapling: (
+    <>
+      <path d="M12 21v-7.4" />
+      <path d="M12 13.6C12 9.8 9.3 7.8 5 7.8c0 3.9 2.8 5.8 7 5.8z" />
+      <path d="M12 13.6c0-3.4 2.4-5.3 6.4-5.3 0 3.5-2.4 5.3-6.4 5.3z" />
+    </>
+  ),
+  person: (
+    <>
+      <circle cx="12" cy="8.2" r="3.4" />
+      <path d="M4.8 20.4c1.2-4 4-6.1 7.2-6.1s6 2.1 7.2 6.1" />
+    </>
+  ),
+  filters: <path d="M3 6h18M7 12h10M10 18h4" />,
+};
+
+export function Icon({ name, size = 21, filled = false, ...rest }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill={filled ? "currentColor" : "none"}
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...rest}
+    >
+      {PATHS[name]}
+    </svg>
+  );
+}
+
+/* The mark: a pin that is also a lowercase r. Below 32px the r is
+   dropped and the pin runs solid, per the brand notes. */
+export function Mark({ size = 24, ink = "var(--pine)", letter = "var(--paper)" }) {
+  const height = Math.round((size * 72) / 64);
+  return (
+    <svg width={size} height={height} viewBox="0 0 64 72" fill="none" aria-hidden="true" style={{ flex: "none" }}>
+      <path
+        d="M6 2h52a4 4 0 0 1 4 4v44a4 4 0 0 1-4 4H40l-8 14-8-14H6a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4z"
+        fill={ink}
+      />
+      {size >= 32 && (
+        <text
+          x="32"
+          y="43"
+          textAnchor="middle"
+          fontFamily="Newsreader,serif"
+          fontWeight="500"
+          fontSize="42"
+          fill={letter}
+        >
+          r
+        </text>
+      )}
+    </svg>
+  );
+}
+
+export function Wordmark({ size = 56, light = false }) {
+  return (
+    <span className={`wordmark${light ? " light" : ""}`} style={{ fontSize: size }}>
+      <span className="r">r</span>Space
+    </span>
+  );
+}
+
+/* The heart is the save control everywhere it appears. */
+export function SaveButton({ saved, onClick, size = 54, bare = false, label }) {
+  return (
+    <button
+      type="button"
+      className={`savebtn${bare ? " bare" : ""}`}
+      aria-pressed={saved}
+      aria-label={label ?? (saved ? "Remove from saved" : "Save this place")}
+      onClick={onClick}
+      style={bare ? undefined : { width: size, height: size }}
+    >
+      <Icon name="heart" size={bare ? 19 : 21} filled={saved} />
+    </button>
+  );
+}
+
+
 /* The 390 × 844 frame. On a real phone it's just the viewport; the status
    bar only appears in the desktop preview frame, never on device. */
 export function Device({ tone = "paper", children }) {
@@ -131,20 +231,21 @@ export function Alarm({ title, children }) {
 }
 
 export function TabBar() {
+  const tabs = [
+    ["/map", "Map", "map"],
+    ["/saved", "Saved", "heart"],
+    ["/adopt", "Adopt", "sapling"],
+    ["/profile", "Profile", "person"],
+  ];
+
   return (
     <nav className="tabbar">
-      <NavLink to="/map" className={({ isActive }) => (isActive ? "active" : "")}>
-        Map
-      </NavLink>
-      <NavLink to="/saved" className={({ isActive }) => (isActive ? "active" : "")}>
-        Saved
-      </NavLink>
-      <NavLink to="/adopt" className={({ isActive }) => (isActive ? "active" : "")}>
-        Adopt
-      </NavLink>
-      <NavLink to="/profile" className={({ isActive }) => (isActive ? "active" : "")}>
-        Profile
-      </NavLink>
+      {tabs.map(([to, label, icon]) => (
+        <NavLink key={to} to={to} className={({ isActive }) => (isActive ? "active" : "")}>
+          <Icon name={icon} />
+          {label}
+        </NavLink>
+      ))}
     </nav>
   );
 }

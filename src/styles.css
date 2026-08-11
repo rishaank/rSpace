@@ -1,5 +1,6 @@
-/* Third Space — design tokens and primitives.
-   Style E on green. Rules, not cards: no radii, no shadows inside the app. */
+/* rSpace — design tokens and primitives.
+   Fieldnote system on green. Rules, not cards: no radii, no shadows inside
+   the app. Labels are sentence-case Newsreader; only buttons run uppercase. */
 
 :root {
   --paper: #f5f2e8;
@@ -23,7 +24,7 @@
   --text-3: #4a564d;
   --text-4: #6b756a;
   --text-5: #7f8878;
-  --label: #5f6b57;
+  --label: #5a6459;
   --ghost: #9aa295;
 
   --serif: "Newsreader", Georgia, serif;
@@ -157,13 +158,23 @@ a {
 /* ── Type ─────────────────────────────────────────────────────── */
 
 .eyebrow {
+  font-family: var(--serif);
+  font-size: 15.5px;
+  color: var(--label);
+  margin: 0;
+}
+
+/* Colour carries meaning, so the accent eyebrows keep the tracked caps;
+   only the grey structural labels became sentence case. */
+.eyebrow.pine,
+.eyebrow.moss,
+.eyebrow.clay,
+.eyebrow.sage {
   font-family: var(--sans);
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--label);
-  margin: 0;
 }
 
 .eyebrow.pine {
@@ -227,12 +238,9 @@ a {
 }
 
 .meta {
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-4);
+  font-family: var(--serif);
+  font-size: 15.5px;
+  color: var(--label);
 }
 
 .score {
@@ -301,11 +309,10 @@ a {
 }
 
 .appbar h1 {
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 11.5px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.01em;
   color: var(--ink);
   margin: 0;
 }
@@ -313,10 +320,9 @@ a {
 .appbar .trail {
   margin-left: auto;
   font-family: var(--sans);
-  font-weight: 600;
-  font-size: 11.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14.5px;
+  letter-spacing: 0.01em;
   color: var(--pine);
 }
 
@@ -451,11 +457,8 @@ a {
 }
 
 .field > label {
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-size: 15.5px;
   color: var(--label);
 }
 
@@ -524,10 +527,9 @@ a {
   background: none;
   border: 0;
   font-family: var(--sans);
-  font-weight: 600;
-  font-size: 11.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.01em;
   color: var(--moss);
   cursor: pointer;
   padding: 0 2px 9px;
@@ -560,12 +562,12 @@ a {
 
 .chip {
   padding: 8px 14px;
-  border: 1px solid var(--edge);
+  border: 1px solid #c9c9b2;
   border-radius: 0;
   background: none;
   color: #3f4a41;
   font-family: var(--serif);
-  font-size: 17px;
+  font-size: 16.5px;
   line-height: 1.2;
   cursor: pointer;
 }
@@ -585,11 +587,7 @@ a {
 
 .chip.sm {
   padding: 6px 12px;
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 15.5px;
 }
 
 .chip.on-dark {
@@ -770,6 +768,10 @@ a {
   gap: 4px;
 }
 
+.alarm .eyebrow {
+  letter-spacing: 0.16em;
+}
+
 .alarm p {
   margin: 0;
   font-family: var(--serif);
@@ -781,17 +783,24 @@ a {
 /* ── List rows ────────────────────────────────────────────────── */
 
 .section-head {
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-size: 15.5px;
   color: var(--label);
   border-bottom: 1px solid var(--ink);
   padding-bottom: 6px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+}
+
+.section-head.strong {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom-width: 2px;
 }
 
 .rowlink {
@@ -867,28 +876,83 @@ a {
   display: flex;
   border-top: 1px solid var(--edge);
   background: var(--paper);
-  padding-bottom: max(24px, env(safe-area-inset-bottom));
+  /* Safari already reserves the home-indicator strip; only pad for it. */
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .tabbar a {
   flex: 1;
-  padding: 12px 0;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 9px 0 7px;
   font-family: var(--sans);
   font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-5);
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  color: var(--label);
   text-decoration: none;
-  border-top: 2px solid transparent;
-  margin-top: -1px;
+}
+
+.tabbar a svg {
+  stroke: #6f7a6b;
 }
 
 .tabbar a.active {
   font-weight: 700;
   color: var(--pine);
-  border-top-color: var(--pine);
+  background: var(--pale);
+  box-shadow: inset 0 2px 0 var(--pine);
+}
+
+.tabbar a.active svg {
+  stroke: var(--pine);
+}
+
+/* ── Brand ────────────────────────────────────────────────────── */
+
+.wordmark {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.wordmark .r {
+  color: var(--moss);
+}
+
+.on-pine .wordmark .r,
+.wordmark.light .r {
+  color: var(--sage);
+}
+
+/* ── Save control ─────────────────────────────────────────────── */
+
+.savebtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  border: 1px solid var(--ink);
+  background: none;
+  cursor: pointer;
+  color: var(--pine);
+}
+
+.savebtn svg {
+  stroke: var(--pine);
+  fill: none;
+}
+
+.savebtn[aria-pressed="true"] svg {
+  fill: var(--pine);
+}
+
+.savebtn.bare {
+  border: 0;
+  padding: 0;
 }
 
 /* ── Map ──────────────────────────────────────────────────────── */

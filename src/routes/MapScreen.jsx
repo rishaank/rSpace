@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { CATEGORIES } from "../lib/seed";
 import { formatMiles } from "../lib/scoring";
-import { Chip, Device, Slider, TabBar, Toggle } from "../components/ui";
+import { Chip, Device, Icon, SaveButton, Slider, TabBar, Toggle } from "../components/ui";
 import MapCanvas from "../components/MapCanvas";
 
 const COSTS = [
@@ -155,12 +155,15 @@ export default function MapScreen() {
                 fontFamily: "var(--sans)",
                 fontStyle: "normal",
                 fontWeight: 700,
-                fontSize: 12,
-                letterSpacing: ".14em",
-                textTransform: "uppercase",
+                fontSize: 14,
+                letterSpacing: ".01em",
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
               }}
               onClick={() => setSheet(true)}
             >
+              <Icon name="filters" size={17} />
               Filters
             </button>
           </div>
@@ -230,12 +233,7 @@ export default function MapScreen() {
               <div className="score" style={{ fontSize: 38, lineHeight: 0.9 }}>
                 {selected.total}
               </div>
-              <div
-                className="eyebrow"
-                style={{ fontSize: 9.5, letterSpacing: ".16em", color: "var(--text-5)" }}
-              >
-                score
-              </div>
+              <div className="eyebrow">score</div>
             </div>
           </div>
 
@@ -252,14 +250,11 @@ export default function MapScreen() {
             <Link to={`/place/${selected.id}`} className="btn sm">
               Read more
             </Link>
-            <button
-              type="button"
-              className="btn sm ghost icon"
-              aria-label={favorites.includes(selected.id) ? "Remove from saved" : "Save this place"}
+            <SaveButton
+              saved={favorites.includes(selected.id)}
               onClick={() => toggleFavorite(selected.id)}
-            >
-              {favorites.includes(selected.id) ? "♥" : "♡"}
-            </button>
+              size={50}
+            />
           </div>
 
           <TabBar />
@@ -296,10 +291,9 @@ function FilterTab({ on, children, ...rest }) {
         cursor: "pointer",
         fontFamily: "var(--sans)",
         fontWeight: on ? 700 : 600,
-        fontSize: 12,
-        letterSpacing: ".14em",
-        textTransform: "uppercase",
-        color: on ? "var(--ink)" : "var(--text-5)",
+        fontSize: 14,
+        letterSpacing: ".01em",
+        color: on ? "var(--ink)" : "var(--label)",
         borderBottom: on ? "2px solid var(--pine)" : "2px solid transparent",
       }}
     >
@@ -347,10 +341,9 @@ function FilterSheet({ filters, setFilters, interests, count, onDone }) {
           style={{
             fontFamily: "var(--sans)",
             fontStyle: "normal",
-            fontWeight: 600,
-            fontSize: 11.5,
-            letterSpacing: ".14em",
-            textTransform: "uppercase",
+            fontWeight: 700,
+            fontSize: 14,
+            letterSpacing: ".01em",
           }}
           onClick={() => setFilters(DEFAULT_FILTERS)}
         >

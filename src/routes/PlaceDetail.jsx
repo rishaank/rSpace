@@ -3,7 +3,7 @@ import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { hasMapsKey, placeDetails, transitMinutes } from "../lib/google";
 import { FACTORS, formatMiles, scorePlace } from "../lib/scoring";
-import { Alarm, AppBar, Device, Meter } from "../components/ui";
+import { Alarm, AppBar, Device, Meter, SaveButton } from "../components/ui";
 
 // 13 · /place/:id — Detail  ·  25 · Google data unavailable  ·  26 · Closed
 export default function PlaceDetail() {
@@ -64,15 +64,9 @@ export default function PlaceDetail() {
         >
           ‹
         </button>
-        <button
-          type="button"
-          className="btn ghost"
-          style={{ position: "absolute", top: 20, right: 20, width: 36, height: 36, background: "var(--paper)", fontSize: 17, color: "var(--pine)" }}
-          onClick={() => toggleFavorite(place.id)}
-          aria-label={saved ? "Remove from saved" : "Save this place"}
-        >
-          {saved ? "♥" : "♡"}
-        </button>
+        <div style={{ position: "absolute", top: 20, right: 20, background: "var(--paper)" }}>
+          <SaveButton saved={saved} onClick={() => toggleFavorite(place.id)} size={36} />
+        </div>
         <div className="meta" style={{ background: "var(--paper)", padding: "4px 9px", color: "var(--text-3)" }}>
           Photo — Google Places
         </div>
@@ -101,7 +95,7 @@ export default function PlaceDetail() {
         </div>
 
         <div className="pad" style={{ paddingTop: 18 }}>
-          <div className="section-head" style={{ borderBottomWidth: 2, color: "var(--ink)" }}>
+          <div className="section-head strong">
             <span>Score, by factor</span>
             <span
               className="score"
@@ -136,7 +130,7 @@ export default function PlaceDetail() {
           <p className="prose" style={{ fontSize: 17.5, color: "var(--text-2)" }}>
             &ldquo;{merged.quote}&rdquo;
           </p>
-          <div className="meta" style={{ letterSpacing: ".1em", color: "var(--text-5)" }}>
+          <div className="meta" style={{ color: "var(--text-5)" }}>
             Google review · {merged.rating} avg of {merged.reviews} · {formatMiles(miles)} away
           </div>
         </div>
@@ -160,14 +154,7 @@ export default function PlaceDetail() {
         >
           {stale ? "Try again" : "Get directions"}
         </a>
-        <button
-          type="button"
-          className="btn sm ghost icon"
-          onClick={() => toggleFavorite(place.id)}
-          aria-label={saved ? "Remove from saved" : "Save this place"}
-        >
-          {saved ? "♥" : "♡"}
-        </button>
+        <SaveButton saved={saved} onClick={() => toggleFavorite(place.id)} size={50} />
       </div>
     </Device>
   );

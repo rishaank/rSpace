@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { listApplicants } from "../lib/data";
-import { AppBar, Device } from "../components/ui";
+import { AppBar, Device, SaveButton } from "../components/ui";
 
 // 19 · /adopt/:id — Applicant detail
 export default function AdoptDetail() {
@@ -62,7 +62,7 @@ export default function AdoptDetail() {
 
         <div className="pad" style={{ paddingTop: 18 }}>
           <div className="notice" style={{ fontSize: 16 }}>
-            Contact goes straight to the group. Third Space doesn&rsquo;t collect or hold funds.
+            Contact goes straight to the group. rSpace doesn&rsquo;t collect or hold funds.
           </div>
         </div>
 
@@ -70,9 +70,7 @@ export default function AdoptDetail() {
           <a className="btn sm" href={`mailto:${a.contact}`} style={{ letterSpacing: ".14em" }}>
             Contact the group
           </a>
-          <button type="button" className="btn sm ghost icon" aria-label="Follow this application">
-            ♡
-          </button>
+          <SaveButton saved={false} onClick={() => {}} size={50} label="Follow this application" />
         </div>
       </div>
     </Device>
@@ -89,7 +87,10 @@ function Stat({ label, value, dark }) {
         background: dark ? "var(--pine)" : "none",
       }}
     >
-      <div className="eyebrow" style={{ fontSize: 10.5, letterSpacing: ".16em", color: dark ? "var(--sage)" : "var(--label)" }}>
+      <div
+        className={dark ? "eyebrow sage" : "eyebrow"}
+        style={dark ? { fontSize: 10.5, letterSpacing: ".16em" } : undefined}
+      >
         {label}
       </div>
       <div
