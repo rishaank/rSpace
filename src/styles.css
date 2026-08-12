@@ -1184,29 +1184,6 @@ a {
   border-color: #c8c4b0;
 }
 
-/* Sits under the map header, clear of the bottom sheet at any height. */
-.recenter {
-  position: absolute;
-  top: 96px;
-  right: 16px;
-  z-index: 3;
-  padding: 8px 12px;
-  border: 1px solid var(--ink);
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.recenter:active {
-  background: var(--pine);
-  color: var(--paper);
-}
-
 .youarehere {
   position: absolute;
   transform: translate(-50%, -50%);

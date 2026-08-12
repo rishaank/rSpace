@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { hasMapsKey, loadMaps, mapsAuthFailure } from "../lib/google";
 
 // Advanced markers require a real Map ID from Google Cloud. Google's sample
@@ -32,6 +32,14 @@ function pinClass(place, variant, selectedId) {
     .join(" ");
 }
 
+// Marker content is a plain DOM node, so its look is written rather than
+// rendered. Creation and selection both go through here — a marker that is
+// built after the labelling effect has run would otherwise stay blank.
+function paintPin(el, place, variant, selectedId) {
+  el.className = pinClass(place, variant, selectedId);
+  el.textContent = String(variant === "need" ? place.need : place.total);
+}
+
 /**
  * Renders the Google map when a key is configured, and the paper map from the
  * design otherwise. Pins carry the score; the selected one is filled.
@@ -39,15 +47,6 @@ function pinClass(place, variant, selectedId) {
 export default function MapCanvas(props) {
   if (hasMapsKey && hasMapId && !props.loading) return <LiveMap {...props} />;
   return <PaperMap {...props} />;
-}
-
-/** Refits the view around every pin. Only shown once the view has drifted. */
-function Recenter({ onClick }) {
-  return (
-    <button type="button" className="recenter" onClick={onClick}>
-      Show all places
-    </button>
-  );
 }
 
 /** The design's drawn map — also the fallback whenever Google is unavailable. */
@@ -63,8 +62,6 @@ function PaperMap({
   const points = places.length ? places : [{ lat: 37.3352, lng: -121.8911 }];
   const bounds = boundsOf(origin ? [...points, origin] : points);
 
-  // The drawn map projects every pin into the frame on every render, so it is
-  // always showing all of them and never needs a recenter control.
   return (
     <div className={`map${loading ? " loading" : ""}`} aria-hidden={loading}>
       <div className="water" />
@@ -111,7 +108,6 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
   const map = useRef(null);
   const markers = useRef(new Map());
   const [failed, setFailed] = useState(false);
-  const [adrift, setAdrift] = useState(false);
   // The map is built asynchronously, so the effects that hang things off it
   // need a signal to run again once it exists.
   const [ready, setReady] = useState(false);
@@ -123,16 +119,6 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
     .map((p) => p.id)
     .sort()
     .join(",");
-
-  const fit = useCallback(() => {
-    const google = window.google?.maps;
-    if (!map.current || !google || !places.length) return;
-    const bounds = new google.LatLngBounds();
-    places.forEach((p) => bounds.extend({ lat: p.lat, lng: p.lng }));
-    if (origin) bounds.extend(origin);
-    map.current.fitBounds(bounds, 56);
-    setAdrift(false);
-  }, [places, origin]);
 
   // Build the map once. Tearing it down and rebuilding it on every state
   // change was what made panning feel like it snapped back.
@@ -220,6 +206,7 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
           el.style.position = "static";
           el.style.transform = "none";
           el.addEventListener("click", () => onSelect(place.id));
+          paintPin(el, place, variant, selectedId);
 
           markers.current.set(
             place.id,
@@ -235,7 +222,13 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
         }
       }
 
-      fit();
+      // Refit only when the set of pins changed, which is what this effect
+      // keys off. Refitting on every render snapped the view back mid-pan.
+      if (!places.length) return;
+      const bounds = new google.LatLngBounds();
+      places.forEach((p) => bounds.extend({ lat: p.lat, lng: p.lng }));
+      if (origin) bounds.extend(origin);
+      map.current.fitBounds(bounds, 56);
     })().catch(() => {});
 
     return () => {
@@ -249,23 +242,9 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
   useEffect(() => {
     places.forEach((place) => {
       const el = markers.current.get(place.id)?.content;
-      if (!el) return;
-      el.className = pinClass(place, variant, selectedId);
-      el.textContent = String(variant === "need" ? place.need : place.total);
+      if (el) paintPin(el, place, variant, selectedId);
     });
   }, [places, selectedId, variant]);
-
-  // Offer the recenter control only once panning or zooming has actually put
-  // a pin out of view — a button that is always there is just clutter.
-  useEffect(() => {
-    if (!map.current || !places.length) return;
-    const listener = map.current.addListener("idle", () => {
-      const view = map.current.getBounds();
-      if (!view) return;
-      setAdrift(places.some((p) => !view.contains({ lat: p.lat, lng: p.lng })));
-    });
-    return () => listener.remove();
-  }, [places, ready]);
 
   // Google unreachable: fall back to the paper map rather than a blank panel.
   if (failed) {
@@ -280,10 +259,5 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
     );
   }
 
-  return (
-    <>
-      <div className="mapgl" ref={host} />
-      {adrift && <Recenter onClick={fit} />}
-    </>
-  );
+  return <div className="mapgl" ref={host} />;
 }
