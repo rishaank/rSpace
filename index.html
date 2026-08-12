@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f5f2e8" />
+    <!-- One mark everywhere: all of these are the <Mark> from
+         src/components/ui.jsx. iOS Safari does not render an SVG
+         apple-touch-icon, so that one is a PNG rasterised from the same file.
+         Regenerate with scripts/icons.sh after editing favicon.svg. -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <meta
       name="description"
       content="rSpace — a guide to the public places near you worth spending time in."
@@ -19,7 +24,66 @@
     <title>rSpace — San José</title>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Shown until React mounts and swaps in the real skeleton. Inline,
+         because a stylesheet is one more round trip and this exists to cover
+         exactly that gap. Square corners and paper ground, so it is the same
+         surface the app paints. -->
+    <style>
+      #boot {
+        position: fixed;
+        inset: 0;
+        background: #f5f2e8;
+        display: flex;
+        flex-direction: column;
+      }
+      #boot .bar {
+        height: 3px;
+        background: #ece8da;
+        overflow: hidden;
+      }
+      #boot .bar i {
+        display: block;
+        height: 100%;
+        width: 38%;
+        background: #1f4436;
+        animation: boot 1.15s ease-in-out infinite;
+      }
+      #boot .head {
+        margin: 8px 24px 10px;
+        height: 22px;
+        width: 45%;
+        background: #ece8da;
+        border-bottom: 0;
+      }
+      #boot .rule {
+        border-bottom: 2px solid #17211b;
+      }
+      #boot .fill {
+        flex: 1;
+        background: #ece8da;
+      }
+      @keyframes boot {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(365%);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #boot .bar i {
+          width: 100%;
+          animation: none;
+        }
+      }
+    </style>
+    <div id="root">
+      <div id="boot" role="status" aria-label="Loading rSpace">
+        <div class="rule"><div class="head"></div></div>
+        <div class="bar"><i></i></div>
+        <div class="fill"></div>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

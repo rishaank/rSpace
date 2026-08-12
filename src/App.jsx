@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useApp } from "./lib/store";
-import { Device } from "./components/ui";
+import { Loading } from "./components/ui";
 
 import Welcome from "./routes/Welcome";
 import Signup from "./routes/Signup";
@@ -17,7 +17,6 @@ import Saved from "./routes/Saved";
 import Profile from "./routes/Profile";
 import ProfileEdit from "./routes/ProfileEdit";
 import ProfileWeights from "./routes/ProfileWeights";
-import Adopt from "./routes/Adopt";
 import AdoptDetail from "./routes/AdoptDetail";
 import AdoptMap from "./routes/AdoptMap";
 
@@ -39,7 +38,9 @@ function RequireProfile({ children }) {
 export default function App() {
   const { ready } = useApp();
 
-  if (!ready) return <Device />;
+  // The store is restoring the session, profile, weights, favorites, and the
+  // catalogue. This used to be a blank frame.
+  if (!ready) return <Loading />;
 
   return (
     <Routes>
@@ -103,8 +104,7 @@ export default function App() {
         ["/profile", <Profile />],
         ["/profile/edit", <ProfileEdit />],
         ["/profile/weights", <ProfileWeights />],
-        ["/adopt", <Adopt />],
-        ["/adopt/map", <AdoptMap />],
+        ["/adopt", <AdoptMap />],
         ["/adopt/:id", <AdoptDetail />],
       ].map(([path, element]) => (
         <Route

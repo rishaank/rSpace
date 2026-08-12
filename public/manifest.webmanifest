@@ -1,0 +1,15 @@
+{
+  "name": "rSpace",
+  "short_name": "rSpace",
+  "description": "A guide to the public places near you worth spending time in, scored against priorities you set yourself.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f2e8",
+  "theme_color": "#f5f2e8",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

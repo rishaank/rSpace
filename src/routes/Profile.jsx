@@ -73,7 +73,7 @@ export default function Profile() {
         </div>
 
         <div className="pad" style={{ paddingTop: 20 }}>
-          <div className="section-head">Where you keep going</div>
+          <div className="section-head">Saved places</div>
           {regulars.length ? (
             regulars.map((place) => (
               <Link key={place.id} to={`/place/${place.id}`} className="rowlink" style={{ fontSize: 18 }}>

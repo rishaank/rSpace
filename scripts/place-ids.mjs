@@ -1,5 +1,5 @@
-// Resolves a real Google place ID for every seeded row and prints them as a
-// patch you can paste into src/lib/seed.js.
+// Resolves a real Google place ID for every catalogue row that lacks one and
+// writes them back into src/lib/catalogue.json.
 //
 // Text Search asking for `places.id` only is the "Text Search Essentials
 // (IDs Only)" SKU, which Google charges nothing for and does not cap — so
@@ -7,11 +7,12 @@
 // id this produces, which turns a search into a lookup.
 //
 //   VITE_GOOGLE_MAPS_API_KEY=… node scripts/place-ids.mjs
+//   VITE_GOOGLE_MAPS_API_KEY=… node scripts/place-ids.mjs --all   # re-resolve
 //
 // The browser key is referrer-restricted, so the request carries the same
 // Referer the app sends from localhost.
 
-import { PLACES } from "../src/lib/seed.js";
+import { readCatalogue, writeCatalogue } from "./catalogue.mjs";
 
 const key = process.env.VITE_GOOGLE_MAPS_API_KEY;
 if (!key) {
@@ -19,9 +20,15 @@ if (!key) {
   process.exit(1);
 }
 
+const catalogue = readCatalogue();
+const all = process.argv.includes("--all");
+const pending = catalogue.places.filter((p) => all || !p.google_place_id);
+
+console.error(`Resolving ${pending.length} of ${catalogue.places.length} places.`);
+
 const results = [];
 
-for (const place of PLACES) {
+for (const place of pending) {
   const response = await fetch("https://places.googleapis.com/v1/places:searchText", {
     method: "POST",
     headers: {
@@ -50,4 +57,25 @@ for (const place of PLACES) {
   results.push({ slug: place.id, placeId: id });
 }
 
-console.log(JSON.stringify(Object.fromEntries(results.map((r) => [r.slug, r.placeId])), null, 2));
+// Two city sites can sit close enough that Google returns the same listing
+// for both — a park and the community center inside it, say. A place ID is
+// unique in third_spaces, so the second one is left null rather than written
+// and rejected at push time.
+const taken = new Set(catalogue.places.map((p) => p.google_place_id).filter(Boolean));
+const found = new Map();
+
+for (const { slug, placeId } of results) {
+  if (!placeId || taken.has(placeId)) {
+    if (placeId) console.error(`${slug}: ${placeId} already claimed, left unresolved`);
+    continue;
+  }
+  taken.add(placeId);
+  found.set(slug, placeId);
+}
+
+for (const place of catalogue.places) {
+  if (found.has(place.id)) place.google_place_id = found.get(place.id);
+}
+
+writeCatalogue(catalogue);
+console.error(`\nWrote ${found.size} place IDs.`);

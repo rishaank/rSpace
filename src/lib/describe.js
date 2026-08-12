@@ -70,3 +70,38 @@ export function describePlace(place) {
   const sentence = parts.join(" · ");
   return sentence.endsWith(".") ? sentence : `${sentence}.`;
 }
+
+/**
+ * Why a site is on the invest list, in one sentence. Same rule as above:
+ * every clause is switched on a number the City of San José published, so a
+ * site missing one gets a shorter sentence rather than a filled-in guess.
+ *
+ * @param need a row from catalogue.json's `needs`
+ */
+export function describeNeed(need) {
+  const parts = [];
+
+  if (need.condition != null && need.assessed) {
+    parts.push(
+      `The city's ${need.assessed} survey scored it ${Math.round(need.condition * 100)} out of 100`
+    );
+  }
+  if (need.hpi_percentile != null) {
+    parts.push(
+      `it sits in the ${ordinal(Math.round(need.hpi_percentile))} percentile of the Healthy Places Index`
+    );
+  }
+  if (need.weakest?.length) {
+    parts.push(`${need.weakest[0].label.toLowerCase()} scored lowest of anything on site`);
+  }
+
+  if (!parts.length) return "The city has not published enough on this site to rank it.";
+  if (parts.length === 1) return `${parts[0]}.`;
+  return `${parts.slice(0, -1).join(", ")}, and ${parts.at(-1)}.`;
+}
+
+function ordinal(n) {
+  const tens = n % 100;
+  if (tens >= 11 && tens <= 13) return `${n}th`;
+  return `${n}${["th", "st", "nd", "rd"][n % 10] ?? "th"}`;
+}

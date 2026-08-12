@@ -77,11 +77,6 @@ export function AppProvider({ children }) {
 
   const ranked = useMemo(() => scoreAll(places, weights, origin), [places, weights, origin]);
 
-  // Re-scoring is instant locally; the brief pause is the live Google pull.
-  function rescore() {
-    setScoring(true);
-    setTimeout(() => setScoring(false), 650);
-  }
 
   const value = {
     ready,
@@ -96,7 +91,6 @@ export function AppProvider({ children }) {
     scoring,
     googleDown,
     setGoogleDown,
-    rescore,
 
     async signUp(email, password) {
       const result = await db.signUp(email, password);
@@ -134,10 +128,18 @@ export function AppProvider({ children }) {
       return next;
     },
 
+    // The ranking itself is recomputed synchronously from `next` — what the
+    // screen waits on is the write, not the maths. `scoring` used to be a
+    // 650ms timer dressed up as a live Google pull; it now tracks the one
+    // thing here that is genuinely in flight.
     async saveWeights(next) {
       setWeights(next);
-      await db.saveWeights(session.userId, next);
-      rescore();
+      setScoring(true);
+      try {
+        await db.saveWeights(session.userId, next);
+      } finally {
+        setScoring(false);
+      }
     },
 
     async toggleFavorite(slug) {

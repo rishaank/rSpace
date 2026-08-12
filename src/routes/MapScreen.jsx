@@ -242,9 +242,14 @@ export default function MapScreen() {
                 <Stars rating={selected.rating} reviews={selected.reviews} size={14} />
               )}
             </SheetRow>
-            <SheetRow label="Nearest transit">
-              {selected.transit_minutes} min · {selected.transit_line}
-            </SheetRow>
+            {/* Transit used to read "6 min · Bus 25" from a hand-typed field.
+                Nothing measured that, so the row now carries what the city
+                actually lists on the site. The real transit time is a Routes
+                call, and it happens on the detail screen. */}
+            {selected.neighborhood && (
+              <SheetRow label="Neighborhood">{selected.neighborhood}</SheetRow>
+            )}
+            {selected.acres != null && <SheetRow label="Size">{selected.acres} acres</SheetRow>}
             {selected.summary && (
               <p className="aside" style={{ fontSize: 16, paddingTop: 8, fontStyle: "normal" }}>
                 {selected.summary}
@@ -447,11 +452,13 @@ function Scoring({ places, origin }) {
       <div className="mapheader">
         <div className="pad" style={{ padding: "8px 24px 10px", borderBottom: "2px solid var(--ink)" }}>
           <div className="display sm" style={{ color: "var(--ghost)" }}>
-            Scoring places…
+            Re-scoring…
           </div>
         </div>
-        <div style={{ height: 3, background: "var(--track)" }}>
-          <div style={{ width: "64%", height: "100%", background: "var(--pine)" }} />
+        {/* Indeterminate: the old bar sat at a hardcoded 64%, which reported
+            progress nothing was measuring. */}
+        <div className="track" role="progressbar" aria-label="Saving your priorities">
+          <i />
         </div>
       </div>
 
@@ -462,7 +469,7 @@ function Scoring({ places, origin }) {
           <div className="skel soft" style={{ width: "78%" }} />
         </div>
         <div className="pad aside" style={{ paddingTop: 16, fontSize: 16.5 }}>
-          Pulling live ratings and transit times from Google. Usually under two seconds.
+          Saving your priorities.
         </div>
         <div className="pad" style={{ paddingTop: 16 }}>
           <div style={{ height: 50, background: "var(--track)" }} />

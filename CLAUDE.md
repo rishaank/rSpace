@@ -15,9 +15,10 @@ npm install && npm run dev      # http://localhost:5173
 Never run the dev server with `Bash`; use the Browser pane's preview tools.
 `.claude/launch.json` already defines the `rspace` server.
 
-The app works with **no** environment variables at all: it falls back to a
-curated 26-place seed list held in `localStorage`. `src/lib/data.js` is the only
-file that knows whether Supabase is configured — nothing above it branches.
+The app works with **no** environment variables at all: the catalogue is
+generated at build time into `src/lib/catalogue.json` and accounts fall back to
+`localStorage`. `src/lib/data.js` is the only file that knows whether Supabase
+is configured — nothing above it branches.
 
 ## Stack and layout
 
@@ -28,11 +29,13 @@ learning Java; keep the code plain and skip clever abstractions.
 
 ```
 src/
-  lib/        scoring, seed data, Supabase + Google adapters, cache, app store
+  lib/        scoring, catalogue.json (generated), Supabase + Google adapters,
+              describe, cache, app store
   components/ ui.jsx (design primitives, icons, brand), MapCanvas, RankFactors
   routes/     one file per screen, each headed with its design number
 supabase/     schema and RLS
-scripts/      place-id resolver, Google refresh, seed loader
+scripts/      sync-sanjose (city data), place-id resolver, Google refresh,
+              seed loader, icons.sh
 ```
 
 `src/lib/store.jsx` is a single context holding session, profile, weights,
@@ -46,7 +49,7 @@ render rebuilds the map.
 
 | Component | Source | Normalisation |
 |---|---|---|
-| I — interactability | Places popularity proxy | `popularity / 100` |
+| I — interactability | Count of social amenities the city lists on site | `popularity / 100` |
 | D — distance | Haversine from the profile's neighborhood | `1 − miles / 8`, per request, never stored |
 | T — transport | Routes API, transit mode | `1 − minutes / 30` |
 | P — popularity | rating × review volume | `0.65·stars + 0.35·log-scaled reviews` |
@@ -68,11 +71,56 @@ and `orderForWeights` convert both ways, so the `score_weights` columns and
 everything downstream are unchanged, and weights saved by the old sliders
 still read back as a sensible order.
 
-`popularity` is the one scoring input that is **not measured**. Google exposes
-no busy-times signal on any free SKU, so those 0–100 values in the seed are
-estimates. Everything else on a row comes from the listing.
+`popularity` used to be the one input that was **not** measured — a hand-typed
+0–100 guess, because Google exposes no busy-times signal on any free SKU. It is
+measured now. `sync-sanjose.mjs` counts the distinct social amenities the city
+lists as actually being on the site plus their total units, log-scaled, so a
+park with courts, a playground, a dog run, and picnic tables outscores one with
+a single lawn. Nothing on a row is hand-set any more.
 
 Interests filter the map; they never affect a score.
+
+## Where the data comes from
+
+The catalogue is **generated, never hand-edited**. `src/lib/catalogue.json` is
+written by `scripts/sync-sanjose.mjs` from the City of San José's open data
+service, which is CC-BY, needs no key, and has no quota — so it can be re-run
+at will and costs nothing.
+
+```bash
+node scripts/sync-sanjose.mjs     # city facts    (free, ~30s)
+node scripts/place-ids.mjs        # google ids    (free, IDs-only SKU)
+node scripts/refresh-places.mjs   # google facts  (the paid tier — see below)
+```
+
+Layers used, all from `geo.sanjoseca.gov/.../OPN_OpenDataService/MapServer`:
+
+| # | Layer | What it gives |
+|---|---|---|
+| 187 | Community Centers | centers, gym / kitchen / parking / senior-nutrition flags |
+| 188 | Parks | parks, acreage, type, status, **planning area** |
+| 337 | Library | branch names and addresses |
+| 554 | Park Amenities & Sports Fields | what is on the ground → `interests`, `popularity` |
+| 557 | Park Condition Assessment | 2025 condition scores + HPI percentile |
+| 548 | Equity Index Census Tracts | population, income, equity score |
+| 549 | Neighborhoods | the 297 fine-grained association areas |
+
+Two geographies, deliberately:
+
+- `place.neighborhood` is the fine one from layer 549 — accurate on a place
+  ("Northside-Backesto").
+- `place.district` is the city's **planning area** — the ~13 names a resident
+  would recognise (Willow Glen, Almaden, Alum Rock). `NEIGHBORHOODS` is built
+  from these and drives the profiler's chips.
+
+Ordering the picker any other way has been tried and is wrong: by tract
+population it leads with "Trimble Business Area", by park count with "Ballbach
+and Sofa". Both are real; neither is anywhere a reader calls home.
+
+Google is still the only source for ratings, review counts, photos, and
+quotes, and `refresh-places.mjs` is still the only thing that pays for them.
+It re-writes rows in place and never touches the city's half — the city is
+authoritative for a facility's name and location, Google for its reputation.
 
 ## Design system
 
@@ -95,9 +143,13 @@ buttons and tab labels, hairline rules instead of cards.
   `<SaveButton>`, never a `♡` glyph.
 - The brand mark is a pin that is also a lowercase `r` (`<Mark>`), and the
   wordmark is `<Wordmark>`: lowercase `r`, capital `S`, always one word. Below
-  32px the `r` is dropped and the pin runs solid.
-- The mock `9:41` status bar only renders in the ≥480px desktop preview frame.
-  Real phones get their own.
+  32px the `r` is dropped and the pin runs solid. `public/favicon.svg` draws
+  the **same path**, so the tab icon and the in-app mark cannot drift; the
+  PNGs beside it come from `./scripts/icons.sh` and should be regenerated
+  whenever that SVG changes.
+- The status bar only renders in the ≥480px desktop preview frame; real phones
+  get their own. It shows the **real** clock — it used to read a fixed `9:41`,
+  and nothing on screen should be a prop.
 - `.device` is `height: 100dvh`, not `min-height`. With `min-height` a long
   screen grows past the viewport, the page itself scrolls instead of `.scroll`,
   and the tab bar slides under Safari's floating toolbar.
@@ -152,8 +204,12 @@ So none of that is fetched at render time any more:
   Google's caching limits and can be stored forever, which turns a search into
   a lookup and removes the chance of matching the wrong listing.
 - `scripts/refresh-places.mjs` is the **only** thing that pays for the
-  expensive fields. One run is 26 Enterprise events; run it weekly, which also
-  keeps the stored content inside the 30 days Google's terms allow.
+  expensive fields, and with 329 places it is now the binding constraint on
+  how big the catalogue can get. One row is one Enterprise event against
+  1,000/month, so `--limit` defaults to **200** and rows refresh oldest-first
+  — consecutive weekly runs walk the whole catalogue instead of re-pulling the
+  same head of the list, and come round every 12 days, inside the 30 days
+  Google's terms allow content to be cached. Do not raise the limit past ~250.
 - `scripts/place-ids.mjs` resolves the IDs. An IDs-only text search is free
   and uncapped, so it can be re-run at will.
 - At render time only two calls survive — the photo and the transit time —
@@ -174,29 +230,43 @@ browser, not everyone. The real hard stop belongs in the Cloud console under
 Nothing describing a place is written by hand. The seed used to carry invented
 blurbs, one of which gave Almaden Community Center a pool it does not have.
 
-- `summary` is composed by `src/lib/describe.js` from facts Google returned —
-  its `editorialSummary` when there is one, otherwise `primaryTypeDisplayName`
-  plus notable `types` and amenity flags. Every clause is switched on a field
-  that came back; the worst case is a short sentence, never a wrong one.
+- `summary` starts as a sentence built by `sync-sanjose.mjs` from the city's
+  amenity codes ("Has basketball courts, a playground and picnic areas"), and
+  is replaced by `src/lib/describe.js` once Google has been asked — its
+  `editorialSummary` when there is one, otherwise `primaryTypeDisplayName`
+  plus notable `types` and amenity flags. Every clause on both paths is
+  switched on a field that came back; the worst case is a short sentence,
+  never a wrong one.
 - `quote` is one real review, verbatim and unmodified, shown with
   `quote_author` and `quote_rating` because Google's terms require
   attribution. `refresh-places.mjs` picks the review whose own rating is
   closest to the place's overall rating, so the section reads as a typical
-  opinion rather than as marketing.
-- Contradictions between the seed and Google's `types` are bugs. Almaden has
-  no `swimming_pool`; Camden does.
+  opinion rather than as marketing. On the detail screen the attribution
+  renders as the reviewer's **stars then their name** — those stars are the
+  reviewer's own rating, not the place's.
+- `describeNeed()` in the same file does the same job for the invest list.
+- Contradictions between the catalogue and Google's `types` are bugs. Almaden
+  has no `swimming_pool`; Camden does.
 
 ## Supabase
 
 Project `rspace`, ref `derofupvnoucaujweiug`, free tier, us-west-1. Schema and
 RLS live in `supabase/migrations/0001_init.sql`.
 
-- Every table has RLS. `third_spaces` and `adopt_applications` are readable by
-  any signed-in user; everything else is owner-scoped on `auth.uid()`.
+- Every table has RLS. `third_spaces` is readable by any signed-in user;
+  everything else is owner-scoped on `auth.uid()`.
 - The catalogue is readable only when signed in, so `listPlaces()` runs again
   after login, not just at boot.
 - Rows are addressed by `slug` in the app; `id` stays a uuid for foreign keys.
-  Both `listPlaces` and `listApplicants` map `id` to the slug on read.
+  `listPlaces` maps `id` to the slug on read.
+- `adopt_applications` was **dropped** in `0003`. The three rows it ever held
+  were invented, down to their `@example.org` contacts. Where-to-invest is
+  derived from the city's condition assessments and Equity Index, ships with
+  the build, and has no table.
+- **`0003_city_open_data.sql` has not been applied to the live project yet**,
+  and neither has the 329-row catalogue been pushed. Until both happen, a
+  deploy with Supabase configured still reads the old 26 rows. Run the
+  migration, then `node scripts/seed.mjs`.
 - "Confirm email" is **off**, so signup returns a session immediately.
 - Supabase's own validator rejects `example.com` and `.test` addresses, so
   throwaway test accounts need a plausible domain. To test signed-in flows,
@@ -205,9 +275,12 @@ RLS live in `supabase/migrations/0001_init.sql`.
 - The same Supabase org holds `janyaa-hub` (`sgjcliwmzshhkhjlbdjy`), an
   unrelated live app with real user data. **Never migrate into it.**
 
-`third_spaces` stores the raw Google inputs (rating, review count, popularity,
-price level, transit minutes) rather than the spec's pre-normalised `*_score`
-columns, so re-tuning the normalisation never needs a re-seed.
+`third_spaces` stores raw inputs (rating, review count, popularity, price
+level, condition) rather than the spec's pre-normalised `*_score` columns, so
+re-tuning the normalisation never needs a re-seed. `transit_minutes` and
+`transit_line` were dropped in `0003`: they were hand-typed ("6", "Bus 25"),
+nothing measured them, and the real number is a per-user Routes call made at
+render time that was never read back off this table.
 
 ## Deploying
 
@@ -255,6 +328,15 @@ that surfaces token changes far faster than reading 1,300 lines.
 
 Route files are numbered to match the handoff (`// 13 · /place/:id — Detail`).
 Keep those comments in sync.
+
+The app has since diverged from the handoff in two places, deliberately:
+
+- Screen **18 · /adopt — Applicants** is gone, along with its tab bar. `/adopt`
+  is now the invest map (screen 20), and `/adopt/:id` shows a site's published
+  numbers rather than an application.
+- Screen **13** dropped its `GATHERING PLACE NO. 03` eyebrow, its top-right
+  heart, the photo credit, and the "From the reviews" head; the description
+  moved above the address and the rating below it.
 
 ## Conventions
 

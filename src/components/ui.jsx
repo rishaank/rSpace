@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 /* ── Icons ────────────────────────────────────────────────────────
@@ -137,16 +138,64 @@ export function SaveButton({ saved, onClick, size = 54, bare = false, label }) {
 
 
 /* The 390 × 844 frame. On a real phone it's just the viewport; the status
-   bar only appears in the desktop preview frame, never on device. */
+   bar only appears in the desktop preview frame, never on device. It used to
+   read a fixed 9:41 — it shows the actual clock now, so nothing on screen is
+   a prop. */
 export function Device({ tone = "paper", children }) {
+  const [now, setNow] = useState(clockTime);
+
+  useEffect(() => {
+    const timer = setInterval(() => setNow(clockTime()), 15000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className={`device on-${tone}`}>
       <div className="device-status" aria-hidden="true">
-        <span>9:41</span>
+        <span>{now}</span>
         <span className="tick">▪▪▪ ⌁</span>
       </div>
       {children}
     </div>
+  );
+}
+
+function clockTime() {
+  return new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+}
+
+/**
+ * The boot screen. It traces the map screen's own layout — header rule, map
+ * band, bottom sheet, tab bar — so the app resolves into place rather than
+ * cutting from an empty frame. `label` is announced to screen readers, which
+ * get no benefit from the shapes.
+ */
+export function Loading({ label = "Loading rSpace" }) {
+  return (
+    <Device>
+      <div className="pad" style={{ padding: "8px 24px 10px", borderBottom: "2px solid var(--ink)", flex: "none" }}>
+        <div className="skel pulsing" style={{ width: "45%", height: 22 }} />
+      </div>
+      <div className="track" role="progressbar" aria-label={label}>
+        <i />
+      </div>
+
+      <div className="grow pulsing" style={{ position: "relative", background: "var(--track)", minHeight: 0 }}>
+        <span className="sr-only">{label}</span>
+      </div>
+
+      <div style={{ flex: "none", borderTop: "2px solid var(--ink)" }}>
+        <div className="pad pulsing" style={{ padding: "16px 24px 0", display: "grid", gap: 9 }}>
+          <div className="skel" style={{ width: "62%", height: 20 }} />
+          <div className="skel soft" style={{ width: "40%" }} />
+          <div className="skel soft" style={{ width: "78%" }} />
+        </div>
+        <div className="pad pulsing" style={{ padding: "16px 24px" }}>
+          <div className="skel" style={{ height: 50 }} />
+        </div>
+        <TabBar />
+      </div>
+    </Device>
   );
 }
 

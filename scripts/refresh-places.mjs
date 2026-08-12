@@ -1,18 +1,24 @@
-// Refreshes every seeded place from its google_place_id and prints the rows as
-// JS ready to paste into src/lib/seed.js. Pass --push to also write them to
-// Supabase (needs the service role key).
+// Refreshes catalogue rows from their google_place_id and writes them back
+// into src/lib/catalogue.json. Pass --push to also write them to Supabase
+// (needs the service role key).
 //
 //   VITE_GOOGLE_MAPS_API_KEY=… node scripts/refresh-places.mjs
+//   VITE_GOOGLE_MAPS_API_KEY=… node scripts/refresh-places.mjs --limit 120
 //   VITE_GOOGLE_MAPS_API_KEY=… SUPABASE_URL=… SUPABASE_SERVICE_ROLE_KEY=… \
 //     node scripts/refresh-places.mjs --push
 //
-// This is the *only* place that pays for the expensive Places fields. One run
-// is 26 Place Details Enterprise + Atmosphere events against a 1,000/month
-// free allowance, so a weekly run costs nothing and the app itself never has
-// to ask Google for a rating. Google's terms also cap caching of place content
-// at 30 days, which a weekly refresh stays inside.
+// This is the *only* place that pays for the expensive Places fields, and it
+// is now the binding constraint on how big the catalogue can be. Each row is
+// one Place Details Enterprise + Atmosphere event against a **1,000/month**
+// free allowance, so a weekly run can afford about 250 rows and no more.
+//
+// `--limit` therefore defaults to 200, and rows are refreshed oldest-first so
+// consecutive runs work their way through the whole catalogue rather than
+// re-pulling the same head of the list. Google's terms also cap caching of
+// place content at 30 days; at 200 a week a 329-row catalogue comes round
+// every 12 days, inside that.
 
-import { PLACES } from "../src/lib/seed.js";
+import { readCatalogue, writeCatalogue } from "./catalogue.mjs";
 import { describePlace } from "../src/lib/describe.js";
 
 const key = process.env.VITE_GOOGLE_MAPS_API_KEY;
@@ -20,6 +26,29 @@ if (!key) {
   console.error("Set VITE_GOOGLE_MAPS_API_KEY.");
   process.exit(1);
 }
+
+const catalogue = readCatalogue();
+
+const limitArg = process.argv.indexOf("--limit");
+const LIMIT = limitArg > -1 ? Number(process.argv[limitArg + 1]) : 200;
+
+// Oldest refresh first; never refreshed at all sorts to the front.
+const due = catalogue.places
+  .filter((p) => p.google_place_id)
+  .sort((a, b) => (a.refreshed ?? "").localeCompare(b.refreshed ?? ""))
+  .slice(0, LIMIT);
+
+const withId = catalogue.places.filter((p) => p.google_place_id).length;
+console.error(
+  `Refreshing ${due.length} of ${withId} rows with a place ID ` +
+    `(${catalogue.places.length} in the catalogue). Enterprise events this run: ${due.length}.`
+);
+
+if (due.length > 250) {
+  console.error("Warning: over 250 in one run risks the 1,000/month Enterprise allowance.");
+}
+
+const today = new Date().toISOString().slice(0, 10);
 
 const FIELDS = [
   "id",
@@ -77,15 +106,9 @@ function shortAddress(formatted) {
   return pick?.replace(/\s*&\s*$/, "").trim() || null;
 }
 
-const rows = [];
+let refreshed = 0;
 
-for (const place of PLACES) {
-  if (!place.google_place_id) {
-    console.error(`${place.id}: no google_place_id, left as-is`);
-    rows.push(place);
-    continue;
-  }
-
+for (const place of due) {
   const response = await fetch(`https://places.googleapis.com/v1/places/${place.google_place_id}`, {
     headers: {
       "X-Goog-Api-Key": key,
@@ -96,15 +119,15 @@ for (const place of PLACES) {
 
   if (!response.ok) {
     console.error(`${place.id}: HTTP ${response.status}, left as-is`);
-    rows.push(place);
     continue;
   }
 
   const d = await response.json();
 
-  // A district has no street address — Google answers with its own name —
-  // so the hand-written descriptor in the seed stays.
-  const name = d.displayName?.text ?? place.name;
+  // The city is authoritative for what its own facilities are called and
+  // where they are — its name is the one on the sign, and a polygon centroid
+  // beats Google's single pin for a 27-acre park. Google is only consulted
+  // for the things the city does not publish.
   const address = shortAddress(d.formattedAddress);
 
   const facts = {
@@ -130,44 +153,46 @@ for (const place of PLACES) {
     .filter((r) => (r.text?.text ?? r.originalText?.text ?? "").length > 40)
     .sort((a, b) => Math.abs((a.rating ?? 0) - d.rating) - Math.abs((b.rating ?? 0) - d.rating))[0];
 
-  rows.push({
-    ...place,
-    name,
-    address: !address || address === name ? place.address : address,
-    lat: d.location?.latitude ?? place.lat,
-    lng: d.location?.longitude ?? place.lng,
+  // Written from `facts` only — never invented. See src/lib/describe.js. It
+  // only replaces the city's amenity sentence when Google actually said
+  // something, so a thin listing never blanks a good description.
+  const described = describePlace({ ...place, facts });
+
+  Object.assign(place, {
+    address: !address || address === place.name ? place.address : address,
     rating: d.rating ?? null,
     reviews: d.userRatingCount ?? 0,
     price_level: PRICE_LEVELS[d.priceLevel] ?? place.price_level,
     closed: d.businessStatus === "CLOSED_PERMANENTLY" || place.closed === true,
-    facts,
-    // Written from `facts` only — never invented. See src/lib/describe.js.
-    summary: describePlace({ ...place, facts }),
+    summary: described ?? place.summary,
     quote: review?.text?.text ?? review?.originalText?.text ?? null,
     quote_author: review?.authorAttribution?.displayName ?? null,
     quote_rating: review?.rating ?? null,
+    refreshed: today,
   });
 
+  refreshed++;
   console.error(`${place.id} → ${d.rating ?? "no rating"} · ${d.userRatingCount ?? 0} reviews`);
 }
+
+writeCatalogue(catalogue);
+console.error(`\nRefreshed ${refreshed} rows.`);
 
 if (process.argv.includes("--push")) {
   const { createClient } = await import("@supabase/supabase-js");
   const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
-  const { error } = await supabase.from("third_spaces").upsert(
-    // `facts` is the working material describePlace() reads; only the
-    // sentence it produced is worth storing, so it does not travel.
-    rows.map(({ id, closed_on, facts: _facts, google_place_id, ...rest }) => ({
-      slug: id,
-      closed_on: closed_on ?? null,
-      google_place_id,
-      source: google_place_id ? "google_places" : "manual_seed",
-      ...rest,
-    })),
-    { onConflict: "slug" }
-  );
-  if (error) throw error;
+
+  const rows = catalogue.places.map(({ id, closed_on, ...rest }) => ({
+    slug: id,
+    closed_on: closed_on ?? null,
+    ...rest,
+  }));
+
+  for (let i = 0; i < rows.length; i += 100) {
+    const { error } = await supabase
+      .from("third_spaces")
+      .upsert(rows.slice(i, i + 100), { onConflict: "slug" });
+    if (error) throw error;
+  }
   console.error(`Pushed ${rows.length} rows.`);
 }
-
-console.log(JSON.stringify(rows, null, 2));

@@ -278,6 +278,20 @@ a {
   min-width: 0;
 }
 
+/* Visible to a screen reader only. Skeleton shapes say nothing out loud, so
+   the loading screens carry their label this way. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
 .foot {
   margin-top: auto;
   flex: none;
@@ -1243,6 +1257,39 @@ a {
   background: #e6e3d3;
 }
 
+/* A block standing in for a pin, a photo, or a map panel rather than a line
+   of text. Still square-cornered — the app has no rounded corners. */
+.skel.block {
+  height: 100%;
+  width: 100%;
+}
+
+/* Indeterminate progress. Replaces a bar that used to sit at a hardcoded
+   64%, which reported progress nothing was measuring. */
+.track {
+  position: relative;
+  height: 3px;
+  background: var(--track);
+  overflow: hidden;
+}
+
+.track i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 38%;
+  background: var(--pine);
+  animation: slide 1.15s ease-in-out infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(365%);
+  }
+}
+
 @keyframes pulse {
   50% {
     opacity: 0.55;
@@ -1257,5 +1304,13 @@ a {
   * {
     animation: none !important;
     transition: none !important;
+  }
+
+  /* The indeterminate bar's resting position is off-screen left, so without
+     its animation it would read as "no progress at all". Park it full-width
+     instead — still honest, since it never claimed a percentage. */
+  .track i {
+    width: 100%;
+    transform: none;
   }
 }

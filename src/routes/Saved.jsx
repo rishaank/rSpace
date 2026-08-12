@@ -23,34 +23,26 @@ export default function Saved() {
 
       <div className="scroll">
         {saved.length > 0 ? (
-          <>
-            <div className="pad">
-              {saved.map((place) => (
-                <div key={place.id} className="placerow" style={{ cursor: "default" }}>
-                  <div className="n">{place.total}</div>
-                  <Link to={`/place/${place.id}`} className="grow" style={{ textDecoration: "none", color: "inherit" }}>
-                    <div className="title">{place.name}</div>
-                    <div className="meta" style={{ display: "block", paddingTop: 4 }}>
-                      {place.category} · {formatMiles(place.miles)} ·{" "}
-                      {place.price_level === 0 ? "free" : "paid"}
-                    </div>
-                  </Link>
-                  <SaveButton
-                    saved
-                    bare
-                    onClick={() => toggleFavorite(place.id)}
-                    label={`Remove ${place.name} from saved`}
-                  />
-                </div>
-              ))}
-            </div>
-
-            <div className="pad" style={{ paddingTop: 20 }}>
-              <div className="notice">
-                Saved places show up on your profile as the activities you keep coming back to.
+          <div className="pad">
+            {saved.map((place) => (
+              <div key={place.id} className="placerow" style={{ cursor: "default" }}>
+                <div className="n">{place.total}</div>
+                <Link to={`/place/${place.id}`} className="grow" style={{ textDecoration: "none", color: "inherit" }}>
+                  <div className="title">{place.name}</div>
+                  <div className="meta" style={{ display: "block", paddingTop: 4 }}>
+                    {place.category} · {formatMiles(place.miles)} ·{" "}
+                    {place.price_level === 0 ? "free" : "paid"}
+                  </div>
+                </Link>
+                <SaveButton
+                  saved
+                  bare
+                  onClick={() => toggleFavorite(place.id)}
+                  label={`Remove ${place.name} from saved`}
+                />
               </div>
-            </div>
-          </>
+            ))}
+          </div>
         ) : (
           <>
             <div style={{ padding: "56px 30px 0", display: "grid", gap: 16, justifyItems: "start" }}>
@@ -66,7 +58,9 @@ export default function Saved() {
             </div>
 
             <div style={{ padding: "36px 30px 0" }}>
-              <div className="section-head">Popular this week</div>
+              {/* These are the top of this reader's own ranking — nothing here
+                  measures what was busy this week, so it isn't billed as that. */}
+              <div className="section-head">Your highest scoring</div>
               {ranked.slice(0, 2).map((place) => (
                 <Link
                   key={place.id}

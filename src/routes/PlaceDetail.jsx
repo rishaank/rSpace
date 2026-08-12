@@ -46,7 +46,6 @@ export default function PlaceDetail() {
   const merged = { ...place, ...(live ?? {}) };
   const { total, components, miles } = scorePlace(merged, weights, origin);
   const saved = favorites.includes(place.id);
-  const rank = ranked.findIndex((p) => p.id === place.id) + 1;
 
   return (
     <Device>
@@ -73,14 +72,6 @@ export default function PlaceDetail() {
         >
           ‹
         </button>
-        <div style={{ position: "absolute", top: 20, right: 20, background: "var(--paper)" }}>
-          <SaveButton saved={saved} onClick={() => toggleFavorite(place.id)} size={36} />
-        </div>
-        {merged.photo && (
-          <div className="meta" style={{ background: "var(--paper)", padding: "4px 9px" }}>
-            Photo · Google Places
-          </div>
-        )}
       </div>
 
       <div className="scroll">
@@ -94,21 +85,37 @@ export default function PlaceDetail() {
         )}
 
         <div className="pad" style={{ paddingTop: 18 }}>
-          <div className="eyebrow moss" style={{ letterSpacing: ".2em" }}>
-            {place.category} place · No. {String(rank).padStart(2, "0")}
-          </div>
-          <h2 className="display" style={{ fontSize: 36, paddingTop: 7 }}>
+          <h2 className="display" style={{ fontSize: 36 }}>
             {place.name}
           </h2>
-          <p className="aside" style={{ fontSize: 17, color: "var(--text-4)", paddingTop: 7 }}>
-            {place.address} ({formatMiles(miles)}) ·{" "}
-            {place.price_level === 0 ? "Free entry" : "Entry fee"} · {place.hours}
+          {merged.summary && (
+            <p className="prose" style={{ fontSize: 17.5, color: "var(--text-2)", paddingTop: 9 }}>
+              {merged.summary}
+            </p>
+          )}
+          {/* Each clause is dropped rather than filled in when the field is
+              missing — the city publishes no opening hours for most sites,
+              and a plausible-looking "Open till 9" was invented copy. */}
+          <p className="aside" style={{ fontSize: 17, color: "var(--text-4)", paddingTop: 9 }}>
+            {[
+              place.address,
+              miles != null && `${formatMiles(miles)} away`,
+              place.price_level === 0 ? "Free entry" : "Entry fee",
+              place.hours,
+            ]
+              .filter(Boolean)
+              .join(" · ")}
           </p>
+          {merged.rating != null && (
+            <div style={{ paddingTop: 9 }}>
+              <Stars rating={merged.rating} reviews={merged.reviews} />
+            </div>
+          )}
         </div>
 
         <div className="pad" style={{ paddingTop: 18 }}>
           <div className="section-head strong">
-            <span>Score, by factor</span>
+            <span>Score</span>
             <span
               className="score"
               style={{ fontSize: 26, lineHeight: 1, color: stale ? "var(--moss)" : "var(--pine)" }}
@@ -134,24 +141,20 @@ export default function PlaceDetail() {
           )}
         </div>
 
-        <div className="pad" style={{ padding: "16px 24px 24px", display: "grid", gap: 10 }}>
-          <div className="eyebrow">From the reviews</div>
-          <Stars rating={merged.rating} reviews={merged.reviews} />
-          {merged.summary && (
-            <p className="prose" style={{ fontSize: 17.5, color: "var(--text-2)" }}>
-              {merged.summary}
-            </p>
-          )}
-          {merged.quote && (
+        {merged.quote && (
+          <div className="pad" style={{ padding: "16px 24px 24px" }}>
             <blockquote className="quote">
               <p>&ldquo;{merged.quote}&rdquo;</p>
-              <footer>
-                {merged.quote_author ?? "A Google reviewer"}
-                {merged.quote_rating != null && ` · ${merged.quote_rating} of 5`} · Google review
+              {/* Google's terms require the reviewer's own rating and name to
+                  travel with the quote, so the stars here are the reviewer's,
+                  not the place's. */}
+              <footer style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                {merged.quote_rating != null && <Stars rating={merged.quote_rating} size={13} />}
+                <span>{merged.quote_author ?? "A Google reviewer"}</span>
               </footer>
             </blockquote>
-          )}
-        </div>
+          </div>
+        )}
       </div>
 
       <div

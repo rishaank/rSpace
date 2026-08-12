@@ -1,38 +1,40 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { listApplicants } from "../lib/data";
+import { listNeeds } from "../lib/data";
+import { describeNeed } from "../lib/describe";
 import { useApp } from "../lib/store";
 import { Device, TabBar } from "../components/ui";
 import MapCanvas from "../components/MapCanvas";
-import { AdoptTabs } from "./Adopt";
 
-// 20 · /adopt/map — Where to invest
+// 20 · /adopt — Where to invest
 export default function AdoptMap() {
   const { origin } = useApp();
-  const [applicants, setApplicants] = useState([]);
+  const [needs, setNeeds] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
 
   useEffect(() => {
-    listApplicants().then((list) => {
-      setApplicants([...list].sort((a, b) => b.need - a.need));
-    });
+    listNeeds().then(setNeeds);
   }, []);
 
-  const selected = applicants.find((a) => a.id === selectedId) ?? applicants[0];
-  const rest = applicants.filter((a) => a.id !== selected?.id);
+  // The city assesses far more sites than a 390pt map can label — the top 40
+  // pinned at once stacked into an unreadable pile over East San José. The
+  // shading below still covers all of them, so the pins mark the worst dozen
+  // and the heat carries the rest.
+  const pinned = needs.slice(0, 12);
+  const selected = needs.find((n) => n.id === selectedId) ?? needs[0];
 
   // Shaded areas: the higher the need score, the wider and darker the circle.
-  const heat = applicants.map((a) => ({
-    lat: a.lat,
-    lng: a.lng,
-    size: 60 + a.need,
-    opacity: a.need / 320,
+  const heat = needs.map((n) => ({
+    lat: n.lat,
+    lng: n.lng,
+    size: 60 + n.need,
+    opacity: n.need / 320,
   }));
 
   return (
     <Device>
       <MapCanvas
-        places={applicants}
+        places={pinned}
         selectedId={selected?.id}
         onSelect={setSelectedId}
         origin={origin}
@@ -46,44 +48,40 @@ export default function AdoptMap() {
             Where to invest
           </div>
           <p className="prose" style={{ fontSize: 16, lineHeight: 1.4, paddingTop: 5 }}>
-            Shaded areas have the most people and the fewest free places to go.
+            Places the city&rsquo;s own condition survey scored poorly, in the neighborhoods its
+            Equity Index ranks highest.
           </p>
         </div>
-        <AdoptTabs />
       </div>
 
       {selected && (
         <div className="sheet">
-          <div className="pad" style={{ paddingTop: 14 }}>
-            <div className="eyebrow clay" style={{ fontSize: 10.5 }}>
-              Highest need · {selected.need}
+          <div style={{ padding: "14px 24px 0", display: "flex", gap: 14, alignItems: "flex-start" }}>
+            <div className="grow">
+              <div className="display sm" style={{ fontSize: 24 }}>
+                {selected.name}
+              </div>
+              <div className="meta" style={{ display: "block", paddingTop: 5 }}>
+                {[selected.neighborhood, selected.category].filter(Boolean).join(" · ")}
+              </div>
             </div>
-            <div className="display sm" style={{ fontSize: 24, paddingTop: 5 }}>
-              {selected.name}
+            <div style={{ textAlign: "right" }}>
+              <div className="score" style={{ fontSize: 38, lineHeight: 0.9, color: "var(--clay)" }}>
+                {selected.need}
+              </div>
+              <div className="eyebrow">need</div>
             </div>
-            <p className="prose" style={{ fontSize: 16.5, paddingTop: 6 }}>
-              {selected.summary}
-            </p>
           </div>
 
-          <div className="pad" style={{ paddingTop: 14 }}>
-            {rest.map((a, i) => (
-              <div
-                key={a.id}
-                className="spread"
-                style={{ borderTop: "1px solid var(--hairline)", padding: "7px 0", fontSize: 16, color: "var(--text-3)" }}
-              >
-                <span>
-                  {i === 0 ? "Second" : "Third"} · {a.neighborhood}
-                </span>
-                <span style={{ color: "var(--ink)" }}>{a.need}</span>
-              </div>
-            ))}
+          <div className="pad" style={{ paddingTop: 12 }}>
+            <p className="prose" style={{ fontSize: 16.5 }}>
+              {describeNeed(selected)}
+            </p>
           </div>
 
           <div className="pad" style={{ padding: "14px 24px 16px" }}>
             <Link to={`/adopt/${selected.id}`} className="btn sm">
-              See the application
+              See the numbers
             </Link>
           </div>
 
@@ -93,3 +91,4 @@ export default function AdoptMap() {
     </Device>
   );
 }
+
