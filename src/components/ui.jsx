@@ -137,6 +137,77 @@ export function SaveButton({ saved, onClick, size = 54, bare = false, label }) {
 }
 
 
+/* ── Bottom-sheet controls (both map screens) ─────────────────────
+   The sheet shows one place at a time. These step through the ranking
+   without going back to the map, or open the whole of it.            */
+
+/**
+ * Step buttons and the list toggle. A step button is dropped at the end it
+ * would run past, but keeps its slot, so the count under it never shifts.
+ */
+export function SheetNav({ index, count, onStep, onOpenList, listLabel }) {
+  return (
+    <div className="sheetnav">
+      <span className="slot">
+        {index > 0 && (
+          <button type="button" className="step" aria-label="Previous place" onClick={() => onStep(-1)}>
+            ‹
+          </button>
+        )}
+      </span>
+      <span className="slot">
+        {index < count - 1 && (
+          <button type="button" className="step" aria-label="Next place" onClick={() => onStep(1)}>
+            ›
+          </button>
+        )}
+      </span>
+      <span className="where">
+        {index + 1} of {count}
+      </span>
+      <button type="button" className="sheetopen" onClick={onOpenList}>
+        {listLabel}
+      </button>
+    </div>
+  );
+}
+
+// Open the list on the place the sheet was showing rather than at the top —
+// the reader may have stepped a long way down a 300-row ranking. Named, so
+// the ref fires on mount instead of on every render.
+function showCurrent(el) {
+  el?.scrollIntoView({ block: "center" });
+}
+
+/**
+ * The whole ranking as rows, highest first. Both map screens show one; only
+ * the number and the line under the name differ, so `meta` is a function and
+ * `need` swaps the score for the city's need number in clay.
+ */
+export function RankedList({ places, currentId, onPick, meta, need = false }) {
+  return (
+    <div className="scroll pad" style={{ paddingBottom: 6 }}>
+      {places.map((place) => (
+        <button
+          key={place.id}
+          type="button"
+          className={`placerow${place.id === currentId ? " on" : ""}`}
+          ref={place.id === currentId ? showCurrent : undefined}
+          onClick={() => onPick(place.id)}
+        >
+          <div className={`n${need ? " need" : ""}`}>{need ? place.need : place.total}</div>
+          <div className="grow">
+            <div className="title">{place.name}</div>
+            <div className="meta" style={{ display: "block", paddingTop: 4 }}>
+              {meta(place)}
+            </div>
+          </div>
+        </button>
+      ))}
+    </div>
+  );
+}
+
 /* The 390 × 844 frame. On a real phone it's just the viewport; the status
    bar only appears in the desktop preview frame, never on device. It used to
    read a fixed 9:41 — it shows the actual clock now, so nothing on screen is

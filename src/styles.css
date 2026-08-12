@@ -1026,6 +1026,24 @@ a {
   color: var(--ink);
 }
 
+/* The row the sheet is showing, when the whole ranking is open over the map.
+   It bleeds into the gutter so the mark reads as a highlight on the list
+   rather than as a box drawn around the row. */
+.placerow.on {
+  background: var(--pale);
+  /* A button sizes to fit rather than filling its box, so the row has to be
+     told to cover the gutters the negative margins pull it into. */
+  width: calc(100% + var(--gutter) * 2);
+  margin: 0 calc(var(--gutter) * -1);
+  padding: 14px var(--gutter) 14px 21px;
+  border-left: 3px solid var(--pine);
+}
+
+/* Need is the invest list's number, and it is never a good thing. */
+.placerow .n.need {
+  color: var(--clay);
+}
+
 .placerow .heart {
   font-size: 17px;
   color: var(--pine);
@@ -1239,11 +1257,74 @@ a {
   flex-direction: column;
 }
 
+/* The whole ranking, in place of the map rather than floating over it. A
+   sheet capped at a share of the frame cut the filter row in half; this fills
+   exactly what the header leaves, at any height. */
+.sheet.inline {
+  position: relative;
+  z-index: 3;
+  inset: auto;
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+}
+
 .mapheader {
   position: relative;
   z-index: 3;
   flex: none;
   background: var(--paper);
+}
+
+/* The sheet's own controls: step through the ranking, or open all of it. */
+.sheetnav {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px var(--gutter) 7px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* Fixed width, so dropping an arrow at either end of the ranking doesn't
+   slide the count sideways. */
+.sheetnav .slot {
+  width: 24px;
+  flex: none;
+}
+
+.sheetnav .step {
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 21px;
+  line-height: 1;
+  color: var(--pine);
+  cursor: pointer;
+}
+
+.sheetnav .where {
+  padding-left: 8px;
+  font-size: 15.5px;
+  color: var(--label);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Opens the ranking and closes it again. Same weight as the map header's
+   Filters button, since the two sit one above the other. */
+.sheetopen {
+  margin-left: auto;
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  color: var(--pine);
+  cursor: pointer;
 }
 
 /* ── Skeletons ────────────────────────────────────────────────── */

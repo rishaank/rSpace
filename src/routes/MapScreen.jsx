@@ -3,7 +3,18 @@ import { Link } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { CATEGORIES } from "../lib/seed";
 import { formatMiles } from "../lib/scoring";
-import { Chip, Device, Icon, SaveButton, Slider, Stars, TabBar, Toggle } from "../components/ui";
+import {
+  Chip,
+  Device,
+  Icon,
+  RankedList,
+  SaveButton,
+  SheetNav,
+  Slider,
+  Stars,
+  TabBar,
+  Toggle,
+} from "../components/ui";
 import MapCanvas from "../components/MapCanvas";
 
 const COSTS = [
@@ -38,6 +49,7 @@ export default function MapScreen() {
 
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const [sheet, setSheet] = useState(false);
+  const [list, setList] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
   const visible = useMemo(
@@ -46,6 +58,9 @@ export default function MapScreen() {
   );
 
   const selected = visible.find((p) => p.id === selectedId) ?? visible[0] ?? null;
+  // `visible` is already highest score first, so a step is a step through the
+  // ranking. -1 when nothing is selected, which only happens with no results.
+  const at = visible.findIndex((p) => p.id === selected?.id);
 
   // What would bring results back, for the empty state.
   const wider = Math.min(Math.max(filters.within * 2, 1), MAX_DISTANCE);
@@ -214,8 +229,54 @@ export default function MapScreen() {
         </div>
       )}
 
-      {selected && !sheet && (
+      {selected && !sheet && list && (
+        <div className="sheet inline">
+          <div
+            style={{
+              padding: "14px 24px 10px",
+              display: "flex",
+              alignItems: "baseline",
+              justifyContent: "space-between",
+              gap: 12,
+              borderBottom: "2px solid var(--ink)",
+            }}
+          >
+            <div className="display sm" style={{ fontSize: 24 }}>
+              All {visible.length} place{visible.length === 1 ? "" : "s"}
+            </div>
+            <button type="button" className="sheetopen" onClick={() => setList(false)}>
+              Done
+            </button>
+          </div>
+
+          <RankedList
+            places={visible}
+            currentId={selected.id}
+            onPick={(id) => {
+              setSelectedId(id);
+              setList(false);
+            }}
+            meta={(place) =>
+              `${place.category} · ${formatMiles(place.miles)} · ${
+                place.price_level === 0 ? "free" : "paid"
+              }`
+            }
+          />
+
+          <TabBar />
+        </div>
+      )}
+
+      {selected && !sheet && !list && (
         <div className="sheet">
+          <SheetNav
+            index={at}
+            count={visible.length}
+            onStep={(step) => setSelectedId(visible[at + step].id)}
+            onOpenList={() => setList(true)}
+            listLabel="All places"
+          />
+
           <div style={{ padding: "14px 24px 0", display: "flex", gap: 14, alignItems: "flex-start" }}>
             <div className="grow">
               <div className="display sm" style={{ fontSize: 25 }}>
