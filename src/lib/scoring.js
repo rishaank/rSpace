@@ -67,8 +67,16 @@ export function milesBetween(a, b) {
   return 2 * R * Math.asin(Math.sqrt(h));
 }
 
-// I — busy-times / popularity proxy from Google Places.
+// I — how much there is to do here, counted from the amenities the city
+// lists on the site by scripts/sync-sanjose.mjs.
+//
+// A site the city lists no amenities for returns null so the component drops
+// out and its weight spreads over the rest, the same as an unreachable
+// Google call. Without the guard `null / 100` is 0, which is not "unknown" —
+// it is the worst possible score, and it was quietly bottom-ranking the 16
+// places whose amenities the city has not published.
 function interactability(place) {
+  if (place.popularity == null) return null;
   return clamp01(place.popularity / 100);
 }
 

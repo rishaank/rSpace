@@ -10,14 +10,28 @@
 alter table public.third_spaces
   add column if not exists city_facility_id text,
   add column if not exists city_location_id text,
+  -- Two geographies: `neighborhood` is the fine association area (layer 549),
+  -- `district` the city planning area a reader would recognise.
   add column if not exists neighborhood text,
+  add column if not exists district text,
   add column if not exists amenities text[] not null default '{}',
   add column if not exists acres numeric(8, 1),
   add column if not exists condition numeric(4, 3) check (condition is null or condition between 0 and 1),
-  add column if not exists parking_spaces int;
+  add column if not exists parking_spaces int,
+  -- When refresh-places.mjs last paid for this row, so it can work
+  -- oldest-first through a catalogue larger than one run's budget.
+  add column if not exists refreshed date;
 
 create index if not exists third_spaces_location_idx
   on public.third_spaces (city_location_id);
+
+-- A site the city lists no amenities for has an *unknown* interactability,
+-- not a zero one. Null lets the component drop out and redistribute its
+-- weight the way every other missing input does; the old `not null default
+-- 50` forced a made-up number in its place.
+alter table public.third_spaces
+  alter column popularity drop not null,
+  alter column popularity drop default;
 
 -- Rows now come from three places, not two.
 alter table public.third_spaces drop constraint if exists third_spaces_source_check;

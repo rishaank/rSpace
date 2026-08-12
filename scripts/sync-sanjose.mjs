@@ -390,15 +390,15 @@ function interestsFrom(amenities) {
 // Composed from amenity codes only, in the same spirit as src/lib/describe.js:
 // every clause is switched on something the city reported. Google's editorial
 // line replaces this later when refresh-places.mjs finds one.
+function sentenceList(items) {
+  if (items.length === 1) return items[0];
+  return `${items.slice(0, -1).join(", ")} and ${items.at(-1)}`;
+}
+
 function describeAmenities(amenities) {
   const labelled = [...new Set(amenities.map((a) => AMENITY_LABELS[a.type]).filter(Boolean))];
   if (!labelled.length) return null;
-  const shown = labelled.slice(0, 4);
-  const list =
-    shown.length === 1
-      ? shown[0]
-      : `${shown.slice(0, -1).join(", ")} and ${shown.at(-1)}`;
-  return `Has ${list}.`;
+  return `Has ${sentenceList(labelled.slice(0, 4))}.`;
 }
 
 function categoryFor(parkType, amenities) {
@@ -446,6 +446,8 @@ for (const { attributes: a, geometry } of centreRows) {
     a.ELEVATOR === "Yes" && "an elevator",
   ].filter(Boolean);
 
+  const outdoor = describeAmenities(amenities);
+
   add({
     source: "sjc-community-centers",
     city_facility_id: a.FACILITYID ?? null,
@@ -467,10 +469,13 @@ for (const { attributes: a, geometry } of centreRows) {
     condition: null,
     hours: null,
     summary:
-      indoorLabels.length || amenities.length
+      // Guarded on the sentence, not on `amenities.length`: a site can have
+      // amenities that all lack a label, and the first pass appended a
+      // literal " null" to four rows because of it.
+      indoorLabels.length || outdoor
         ? `Community center with ${
-            indoorLabels.length ? indoorLabels.join(", ") : "public rooms"
-          }.${amenities.length ? ` ${describeAmenities(amenities)}` : ""}`.trim()
+            indoorLabels.length ? sentenceList(indoorLabels) : "public rooms"
+          }.${outdoor ? ` ${outdoor}` : ""}`
         : null,
     rating: null,
     reviews: 0,
@@ -576,16 +581,92 @@ function normalise(value) {
 }
 
 const byName = new Map();
-const byAddress = new Map();
-for (const place of places) {
-  byName.set(normalise(place.name), place);
-  if (place.address) byAddress.set(normalise(place.address), place);
+for (const place of places) byName.set(normalise(place.name), place);
+
+// Matching on address alone is not safe. 23 addresses in this catalogue are
+// shared by more than one site, and case differs between layers — the first
+// pass sent Almaden Community Center's 4.8 rating and its review onto Parma
+// Park, whose address is the same street line in different case. A quote is
+// attributed to a named reviewer, so landing one on the wrong place is the
+// exact failure this catalogue exists to avoid.
+//
+// So a nearby candidate has to share a *distinctive* word — the words below
+// carry no identifying information and two of them are enough to make any
+// two civic buildings look like the same one. Counting them matched Grace
+// Community Center, a nonprofit, to Jacinto Siquig Northside Community
+// Center on "community center" alone.
+const NEAR_METRES = 500;
+
+const GENERIC_WORDS = new Set([
+  "community", "center", "centre", "park", "library", "san", "jose", "city",
+  "public", "neighborhood", "senior", "youth", "recreation", "and", "of",
+]);
+
+function metresBetween(a, b) {
+  const R = 6371000;
+  const toRad = (d) => (d * Math.PI) / 180;
+  const dLat = toRad(b.lat - a.lat);
+  const dLng = toRad(b.lng - a.lng);
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+function words(name, { distinctiveOnly }) {
+  return new Set(
+    normalise(name)
+      .split(" ")
+      .filter((w) => w && (!distinctiveOnly || !GENERIC_WORDS.has(w)))
+  );
+}
+
+function overlap(a, b, distinctiveOnly) {
+  const left = words(a, { distinctiveOnly });
+  return [...words(b, { distinctiveOnly })].filter((w) => left.has(w)).length;
+}
+
+/**
+ * How well two names identify the same place. The first number is the one
+ * that matters — shared words that actually name a place, "Bascom" rather
+ * than "center". The second only breaks ties, and is what tells
+ * "Bascom Library & Community Center" from plain "Bascom Library" when a
+ * community center is what we are looking for.
+ */
+function nameScore(a, b) {
+  return { distinctive: overlap(a, b, true), total: overlap(a, b, false) };
+}
+
+function findMatch(old) {
+  const exact = byName.get(normalise(old.name));
+  if (exact) return exact;
+  if (old.lat == null) return null;
+
+  const scored = places
+    .filter((p) => p.lat != null && metresBetween(old, p) <= NEAR_METRES)
+    .map((p) => ({ place: p, ...nameScore(old.name, p.name) }))
+    .filter((c) => c.distinctive >= 1)
+    .sort((a, b) => b.distinctive - a.distinctive || b.total - a.total);
+
+  if (!scored.length) return null;
+
+  // Still tied on both counts: two nearby sites describe themselves equally
+  // well, and picking either would be a coin flip with someone's signed
+  // review attached to it.
+  const [best, next] = scored;
+  if (next && best.distinctive === next.distinctive && best.total === next.total) {
+    console.error(`  "${old.name}" fits ${best.place.name} and ${next.place.name} equally — dropped`);
+    return null;
+  }
+
+  console.error(`  "${old.name}" → ${best.place.name}`);
+  return best.place;
 }
 
 let carried = 0;
 for (const old of EXISTING) {
   if (!old.google_place_id) continue;
-  const match = byName.get(normalise(old.name)) ?? byAddress.get(normalise(old.address));
+  const match = findMatch(old);
   if (!match) {
     console.error(`  no city record for "${old.name}" — its Google data is dropped`);
     continue;
