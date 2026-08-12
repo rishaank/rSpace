@@ -8,15 +8,20 @@
 //     node scripts/refresh-places.mjs --push
 //
 // This is the *only* place that pays for the expensive Places fields, and it
-// is now the binding constraint on how big the catalogue can be. Each row is
-// one Place Details Enterprise + Atmosphere event against a **1,000/month**
-// free allowance, so a weekly run can afford about 250 rows and no more.
+// is the binding constraint on how big the catalogue can be. Two separate
+// limits apply, and the tighter one is not the one you would expect:
 //
-// `--limit` therefore defaults to 200, and rows are refreshed oldest-first so
-// consecutive runs work their way through the whole catalogue rather than
-// re-pulling the same head of the list. Google's terms also cap caching of
-// place content at 30 days; at 200 a week a 329-row catalogue comes round
-// every 12 days, inside that.
+//   1,000 / month  Places Enterprise free allowance
+//     150 / day    GetPlaceRequestPerDayPerProject, set on the Cloud project
+//
+// The daily cap is what actually stops a full pass. Rows are refreshed
+// oldest-first, rows touched in the last 14 days are skipped outright, and
+// hitting the daily cap stops the run cleanly with what it got — so repeated
+// runs walk the catalogue instead of re-paying for its head. Google's terms
+// cap caching of place content at 30 days, which that stays inside.
+//
+// .github/workflows/refresh-catalogue.yml runs this twice a week at --limit
+// 110, which is ~950/month and under the daily cap.
 
 import { readCatalogue, writeCatalogue } from "./catalogue.mjs";
 import { describePlace } from "../src/lib/describe.js";
@@ -69,7 +74,6 @@ if (due.length > 250) {
 const FIELDS = [
   "id",
   "displayName",
-  "formattedAddress",
   "location",
   "types",
   "primaryTypeDisplayName",
@@ -95,32 +99,6 @@ const PRICE_LEVELS = {
   PRICE_LEVEL_EXPENSIVE: 3,
   PRICE_LEVEL_VERY_EXPENSIVE: 4,
 };
-
-// Google's formatted address is the whole postal line, and it does not always
-// lead with the street: Willow Glen's starts "Public Library, 1157 Minnesota
-// Ave". Keep the segments before the city, then prefer the one that starts
-// with a house number.
-//
-//   901 E Santa Clara St, San Jose, CA 95116, USA   → 901 E Santa Clara St
-//   Public Library, 1157 Minnesota Ave, San Jose, … → 1157 Minnesota Ave
-//   N 2nd St &, E St James St, San Jose, …          → N 2nd St & E St James St
-function shortAddress(formatted) {
-  if (!formatted) return null;
-  const parts = formatted.split(",").map((s) => s.trim());
-  const city = parts.findIndex((p) => /^San Jos/i.test(p));
-  const street = city > 0 ? parts.slice(0, city) : parts.slice(0, 1);
-
-  // A corner reaches us split across two segments — "N 2nd St &", "E St
-  // James St" — so glue those back together before choosing.
-  const joined = street.reduce((acc, part) => {
-    if (acc.length && acc.at(-1).endsWith("&")) acc[acc.length - 1] += ` ${part}`;
-    else acc.push(part);
-    return acc;
-  }, []);
-
-  const pick = joined.find((p) => /^\d/.test(p)) ?? joined[0];
-  return pick?.replace(/\s*&\s*$/, "").trim() || null;
-}
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -178,7 +156,6 @@ async function fetchPlace(id) {
 }
 
 let refreshed = 0;
-
 let exhausted = null;
 
 for (const place of due) {
@@ -198,12 +175,6 @@ for (const place of due) {
   }
 
   const d = await response.json();
-
-  // The city is authoritative for what its own facilities are called and
-  // where they are — its name is the one on the sign, and a polygon centroid
-  // beats Google's single pin for a 27-acre park. Google is only consulted
-  // for the things the city does not publish.
-  const address = shortAddress(d.formattedAddress);
 
   const facts = {
     types: d.types ?? [],
@@ -234,7 +205,10 @@ for (const place of due) {
   const described = describePlace({ ...place, facts });
 
   Object.assign(place, {
-    address: !address || address === place.name ? place.address : address,
+    // Address deliberately not taken from Google. The city is authoritative
+    // for where its own facilities are, and letting Google overwrite it made
+    // every re-sync produce a 57-row diff as sync-sanjose put the city's
+    // address back. Google is consulted for reputation, not location.
     rating: d.rating ?? null,
     reviews: d.userRatingCount ?? 0,
     price_level: PRICE_LEVELS[d.priceLevel] ?? place.price_level,

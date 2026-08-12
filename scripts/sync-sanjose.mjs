@@ -415,6 +415,19 @@ function add(row) {
   if (!row.lat || !row.lng) return;
   let id = slugify(row.name);
   if (!id) return;
+
+  // The city lists some facilities twice — one pool appears as two records
+  // with slightly different addresses, and a trail arrives as three "reach"
+  // segments sharing a name. Two entries with the same name a hundred metres
+  // apart are one place, and keeping both let a Google place ID drift
+  // between them on every re-sync.
+  const twin = places.find(
+    (p) =>
+      p.name.trim().toLowerCase() === row.name.trim().toLowerCase() &&
+      metresBetween(p, row) <= 200
+  );
+  if (twin) return;
+
   if (seen.has(id)) {
     // Two sites genuinely share a name (several "Hank Lopez" entries do);
     // the city facility id keeps them apart rather than one silently

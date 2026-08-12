@@ -8,7 +8,10 @@
 // assessments and ships with the build.
 
 import { createClient } from "@supabase/supabase-js";
-import { PLACES } from "../src/lib/seed.js";
+// Read the file rather than importing src/lib/seed.js: that module does a
+// plain JSON import, which Vite resolves and Node refuses without an import
+// attribute. See scripts/catalogue.mjs.
+import { readCatalogue } from "./catalogue.mjs";
 
 const url = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -20,7 +23,7 @@ if (!url || !key) {
 
 const supabase = createClient(url, key);
 
-const places = PLACES.map(({ id, closed_on, ...rest }) => ({
+const places = readCatalogue().places.map(({ id, closed_on, ...rest }) => ({
   slug: id,
   closed_on: closed_on ?? null,
   ...rest,

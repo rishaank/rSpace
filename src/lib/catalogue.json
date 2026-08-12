@@ -31,9 +31,9 @@
     },
     {
       "name": "South San Jose",
-      "lat": 37.3012,
-      "lng": -121.84517,
-      "places": 22
+      "lat": 37.29997,
+      "lng": -121.84534,
+      "places": 21
     },
     {
       "name": "Evergreen",
@@ -99,7 +99,7 @@
       "google_place_id": "ChIJucjJnbotjoARbIRk-liZNsI",
       "name": "Aborn Park",
       "category": "Sport",
-      "address": "2444 Renfield Way",
+      "address": "Pentland Way and Renfield Way",
       "lat": 37.314671143464814,
       "lng": -121.79711620598988,
       "neighborhood": "Thompson Creek",
@@ -124,7 +124,6 @@
       "quote": "Small little nice park near the library, great for little kids who plan on going to the library, well placed playground.",
       "quote_author": "Atharva Gupta",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -154,7 +153,6 @@
       "quote": "Ow 20 stars I love it. I can be myself there. Well baby steps. Mrs Silvia is wonderful promotional and fun easy to talk to to open up to. Mrs. Media the chef cooks so sweat Rico can Amor. Mr. Joe is awesome to great customer service just needs love like everybody needs love and to smile Moore.",
       "quote_author": "Angel Zamudio",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -165,7 +163,7 @@
       "google_place_id": "ChIJ-ZogKrvMj4ARfjcGfUkMHxY",
       "name": "Almaden Lake Park",
       "category": "Sport",
-      "address": "6099 Winfield Blvd",
+      "address": "1661 Almaden Expy",
       "lat": 37.24038355116649,
       "lng": -121.87163170503995,
       "neighborhood": "Almaden Lake",
@@ -204,7 +202,6 @@
       "quote": "Never been here before but it's so beautiful and big. Lots of activities to do. Lots of trails. Big loop Bridges fun for the kids and family and pets. Will be coming back here soon",
       "quote_author": "Elva G",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -215,7 +212,7 @@
       "google_place_id": "ChIJpaYDGRAxjoARVmKI8t2ch1o",
       "name": "Almaden Library",
       "category": "Gathering",
-      "address": "6445 Camden Ave",
+      "address": "6445 Camden Avenue",
       "lat": 37.221462646406145,
       "lng": -121.868960162194,
       "neighborhood": "Castillero and Simonds",
@@ -237,7 +234,6 @@
       "quote": "The library is outstanding in every aspect. The staff members are incredibly kind and helpful. The organization of the library is impeccable, ensuring that everything is easily accessible. Moreover, the cleanliness of the library is consistently maintained, creating a pleasant and welcoming environment. Overall, this library excels in all areas and provides an exceptional experience.",
       "quote_author": "Honar Motion",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -270,7 +266,6 @@
       "quote": "Dropped in for Saturday morning table tennis. 8 tables, skilled players playing mostly doubles.\nSpent five hours, met a lot of new friends and had a great experience.",
       "quote_author": "Peter Thelin",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -281,7 +276,7 @@
       "google_place_id": "ChIJG0vjyT4xjoARDNhrir_FT6Y",
       "name": "Almaden Meadows Park",
       "category": "Sport",
-      "address": "6264 Meridian Ave",
+      "address": "Camden Ave. & Meridian Ave.",
       "lat": 37.22183820074482,
       "lng": -121.88439814546679,
       "neighborhood": "Almaden Meadows",
@@ -309,7 +304,6 @@
       "quote": "We like this neighborhood park, we did yoga event here",
       "quote_author": "Jacky Chen",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -348,7 +342,6 @@
       "quote": "Big building and beautiful open grounds with some of the original vines and wine-making equipment.",
       "quote_author": "Bev Turnquest",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -359,7 +352,7 @@
       "google_place_id": "ChIJkTfn2VYxjoAR7pj3YM2gE5w",
       "name": "Almaden Winery Park",
       "category": "Sport",
-      "address": "Treviso Avenue",
+      "address": "5730 Chambertin Dr",
       "lat": 37.237387239583974,
       "lng": -121.89333718884411,
       "neighborhood": "Almaden Winery",
@@ -387,7 +380,6 @@
       "quote": "Nice little park. I wished they have more interactive history of the Almaden Winery, such as the history.",
       "quote_author": "Town Traveller",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -398,7 +390,7 @@
       "google_place_id": "ChIJ-ZogKrvMj4ARKrML-5D1a88",
       "name": "Alum Rock Park",
       "category": "Sport",
-      "address": "15350 Penitencia Creek Rd",
+      "address": "15350 Penitencia Creek Rd.",
       "lat": 37.39056007531579,
       "lng": -121.81289922013804,
       "neighborhood": "East Foothills",
@@ -430,7 +422,6 @@
       "quote": "⭐⭐⭐⭐⭐\n\nAlum Rock Park is a hidden gem in San Jose and the perfect escape into nature without leaving the city. One of California's oldest municipal parks, it offers beautiful tree-lined trails, peaceful streams, scenic canyon views, and plenty of shaded picnic spots. Alum Rock Park is known for its rich history, diverse hiking trails, and natural beauty.\n\nWe thoroughly enjoyed our visit, especially the tranquil atmosphere and the chance to connect with nature. The well-maintained trails are suitable for families as well as avid hikers, and there are several spots to simply sit back and enjoy the surroundings. If you're looking for a peaceful getaway, a morning hike, or a family picnic, Alum Rock Park is an excellent choice. It's a place you'll want to visit again and again.",
       "quote_author": "Hemanth Shriyan",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -501,7 +492,6 @@
       "quote": null,
       "quote_author": null,
       "quote_rating": null,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -512,7 +502,7 @@
       "google_place_id": "ChIJUd79B0fIj4AR3C7IVa5KV1I",
       "name": "Alviso Library",
       "category": "Gathering",
-      "address": "5050 N First St",
+      "address": "5050 N. First Street",
       "lat": 37.42471829474962,
       "lng": -121.96941097844746,
       "neighborhood": "Alviso",
@@ -534,7 +524,6 @@
       "quote": "Nice and clean, one of the well managed location of San Jose library. Staff Is friendly too.",
       "quote_author": "Deepak Pant",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -545,7 +534,7 @@
       "google_place_id": "ChIJ1Yd7TkfIj4ARcDlOnJRjeMQ",
       "name": "Alviso Park",
       "category": "Sport",
-      "address": "24 Wilson Way",
+      "address": "Wilson Way & Grand blvd",
       "lat": 37.42542974048772,
       "lng": -121.96819394784309,
       "neighborhood": "Alviso",
@@ -578,7 +567,6 @@
       "quote": "I grew up here and I attended George Mayne so take my review with that understanding. The park has changed over the years but in its current standing there are two public playgrounds. One for little children, preschool or kinder age, and one for all other kids.\n\nI know this park is frequently used for kids soccer games and other recreational sports. I've attended a few birthday parties here but there isn't a lot of space for parties (benches or other things). There are some grills near the library that I believe are open to the public.\n\nI like that the park is mostly clean and that it is central to the elementary, youth center, library, and community pool. Also this park is literally across TopGolf so take that as a positive or negative depending on what you want in your park experience.",
       "quote_author": "Mario Maciel",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -647,7 +635,6 @@
       "quote": "What a great ballpark! Super clean and the fields are well maintained. People were friendly and they even have a snack shack. Awesome place to go if you're looking to watch a quick game or even participate in.",
       "quote_author": "Alejandro E L",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -658,7 +645,7 @@
       "google_place_id": "ChIJOXFU8qEvjoARUEMhMhn27M4",
       "name": "Avenida Espana Park",
       "category": "Sport",
-      "address": "7260 Downs Dr",
+      "address": "Downs Drive and N. Creek Drive",
       "lat": 37.22219463766116,
       "lng": -121.77040202390526,
       "neighborhood": "Santa Teresa Country Club",
@@ -681,7 +668,6 @@
       "quote": "Not everything is in working order but we should break less instead of fixing more. Amazing lawn around with friendly fluffy squirrels",
       "quote_author": "Alex Paniutin",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -741,7 +727,7 @@
       "google_place_id": "ChIJTb2U2Y3Mj4ARz4g0qvQkriE",
       "name": "Backesto Park",
       "category": "Sport",
-      "address": "551 N 13th St",
+      "address": "520 N. 13TH Street",
       "lat": 37.35224424592441,
       "lng": -121.8844441898371,
       "neighborhood": "Northside-Backesto",
@@ -781,7 +767,6 @@
       "quote": "I visited this park for a tennis match and was pleasantly surprised by its size and the number of people present. Located in a residential area, the park saw a surge in visitors as the sun set. They have a BBQ area that’s pet-friendly, which is a great addition. The tennis courts are well-maintained, but they don’t compare to the best courts I’ve played on. There are restroom facilities and other sports amenities available. There’s ample parking around the park, making it convenient for visitors.",
       "quote_author": "Jagadeesh Rahul",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -792,7 +777,7 @@
       "google_place_id": "ChIJv0NB8MkyjoAR2KjSlmetpFw",
       "name": "Barberry Lane Walkway - Reach C (BAR03)",
       "category": "Sport",
-      "address": "S King Rd",
+      "address": "S King Road to Dina Ln",
       "lat": 37.31221886416227,
       "lng": -121.81931781656473,
       "neighborhood": "Aborn and Silver Creek",
@@ -815,7 +800,6 @@
       "quote": null,
       "quote_author": null,
       "quote_rating": null,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -826,7 +810,7 @@
       "google_place_id": "ChIJxxkKssw0joARnAZ9TB0hJcI",
       "name": "Bascom Library",
       "category": "Gathering",
-      "address": "1000 S Bascom Ave",
+      "address": "1000 S. Bascom Avenue",
       "lat": 37.30744650089033,
       "lng": -121.93103267400203,
       "neighborhood": "Fruitdale and Sherman Oaks",
@@ -848,7 +832,6 @@
       "quote": "I think they need those electric water dispensers ,They have gym but i never been in it maybe they have water in there who knows. Water faucets near the bathrooms taste bad.",
       "quote_author": "Mark Contreras",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -880,7 +863,6 @@
       "quote": "Great place with library, basketball courts, and cafe. Someone can spend the whole day there with reading, working, working out. I spotted a rainbow right next to it once day!",
       "quote_author": "Upma Sharma",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -919,7 +901,6 @@
       "quote": null,
       "quote_author": null,
       "quote_rating": null,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -949,7 +930,6 @@
       "quote": "Turning into a homeless encampment\nDangerous condition",
       "quote_author": "Mayuresh Khendkar",
       "quote_rating": 1,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -988,7 +968,6 @@
       "quote": "Somewhat small but nice. Downside is that people in the neighborhood take their dogs out for a walk and don’t clean up after them. Also no restroom access because people do other things than the necessary! Unfortunate.",
       "quote_author": "Alba Cardenas",
       "quote_rating": 3,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1018,7 +997,6 @@
       "quote": "A Community Centre with oodles of space and many amenities",
       "quote_author": "Subir Das",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1029,7 +1007,7 @@
       "google_place_id": "ChIJQ8_aDoHOj4ARlNob8wyDtm0",
       "name": "Berryessa Creek Park",
       "category": "Sport",
-      "address": "3208 Isadora Dr",
+      "address": "Messina Dr. & Isadora Dr.",
       "lat": 37.40993072074992,
       "lng": -121.8599458815542,
       "neighborhood": "Majestic",
@@ -1062,7 +1040,6 @@
       "quote": "Great place for a walk in the park. Beautiful views of the nearby mountains, lovely trees , lots of greenery and a playground makes this a great place for  walking either in the morning or evening. Squirrels are there all over the place and sounds of children playing in the nearby school add to the ambience of the place!\nThe toilet facility could be improved.\nUpdate August 10, 2023\nThe mobile toilet has since been removed,  making things somewhat inconvenient!\nThe sunset photos from this park are just amazing. Have a look...",
       "quote_author": "Subir Das",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1073,7 +1050,7 @@
       "google_place_id": "ChIJRUOyYpXNj4AR2iSjcJvg4Fo",
       "name": "Berryessa Library",
       "category": "Gathering",
-      "address": "3355 Noble Ave",
+      "address": "3311 Noble Avenue",
       "lat": 37.39375998260338,
       "lng": -121.8411730595622,
       "neighborhood": "Noble",
@@ -1095,7 +1072,6 @@
       "quote": "Ample space for children to play and read books. Good collection of children’s book. Dedicated restrooms for families.\nThere is a playground just outside the library, which is great as kids get both indoor and outdoor time in a trip to this library.",
       "quote_author": "Nikhil Singhal",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1106,7 +1082,7 @@
       "google_place_id": "ChIJearmljQzjoARgqt9p7etuAM",
       "name": "Bestor Art Park",
       "category": "Sport",
-      "address": "955 S Sixth St",
+      "address": "975 S. 6th St",
       "lat": 37.323346153609464,
       "lng": -121.8744597636038,
       "neighborhood": "Virginia and Martha",
@@ -1138,7 +1114,6 @@
       "quote": "Quaint park in residential area with tables,playground and basketball court. Also a nice grassy area and small trail.connected is a community garden and art museum. Check it out for yourself! And enjoy a day in the park.",
       "quote_author": "Red M & M",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1149,7 +1124,7 @@
       "google_place_id": "ChIJFwHhuUozjoARtQNA_O_Jdz4",
       "name": "Biblioteca Latinoamericana Library",
       "category": "Gathering",
-      "address": "921 S 1st St",
+      "address": "921 S. First Street",
       "lat": 37.32204329330689,
       "lng": -121.88055167304056,
       "neighborhood": "Guadalupe Washington",
@@ -1171,7 +1146,6 @@
       "quote": "Amazing location. I had meeting with Mercedes who is working at this beach of San Jose libraries. Mercedes was very very very helpful. She is gong a great image of this branch. Plus I was looking and taking pictures at this library 📚 it was so clean and the design was great. I highly recommend this library. For the parking. You will find a lot of spots. Enjoy.",
       "quote_author": "Moubachir Silicon Valley",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1182,7 +1156,7 @@
       "google_place_id": "ChIJd_2PxKzMj4ARY38YVfkvGdo",
       "name": "Biebrach Park",
       "category": "Sport",
-      "address": "520 W Virginia St",
+      "address": "1837 Delmas Ave.",
       "lat": 37.319597016853685,
       "lng": -121.8944349130971,
       "neighborhood": "Gardner",
@@ -1219,7 +1193,6 @@
       "quote": "This park has been around for decades and seen the times turn. The pool I swam in as a child has now received and upgrade and is covered making swimming year round possible. Located next door to Gardner Family Resource Center and across the street from Gardner Elementary.",
       "quote_author": "Aja Walker",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1276,7 +1249,7 @@
       "google_place_id": "ChIJOQpfSm0tjoARmrl1KnnCwkY",
       "name": "Boggini Park",
       "category": "Sport",
-      "address": "Remington Way & Millbrook Drive",
+      "address": "Remington Wy. & Millbrook Dr.",
       "lat": 37.3221945098489,
       "lng": -121.7876799622021,
       "neighborhood": "Quimby Oak",
@@ -1306,7 +1279,6 @@
       "quote": "Nice little neighborhood park\nAll the parking is street side",
       "quote_author": "Ashok Setty",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1344,7 +1316,6 @@
       "quote": null,
       "quote_author": null,
       "quote_rating": null,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1355,7 +1326,7 @@
       "google_place_id": "ChIJKRoibHG1j4ARuW9_WB--99U",
       "name": "Boys & Girls Club Soccer Field",
       "category": "Sport",
-      "address": "Silver creek Rd and",
+      "address": "Tehama Ave & Tymn Way",
       "lat": 37.33501810880101,
       "lng": -121.8245290551427,
       "neighborhood": "Welch Park",
@@ -1378,7 +1349,6 @@
       "quote": "We were looking for an option to end our son for soccer in a grass field as playing in a grass field can be very different to playing on turf. We hit upon kidsfanbase and decided to give ut a try. We were pleasantly surprised with the improvements we saw in our sons game over the period of an year. It takes time to nurture and hone young talent and I think kfb seems to have the receipe to try and do just that. They have also grown a lot and have options in multiple locations in south bay area making it easier for us parents to reach the practise locations and games. They have also expanded to include neighboring schools which gives this sport more reach. With the addition of rush soccer for competetive games hope to see it flourish more.",
       "quote_author": "Animesh Adhya",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1408,7 +1378,6 @@
       "quote": "This is a great place to walk and soak in the Christmas spirit! The decorations are beautiful, and the streets are filled with people enjoying the festive atmosphere. You'll see parades, pedicabs (the little trailers pulled by bikes), buses, and even beetle cars adding to the charm. The vibe is very Christmassy, and it's a perfect spot to enjoy the season. I definitely recommend it",
       "quote_author": "Humberto Rocha",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1419,7 +1388,7 @@
       "google_place_id": "ChIJOxjn8Qs0joART_A7300-rLo",
       "name": "Branham Park",
       "category": "Sport",
-      "address": "1691 Tupolo Dr",
+      "address": "Branham Ln. & Tupolo Dr.",
       "lat": 37.25325316838384,
       "lng": -121.90679367438982,
       "neighborhood": "Branham",
@@ -1452,7 +1421,6 @@
       "quote": "A great community park with a basketball court, play structures for the kids, a sand area for volleyball, a huge grassy area and a pickle ball court. There is also a walking path that goes around the circumference of the park for walking, jogging or bike/scooter riding.  During windy days it's a great spot to fly a kite.  We used to take our girls there often over the 13 years that we lived in walking distance.  It's right next to a shopping area with a Safeway Pollo Loco and a number of other local shops.  There is a 7/11 and a Vons Chicken one block in the other direction.  If you are looking for a bigger park in the area that offers more I would recommend Doerr Park (also a family favorite).",
       "quote_author": "Fred Love",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1463,7 +1431,7 @@
       "google_place_id": "ChIJLTFv60EzjoARr6h6M3DW-MY",
       "name": "Brenda Lopez Memorial Plaza",
       "category": "Sport",
-      "address": "64 Oak St",
+      "address": "Sherman St. & Edwards Ave.",
       "lat": 37.32160441814819,
       "lng": -121.88061810065281,
       "neighborhood": "Guadalupe Washington",
@@ -1486,7 +1454,6 @@
       "quote": "Good space for exercising, dancing Zumba, or for the children to play for a while.",
       "quote_author": "Rosario Jimenez",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1497,7 +1464,7 @@
       "google_place_id": "ChIJsVvXRYItjoAR-UoZLZ2-VoA",
       "name": "Brigadoon Park",
       "category": "Sport",
-      "address": "Brigadoon Way",
+      "address": "Brigadoon Wy. & Daniel Malony Dr.",
       "lat": 37.30640539159045,
       "lng": -121.80274346228184,
       "neighborhood": "Silver Creek High School",
@@ -1526,7 +1493,6 @@
       "quote": "Really beautiful park with lots of shade to walk Dog and they have a water fountain, which is really nice in the hot weather",
       "quote_author": "Irina Paulson",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1537,7 +1503,7 @@
       "google_place_id": "ChIJAQDAdH8tjoARQWh8Ddll3wE",
       "name": "Brigadoon Tot Lot",
       "category": "Sport",
-      "address": "Firth Way",
+      "address": "Firth Wy. & Threadneedle Wy.",
       "lat": 37.30729779305677,
       "lng": -121.80774879765904,
       "neighborhood": "Silver Creek High School",
@@ -1563,7 +1529,6 @@
       "quote": null,
       "quote_author": null,
       "quote_rating": null,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1574,7 +1539,7 @@
       "google_place_id": "ChIJ-WbUER_Mj4AR2mFUWvIukfY",
       "name": "Brooktree Park",
       "category": "Sport",
-      "address": "Flickinger Ave & Fallingtree Dr",
+      "address": "2269 Hostetter Rd",
       "lat": 37.39382457430288,
       "lng": -121.87899558718614,
       "neighborhood": "Brooktree",
@@ -1603,7 +1568,6 @@
       "quote": "Well shaded playground. We go here to kill some time. Or after school my son plays with his friends",
       "quote_author": "samuel bracamonte",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1614,7 +1578,7 @@
       "google_place_id": "ChIJXYYVLgDNj4ARdzRnlU_LkZE",
       "name": "Bruzzone Park",
       "category": "Sport",
-      "address": "1058 Bruzzone Way",
+      "address": "Bruzzone Wy and Mercado Wy",
       "lat": 37.370378454542305,
       "lng": -121.88346345033298,
       "neighborhood": "Berryessa Crossing",
@@ -1637,7 +1601,6 @@
       "quote": "Fresh new dog park, who dis!?\n\nTons of open space for your dog to run around. No trees for shade in an open field with bark and mulch.\n\nWater doesn’t work and dog owners already let their dog pee in the water bowl…",
       "quote_author": "Sam",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1648,7 +1611,7 @@
       "google_place_id": "ChIJT7g8hUjLj4AR7a3nf0SEiIA",
       "name": "Buena Vista Park",
       "category": "Sport",
-      "address": "498",
+      "address": "495 Mayellen Ave; 498 Menker Ave",
       "lat": 37.31978442152773,
       "lng": -121.9209933292856,
       "neighborhood": "Richmond Menker",
@@ -1676,7 +1639,6 @@
       "quote": "Nice pocket park decently maintained but suffers from occasional vandalism and graffiti. Awesome little free library with books for everyone and some nicely shaded tables to escape the sun   Parking is pretty much non existent so expect to walk here street parking is rarely available. Great for kids mostly between 6-16",
       "quote_author": "Mark Bett",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1687,7 +1649,7 @@
       "google_place_id": "ChIJL_bFi240joARmwA70n2h3_k",
       "name": "Butcher Dog Park",
       "category": "Service",
-      "address": "1782 Lancaster Dr",
+      "address": "Camden Ave. & Lancaster Dr.",
       "lat": 37.259948487266236,
       "lng": -121.91694510539939,
       "neighborhood": "Sartortte and Rose",
@@ -1711,7 +1673,6 @@
       "quote": "Butcher Dog Park is a fantastic place for dogs and their owners to enjoy the outdoors. The park is clean, spacious, and well maintained, with plenty of room for dogs to run, play, and socialize safely. The separate areas for different-sized dogs are a great feature, helping everyone feel comfortable and secure. There are shaded seating areas, waste stations, and water available, making visits convenient and enjoyable. The friendly community of dog owners creates a welcoming atmosphere, and it’s always a pleasure to see so many happy, energetic dogs having fun. Whether you’re a local or just visiting, Butcher Dog Park is an excellent destination for exercise, fresh air, and quality time with your furry friend. Highly recommended—definitely deserves five stars!",
       "quote_author": "CiCi Young",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1763,7 +1724,7 @@
       "google_place_id": "ChIJ9RJEpIQxjoARyxfF9K1QuRY",
       "name": "Cahalan Park",
       "category": "Sport",
-      "address": "770 Pearlwood Way",
+      "address": "Pearwood Wy. & Cahalan Ave.",
       "lat": 37.24610012448171,
       "lng": -121.85014178091751,
       "neighborhood": "Cahalan",
@@ -1800,7 +1761,6 @@
       "quote": "Cahalan Park is a fantastic community park that has something for everyone. The park is spacious, clean, and very well maintained, creating a welcoming environment for families, walkers, and anyone looking to enjoy the outdoors. The large grassy areas are perfect for relaxing, playing games, or having a picnic on a sunny day.\n\nThe playground is well designed and provides a fun, safe place for children to play, while the walking paths and open spaces make it easy to enjoy a peaceful stroll or get some light exercise. The mature trees offer plenty of shade, making the park comfortable even on warmer days.\n\nOne of the best things about Cahalan Park is its peaceful and friendly atmosphere. Whether you’re visiting for a quick walk, spending time with family, or simply enjoying some fresh air, it’s a wonderful place to unwind. This park is a great asset to the community and is always a pleasure to visit. Highly recommended，five stars!",
       "quote_author": "CiCi Young",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1811,7 +1771,7 @@
       "google_place_id": "ChIJKQwyO1nLj4ARts9D32AJiso",
       "name": "Cahill Park",
       "category": "Sport",
-      "address": "W. San Fernando Street & Wilson Avenue",
+      "address": "W. San Fernando St. & Wilson Wy.",
       "lat": 37.32886083374904,
       "lng": -121.90499640349782,
       "neighborhood": "Diridon",
@@ -1836,7 +1796,6 @@
       "quote": "Nice park, dog friendly, has a single basketball court and steel wedges on the cement seating areas to keep skate boarders from grinding there trucks on the corners. There’s a great play area with at least 6 slides for children and 4 swings “2 for older kids and 2 for the smallest of children.\nThere is also a really big field to fly kites, have a picnic or play with mans best friend C; The park is well kept and clean.",
       "quote_author": "Henry Martin",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1847,7 +1806,7 @@
       "google_place_id": "ChIJ16Wb5xa1j4AR6dQbbvSVqHM",
       "name": "Calabazas Library",
       "category": "Gathering",
-      "address": "1230 S Blaney Ave",
+      "address": "1230 S. Blaney Avenue",
       "lat": 37.30263171995285,
       "lng": -122.0234534994054,
       "neighborhood": "Calabazas",
@@ -1869,7 +1828,6 @@
       "quote": "It was a nice experience. Clean and neat, even in the children's section.",
       "quote_author": "Sandra Rosas Olden",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1880,7 +1838,7 @@
       "google_place_id": "ChIJCWQeHhe1j4ARasXoOQTAvJk",
       "name": "Calabazas Neighborhood Center",
       "category": "Gathering",
-      "address": "1307 S Blaney Ave",
+      "address": "1207 S Blaney Ave",
       "lat": 37.30240125455912,
       "lng": -122.0244948195676,
       "neighborhood": "Calabazas",
@@ -1922,7 +1880,6 @@
       "quote": "A small neighborhood center inside the park.",
       "quote_author": "Star Wilmington",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1933,7 +1890,7 @@
       "google_place_id": "ChIJR0LQOxe1j4ARYQ0rr3VhIYw",
       "name": "Calabazas Park",
       "category": "Sport",
-      "address": "Rainbow Drive & S Blaney Ave",
+      "address": "1121 South Blaney Avenue",
       "lat": 37.30249764884556,
       "lng": -122.02502706017465,
       "neighborhood": "Calabazas",
@@ -1975,7 +1932,6 @@
       "quote": "Quite a large park with network of walkways. Lot of stuff that kids can enjoy playing here. Spread out lawns, tennis courts, baseball play area, basket ball courts. Got washrooms, picnic corners with benches, barbeque pits. Above all not much crowded. Great place for relaxing and a light nap.",
       "quote_author": "Chandrasekar Rajaram",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -1986,7 +1942,7 @@
       "google_place_id": "ChIJ1ZjSdNwxjoARiFlj60NSusU",
       "name": "Calero Park",
       "category": "Sport",
-      "address": "290 Calero Ave",
+      "address": "Calero Ave. & Lean Ave.",
       "lat": 37.24051905303932,
       "lng": -121.81801268586904,
       "neighborhood": "Calero and Oak Ridge",
@@ -2012,7 +1968,6 @@
       "quote": "More play area for children . Cement benches and tables are convenient for relaxation.",
       "quote_author": "Rajendran K",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2023,7 +1978,7 @@
       "google_place_id": "ChIJwQKwYmU0joARZ4El7LIGHcI",
       "name": "Cambrian Library",
       "category": "Gathering",
-      "address": "1780 Hillsdale Ave",
+      "address": "1780 Hillsdale Avenue",
       "lat": 37.264278749885555,
       "lng": -121.91496212160553,
       "neighborhood": "Sartortte and Rose",
@@ -2045,7 +2000,6 @@
       "quote": "I’m so grateful to have this library. It’s such a welcoming space with a wonderful selection of books for all ages, plus plenty of cozy spots to work or read or study. The children’s section is fantastic and it really sparks their excitement for reading. I also appreciate how helpful and friendly the staff always are, whether I’m looking for a new recommendation or help finding a resource.",
       "quote_author": "Anna Trushchenkov",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2075,7 +2029,6 @@
       "quote": "Best public pool in south San Jose area.  Beautiful 8 lanes 25 yards modern, no gutter pool.  Swam there a Friday evening, open from 4:30pm until 8pm.  Not crowded at all, and super cheap drop in fee.  Only complaint is water temperature, which is too warm.  Facilities for changing and showering are clean and sufficient.  Too bad there is no early morning swimming, or noon swimming.",
       "quote_author": "Soren Soe",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2150,7 +2103,6 @@
       "quote": "Incompetent pool managers that can't keep the water temperature at a reasonable temperature. The water has been sitting at 87 degrees for the last week and a half, and they keep saying that they will cool it down \"in a few days.\" Newsflash - they  haven't. They obviously do not care about the experience of anyone using the pool.",
       "quote_author": "Eric Chuu",
       "quote_rating": 1,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2161,7 +2113,7 @@
       "google_place_id": "ChIJV7ZpUbHNj4ARPU3jK9ogLjU",
       "name": "Cannery Park",
       "category": "Sport",
-      "address": "N 10th St",
+      "address": "Mission St and North Tenth Street",
       "lat": 37.35543995681614,
       "lng": -121.89285319464186,
       "neighborhood": "Japantown and Luna Park",
@@ -2189,7 +2141,6 @@
       "quote": "Good park! Clean, friendly pups (big & small) and people! The fenced-in off-leash area has AstroTurf, big rocks to hop up on, a doggie water fountain, and trash cans; and the surrounding park area has real grass",
       "quote_author": "U-mi K",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2200,7 +2151,7 @@
       "google_place_id": "ChIJOfYfEKAzjoARgklcdkeexIg",
       "name": "Canoas Park",
       "category": "Sport",
-      "address": "2580-2648 Thrush Dr",
+      "address": "Thursh Dr. & Wren Dr.",
       "lat": 37.284944623545044,
       "lng": -121.8779251148018,
       "neighborhood": "Farm and Rubino Dr",
@@ -2231,7 +2182,6 @@
       "quote": "Attached to a school, has a pathway through several streets. Popular for walkers.\n\nThere is a large field behind the elementary school, it is not fenced off, do not use the field during school hours.\n\nThere is a sand-based playground, and a separate grass area on the opposite side of the school field, separated by the sidewalk that cuts through the middle of the park. There are picking tables alongside the walkway as well.\n\nThere is a sign prohibiting dogs off leash, but the pathway is a popular place to walk dogs, and after school hours, the park is a community gathering area that locals bring their dogs to run off leash.\n\nThere is a separate playground on the far side of the school field, it can be used after school hours by the community.",
       "quote_author": "Anna Ess",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2242,7 +2192,7 @@
       "google_place_id": "ChIJ-fuRdc0tjoAReF3uXmqmfak",
       "name": "Canyon Creek Park",
       "category": "Sport",
-      "address": "2336 Larkspur Canyon Dr",
+      "address": "Larkspur Canyon Dr/Stoney Creek Pl",
       "lat": 37.29044372416333,
       "lng": -121.76884732914266,
       "neighborhood": "Silver Creek Country Club",
@@ -2272,7 +2222,6 @@
       "quote": "Absolutely beautiful park with spectacular views. Lots of activities for the kids. Plenty of benches, many with shade. A few tables, none I saw with shade. Unfortunately there are no BBQs.",
       "quote_author": "Joshua Seal",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2319,7 +2268,6 @@
       "quote": "I like this park. It has a playground, exercise equipment, basketball court, soccer area (blacktop) and lots of grass. My kids enjoyed themselves. We'll definitely be back!",
       "quote_author": "T P",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2366,7 +2314,6 @@
       "quote": null,
       "quote_author": null,
       "quote_rating": null,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2377,7 +2324,7 @@
       "google_place_id": "ChIJ__8_5Ug0joARbkoU3ynhU5M",
       "name": "Carolyn Norris Park",
       "category": "Sport",
-      "address": "San Jose",
+      "address": "Samaritan Dr. & Portola Redwood Ln.",
       "lat": 37.25109674705805,
       "lng": -121.93820247902322,
       "neighborhood": "Good Samaritan",
@@ -2406,7 +2353,6 @@
       "quote": null,
       "quote_author": null,
       "quote_rating": null,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2417,7 +2363,7 @@
       "google_place_id": "ChIJ9YzDb0gwjoARcjXml5RmMcs",
       "name": "Carrabelle Park",
       "category": "Sport",
-      "address": "San Jose",
+      "address": "Camden Ave. & Villagewood Wy.",
       "lat": 37.21159364624481,
       "lng": -121.83558831326938,
       "neighborhood": "Graystone",
@@ -2445,7 +2391,6 @@
       "quote": "Very nice and quite place, attached to a primary school, ample open space to move around and excellent place for senior people.",
       "quote_author": "SKC",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2456,7 +2401,7 @@
       "google_place_id": "ChIJWXTTdSfMj4ARx9M8DV0ECNI",
       "name": "Cataldi Park",
       "category": "Sport",
-      "address": "2900 Cataldi Dr",
+      "address": "1765 Bethany Av",
       "lat": 37.40181161806579,
       "lng": -121.87065690336351,
       "neighborhood": "Cataldi",
@@ -2501,7 +2446,6 @@
       "quote": "I decided to take a walk at a popular park somewhere in Berryessa district of San Jose since it’s close from a boba place I went.\n\nPretty much the park has amenities: basketball court, tennis courts, playgrounds, exercise areas, etc. It’s a very place to hangout, exercise, and jog at. It’s a very large park though but 70% of the area has basically just grass and trees. It’s like a regional park but a lot smaller.\n\nNot many people come to this park but you’ll see many coming from an area where the playgrounds are at. They should kinda add more sport areas or play places in the park just to maybe fill up some spaces.",
       "quote_author": "Ivan",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2512,7 +2456,7 @@
       "google_place_id": "ChIJAQAA0FwwjoARkiGqGzuiPac",
       "name": "Cathedral Oaks Park",
       "category": "Sport",
-      "address": "San Jose",
+      "address": "Curie Dr. & Dunn Ave.",
       "lat": 37.201500786103345,
       "lng": -121.84543160624982,
       "neighborhood": "Williams",
@@ -2535,7 +2479,6 @@
       "quote": "A small park, mostly a single hill with some trees at the top.  If you're looking for a network of trails and long hikes, you'll want to go a little further afield, but a review of a hilltop hike should be about the views... and there are some nice views overlooking the neighborhood, city and hills in the distance.  (See photos.)\n\nGood reasons to come:\n* you want a quick walk, even a quick burst of cardio charging up and/or down the hill\n* you want to enjoy a viewpoint overlook\n* you want to chase the view at sunset (or sunrise, if that be your thing)\n* possibly also to look for wildflowers and butterflies and the like in the spring (note: photos I've uploaded are from mid-June).\n\nDo note that the hill is grassy, and depending on the season of the year and where local maintenance is at, you may prefer long pants and/or caution when bringing little ones or four-legged friends along.  (Check it out first.)",
       "quote_author": "Michael Dorris",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2546,7 +2489,7 @@
       "google_place_id": "ChIJTYW45fAxjoAR3Et19mGTybE",
       "name": "Century Oaks Park",
       "category": "Sport",
-      "address": "5408 Lean Ave #107",
+      "address": "486 Curie Dr",
       "lat": 37.22790747540749,
       "lng": -121.81312990267011,
       "neighborhood": "La Colina",
@@ -2565,7 +2508,6 @@
       "quote": "Very nice Park for toddlers and even accessible for wheelchair in some part :)\nThere is some shaded area but Not enough shade but this is America...",
       "quote_author": "Barak Halpern",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2576,7 +2518,7 @@
       "google_place_id": "ChIJKxEf3yQujoARVPOeQaUgQ6Y",
       "name": "Charlotte Commons",
       "category": "Sport",
-      "address": "5875 Charlotte Dr",
+      "address": "Charlotte Dr. & Night Jasmine Dr.",
       "lat": 37.24369376083063,
       "lng": -121.80022785058442,
       "neighborhood": "Village Oaks",
@@ -2600,7 +2542,6 @@
       "quote": "We moved in 6 months ago and absolutely love this place. The ladies in the office are really nice and always willing to help. The two guys that does work around the property are awesome and always greet everyone when we pass by them.\n\nThe apartments themselves are nice and pretty modern. This is newer complex and even the recreational room looks welcoming.\n\nThe residents here are really diverse and have different backgrounds. It feels like a melting pot of culture when you interact with other residents. This complex feels very safe and quiet.",
       "quote_author": "Thai Dang",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2611,7 +2552,7 @@
       "google_place_id": "ChIJPWvq0w_Nj4ARQUUl8p3tfwk",
       "name": "Children of the Rainbow Park",
       "category": "Sport",
-      "address": "Madden Ave & Elodie Way",
+      "address": "Madden Ave. & Elodie Wy.",
       "lat": 37.36400159119031,
       "lng": -121.84286072608333,
       "neighborhood": "Gramercy and Alexander",
@@ -2639,7 +2580,6 @@
       "quote": "Beautiful basketball court and nice long field for soccer just be careful to not kick your ball into the freeway. Four stars instead of five because the playground leaves much to be desired; very small and gets boring quick",
       "quote_author": "OneStarVFX",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2650,7 +2590,7 @@
       "google_place_id": "ChIJXR0lpGExjoAR85SWcUyxpsg",
       "name": "Chris Hotts Park",
       "category": "Sport",
-      "address": "San Jose",
+      "address": "Almaden Expy. & Via Monte Dr.",
       "lat": 37.24521419234165,
       "lng": -121.87562917482869,
       "neighborhood": "Hoffman Via Monte",
@@ -2675,7 +2615,6 @@
       "quote": "Nice wooded area surrounding gravel trail along Guadalupe River and along three fill ponds, happy landings for dusk, geese, & krane.",
       "quote_author": "Heidi Cavazos",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2747,7 +2686,6 @@
       "quote": null,
       "quote_author": null,
       "quote_rating": null,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2758,7 +2696,7 @@
       "google_place_id": "ChIJXZzLg7zNj4ARxn2utgG8utQ",
       "name": "Cimarron Park",
       "category": "Sport",
-      "address": "Orange St",
+      "address": "756 Pelleas Ln",
       "lat": 37.385435780600716,
       "lng": -121.83897714332497,
       "neighborhood": "Toyon",
@@ -2786,7 +2724,6 @@
       "quote": "Great little park that is half a mile away from home. My son has made new friends every time we go.\n\nYou can see trash from time to time otherwise it is a fun place for the kiddos",
       "quote_author": "Razel Llamanzares",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2797,7 +2734,7 @@
       "google_place_id": "ChIJozSGNFnNj4AR44j8HyzgMao",
       "name": "City Hall Plaza",
       "category": "Gathering",
-      "address": "200 E Santa Clara St",
+      "address": "200 E. Santa Clara St.",
       "lat": 37.337705002920245,
       "lng": -121.88597449576604,
       "neighborhood": "Horace Mann and Sjsu",
@@ -2816,7 +2753,6 @@
       "quote": "Attending the Block Party Dom Dolla ever on Saturday.",
       "quote_author": "Aja",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2827,7 +2763,7 @@
       "google_place_id": "ChIJ2c9B9RnLj4ARbpN3FdHp0qk",
       "name": "Columbus Park",
       "category": "Sport",
-      "address": "495 Emory St",
+      "address": "715 Spring St.",
       "lat": 37.34411239656173,
       "lng": -121.90962465373693,
       "neighborhood": "Coleman",
@@ -2856,7 +2792,6 @@
       "quote": "Homeless campground.  Great place to walk your snarling, slobbering pitt bulls sporting 2\" spiked brass collars.",
       "quote_author": "Jarvis Hogbung",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2867,7 +2802,7 @@
       "google_place_id": "ChIJVVVVfJUxjoARf6Ra5P33_f4",
       "name": "Comanche Park",
       "category": "Sport",
-      "address": "615 Shawnee Ln",
+      "address": "Shawnee Ln. & Comanche Dr.",
       "lat": 37.24028047917754,
       "lng": -121.83553168779866,
       "neighborhood": "Frost and Herman",
@@ -2894,7 +2829,6 @@
       "quote": "Checking out the park on a walk:\n* there is a bit of green space with trees to rest by / take shade under (as of time of visit, the grass/greenery was a little shaggy, which may be good/bad depending on how mown/natural you prefer)\n* playground area does indeed look new\n* there are some seats and tables if you want to have an outdoor meal or snack or have a bit of read or work outside, though it's not designed for long-haul seating of course\n\nNeighborhood street approach and parking.\n\nLocation is in between some sporting fields and their accompanying schools, so how quiet/busy it is will likely depend heavily on the time of day and time of  year (photos below are near sunset in mid-June, when it was quite quiet).",
       "quote_author": "Michael Dorris",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -2905,7 +2839,7 @@
       "google_place_id": "ChIJk0ggD07Mj4ARz-kA1vzr-HM",
       "name": "Commodore Park",
       "category": "Sport",
-      "address": "N Jackson Ave & Commodore Dr",
+      "address": "N. Jackson Ave. & Commodore Dr.",
       "lat": 37.37701651352153,
       "lng": -121.86238026255072,
       "neighborhood": "Berryessa Flea Market-Bart",
@@ -2934,7 +2868,6 @@
       "quote": "1 star for cleanliness\n1 star for no dirt and wood chips on the playground 🛝\n1 star for toddler section, big kid section, & adult workout section.\n1 star for all of the play structures having ramps for either strollers or wheelchairs\n-1 star for 🚨NO RESTROOMS🚨 the kids fell asleep and I knew they would have to use the restroom, took a look around and no restrooms. Turned around & went to Starbucks to use the restroom, then came back to the park.",
       "quote_author": "Danielle Salaz",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -3094,7 +3027,7 @@
       "google_place_id": "ChIJAQAAd1bLj4AR5rrYaL7SIqQ",
       "name": "Del Monte Dog Park",
       "category": "Service",
-      "address": "Los Gatos Creek Trail",
+      "address": "830 Auzerais Avenue",
       "lat": 37.32038904790225,
       "lng": -121.90405258378279,
       "neighborhood": "O'Connor Park",
@@ -3115,7 +3048,6 @@
       "quote": "Nice little park.\nA kid on motorcycle just casually passed through the playground!",
       "quote_author": "Ehsan Shams",
       "quote_rating": 3,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -3167,7 +3099,7 @@
       "google_place_id": "ChIJ5bsdF6nNj4ARTeLCNZDhexA",
       "name": "Delano Manongs Park",
       "category": "Sport",
-      "address": "Gimelli Way",
+      "address": "Gimelli Way and Beechnut Drive",
       "lat": 37.374443363846204,
       "lng": -121.84898358676337,
       "neighborhood": "Gimelli-Delano Manongs",
@@ -3194,7 +3126,6 @@
       "quote": "So glad this park is officially open! Very nice covered structure with lots of activities. It is designed for ages 5 to 12 but my almost 4-year-old grandson navigated everything just fine. There is a nice grassy area next to it and there are lots of places to sit, including tables that are covered. It's a great new little park just opening in September of 2022!",
       "quote_author": "Patricia Burleigh",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -3237,7 +3168,7 @@
       "google_place_id": "ChIJCaFB24k0joARUZcJGP99rFA",
       "name": "Doerr Park",
       "category": "Sport",
-      "address": "Potrero Dr & Park Wilshire Dr",
+      "address": "Potrero Dr. & Park Wilshire Dr.",
       "lat": 37.273723912539246,
       "lng": -121.91682015382648,
       "neighborhood": "Steindorf-Doerr",
@@ -3273,7 +3204,6 @@
       "quote": "Excellent place for family gathering - kids corner with all play gadgets for them, picnic spots for small group, basketball court, tennis and pickleball courts, vast grassy lawns and ground, above all a great half mile walk around path... Great place for relaxation",
       "quote_author": "Chandrasekar Rajaram",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -3319,7 +3249,7 @@
       "google_place_id": "ChIJgbAiC7zMj4ARf9VjyD-BcOM",
       "name": "Dr. Martin Luther King, Jr. Library",
       "category": "Gathering",
-      "address": "150 E San Fernando St",
+      "address": "150 E. San Fernando Street",
       "lat": 37.33555542272567,
       "lng": -121.8851146926335,
       "neighborhood": "Horace Mann and Sjsu",
@@ -3341,7 +3271,6 @@
       "quote": "A humongous library in the heart of San Jose. I think there were like, 8 floors? Which is even more than the San Francisco Main Library! There is endless study space and an infinite catalogue of books. It really feels like a center for everything, as you can also find programs,  events, collections, and showcases here. I really liked their California collection! I think the library doubles as the college library for San Jose State, too, so there are some student resources and spaces.\n\nThe building is really beautiful, and the view gets better the higher you go.\n\nThe main reason I docked a star from the MLK Library is because I think it could be better maintained. Some floors were great, but other floors were awkwardly furnished and had missing chairs, broken outlets, empty bookshelves, and even spills and messes.\n\nOther than that, it’s a near-perfect library. Overall, 4/5.",
       "quote_author": "Hana Estalilla",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -3383,7 +3312,7 @@
       "google_place_id": "ChIJy3jsEejMj4AR2d7I_X2GLJo",
       "name": "East San José Carnegie Library",
       "category": "Gathering",
-      "address": "1102 E Santa Clara St",
+      "address": "1102 E. Santa Clara Street",
       "lat": 37.346357955521405,
       "lng": -121.86820751245746,
       "neighborhood": "Roosevelt",
@@ -3405,7 +3334,6 @@
       "quote": "I love this library. I can walk to it or drive to it from my house. The librarians are very helpful and polite. They always help me reserve books and media. They have restrooms with wheel chair access and a diaper changing station. This library has no homeless inside or outside. The parking lot is small but never fully used when I go. My little child loves playing with the toys here.",
       "quote_author": "Butterfly",
       "quote_rating": 5,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -3906,45 +3834,6 @@
       "quote_rating": null
     },
     {
-      "id": "fair-swim-center-169",
-      "source": "sjc-parks",
-      "city_facility_id": "169",
-      "city_location_id": "LOC-0565",
-      "google_place_id": null,
-      "name": "Fair Swim Center",
-      "category": "Sport",
-      "address": "1433 Holly Drive",
-      "lat": 37.32689488338503,
-      "lng": -121.84151410749091,
-      "neighborhood": "Greater Santee",
-      "district": "South San Jose",
-      "price_level": 0,
-      "popularity": 61,
-      "amenities": [
-        "DRINKF",
-        "PARKING",
-        "PICNIC",
-        "PLAYTOT",
-        "PLAYYOUTH",
-        "POOL"
-      ],
-      "interests": [
-        "Food & meals",
-        "Kids & family",
-        "Swimming"
-      ],
-      "parking_spaces": null,
-      "acres": 2.8,
-      "condition": 0.458,
-      "hours": null,
-      "summary": "Has a youth playground, a toddler playground, a pool and picnic areas.",
-      "rating": null,
-      "reviews": 0,
-      "quote": null,
-      "quote_author": null,
-      "quote_rating": null
-    },
-    {
       "id": "falls-creek-park",
       "source": "sjc-parks",
       "city_facility_id": "512",
@@ -4105,7 +3994,7 @@
       "google_place_id": "ChIJeW4ER58xjoARSTIJ0y9Mxvo",
       "name": "Foothill Park",
       "category": "Sport",
-      "address": "6209 Cahalan Ave",
+      "address": "Cahalan Ave. & Foothill Dr.",
       "lat": 37.23635082746411,
       "lng": -121.85156250952872,
       "neighborhood": "Los Alamitos Creek",
@@ -4129,7 +4018,6 @@
       "quote": "Nice view, after a short climb to the top.   Park was nicely maintained, except for some plastic chairs that some Neanderthal left up there",
       "quote_author": "Tom Mounts",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -4320,7 +4208,7 @@
       "google_place_id": "ChIJJ85DWDEujoARgyWSgO7C248",
       "name": "George Page Park",
       "category": "Sport",
-      "address": "Yeadon Way",
+      "address": "Miyuki Dr. & Santa Teresa Blvd.",
       "lat": 37.237896379830374,
       "lng": -121.79451128524387,
       "neighborhood": "Village Oaks",
@@ -4352,7 +4240,6 @@
       "quote": "Nice little park. Has a baseball field and kids playground. Overall fairly small. Dog park is nearby. If you are a Pokémon Go player - there are three pokestops in the area (park signs, playground and dog park).",
       "quote_author": "Khamid Bakhadirov",
       "quote_rating": 4,
-      "closed": false,
       "refreshed": "2026-08-12"
     },
     {
@@ -12486,32 +12373,6 @@
       ]
     },
     {
-      "id": "fair-swim-center-169",
-      "name": "Fair Swim Center",
-      "category": "Sport",
-      "neighborhood": "Greater Santee",
-      "lat": 37.32689488338503,
-      "lng": -121.84151410749091,
-      "need": 71,
-      "condition": 0.458,
-      "assessed": "2025",
-      "hpi_percentile": 28.1,
-      "equity_score": 9,
-      "tract": "5031.11",
-      "population": 5211,
-      "median_income": 125521,
-      "weakest": [
-        {
-          "label": "Turf",
-          "score": 0.38
-        },
-        {
-          "label": "Playground",
-          "score": 0.62
-        }
-      ]
-    },
-    {
       "id": "zolezzi-park",
       "name": "Zolezzi Park",
       "category": "Sport",
@@ -13194,6 +13055,28 @@
         {
           "label": "Courts",
           "score": 1
+        }
+      ]
+    },
+    {
+      "id": "san-antonio-tot-lot",
+      "name": "San Antonio Tot Lot",
+      "category": "Sport",
+      "neighborhood": "Pink Elephant and Pal",
+      "lat": 37.348710274824,
+      "lng": -121.85412483403314,
+      "need": 65,
+      "condition": 0.908,
+      "assessed": "2025",
+      "hpi_percentile": 13.3,
+      "equity_score": 10,
+      "tract": "5036.02",
+      "population": 5018,
+      "median_income": 89888,
+      "weakest": [
+        {
+          "label": "Playground",
+          "score": 0.89
         }
       ]
     }
