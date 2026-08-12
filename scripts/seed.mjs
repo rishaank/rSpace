@@ -16,10 +16,13 @@ if (!url || !key) {
 
 const supabase = createClient(url, key);
 
-const places = PLACES.map(({ id, closed_on, ...rest }) => ({
+const places = PLACES.map(({ id, closed_on, google_place_id, ...rest }) => ({
   slug: id,
   closed_on: closed_on ?? null,
-  source: "manual_seed",
+  google_place_id,
+  // Rows with a place ID have had their name, address, coordinates, rating,
+  // summary, and quote written from the live listing by refresh-places.mjs.
+  source: google_place_id ? "google_places" : "manual_seed",
   ...rest,
 }));
 

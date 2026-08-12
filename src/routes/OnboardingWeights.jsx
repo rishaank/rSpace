@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../lib/store";
+import { orderForWeights, weightsForOrder } from "../lib/scoring";
 import { AppBar, Device, Ticks } from "../components/ui";
-import WeightSliders from "../components/WeightSliders";
+import RankFactors from "../components/RankFactors";
 
-// 09 · /onboarding/weights — Sliders
+// 09 · /onboarding/weights — Ranked priorities
 export default function OnboardingWeights() {
   const { weights, saveWeights } = useApp();
   const navigate = useNavigate();
-  const [draft, setDraft] = useState(weights);
+  const [order, setOrder] = useState(() => orderForWeights(weights));
 
   async function submit() {
-    await saveWeights(draft);
+    await saveWeights(weightsForOrder(order));
     navigate("/onboarding/done");
   }
 
@@ -28,8 +29,8 @@ export default function OnboardingWeights() {
             worth the trip?
           </h2>
           <p className="prose" style={{ paddingTop: 10, fontSize: 16.5 }}>
-            Set the weight of each factor. Every place is scored against your answers. Re-tune any
-            time from your profile.
+            Drag these into order, most important at the top. Every place is scored against that
+            order. Re-tune any time from your profile.
           </p>
         </div>
 
@@ -38,7 +39,7 @@ export default function OnboardingWeights() {
             <span>Factor</span>
             <span>Weight</span>
           </div>
-          <WeightSliders weights={draft} onChange={setDraft} />
+          <RankFactors order={order} onChange={setOrder} />
         </div>
 
         <div className="foot pad" style={{ padding: "14px 24px 32px" }}>

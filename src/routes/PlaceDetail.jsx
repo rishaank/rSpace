@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useApp } from "../lib/store";
-import { hasMapsKey, lookupPlace, transitMinutes } from "../lib/google";
+import { hasMapsKey, placePhoto, transitMinutes } from "../lib/google";
 import { FACTORS, formatMiles, scorePlace } from "../lib/scoring";
-import { Alarm, AppBar, Device, Meter, SaveButton, Stars } from "../components/ui";
+import { Alarm, Device, Meter, SaveButton, Stars } from "../components/ui";
 
 // 13 · /place/:id — Detail  ·  25 · Google data unavailable  ·  26 · Closed
 export default function PlaceDetail() {
@@ -15,20 +15,22 @@ export default function PlaceDetail() {
   const [live, setLive] = useState(null);
   const [stale, setStale] = useState(false);
 
-  // Photo and rating come from the live listing; the stored row is the
-  // fallback for everything except the photo, which has no stored form.
+  // The rating, review count, price, and quote already sit on the row —
+  // refresh-places.mjs writes them from the listing, which keeps the two
+  // expensive Places tiers out of the render path entirely. What is left is
+  // the photo, which has no stored form, and the transit time, which depends
+  // on this user's origin. Both are cached in ./lib/cache.js.
   useEffect(() => {
     if (!place || !hasMapsKey) return;
     let alive = true;
 
-    Promise.all([lookupPlace(place), transitMinutes(origin, place)])
-      .then(([found, minutes]) => {
+    Promise.all([placePhoto(place), transitMinutes(origin, place)])
+      .then(([photo, minutes]) => {
         if (!alive) return;
-        if (!found) return setStale(true);
-        setLive({
-          ...Object.fromEntries(Object.entries(found).filter(([, v]) => v != null)),
-          transit_minutes: minutes,
-        });
+        // A null transit time is left null on purpose: the transport
+        // component then drops out of the score and its weight spreads over
+        // the rest, which is what the starred total below is reporting.
+        setLive({ photo, transit_minutes: minutes });
         setStale(minutes == null);
       })
       .catch(() => alive && setStale(true));
@@ -84,9 +86,9 @@ export default function PlaceDetail() {
       <div className="scroll">
         {stale && (
           <div className="pad" style={{ paddingTop: 20 }}>
-            <Alarm title="Showing saved data">
-              We couldn&rsquo;t reach Google just now. Ratings below are the last values we stored;
-              transit time is unavailable.
+            <Alarm title="No transit time right now">
+              We couldn&rsquo;t reach Google&rsquo;s routing just now, so transit access is left out
+              of the score below. Everything else on this page is stored, and unaffected.
             </Alarm>
           </div>
         )}
@@ -135,10 +137,19 @@ export default function PlaceDetail() {
         <div className="pad" style={{ padding: "16px 24px 24px", display: "grid", gap: 10 }}>
           <div className="eyebrow">From the reviews</div>
           <Stars rating={merged.rating} reviews={merged.reviews} />
-          {merged.quote && (
+          {merged.summary && (
             <p className="prose" style={{ fontSize: 17.5, color: "var(--text-2)" }}>
-              &ldquo;{merged.quote}&rdquo;
+              {merged.summary}
             </p>
+          )}
+          {merged.quote && (
+            <blockquote className="quote">
+              <p>&ldquo;{merged.quote}&rdquo;</p>
+              <footer>
+                {merged.quote_author ?? "A Google reviewer"}
+                {merged.quote_rating != null && ` · ${merged.quote_rating} of 5`} · Google review
+              </footer>
+            </blockquote>
           )}
         </div>
       </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { CATEGORIES } from "../lib/seed";
 import { formatMiles } from "../lib/scoring";
-import { Chip, Device, Icon, SaveButton, Slider, TabBar, Toggle } from "../components/ui";
+import { Chip, Device, Icon, SaveButton, Slider, Stars, TabBar, Toggle } from "../components/ui";
 import MapCanvas from "../components/MapCanvas";
 
 const COSTS = [
@@ -218,10 +218,7 @@ export default function MapScreen() {
         <div className="sheet">
           <div style={{ padding: "14px 24px 0", display: "flex", gap: 14, alignItems: "flex-start" }}>
             <div className="grow">
-              <div className="eyebrow moss" style={{ fontSize: 10.5 }}>
-                Best match for you
-              </div>
-              <div className="display sm" style={{ fontSize: 25, paddingTop: 5 }}>
+              <div className="display sm" style={{ fontSize: 25 }}>
                 {selected.name}
               </div>
               <div className="meta" style={{ display: "block", paddingTop: 5 }}>
@@ -239,11 +236,20 @@ export default function MapScreen() {
 
           <div className="pad" style={{ paddingTop: 12 }}>
             <SheetRow label="Google rating">
-              {selected.rating} · {selected.reviews} reviews
+              {selected.rating == null ? (
+                "Not rated"
+              ) : (
+                <Stars rating={selected.rating} reviews={selected.reviews} size={14} />
+              )}
             </SheetRow>
             <SheetRow label="Nearest transit">
               {selected.transit_minutes} min · {selected.transit_line}
             </SheetRow>
+            {selected.summary && (
+              <p className="aside" style={{ fontSize: 16, paddingTop: 8, fontStyle: "normal" }}>
+                {selected.summary}
+              </p>
+            )}
           </div>
 
           <div className="pad" style={{ padding: "14px 24px 16px", display: "flex", gap: 10 }}>

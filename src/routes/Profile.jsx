@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useApp } from "../lib/store";
-import { FACTORS, normalisedWeights } from "../lib/scoring";
+import { FACTORS, normalisedWeights, orderForWeights } from "../lib/scoring";
 import { Device, Meter, TabBar } from "../components/ui";
 
 // 15 · /profile
@@ -54,12 +54,14 @@ export default function Profile() {
 
         <div className="pad" style={{ paddingTop: 20 }}>
           <div className="section-head">Your priorities</div>
-          {FACTORS.map((factor) => (
+          {/* Listed in the order they were ranked, so this reads back the
+              same way it was set. */}
+          {orderForWeights(weights).map((key, i) => (
             <Meter
-              key={factor.key}
-              name={factor.short}
-              value={Math.min(shown[factor.key] * 2, 1)}
-              text={shown[factor.key].toFixed(2).replace(/^0/, "")}
+              key={key}
+              name={`${i + 1}. ${FACTORS.find((f) => f.key === key).short}`}
+              value={Math.min(shown[key] * 2, 1)}
+              text={`${Math.round(shown[key] * 100)}%`}
               thin
             />
           ))}

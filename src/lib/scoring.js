@@ -1,9 +1,15 @@
 // Score = aI + bD + cT + dP + eC
 //
 // Each component is normalised to 0–1 first. Weights are stored raw and
-// normalised to sum 1.0 here, at query time, so dragging one slider never
-// moves the others. A component that comes back null (Google unreachable,
-// say) drops out and its weight is redistributed across the rest.
+// normalised to sum 1.0 here, at query time. A component that comes back null
+// (Google unreachable, say) drops out and its weight is redistributed across
+// the rest.
+//
+// The weights themselves come from the order the reader put the five factors
+// in — see RANK_WEIGHTS below. Normalising at query time rather than on write
+// is what lets that work: reordering the list rewrites every weight at once,
+// and a factor that goes missing still leaves the remaining four in their
+// stated proportions.
 
 export const FACTORS = [
   { key: "interactability", label: "People to meet", short: "People to meet", column: "weight_interactability" },
@@ -13,13 +19,35 @@ export const FACTORS = [
   { key: "cost", label: "Cost of entry", short: "Cost", column: "weight_cost" },
 ];
 
-export const DEFAULT_WEIGHTS = {
-  interactability: 0.3,
-  distance: 0.25,
-  transport: 0.2,
-  popularity: 0.15,
-  cost: 0.1,
-};
+// People rank the five factors rather than dialling in numbers, so the
+// weights come from a position in a list. The gaps are even and the set
+// already sums to 1.0, which means first place is worth three times last
+// place — enough for the order to matter, not so much that the bottom two
+// stop counting.
+export const RANK_WEIGHTS = [0.3, 0.25, 0.2, 0.15, 0.1];
+
+export const DEFAULT_ORDER = FACTORS.map((f) => f.key);
+
+/** A ranking, most important first, to the raw weights that get stored. */
+export function weightsForOrder(order) {
+  return Object.fromEntries(
+    FACTORS.map((f) => [f.key, RANK_WEIGHTS[order.indexOf(f.key)] ?? RANK_WEIGHTS.at(-1)])
+  );
+}
+
+/**
+ * The stored weights back to a ranking. Heaviest first, and ties fall back to
+ * the canonical factor order so the list never reshuffles on its own. This
+ * also reads weights saved by the old sliders, whatever values they hold.
+ */
+export function orderForWeights(weights) {
+  return [...DEFAULT_ORDER].sort(
+    (a, b) =>
+      (weights[b] ?? 0) - (weights[a] ?? 0) || DEFAULT_ORDER.indexOf(a) - DEFAULT_ORDER.indexOf(b)
+  );
+}
+
+export const DEFAULT_WEIGHTS = weightsForOrder(DEFAULT_ORDER);
 
 export const FALLBACK_PRICE_LEVEL = 2;
 

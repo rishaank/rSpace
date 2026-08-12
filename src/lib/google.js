@@ -4,8 +4,23 @@
 // fall back to the paper map, typed neighborhoods, and seeded transit times.
 // Every call here is also allowed to fail that way at runtime: a blocked
 // referrer or a disabled API degrades the screen, it never hangs it.
+//
+// Staying inside the free tier shapes this file as much as correctness does.
+// Google's allowance is per SKU per month, and the tier holding ratings,
+// reviews, and photos is only 1,000 calls — so ratings, review counts, price
+// levels, and quotes are not fetched here at all. They are pulled once by
+// scripts/refresh-places.mjs and stored on the row. What is left at runtime is
+// the photo and the transit time, both of which go through the cache in
+// ./cache.js and stop entirely once this browser has spent its allowance.
+
+import { DAY, HOUR, affordable, remember } from "./cache";
 
 const key = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
+// Per browser, per month. Well under the per-SKU free tier even with the
+// cache cold, and the cache means a normal session never approaches them.
+const PHOTO_BUDGET = 60;
+const ROUTE_BUDGET = 400;
 
 export const hasMapsKey = Boolean(key);
 
@@ -107,6 +122,14 @@ export async function neighborhoodFor({ lat, lng }) {
   }
 }
 
+// Every keystroke is its own billable autocomplete request unless the
+// requests are tied together by a session token — one token covers the whole
+// type-then-pick sequence and Google charges nothing for the session as long
+// as the details call that closes it stays on cheap fields. `toPlace()`
+// carries the token onward by itself, so resolveSuggestion just has to retire
+// it afterwards.
+let session = null;
+
 /**
  * Address suggestions. Each carries the Place it came from, so resolving it
  * later needs Places only — no Geocoding API.
@@ -117,9 +140,12 @@ export async function suggestAddresses(query) {
   const places = await library("places");
   if (!places) return [];
 
+  session ??= new places.AutocompleteSessionToken();
+
   try {
     const { suggestions } = await places.AutocompleteSuggestion.fetchAutocompleteSuggestions({
       input: query,
+      sessionToken: session,
       locationBias: { center: { lat: 37.3352, lng: -121.8911 }, radius: 25000 },
     });
 
@@ -142,6 +168,8 @@ export async function resolveSuggestion(suggestion) {
   if (!suggestion?.place) return null;
 
   try {
+    // Both fields are on Google's cheapest tier, which is what keeps the
+    // session that closes here free.
     await suggestion.place.fetchFields({ fields: ["location", "addressComponents"] });
     return {
       lat: suggestion.place.location.lat(),
@@ -150,99 +178,74 @@ export async function resolveSuggestion(suggestion) {
     };
   } catch {
     return null;
+  } finally {
+    session = null;
   }
 }
-
-const PRICE_LEVELS = {
-  FREE: 0,
-  INEXPENSIVE: 1,
-  MODERATE: 2,
-  EXPENSIVE: 3,
-  VERY_EXPENSIVE: 4,
-};
 
 /**
- * Finds a seeded place on Google by name and location, and returns its photo
- * plus live rating. The seed rows carry no google_place_id, so this is the
- * only way to reach the real listing.
+ * The photo for one seeded place, or null.
+ *
+ * Rows carry a real `google_place_id`, so this is a direct lookup rather than
+ * a text search — one cheap request against a known listing instead of a
+ * search over the whole corpus, and no chance of matching the wrong place.
+ * The photo is the only thing still worth asking Google for at render time;
+ * everything else on the detail screen already lives on the row.
  */
-export async function lookupPlace({ name, address, lat, lng }) {
-  const places = await library("places");
-  if (!places) return null;
+export async function placePhoto(place) {
+  if (!place.google_place_id) return null;
 
-  try {
-    const { places: found } = await places.Place.searchByText({
-      textQuery: `${name} ${address ?? ""}`.trim(),
-      fields: ["id", "photos", "rating", "userRatingCount", "priceLevel", "businessStatus"],
-      locationBias: { center: { lat, lng }, radius: 2000 },
-      maxResultCount: 1,
-    });
+  // A week is well inside the 30 days Google allows place content to be held,
+  // and turns 26 places into 26 requests a week rather than 26 a session.
+  return remember(`photo:${place.google_place_id}`, 7 * DAY, async () => {
+    const places = await library("places");
+    if (!places) return null;
+    if (!affordable("photos", PHOTO_BUDGET)) return null;
 
-    const match = found?.[0];
-    if (!match) return null;
-
-    return {
-      id: match.id,
-      photo: match.photos?.[0]?.getURI({ maxWidth: 780, maxHeight: 400 }) ?? null,
-      rating: match.rating ?? null,
-      reviews: match.userRatingCount ?? null,
-      price_level: PRICE_LEVELS[match.priceLevel] ?? null,
-      closed: match.businessStatus === "CLOSED_PERMANENTLY",
-    };
-  } catch {
-    return null;
-  }
-}
-
-/** Live rating, review count, and price level for one place, or null. */
-export async function placeDetails(placeId) {
-  const places = await library("places");
-  if (!places) return null;
-
-  try {
-    const place = new places.Place({ id: placeId });
-    await place.fetchFields({
-      fields: ["rating", "userRatingCount", "priceLevel", "reviews", "businessStatus"],
-    });
-
-    return {
-      rating: place.rating,
-      reviews: place.userRatingCount,
-      price_level: PRICE_LEVELS[place.priceLevel] ?? null,
-      quote: place.reviews?.[0]?.text?.text ?? null,
-      closed: place.businessStatus === "CLOSED_PERMANENTLY",
-    };
-  } catch {
-    return null;
-  }
+    try {
+      const found = new places.Place({ id: place.google_place_id });
+      await found.fetchFields({ fields: ["photos"] });
+      return found.photos?.[0]?.getURI({ maxWidth: 780, maxHeight: 400 }) ?? null;
+    } catch {
+      return null;
+    }
+  });
 }
 
 /** Routes API, transit mode — minutes from the user to the place, or null. */
 export async function transitMinutes(origin, destination) {
   if (!hasMapsKey || !origin) return null;
 
-  try {
-    const response = await fetch("https://routes.googleapis.com/directions/v2:computeRoutes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Goog-Api-Key": key,
-        "X-Goog-FieldMask": "routes.duration",
-      },
-      body: JSON.stringify({
-        origin: { location: { latLng: { latitude: origin.lat, longitude: origin.lng } } },
-        destination: {
-          location: { latLng: { latitude: destination.lat, longitude: destination.lng } },
-        },
-        travelMode: "TRANSIT",
-      }),
-    });
+  // Rounded to about a tenth of a mile, so nudging the origin around inside
+  // one neighborhood reuses the answer instead of buying a new one.
+  const at = (p) => `${p.lat.toFixed(3)},${p.lng.toFixed(3)}`;
 
-    if (!response.ok) return null;
-    const data = await response.json();
-    const seconds = Number.parseInt(data.routes?.[0]?.duration ?? "", 10);
-    return Number.isFinite(seconds) ? Math.round(seconds / 60) : null;
-  } catch {
-    return null;
-  }
+  return remember(`transit:${at(origin)}:${at(destination)}`, 12 * HOUR, async () => {
+    if (!affordable("routes", ROUTE_BUDGET)) return null;
+
+    try {
+      const response = await fetch("https://routes.googleapis.com/directions/v2:computeRoutes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Goog-Api-Key": key,
+          "X-Goog-FieldMask": "routes.duration",
+        },
+        body: JSON.stringify({
+          origin: { location: { latLng: { latitude: origin.lat, longitude: origin.lng } } },
+          destination: {
+            location: { latLng: { latitude: destination.lat, longitude: destination.lng } },
+          },
+          travelMode: "TRANSIT",
+        }),
+      });
+
+      if (!response.ok) return null;
+      const data = await response.json();
+      const seconds = Number.parseInt(data.routes?.[0]?.duration ?? "", 10);
+      return Number.isFinite(seconds) ? Math.round(seconds / 60) : null;
+    } catch {
+      return null;
+    }
+  });
 }

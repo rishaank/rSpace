@@ -16,7 +16,7 @@ Never run the dev server with `Bash`; use the Browser pane's preview tools.
 `.claude/launch.json` already defines the `rspace` server.
 
 The app works with **no** environment variables at all: it falls back to a
-curated 25-place seed list held in `localStorage`. `src/lib/data.js` is the only
+curated 26-place seed list held in `localStorage`. `src/lib/data.js` is the only
 file that knows whether Supabase is configured — nothing above it branches.
 
 ## Stack and layout
@@ -28,11 +28,11 @@ learning Java; keep the code plain and skip clever abstractions.
 
 ```
 src/
-  lib/        scoring, seed data, Supabase + Google adapters, app store
-  components/ ui.jsx (design primitives, icons, brand), MapCanvas, WeightSliders
+  lib/        scoring, seed data, Supabase + Google adapters, cache, app store
+  components/ ui.jsx (design primitives, icons, brand), MapCanvas, RankFactors
   routes/     one file per screen, each headed with its design number
 supabase/     schema and RLS
-scripts/      seed loader (needs the service role key)
+scripts/      place-id resolver, Google refresh, seed loader
 ```
 
 `src/lib/store.jsx` is a single context holding session, profile, weights,
@@ -54,12 +54,23 @@ render rebuilds the map.
 
 Two rules that are easy to break:
 
-- Weights are stored **raw** and normalised to 1.0 **at query time**. That is
-  what makes dragging one slider leave the others alone. Do not normalise on
-  write.
+- Weights are stored **raw** and normalised to 1.0 **at query time**. Do not
+  normalise on write — it is what lets a missing component redistribute
+  cleanly.
 - A component that comes back `null` drops out and its weight is redistributed
   across the rest. That produces the `89*` and hatched-bar treatment on the
   degraded place screen.
+
+The reader never types a weight. They drag the five factors into order in
+`RankFactors.jsx`, and position maps to weight through `RANK_WEIGHTS` —
+`[.30 .25 .20 .15 .10]`, first place worth three times last. `weightsForOrder`
+and `orderForWeights` convert both ways, so the `score_weights` columns and
+everything downstream are unchanged, and weights saved by the old sliders
+still read back as a sensible order.
+
+`popularity` is the one scoring input that is **not measured**. Google exposes
+no busy-times signal on any free SKU, so those 0–100 values in the seed are
+estimates. Everything else on a row comes from the listing.
 
 Interests filter the map; they never affect a score.
 
@@ -105,11 +116,17 @@ All of these cost real debugging time. Do not undo them.
 - Advanced markers need a **real Map ID**. Google's sample `DEMO_MAP_ID`
   produces a grey, tile-less map. `MapCanvas` gates the live map on a real ID
   and falls back to the drawn map, including a paint check a few seconds in.
+- The paint check **skips a hidden tab and waits for `visibilitychange`**. The
+  vector map renders off `requestAnimationFrame`, which a background tab never
+  gets, so checking anyway condemned the whole session to the drawn map. This
+  also means the live map cannot be verified in a headless browser pane —
+  `getRenderingType()` stays `UNINITIALIZED` there no matter how healthy the
+  key is.
+- The map is built **once**. Markers are diffed against the place list and the
+  selection only rewrites a marker's class and label. Rebuilding the marker
+  set on every render re-ran `fitBounds` and snapped the view back mid-pan.
 - The **Geocoding API is a separate product** and is not enabled on the key.
   Neighborhood names come from Places `addressComponents`, not the Geocoder.
-- Seed rows carry no `google_place_id`, so `lookupPlace()` finds the listing by
-  name and location via `Place.searchByText`. That one call returns the photo,
-  live rating, and review count for the detail screen.
 - Every Google call returns `null` on failure instead of throwing. Screens must
   degrade — the profiler to the nearest seeded neighborhood, the address field
   to the seeded list, the map to the drawn one. Silent hangs were the original
@@ -117,6 +134,57 @@ All of these cost real debugging time. Do not undo them.
 
 The drawn "paper" map in `MapCanvas` is a first-class fallback, not a
 placeholder. It projects lat/lng into a band inset from the header and sheet.
+It always fits every pin by construction, which is why the "Show all places"
+control only exists on the live map.
+
+## Staying inside Google's free tier
+
+The allowance is **per SKU per month**, not one pooled credit: 10,000 calls on
+Essentials, 5,000 on Pro, **1,000 on Enterprise** — and `rating`,
+`userRatingCount`, `priceLevel`, `photos`, `reviews`, and `editorialSummary`
+are all Enterprise. A text search asking for a rating is the single most
+expensive request the app could make, and the old code made one on every
+detail-screen view.
+
+So none of that is fetched at render time any more:
+
+- Every row carries a real `google_place_id`. Place IDs are exempt from
+  Google's caching limits and can be stored forever, which turns a search into
+  a lookup and removes the chance of matching the wrong listing.
+- `scripts/refresh-places.mjs` is the **only** thing that pays for the
+  expensive fields. One run is 26 Enterprise events; run it weekly, which also
+  keeps the stored content inside the 30 days Google's terms allow.
+- `scripts/place-ids.mjs` resolves the IDs. An IDs-only text search is free
+  and uncapped, so it can be re-run at will.
+- At render time only two calls survive — the photo and the transit time —
+  and both go through `src/lib/cache.js`, which caches in `localStorage` and
+  stops making calls once a per-browser monthly ceiling is hit. Concurrent
+  asks for the same key share one request.
+- The address field passes an `AutocompleteSessionToken`. A whole
+  type-then-pick sequence then bills as one **free** session instead of one
+  charged request per keystroke — provided `resolveSuggestion` keeps to
+  Essentials fields (`location`, `addressComponents`).
+
+The per-browser ceiling is a safety net, not a guarantee: it counts one
+browser, not everyone. The real hard stop belongs in the Cloud console under
+**APIs & Services › Quotas**.
+
+## Where a place's words come from
+
+Nothing describing a place is written by hand. The seed used to carry invented
+blurbs, one of which gave Almaden Community Center a pool it does not have.
+
+- `summary` is composed by `src/lib/describe.js` from facts Google returned —
+  its `editorialSummary` when there is one, otherwise `primaryTypeDisplayName`
+  plus notable `types` and amenity flags. Every clause is switched on a field
+  that came back; the worst case is a short sentence, never a wrong one.
+- `quote` is one real review, verbatim and unmodified, shown with
+  `quote_author` and `quote_rating` because Google's terms require
+  attribution. `refresh-places.mjs` picks the review whose own rating is
+  closest to the place's overall rating, so the section reads as a typical
+  opinion rather than as marketing.
+- Contradictions between the seed and Google's `types` are bugs. Almaden has
+  no `swimming_pool`; Camden does.
 
 ## Supabase
 

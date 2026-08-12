@@ -1,22 +1,24 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../lib/store";
-import { scoreAll } from "../lib/scoring";
+import { orderForWeights, scoreAll, weightsForOrder } from "../lib/scoring";
 import { AppBar, Device } from "../components/ui";
-import WeightSliders from "../components/WeightSliders";
+import RankFactors from "../components/RankFactors";
 
 // 17 · /profile/weights — Live re-rank
 export default function ProfileWeights() {
   const { weights, saveWeights, places, origin, ranked } = useApp();
   const navigate = useNavigate();
-  const [draft, setDraft] = useState(weights);
 
-  const changed = useMemo(
-    () => Object.keys(draft).some((k) => draft[k] !== weights[k]),
-    [draft, weights]
+  const saved = useMemo(() => orderForWeights(weights), [weights]);
+  const [order, setOrder] = useState(saved);
+
+  const changed = order.some((key, i) => saved[i] !== key);
+
+  const preview = useMemo(
+    () => scoreAll(places, weightsForOrder(order), origin),
+    [places, order, origin]
   );
-
-  const preview = useMemo(() => scoreAll(places, draft, origin), [places, draft, origin]);
 
   const movers = preview.slice(0, 3).map((place, i) => {
     const before = ranked.findIndex((p) => p.id === place.id);
@@ -24,7 +26,7 @@ export default function ProfileWeights() {
   });
 
   async function save() {
-    await saveWeights(draft);
+    await saveWeights(weightsForOrder(order));
     navigate("/profile");
   }
 
@@ -41,7 +43,7 @@ export default function ProfileWeights() {
 
       <div className="scroll" style={{ display: "flex", flexDirection: "column" }}>
         <div className="pad" style={{ paddingTop: 18 }}>
-          <WeightSliders weights={draft} onChange={setDraft} was={weights} />
+          <RankFactors order={order} onChange={setOrder} was={saved} />
         </div>
 
         {changed && (
