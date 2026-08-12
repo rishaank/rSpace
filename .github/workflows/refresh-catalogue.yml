@@ -12,15 +12,16 @@ name: Refresh the catalogue
 
 on:
   schedule:
-    # Mondays and Thursdays, 09:00 UTC. See the budget note on --limit below;
-    # the pair of runs is sized to walk the whole catalogue about every two
-    # weeks, inside the 30 days Google allows place content to be cached.
-    - cron: "0 9 * * 1,4"
+    # Daily at 09:00 UTC. Small and often beats big and rare here: the project
+    # caps GetPlaceRequest at 30/day (see --limit below), so a large weekly run
+    # would just hit that cap and stop. 25 a day walks the whole catalogue in
+    # about a fortnight, inside the 30 days Google allows content to be cached.
+    - cron: "0 9 * * *"
   workflow_dispatch:
     inputs:
       limit:
-        description: "Rows to refresh from Google (Enterprise-billed, 150/day project cap)"
-        default: "110"
+        description: "Rows to refresh from Google (Enterprise-billed; project cap is 30/day)"
+        default: "25"
 
 permissions:
   contents: write
@@ -63,13 +64,15 @@ jobs:
 
       # The only paid step. Two limits bind it, and --limit respects both:
       #   1,000 / month  Places Enterprise free allowance
-      #     150 / day    GetPlaceRequestPerDayPerProject, set on the project
-      # 110 twice a week is ~950/month and stays under the daily cap. The
-      # script skips rows refreshed in the last 14 days, so a re-run is free,
-      # and it stops cleanly if the daily cap is hit rather than spinning.
+      #      30 / day    GetPlaceRequestPerDayPerProject, set on the project
+      #                  to keep 31 days of usage under that 1,000
+      # 25 a day is ~750/month and leaves the rest of the daily cap for the
+      # app itself — place photos and the address picker call the same method.
+      # The script skips rows refreshed in the last 14 days, so a re-run costs
+      # nothing, and it stops cleanly on the daily cap rather than spinning.
       - name: Refresh ratings, reviews and quotes
         if: ${{ env.VITE_GOOGLE_MAPS_API_KEY != '' }}
-        run: node scripts/refresh-places.mjs --limit ${{ inputs.limit || '110' }}
+        run: node scripts/refresh-places.mjs --limit ${{ inputs.limit || '25' }}
 
       - name: Push the rows to Supabase
         if: ${{ env.SUPABASE_SERVICE_ROLE_KEY != '' }}

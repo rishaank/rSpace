@@ -250,8 +250,39 @@ So none of that is fetched at render time any more:
   Essentials fields (`location`, `addressComponents`).
 
 The per-browser ceiling is a safety net, not a guarantee: it counts one
-browser, not everyone. The real hard stop belongs in the Cloud console under
-**APIs & Services › Quotas**.
+browser, not everyone. The real hard stop is the per-day quota on the Cloud
+project, and it is now set.
+
+### The quotas that make this free
+
+Google's free tier is **per SKU per month**; Cloud quotas are **per day**. So
+the rule for every cap is `daily × 31 ≤ the SKU's monthly allowance`. Set on
+project `nodal-unity-483903-g6` (Janyaa rSpace Maps):
+
+| API | Quota | Set | Tier · monthly free | Why |
+|---|---|---|---|---|
+| Places | `GetPlaceRequest` / day | **30** | Enterprise · 1,000 | 30×31 = 930 |
+| Places | `GetPhotoMediaRequest` / day | **30** | Enterprise · 1,000 | photos are Enterprise, not Essentials |
+| Places | `AutocompletePlacesRequest` / day | **300** | Essentials · 10,000 | was 175,000 |
+| Places | `SearchTextRequest` / day | 150 | Essentials IDs-only · free | free SKU; cap is a runaway guard |
+| Places | `SearchNearby` / `SearchMedia` / `SearchReviewPosts` per day | **1** | — | rSpace never calls them |
+| Maps JS | `Map loads` / day | 300 | Essentials · 10,000 | |
+| Maps JS | `3D Map loads` / day, `Maps Grounding Widget` / day | **1** | — | never used; 3D was unlimited |
+| Routes | `ComputeRoutes` / day | 150 | Essentials · 10,000 | 150×31 = 4,650 |
+| Routes | `ComputeRouteMatrix` / day | **1** | — | never used |
+
+Two traps worth remembering:
+
+- **Place Photo is an Enterprise SKU** (1,000/month), not Essentials. It is the
+  second most expensive thing the app can do after a Place Details refresh.
+- `GetPlaceRequest` is one quota covering three different jobs — the nightly
+  refresh, the address picker's `fetchFields`, and the photo lookup. They share
+  the same 30/day, which is why the workflow only asks for 25.
+
+Routes stays at 150/day because rSpace sends no traffic-aware options and only
+asks for `routes.duration`, which is a Compute Routes **Essentials** request.
+Adding `routingPreference: TRAFFIC_AWARE` would move it to Pro (5,000/month)
+and 150/day would no longer be safe — drop it to 150 → 30 if that ever changes.
 
 ## Where a place's words come from
 
