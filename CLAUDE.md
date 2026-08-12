@@ -93,6 +93,18 @@ node scripts/place-ids.mjs        # google ids    (free, IDs-only SKU)
 node scripts/refresh-places.mjs   # google facts  (the paid tier — see below)
 ```
 
+**These run on a schedule; you should rarely run them by hand.**
+`.github/workflows/refresh-catalogue.yml` does all three every Monday and
+Thursday, pushes the rows to Supabase, and commits `catalogue.json` — and
+since Vercel builds from the repo, that commit is the deploy. There is no
+server to run them on: rSpace is a static bundle, and the catalogue is a
+*build input*, so the schedule belongs to the build rather than the app.
+
+`sync-sanjose.mjs` is idempotent — two consecutive runs produce a byte-identical
+file. If that ever stops being true, something is fighting it for ownership of
+a field, which is what `refresh-places.mjs` overwriting the city's address used
+to do.
+
 Layers used, all from `geo.sanjoseca.gov/.../OPN_OpenDataService/MapServer`:
 
 | # | Layer | What it gives |
@@ -119,8 +131,17 @@ and Sofa". Both are real; neither is anywhere a reader calls home.
 
 Google is still the only source for ratings, review counts, photos, and
 quotes, and `refresh-places.mjs` is still the only thing that pays for them.
-It re-writes rows in place and never touches the city's half — the city is
-authoritative for a facility's name and location, Google for its reputation.
+It re-writes rows in place and never touches the city's half — **the city is
+authoritative for a facility's name, address, and location; Google only for
+its reputation.** Google's `formattedAddress` is deliberately not read: it
+used to win, and then the next sync put the city's back, which is what made
+the generator non-idempotent.
+
+Carrying Google's half onto a re-synced row matches on the name, then on a
+nearby name sharing a *distinctive* word. Matching on address alone is not
+safe — 23 addresses here belong to more than one site, and it once put
+Almaden Community Center's rating and a named reviewer's words onto Parma
+Park. Anything ambiguous is dropped with a warning instead of guessed.
 
 ## Design system
 
@@ -204,12 +225,19 @@ So none of that is fetched at render time any more:
   Google's caching limits and can be stored forever, which turns a search into
   a lookup and removes the chance of matching the wrong listing.
 - `scripts/refresh-places.mjs` is the **only** thing that pays for the
-  expensive fields, and with 329 places it is now the binding constraint on
-  how big the catalogue can get. One row is one Enterprise event against
-  1,000/month, so `--limit` defaults to **200** and rows refresh oldest-first
-  — consecutive weekly runs walk the whole catalogue instead of re-pulling the
-  same head of the list, and come round every 12 days, inside the 30 days
-  Google's terms allow content to be cached. Do not raise the limit past ~250.
+  expensive fields, and it is the binding constraint on catalogue size. Two
+  limits apply and **the tighter one is not the monthly allowance**:
+
+  | Limit | Value | Where |
+  |---|---|---|
+  | Places Enterprise free tier | 1,000 / month | Google's pricing |
+  | `GetPlaceRequestPerDayPerProject` | **150 / day** | set on the Cloud project |
+
+  The daily cap is what actually stops a full pass — a first attempt at all
+  329 rows got 74 in and then took `HTTP 429` for the rest. The script now
+  tells the two 429s apart: a per-minute rate limit backs off and retries, the
+  daily cap stops the run, saves what it got, and says when it resets.
+  Rows refreshed within 14 days are skipped, so a re-run costs nothing.
 - `scripts/place-ids.mjs` resolves the IDs. An IDs-only text search is free
   and uncapped, so it can be re-run at will.
 - At render time only two calls survive — the photo and the transit time —
@@ -263,10 +291,13 @@ RLS live in `supabase/migrations/0001_init.sql`.
   were invented, down to their `@example.org` contacts. Where-to-invest is
   derived from the city's condition assessments and Equity Index, ships with
   the build, and has no table.
-- **`0003_city_open_data.sql` has not been applied to the live project yet**,
-  and neither has the 329-row catalogue been pushed. Until both happen, a
-  deploy with Supabase configured still reads the old 26 rows. Run the
-  migration, then `node scripts/seed.mjs`.
+- `0003_city_open_data.sql` **is applied**, and the catalogue is loaded — the
+  live table holds the generated rows, not the old 26. Nine retired slugs were
+  deleted; the two real favorites both pointed at `almaden-community-center`,
+  which the city now calls `almaden-library-community-center` (same address,
+  same building), so they were re-pointed before the delete rather than being
+  cascade-deleted. **Check `favorites` before retiring a slug** — the FK is
+  `on delete cascade` and will take real user data with it.
 - "Confirm email" is **off**, so signup returns a session immediately.
 - Supabase's own validator rejects `example.com` and `.test` addresses, so
   throwaway test accounts need a plausible domain. To test signed-in flows,
