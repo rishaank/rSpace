@@ -383,6 +383,28 @@ One key, restricted by HTTP referrer to the Vercel domains and
 `http://localhost:5173/*`. Enabled: Maps JavaScript, Places (New), Routes.
 Geocoding is **not** enabled and the app does not need it.
 
+Seven APIs are enabled in total and that is deliberate. Google turns on
+~20 by default — BigQuery and its five satellites, Dataplex, Dataform,
+Datastore, Cloud SQL, Cloud Trace, Analytics Hub, and three Cloud Storage
+services — all of which showed no traffic over 30 days and none of which
+rSpace touches. They were **disabled**, not quota'd: a quota still leaves a
+billable surface open, and there is no daily cap to set on a service that
+should never be called. Disabling BigQuery also takes
+`cloudapis.googleapis.com` with it, which is an inert meta-service and not a
+dependency of the Maps APIs.
+
+Four non-Maps APIs are kept on purpose:
+
+| API | Why it stays |
+|---|---|
+| Cloud Monitoring | backs the Maps metrics and quota-usage pages — the dashboards used to verify all of the above |
+| Cloud Logging | same, for errors |
+| Service Usage | disabling it removes the ability to enable or disable any API |
+| Service Management | same |
+
+All four have generous free tiers and zero usage. Re-enabling anything
+retired here is a one-click undo in the console if it is ever needed.
+
 ## Design handoff
 
 The design lives in a Claude Design project; pull it with the `DesignSync` tool
