@@ -2,9 +2,15 @@
 // writes them back into src/lib/catalogue.json.
 //
 // Text Search asking for `places.id` only is the "Text Search Essentials
-// (IDs Only)" SKU, which Google charges nothing for and does not cap — so
-// this can be re-run freely. Everything the app does at runtime keys off the
-// id this produces, which turns a search into a lookup.
+// (IDs Only)" SKU, which Google charges nothing for. Everything the app does
+// at runtime keys off the id this produces, which turns a search into a
+// lookup.
+//
+// The SKU is free but the Cloud quota is 32/day, deliberately: the quota
+// counts requests and cannot see the field mask, so it has to be low enough
+// to stay inside the *Enterprise* allowance in case the mask above ever
+// widens. A full pass therefore spans several days. Resolved rows are
+// skipped on the next run, so that costs nothing but wall time.
 //
 //   VITE_GOOGLE_MAPS_API_KEY=… node scripts/place-ids.mjs
 //   VITE_GOOGLE_MAPS_API_KEY=… node scripts/place-ids.mjs --all   # re-resolve
@@ -44,6 +50,13 @@ for (const place of pending) {
       maxResultCount: 1,
     }),
   });
+
+  // At 32/day the per-minute limit (600) is out of reach, so a 429 is always
+  // the daily cap. Stop and keep what we got — the rest resolve tomorrow.
+  if (response.status === 429) {
+    console.error(`${place.id}: daily quota reached, stopping here.`);
+    break;
+  }
 
   if (!response.ok) {
     console.error(`${place.id}: HTTP ${response.status} ${await response.text()}`);

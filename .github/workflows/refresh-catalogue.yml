@@ -57,7 +57,11 @@ jobs:
       - name: Pull the city's open data
         run: node scripts/sync-sanjose.mjs
 
-      # Free SKU (IDs only). Picks up rows the city has newly published.
+      # Free SKU (IDs only), but quota'd at 32/day — the quota counts requests
+      # and cannot see the field mask, so it is set low enough to be safe even
+      # if that mask ever widens. Only rows missing an ID are resolved, which
+      # is a handful of newly published city sites per run, so the cap does not
+      # bind here. It stops cleanly and keeps what it got if it ever does.
       - name: Resolve any missing Google place IDs
         if: ${{ env.VITE_GOOGLE_MAPS_API_KEY != '' }}
         run: node scripts/place-ids.mjs

@@ -89,7 +89,7 @@ at will and costs nothing.
 
 ```bash
 node scripts/sync-sanjose.mjs     # city facts    (free, ~30s)
-node scripts/place-ids.mjs        # google ids    (free, IDs-only SKU)
+node scripts/place-ids.mjs        # google ids    (free SKU, 32/day)
 node scripts/refresh-places.mjs   # google facts  (the paid tier — see below)
 ```
 
@@ -238,8 +238,8 @@ So none of that is fetched at render time any more:
   tells the two 429s apart: a per-minute rate limit backs off and retries, the
   daily cap stops the run, saves what it got, and says when it resets.
   Rows refreshed within 14 days are skipped, so a re-run costs nothing.
-- `scripts/place-ids.mjs` resolves the IDs. An IDs-only text search is free
-  and uncapped, so it can be re-run at will.
+- `scripts/place-ids.mjs` resolves the IDs. An IDs-only text search is a free
+  SKU, but the quota is 32/day, so a full pass spans several days.
 - At render time only two calls survive — the photo and the transit time —
   and both go through `src/lib/cache.js`, which caches in `localStorage` and
   stops making calls once a per-browser monthly ceiling is hit. Concurrent
@@ -264,20 +264,34 @@ project `nodal-unity-483903-g6` (Janyaa rSpace Maps):
 | Places | `GetPlaceRequest` / day | **30** | Enterprise · 1,000 | 30×31 = 930 |
 | Places | `GetPhotoMediaRequest` / day | **30** | Enterprise · 1,000 | photos are Enterprise, not Essentials |
 | Places | `AutocompletePlacesRequest` / day | **300** | Essentials · 10,000 | was 175,000 |
-| Places | `SearchTextRequest` / day | 150 | Essentials IDs-only · free | free SKU; cap is a runaway guard |
+| Places | `SearchTextRequest` / day | **32** | Essentials IDs-only · free | 32×31 = 992, safe even if the mask widens |
 | Places | `SearchNearby` / `SearchMedia` / `SearchReviewPosts` per day | **1** | — | rSpace never calls them |
 | Maps JS | `Map loads` / day | 300 | Essentials · 10,000 | |
 | Maps JS | `3D Map loads` / day, `Maps Grounding Widget` / day | **1** | — | never used; 3D was unlimited |
 | Routes | `ComputeRoutes` / day | 150 | Essentials · 10,000 | 150×31 = 4,650 |
 | Routes | `ComputeRouteMatrix` / day | **1** | — | never used |
 
-Two traps worth remembering:
+Three traps worth remembering:
 
 - **Place Photo is an Enterprise SKU** (1,000/month), not Essentials. It is the
   second most expensive thing the app can do after a Place Details refresh.
 - `GetPlaceRequest` is one quota covering three different jobs — the nightly
   refresh, the address picker's `fetchFields`, and the photo lookup. They share
   the same 30/day, which is why the workflow only asks for 25.
+- **Quotas count requests, not SKUs.** Which tier a call bills at is decided by
+  its field mask, and no quota can see that. `SearchTextRequest` was 150/day,
+  which is free only while `place-ids.mjs` asks for IDs only — widen that mask
+  to an Enterprise field and 4,650 calls against a 1,000 allowance is roughly
+  $128/month. It is 32/day now so the cap holds whatever the mask asks for.
+  A full re-resolve of ~329 rows therefore takes ~11 days rather than one run;
+  IDs are stable, so that is the right trade.
+
+There is no spend cap on any of this. Google's spend-cap budgets only cover
+Gemini, Agent Platform, Cloud Run, and Cloud Run Functions — Maps is not
+eligible — so the daily quotas are the only enforcement, and the `Any spend
+alert` budget on the billing account (all projects, all services, $1, first
+threshold at 1% = $0.01) is only a tripwire. It emails; it does not stop
+anything.
 
 Routes stays at 150/day because rSpace sends no traffic-aware options and only
 asks for `routes.duration`, which is a Compute Routes **Essentials** request.
