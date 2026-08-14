@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-14T00:37:07.132Z",
+  "generated": "2026-08-14T08:20:37.045Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
@@ -1167,12 +1167,6 @@
     ],
     "dr-martin-luther-king-jr-library": [
       {
-        "title": "Bay Area Comics and Comix Exhibition",
-        "start": "2026-08-14T07:00:00.000Z",
-        "end": "2026-08-15T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Peer Support for MyConnectSV",
         "start": "2026-08-14T16:30:00.000Z",
         "end": "2026-08-14T19:00:00Z",
@@ -1627,15 +1621,15 @@
         "start": "2026-08-27T19:00:00.000Z",
         "end": "2026-08-27T20:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Bay Area Comics and Comix Exhibition",
+        "start": "2026-08-28T07:00:00.000Z",
+        "end": "2026-08-29T06:59:59Z",
+        "registration": false
       }
     ],
     "dr-roberto-cruz-alum-rock-library": [
-      {
-        "title": "3D Printing Open Hours",
-        "start": "2026-08-14T07:00:00.000Z",
-        "end": "2026-08-15T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Volunteer Away Your Fines",
         "start": "2026-08-15T19:00:00.000Z",
@@ -1766,6 +1760,12 @@
         "title": "Crochet Club",
         "start": "2026-08-26T23:00:00.000Z",
         "end": "2026-08-27T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "3D Printing Open Hours",
+        "start": "2026-08-28T07:00:00.000Z",
+        "end": "2026-08-29T06:59:59Z",
         "registration": false
       }
     ],
@@ -2799,12 +2799,6 @@
     ],
     "pearl-avenue-library": [
       {
-        "title": "I SPY: Back to School Scavenger Hunt",
-        "start": "2026-08-14T07:00:00.000Z",
-        "end": "2026-08-15T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Friday Fun: 3D Hot Air Balloon Craft",
         "start": "2026-08-14T23:00:00.000Z",
         "end": "2026-08-15T00:00:00Z",
@@ -2953,6 +2947,12 @@
         "start": "2026-08-27T07:00:00.000Z",
         "end": "2026-08-28T06:59:59Z",
         "registration": false
+      },
+      {
+        "title": "I SPY: Back to School Scavenger Hunt",
+        "start": "2026-08-28T07:00:00.000Z",
+        "end": "2026-08-29T06:59:59Z",
+        "registration": false
       }
     ],
     "rose-garden-library": [
@@ -3090,12 +3090,6 @@
       }
     ],
     "santa-teresa-library": [
-      {
-        "title": "Community Puzzle Swap",
-        "start": "2026-08-14T07:00:00.000Z",
-        "end": "2026-08-15T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Mini Canvas Painting for Teens",
         "start": "2026-08-14T23:00:00.000Z",
@@ -3268,6 +3262,12 @@
         "title": "Messy Play: Erupting Volcanoes",
         "start": "2026-08-27T23:00:00.000Z",
         "end": "2026-08-28T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Community Puzzle Swap",
+        "start": "2026-08-28T07:00:00.000Z",
+        "end": "2026-08-29T06:59:59Z",
         "registration": false
       }
     ],
@@ -3861,12 +3861,6 @@
     ],
     "vineland-library": [
       {
-        "title": "Make a Wish for Tanabata/Star Festival!",
-        "start": "2026-08-14T07:00:00.000Z",
-        "end": "2026-08-15T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Cricut Open Lab ",
         "start": "2026-08-14T23:00:00.000Z",
         "end": "2026-08-14T23:45:00Z",
@@ -4140,6 +4134,12 @@
         "title": "Digital Skills: One-On-One Help",
         "start": "2026-08-27T23:00:00.000Z",
         "end": "2026-08-28T00:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Make a Wish for Tanabata/Star Festival!",
+        "start": "2026-08-28T07:00:00.000Z",
+        "end": "2026-08-29T06:59:59Z",
         "registration": false
       }
     ],
