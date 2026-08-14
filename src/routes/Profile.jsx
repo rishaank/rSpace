@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { FACTORS, normalisedWeights, orderForWeights } from "../lib/scoring";
 import { Device, Meter, TabBar } from "../components/ui";
 
 // 15 · /profile
 export default function Profile() {
-  const { profile, weights, favorites, ranked } = useApp();
+  const { profile, weights, favorites, ranked, signOut } = useApp();
+  const navigate = useNavigate();
   const shown = normalisedWeights(weights);
   const regulars = ranked.filter((p) => favorites.includes(p.id)).slice(0, 3);
 
@@ -88,10 +89,23 @@ export default function Profile() {
           )}
         </div>
 
-        <div className="foot pad" style={{ padding: "20px 24px 20px" }}>
-          <Link to="/profile/edit" className="btn xs ghost">
-            Edit profile
-          </Link>
+        <div className="foot pad" style={{ padding: "20px 24px 20px", display: "grid", gap: 14 }}>
+          <div>
+            <Link to="/profile/edit" className="btn xs ghost">
+              Edit profile
+            </Link>
+          </div>
+          <button
+            type="button"
+            className="linkbtn clay"
+            style={{ borderTop: "1px solid var(--hairline)", paddingTop: 14 }}
+            onClick={async () => {
+              await signOut();
+              navigate("/");
+            }}
+          >
+            Sign out
+          </button>
         </div>
       </div>
 
