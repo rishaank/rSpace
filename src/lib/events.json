@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-14T15:56:58.020Z",
+  "generated": "2026-08-14T19:50:58.577Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 731,
+  "count": 733,
   "by_slug": {
     "almaden-library": [
       {
@@ -769,6 +769,12 @@
         "start": "2026-08-27T00:00:00.000Z",
         "end": "2026-08-27T01:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Hazlo tu mismo (DIY) para adultos | Adult DIY",
+        "start": "2026-08-28T19:00:00.000Z",
+        "end": "2026-08-28T20:00:00Z",
+        "registration": false
       }
     ],
     "calabazas-library": [
@@ -1166,18 +1172,6 @@
       }
     ],
     "dr-martin-luther-king-jr-library": [
-      {
-        "title": "Peer Support for MyConnectSV",
-        "start": "2026-08-14T16:30:00.000Z",
-        "end": "2026-08-14T19:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Tech Mentor",
-        "start": "2026-08-14T17:00:00.000Z",
-        "end": "2026-08-14T19:00:00Z",
-        "registration": false
-      },
       {
         "title": "Bay Area Comics and Comix Exhibition",
         "start": "2026-08-15T07:00:00.000Z",
@@ -1627,6 +1621,30 @@
         "start": "2026-08-28T07:00:00.000Z",
         "end": "2026-08-29T06:59:59Z",
         "registration": false
+      },
+      {
+        "title": "Peer Support for MyConnectSV",
+        "start": "2026-08-28T16:30:00.000Z",
+        "end": "2026-08-28T19:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Tech Mentor",
+        "start": "2026-08-28T17:00:00.000Z",
+        "end": "2026-08-28T19:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "*In Person* Mock Interview",
+        "start": "2026-08-28T19:00:00.000Z",
+        "end": "2026-08-28T20:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Tech Mentor",
+        "start": "2026-08-28T19:00:00.000Z",
+        "end": "2026-08-28T21:00:00Z",
+        "registration": false
       }
     ],
     "dr-roberto-cruz-alum-rock-library": [
@@ -2004,12 +2022,6 @@
         "title": "ESL Classes with Evergreen Valley College (EVC) - ESL 501: Reading & Writing 1",
         "start": "2026-08-26T17:30:00.000Z",
         "end": "2026-08-26T19:30:00Z",
-        "registration": false
-      },
-      {
-        "title": "Spanish Conversation Club for Spanish Language Learners",
-        "start": "2026-08-26T17:30:00.000Z",
-        "end": "2026-08-26T18:30:00Z",
         "registration": false
       },
       {
