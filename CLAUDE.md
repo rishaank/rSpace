@@ -29,8 +29,8 @@ learning Java; keep the code plain and skip clever abstractions.
 
 ```
 src/
-  lib/        scoring, catalogue.json (generated), Supabase + Google adapters,
-              describe, cache, app store
+  lib/        scoring, catalogue.json + events.json (both generated),
+              Supabase + Google adapters, describe, cache, app store
   components/ ui.jsx (design primitives, icons, brand), MapCanvas, RankFactors
   routes/     one file per screen, each headed with its design number
 supabase/     schema and RLS
@@ -78,7 +78,12 @@ lists as actually being on the site plus their total units, log-scaled, so a
 park with courts, a playground, a dog run, and picnic tables outscores one with
 a single lawn. Nothing on a row is hand-set any more.
 
-Interests filter the map; they never affect a score.
+Interests filter the map; they never affect a score. That filter is **on by
+default** whenever the profile has any interests picked — the map opens on the
+places the reader said they would go out for, not on all 328. It cannot start
+on with an empty interest list, because it would match nothing and the map
+would open empty. When it does empty the map, "Look past my interests" is the
+first remedy the empty state offers, ahead of distance and cost.
 
 ## Where the data comes from
 
@@ -91,14 +96,17 @@ at will and costs nothing.
 node scripts/sync-sanjose.mjs     # city facts    (free, ~30s)
 node scripts/place-ids.mjs        # google ids    (free SKU, 32/day)
 node scripts/refresh-places.mjs   # google facts  (the paid tier — see below)
+node scripts/sync-events.mjs      # library events (free, ~30s — see below)
 ```
 
 **These run on a schedule; you should rarely run them by hand.**
-`.github/workflows/refresh-catalogue.yml` does all three every Monday and
-Thursday, pushes the rows to Supabase, and commits `catalogue.json` — and
-since Vercel builds from the repo, that commit is the deploy. There is no
-server to run them on: rSpace is a static bundle, and the catalogue is a
-*build input*, so the schedule belongs to the build rather than the app.
+`.github/workflows/refresh-catalogue.yml` runs the first three daily at 09:00
+UTC, pushes the rows to Supabase, and commits `catalogue.json`;
+`.github/workflows/refresh-events.yml` runs `sync-events.mjs` every four hours
+and commits `events.json`. Since Vercel builds from the repo, those commits
+are the deploy. There is no server to run them on: rSpace is a static bundle,
+and both files are *build inputs*, so the schedule belongs to the build rather
+than the app.
 
 `sync-sanjose.mjs` is idempotent — two consecutive runs produce a byte-identical
 file. If that ever stops being true, something is fighting it for ownership of
@@ -168,6 +176,16 @@ buttons and tab labels, hairline rules instead of cards.
   the **same path**, so the tab icon and the in-app mark cannot drift; the
   PNGs beside it come from `./scripts/icons.sh` and should be regenerated
   whenever that SVG changes.
+- **The reader's display settings live on `.device`**, because every screen is
+  inside one. `profile.text_scale` becomes `--ui-scale`, which drives a `zoom`
+  on the frame's children — *not* a root font-size, because the screens size
+  their own type inline in px and inline px ignores a root font-size. Zoom
+  scales used values, so the boxes grow with the words. `.map`, `.mapgl`,
+  `.scrim` and the status bar are excluded: Google draws its own labels and
+  scaling its canvas only blurs it.
+- `profile.simple_ui` puts `.simple` on the frame: bigger buttons, chips and
+  stepper, and anything marked `when-detailed` hidden. Each screen marks its
+  own supporting detail, so the CSS never guesses what is expendable.
 - The status bar only renders in the ≥480px desktop preview frame; real phones
   get their own. It shows the **real** clock — it used to read a fixed `9:41`,
   and nothing on screen should be a prop.
@@ -191,13 +209,40 @@ All of these cost real debugging time. Do not undo them.
   and falls back to the drawn map, including a paint check a few seconds in.
 - The paint check **skips a hidden tab and waits for `visibilitychange`**. The
   vector map renders off `requestAnimationFrame`, which a background tab never
-  gets, so checking anyway condemned the whole session to the drawn map. This
-  also means the live map cannot be verified in a headless browser pane —
-  `getRenderingType()` stays `UNINITIALIZED` there no matter how healthy the
-  key is.
+  gets, so checking anyway condemned the whole session to the drawn map.
+- **The live map cannot be verified from any automation surface**, and the way
+  it fails there looks exactly like a bug in this repo. Measured, in both the
+  Browser pane and a scripted real Chrome tab: `document.visibilityState` is
+  permanently `hidden`, `document.hasFocus()` is false, and
+  `requestAnimationFrame` delivers **0 frames in 2 seconds** (about 4 during a
+  screenshot, against the ~120 a real tab would get).
+
+  What that produces is a trap. The map itself comes up healthy —
+  `getRenderingType()` reaches `VECTOR`, a `<canvas>` is created, tiles paint
+  in a screenshot, `getBounds()` resolves. But **no `AdvancedMarkerElement`
+  ever mounts**: the markers construct, take `map` and `position` without
+  throwing, and sit at `element.isConnected === false` forever. A default pin
+  with no custom content does the same, so it is not the `content` node. Their
+  mounting rides the same frame loop the tiles do not need.
+
+  So `pins: 0` on a `VECTOR` map with a painted canvas is **the expected
+  reading in automation and proves nothing**. Do not go looking for the bug —
+  there isn't one to find, and a "clean baseline" run with the working tree
+  stashed reproduces it identically, which makes the false trail convincing.
+  If the map has to be checked, open it in a real foreground browser window
+  and look.
 - The map is built **once**. Markers are diffed against the place list and the
   selection only rewrites a marker's class and label. Rebuilding the marker
   set on every render re-ran `fitBounds` and snapped the view back mid-pan.
+- The live map **frames the ranking's leader**, not the whole catalogue:
+  `MapScreen` passes `focus={visible[0]}` and `MapCanvas` centres on it at
+  `FOCUS_ZOOM` (14, about 2.5 miles across the frame). Fitting all 300-odd
+  pins was a view of San José in which the top place was one indistinguishable
+  rectangle. Reframing happens when the pin set changes or the ranking finds a
+  new leader — never on selection, which would fight a pan.
+- Because of that zoom, the selected place can sit outside the view, so
+  stepping through the ranking `panTo`s it — but **only when it is off-screen**,
+  so tapping a visible pin never shifts the map under the tap.
 - The **Geocoding API is a separate product** and is not enabled on the key.
   Neighborhood names come from Places `addressComponents`, not the Geocoder.
 - Every Google call returns `null` on failure instead of throwing. Screens must
@@ -207,8 +252,9 @@ All of these cost real debugging time. Do not undo them.
 
 The drawn "paper" map in `MapCanvas` is a first-class fallback, not a
 placeholder. It projects lat/lng into a band inset from the header and sheet.
-It always fits every pin by construction, which is why the "Show all places"
-control only exists on the live map.
+It always fits every pin by construction, so it ignores `focus` — the two maps
+frame differently on purpose, and the drawn one cannot zoom without losing the
+property that makes it readable.
 
 ## Staying inside Google's free tier
 
@@ -298,6 +344,56 @@ asks for `routes.duration`, which is a Compute Routes **Essentials** request.
 Adding `routingPreference: TRAFFIC_AWARE` would move it to Pro (5,000/month)
 and 150/day would no longer be safe — drop it to 150 → 30 if that ever changes.
 
+## What's on at a place
+
+`src/lib/events.json` is what is actually happening at a place in the next
+**14 days**, generated by `scripts/sync-events.mjs` and read through
+`src/lib/events.js`. It shows as one line on the map sheet and a
+"Happening here" list on the detail screen.
+
+Source is San José Public Library's own events service — the one behind
+`sjpl.bibliocommons.com`:
+
+```
+https://gateway.bibliocommons.com/v2/libraries/sjpl/events?limit=200&page=N
+```
+
+No key, no quota, not a Google SKU, ~30s for a full pass. That is why it can
+run six times a day (`.github/workflows/refresh-events.yml`) while the Google
+scripts run once. **Only libraries have a feed**, so 25 places out of 328 have
+events and the rest render nothing — absent is the honest state, not an empty
+"no events" panel implying the place is quiet.
+
+Four things about the upstream feed that cost time to find:
+
+- It **ignores every date filter** tried — `startDate`, `dateFrom`, `from`,
+  with and without times. The horizon is applied here instead.
+- Its pages are **not sorted by date**. Every page spans about a year, so
+  there is no early exit and all ~34 have to be walked.
+- The event's real content is on `definition`, not the event: `title`,
+  `start`, `branchLocationId`, `isCancelled`, `registrationInfo`. The event
+  itself carries only `indexStart` / `indexEnd` and registration counts.
+- Branch names arrive abbreviated and do **not** match catalogue names. The
+  join is exact-only, tried as `"<branch> Library"` first so `Almaden` lands
+  on `Almaden Library` rather than `Almaden Library & Community Center`, plus
+  a written-out `ALIASES` table for the five the feed shortens past
+  recognition (`King Library`, `Alum Rock`, `Mt. Pleasant`, `Tully`,
+  `East SJ Carnegie`). **Do not loosen this into a contains-match**: `Alum
+  Rock` also matches Alum Rock Park, Cherry Flats Reservoir and the Alum Rock
+  Youth Center, and a fuzzy join puts library story time in a park. An alias
+  pointing at a slug that no longer exists warns rather than silently
+  dropping the branch.
+
+`sync-events.mjs` is idempotent the way `sync-sanjose.mjs` is: it keeps the
+previous `generated` timestamp when nothing else changed, so an unchanged run
+writes a byte-identical file. Without that the timestamp alone would tick on
+every run and each of the six daily runs would commit — and every commit is a
+deploy.
+
+Events are deliberately **not** part of the score. Every scoring input is
+measured and stable; a number that moved because it is Tuesday would be a
+different kind of claim. They are a badge, like interests.
+
 ## Where a place's words come from
 
 Nothing describing a place is written by hand. The seed used to carry invented
@@ -336,6 +432,9 @@ RLS live in `supabase/migrations/0001_init.sql`.
   were invented, down to their `@example.org` contacts. Where-to-invest is
   derived from the city's condition assessments and Equity Index, ships with
   the build, and has no table.
+- `0004_display_settings.sql` **is applied**. It adds `text_scale` (1–1.3) and
+  `simple_ui` to `profiles`, both with defaults, so every profile written
+  before it reads back as the standard screen rather than as null.
 - `0003_city_open_data.sql` **is applied**, and the catalogue is loaded — the
   live table holds the generated rows, not the old 26. Nine retired slugs were
   deleted; the two real favorites both pointed at `almaden-community-center`,
@@ -435,6 +534,17 @@ The app has since diverged from the handoff in two places, deliberately:
 - Screen **13** dropped its `GATHERING PLACE NO. 03` eyebrow, its top-right
   heart, the photo credit, and the "From the reviews" head; the description
   moved above the address and the rating below it.
+- Screen **05 · /onboarding/you** gained a "How this should read" section under
+  the age field. The age was collected and then never used for anything — the
+  copy promised it would "flag places with age limits", which nothing did. It
+  now proposes a text size and the simplified layout, which the reader can
+  overrule on the spot; touching either control stops the proposing. Kept on
+  screen 05 rather than added as a sixth step so the four-step flow and the
+  handoff numbering both stay intact.
+- Screens **11** and **20** turned the sheet's step row into a tab. `‹ 3 / 320 ›`
+  now rides the sheet's top rule as one bordered group instead of spending a
+  37pt row inside the card, and the count is the control that opens the full
+  ranking.
 
 ## Conventions
 

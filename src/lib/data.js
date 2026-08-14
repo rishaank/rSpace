@@ -111,6 +111,9 @@ export async function deleteAccount(userId) {
 
 /* ── Profile ──────────────────────────────────────────────────── */
 
+// `text_scale` and `simple_ui` are the reader's display settings. The profiler
+// proposes them from the age given and they are changed in the profile, so a
+// row that predates them reads back as the standard screen either way.
 const EMPTY_PROFILE = {
   name: "",
   age: null,
@@ -119,6 +122,8 @@ const EMPTY_PROFILE = {
   lng: null,
   interests: [],
   profile_picture_url: null,
+  text_scale: 1,
+  simple_ui: false,
 };
 
 export async function getProfile(userId) {

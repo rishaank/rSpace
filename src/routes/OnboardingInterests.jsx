@@ -32,7 +32,8 @@ export default function OnboardingInterests() {
           </h2>
           <p className="prose" style={{ paddingTop: 11 }}>
             Pick any number. Interests filter the map — they don&rsquo;t change a place&rsquo;s
-            score. Off by default.
+            score. The map opens filtered to whatever you pick here, and you can turn that off
+            under Filters.
           </p>
         </div>
 

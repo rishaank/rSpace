@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { hasMapsKey, placePhoto, transitMinutes } from "../lib/google";
+import { EVENTS_SOURCE, eventsFor, whenLabel } from "../lib/events";
 import { FACTORS, formatMiles, scorePlace } from "../lib/scoring";
 import { Alarm, Device, Meter, SaveButton, Stars } from "../components/ui";
 
@@ -141,6 +142,8 @@ export default function PlaceDetail() {
           )}
         </div>
 
+        <Happening slug={merged.id} />
+
         {merged.quote && (
           <div className="pad" style={{ padding: "16px 24px 24px" }}>
             <blockquote className="quote">
@@ -178,6 +181,63 @@ export default function PlaceDetail() {
         <SaveButton saved={saved} onClick={() => toggleFavorite(place.id)} size={50} />
       </div>
     </Device>
+  );
+}
+
+/**
+ * What is on here in the next fortnight. Only libraries publish a feed, so
+ * this is absent on most places — and absent is the honest state, not an
+ * empty "no events" panel implying the place is quiet.
+ *
+ * The list is capped: a busy branch runs 60 things in two weeks, and a wall of
+ * them buries the rest of the screen. The count says what the cap hid.
+ */
+function Happening({ slug }) {
+  const events = eventsFor(slug);
+  if (!events.length) return null;
+
+  const shown = events.slice(0, 6);
+
+  return (
+    <div className="pad" style={{ paddingTop: 18 }}>
+      <div className="section-head">
+        <span>Happening here</span>
+        <span>{events.length} in the next two weeks</span>
+      </div>
+
+      {shown.map((event) => (
+        <div
+          key={`${event.start}-${event.title}`}
+          style={{
+            display: "flex",
+            gap: 12,
+            alignItems: "baseline",
+            borderBottom: "1px solid var(--hairline)",
+            padding: "9px 0",
+          }}
+        >
+          {/* Wide enough for the longest label the formatter can produce,
+              "Tomorrow 10:30 AM", at slightly tighter tracking than the
+              eyebrow's default — otherwise it wraps and the rows stop
+              lining up. */}
+          <span className="eyebrow moss" style={{ flex: "none", width: 122, letterSpacing: ".09em" }}>
+            {whenLabel(event.start)}
+          </span>
+          <span className="grow" style={{ fontSize: 17, lineHeight: 1.35 }}>
+            {event.title}
+          </span>
+          {event.registration && (
+            <span className="meta" style={{ flex: "none", fontSize: 14 }}>
+              sign up
+            </span>
+          )}
+        </div>
+      ))}
+
+      <p className="aside" style={{ fontSize: 15.5, paddingTop: 9 }}>
+        From {EVENTS_SOURCE}.
+      </p>
+    </div>
   );
 }
 

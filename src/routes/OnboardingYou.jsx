@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../lib/store";
-import { AppBar, Device, Field, Ticks } from "../components/ui";
+import { AppBar, Device, DisplayChoice, Field, Ticks, displayForAge } from "../components/ui";
 
 const BANDS = [
   { label: "Teen 13–17", age: 15 },
@@ -16,10 +16,24 @@ export default function OnboardingYou() {
 
   const [name, setName] = useState(profile?.name ?? "");
   const [age, setAge] = useState(profile?.age ? String(profile.age) : "");
+  const [display, setDisplay] = useState({
+    text_scale: profile?.text_scale ?? 1,
+    simple_ui: profile?.simple_ui ?? false,
+  });
+  // Someone who has been through this screen before has already answered the
+  // display question, so their age must not re-propose over that answer.
+  const [chose, setChose] = useState(profile?.age != null);
 
   const initial = name.trim().charAt(0).toUpperCase() || "·";
   const numericAge = Number.parseInt(age, 10);
   const canContinue = name.trim().length > 0 && numericAge >= 13 && numericAge < 120;
+
+  // This is what the age is for. Typing one proposes the display that usually
+  // suits it; the controls below are the proposal, already made, and touching
+  // any of them ends the proposing.
+  useEffect(() => {
+    if (!chose) setDisplay(displayForAge(numericAge));
+  }, [numericAge, chose]);
 
   function band(entry) {
     if (!Number.isFinite(numericAge)) return false;
@@ -30,7 +44,7 @@ export default function OnboardingYou() {
 
   async function submit(event) {
     event.preventDefault();
-    await saveProfile({ name: name.trim(), age: numericAge });
+    await saveProfile({ name: name.trim(), age: numericAge, ...display });
     navigate("/onboarding/place");
   }
 
@@ -46,9 +60,12 @@ export default function OnboardingYou() {
             <br />
             call you?
           </h2>
+          {/* This used to promise that age would "flag places with age limits
+              or programs meant for you", which nothing in the app did. Age
+              sets the display below, and that is all it does. */}
           <p className="prose" style={{ paddingTop: 11 }}>
-            Age helps us flag places with age limits or programs meant for you. It&rsquo;s never
-            shown publicly.
+            Your age sets how large the text is and how much detail each place shows &mdash; both
+            of which you can change below. It&rsquo;s never shown publicly.
           </p>
         </div>
 
@@ -84,6 +101,26 @@ export default function OnboardingYou() {
               ))}
             </div>
           </div>
+
+          {Number.isFinite(numericAge) && numericAge >= 13 && (
+            <div style={{ borderTop: "1px solid var(--hairline)", paddingTop: 18, display: "grid", gap: 14 }}>
+              <div>
+                <div className="display sm" style={{ fontSize: 22 }}>
+                  How this should read
+                </div>
+                <p className="aside" style={{ fontSize: 15.5, paddingTop: 4 }}>
+                  {chose ? "Your choice." : `Set from ${numericAge}. Change either one.`}
+                </p>
+              </div>
+              <DisplayChoice
+                value={display}
+                onChange={(next) => {
+                  setChose(true);
+                  setDisplay(next);
+                }}
+              />
+            </div>
+          )}
 
           <div
             style={{

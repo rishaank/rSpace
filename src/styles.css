@@ -141,6 +141,64 @@ a {
   color: #e8ecdd;
 }
 
+/* ── Display settings ─────────────────────────────────────────────
+   The reader's text size and simplified layout. Set in the profiler
+   from the age they gave, changed later in the profile, and carried
+   here because every screen is inside a .device.
+
+   `zoom` rather than a root font-size: the screens size their own
+   type inline in px, and inline px ignores a root font-size, so
+   nothing else reaches all of it. Zoom scales used values, so the
+   boxes grow with the words rather than the words outgrowing the
+   boxes. The two map layers are left alone — Google draws its own
+   labels, and scaling its canvas would only blur it.               */
+
+.device > * {
+  zoom: var(--ui-scale, 1);
+}
+
+.device > .map,
+.device > .mapgl,
+.device > .scrim,
+.device > .device-status {
+  zoom: 1;
+}
+
+/* Simpler screens: fewer details and bigger controls. What disappears is
+   marked `when-detailed` where it is written, so each screen decides what
+   counts as supporting detail rather than this file guessing. */
+
+.device.simple .when-detailed {
+  display: none;
+}
+
+.device.simple .btn.sm,
+.device.simple .btn.xs {
+  height: 58px;
+  font-size: 15px;
+  letter-spacing: 0.16em;
+}
+
+.device.simple .chip {
+  padding: 11px 17px;
+  font-size: 17.5px;
+}
+
+.device.simple .savebtn {
+  min-width: 58px;
+  min-height: 58px;
+}
+
+.device.simple .sheetnav .step {
+  width: 48px;
+  height: 46px;
+}
+
+.device.simple .sheetnav .count {
+  height: 46px;
+  font-size: 17px;
+}
+
 /* Scrolling body of a screen. Header and tab bar stay put. */
 .scroll {
   flex: 1;
@@ -1276,26 +1334,24 @@ a {
   background: var(--paper);
 }
 
-/* The sheet's own controls: step through the ranking, or open all of it. */
+/* The sheet's own controls: step through the ranking, or open all of it.
+   A tab riding the card's top rule rather than a row inside it — the card
+   gets that row of height back, and the group reads as attached to the card
+   it steps. Its bottom edge is the sheet's own 2px rule. */
 .sheetnav {
-  flex: none;
+  position: absolute;
+  right: var(--gutter);
+  bottom: 100%;
   display: flex;
-  align-items: center;
-  gap: 2px;
-  padding: 6px var(--gutter) 7px;
-  border-bottom: 1px solid var(--hairline);
-}
-
-/* Fixed width, so dropping an arrow at either end of the ranking doesn't
-   slide the count sideways. */
-.sheetnav .slot {
-  width: 24px;
-  flex: none;
+  align-items: stretch;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-bottom: 0;
 }
 
 .sheetnav .step {
-  width: 24px;
-  height: 24px;
+  width: 38px;
+  height: 34px;
   background: none;
   border: 0;
   padding: 0;
@@ -1305,11 +1361,30 @@ a {
   cursor: pointer;
 }
 
-.sheetnav .where {
-  padding-left: 8px;
+.sheetnav .step[disabled] {
+  color: var(--ghost);
+  cursor: default;
+}
+
+/* Where the reader is in the ranking, and the way to see the rest of it. */
+.sheetnav .count {
+  height: 34px;
+  padding: 0 11px;
+  background: none;
+  border: 0;
+  border-left: 1px solid var(--hairline);
+  border-right: 1px solid var(--hairline);
+  font-family: var(--serif);
   font-size: 15.5px;
-  color: var(--label);
+  line-height: 1;
+  color: var(--pine);
   font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.sheetnav .count b {
+  font-weight: 600;
+  color: var(--ink);
 }
 
 /* Opens the ranking and closes it again. Same weight as the map header's

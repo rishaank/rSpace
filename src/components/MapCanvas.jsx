@@ -7,6 +7,12 @@ import { hasMapsKey, loadMaps, mapsAuthFailure } from "../lib/google";
 const MAP_ID = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID;
 const hasMapId = Boolean(MAP_ID) && MAP_ID !== "DEMO_MAP_ID";
 
+// Close enough to read the streets around the place the ranking leads with —
+// roughly two and a half miles across the frame. Fitting all 300-odd pins put
+// the whole city on screen, where the top place was one indistinguishable
+// rectangle among hundreds.
+const FOCUS_ZOOM = 14;
+
 // Where a lat/lng lands inside the paper map, as a percentage of the frame.
 // The band is inset so nothing hides behind the header or the bottom sheet.
 function project(point, bounds) {
@@ -47,6 +53,14 @@ function paintPin(el, place, variant, selectedId) {
 export default function MapCanvas(props) {
   if (hasMapsKey && hasMapId && !props.loading) return <LiveMap {...props} />;
   return <PaperMap {...props} />;
+}
+
+// Whether a pin is inside the view already, so that stepping through the
+// ranking only moves the map when it has to. `getBounds()` is undefined until
+// the first idle event, and an unknown view is treated as "move it".
+function isOnScreen(map, google, point) {
+  const view = map.getBounds();
+  return view ? view.contains(new google.LatLng(point.lat, point.lng)) : false;
 }
 
 /** The design's drawn map — also the fallback whenever Google is unavailable. */
@@ -103,7 +117,7 @@ function PaperMap({
   );
 }
 
-function LiveMap({ places, selectedId, onSelect, origin, variant }) {
+function LiveMap({ places, selectedId, onSelect, origin, variant, focus }) {
   const host = useRef(null);
   const map = useRef(null);
   const markers = useRef(new Map());
@@ -119,6 +133,11 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
     .map((p) => p.id)
     .sort()
     .join(",");
+
+  // The map is built once, so the opening frame reads the leader off a ref
+  // rather than making a new leader rebuild the whole map.
+  const focusRef = useRef(focus);
+  focusRef.current = focus;
 
   // Build the map once. Tearing it down and rebuilding it on every state
   // change was what made panning feel like it snapped back.
@@ -137,8 +156,8 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
 
       map.current = new Map(host.current, {
         mapId: MAP_ID,
-        center: origin ?? { lat: 37.3352, lng: -121.8911 },
-        zoom: 12,
+        center: focusRef.current ?? origin ?? { lat: 37.3352, lng: -121.8911 },
+        zoom: focusRef.current ? FOCUS_ZOOM : 12,
         disableDefaultUI: true,
         gestureHandling: "greedy",
       });
@@ -222,8 +241,18 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
         }
       }
 
-      // Refit only when the set of pins changed, which is what this effect
-      // keys off. Refitting on every render snapped the view back mid-pan.
+      // Reframe only when the set of pins changed or the ranking found a new
+      // leader, which is what this effect keys off. Doing it on every render
+      // snapped the view back mid-pan.
+      //
+      // With a leader the frame is that place and its few blocks, not the
+      // whole catalogue: fitting 300-odd pins is a view of San José, not a
+      // view of the place the ranking is recommending.
+      if (focus) {
+        map.current.setCenter({ lat: focus.lat, lng: focus.lng });
+        map.current.setZoom(FOCUS_ZOOM);
+        return;
+      }
       if (!places.length) return;
       const bounds = new google.LatLngBounds();
       places.forEach((p) => bounds.extend({ lat: p.lat, lng: p.lng }));
@@ -235,7 +264,7 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [signature, ready]);
+  }, [signature, ready, focus?.id]);
 
   // Label and highlight without rebuilding: selection changes hundreds of
   // times a session and must not cost a marker rebuild or a refit.
@@ -245,6 +274,18 @@ function LiveMap({ places, selectedId, onSelect, origin, variant }) {
       if (el) paintPin(el, place, variant, selectedId);
     });
   }, [places, selectedId, variant]);
+
+  // Framed this close, the place the sheet is describing can sit outside the
+  // view — stepping down the ranking would otherwise talk about a pin that is
+  // nowhere on screen. Only moves when it has to, so clicking a pin that is
+  // already visible never shifts the map under the tap.
+  useEffect(() => {
+    const google = window.google?.maps;
+    const place = places.find((p) => p.id === selectedId);
+    if (!map.current || !google || !place) return;
+    if (isOnScreen(map.current, google, place)) return;
+    map.current.panTo({ lat: place.lat, lng: place.lng });
+  }, [places, selectedId]);
 
   // Google unreachable: fall back to the paper map rather than a blank panel.
   if (failed) {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { ALL_INTERESTS } from "../lib/seed";
-import { AppBar, Device, Field } from "../components/ui";
+import { AppBar, Device, DisplayChoice, Field } from "../components/ui";
 
 // 16 · /profile/edit
 export default function ProfileEdit() {
@@ -12,13 +12,17 @@ export default function ProfileEdit() {
   const [name, setName] = useState(profile.name);
   const [age, setAge] = useState(String(profile.age ?? ""));
   const [interests, setInterests] = useState(profile.interests ?? []);
+  const [display, setDisplay] = useState({
+    text_scale: profile.text_scale ?? 1,
+    simple_ui: profile.simple_ui ?? false,
+  });
   const [adding, setAdding] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
   const unpicked = ALL_INTERESTS.filter((i) => !interests.includes(i));
 
   async function save() {
-    await saveProfile({ name: name.trim(), age: Number.parseInt(age, 10), interests });
+    await saveProfile({ name: name.trim(), age: Number.parseInt(age, 10), interests, ...display });
     navigate("/profile");
   }
 
@@ -125,6 +129,15 @@ export default function ProfileEdit() {
                 ))}
               </div>
             )}
+          </div>
+
+          {/* The profiler proposed these from the age above. This is where
+              that proposal is overruled, and it takes effect on Save. */}
+          <div style={{ borderTop: "1px solid var(--hairline)", paddingTop: 18 }}>
+            <div className="section-head" style={{ marginBottom: 14 }}>
+              Display
+            </div>
+            <DisplayChoice value={display} onChange={setDisplay} />
           </div>
         </div>
 

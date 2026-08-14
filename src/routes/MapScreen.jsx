@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { CATEGORIES } from "../lib/seed";
+import { nextEvent, whenLabel } from "../lib/events";
 import { formatMiles } from "../lib/scoring";
 import {
   Chip,
@@ -32,6 +33,14 @@ const DEFAULT_FILTERS = {
   cost: "any",
 };
 
+// The interest filter starts on, so the map opens on the places the reader
+// said they would actually go out for rather than on all 300-odd. It can only
+// start on when there is something to match against — with no interests picked
+// it would match nothing and the map would open empty.
+function defaultFilters(interests) {
+  return { ...DEFAULT_FILTERS, interestsOnly: interests.length > 0 };
+}
+
 function apply(places, filters, interests) {
   const ceiling = COSTS.find((c) => c.id === filters.cost).max;
   return places.filter((place) => {
@@ -47,26 +56,55 @@ function apply(places, filters, interests) {
 export default function MapScreen() {
   const { ranked, profile, origin, scoring, favorites, toggleFavorite } = useApp();
 
-  const [filters, setFilters] = useState(DEFAULT_FILTERS);
+  // Stable identity: `visible` keys off it, and the map's pin set keys off
+  // that in turn.
+  const interests = useMemo(() => profile.interests ?? [], [profile.interests]);
+  const defaults = defaultFilters(interests);
+
+  const [filters, setFilters] = useState(defaults);
   const [sheet, setSheet] = useState(false);
   const [list, setList] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
-  const visible = useMemo(
-    () => apply(ranked, filters, profile.interests ?? []),
-    [ranked, filters, profile.interests]
-  );
+  const visible = useMemo(() => apply(ranked, filters, interests), [ranked, filters, interests]);
 
   const selected = visible.find((p) => p.id === selectedId) ?? visible[0] ?? null;
   // `visible` is already highest score first, so a step is a step through the
   // ranking. -1 when nothing is selected, which only happens with no results.
   const at = visible.findIndex((p) => p.id === selected?.id);
 
-  // What would bring results back, for the empty state.
+  // What would bring results back, for the empty state. Ordered by how likely
+  // each one is to be the filter actually in the way — the interest filter is
+  // on by default now, so it leads.
   const wider = Math.min(Math.max(filters.within * 2, 1), MAX_DISTANCE);
   const widerLabel = `${wider} ${wider === 1 ? "mile" : "miles"}`;
-  const widened = apply(ranked, { ...filters, within: wider }, profile.interests ?? []);
-  const relaxed = apply(ranked, { ...filters, cost: "any" }, profile.interests ?? []);
+  const anyInterest = apply(ranked, { ...filters, interestsOnly: false }, interests);
+  const widened = apply(ranked, { ...filters, within: wider }, interests);
+  const relaxed = apply(ranked, { ...filters, cost: "any" }, interests);
+
+  const remedies = [
+    filters.interestsOnly &&
+      anyInterest.length > 0 && {
+        id: "interests",
+        label: "Look past my interests",
+        note: `${anyInterest.length} places match everything except your interests.`,
+        fix: () => setFilters((f) => ({ ...f, interestsOnly: false })),
+      },
+    wider > filters.within &&
+      widened.length > 0 && {
+        id: "within",
+        label: `Widen to ${widerLabel}`,
+        note: `Widening the distance to ${widerLabel} finds ${widened.length} of them.`,
+        fix: () => setFilters((f) => ({ ...f, within: wider })),
+      },
+    filters.cost !== "any" &&
+      relaxed.length > 0 && {
+        id: "cost",
+        label: "Allow paid entry",
+        note: `${relaxed.length} places match everything except the cost filter.`,
+        fix: () => setFilters((f) => ({ ...f, cost: "any" })),
+      },
+  ].filter(Boolean);
 
   const activePills = [
     ...filters.categories.map((c) => ({ id: c, label: c, clear: () => setCategory(c) })),
@@ -105,6 +143,7 @@ export default function MapScreen() {
         selectedId={selected?.id}
         onSelect={setSelectedId}
         origin={origin}
+        focus={visible[0]}
       />
 
       <div className="mapheader">
@@ -121,7 +160,7 @@ export default function MapScreen() {
           <div className="display sm">
             {visible.length ? `${visible.length} place${visible.length === 1 ? "" : "s"}` : "No places"}
           </div>
-          <div className="meta" style={{ marginLeft: "auto", color: "var(--label)" }}>
+          <div className="meta when-detailed" style={{ marginLeft: "auto", color: "var(--label)" }}>
             {profile.location}
           </div>
         </div>
@@ -154,11 +193,22 @@ export default function MapScreen() {
               gap: 15,
             }}
           >
-            <FilterTab on={!filters.categories.length} onClick={() => setFilters((f) => ({ ...f, categories: [] }))}>
+            {/* On simpler screens the shortcut tabs go and the Filters sheet
+                is the one way in, rather than two ways to do one thing. */}
+            <FilterTab
+              className="when-detailed"
+              on={!filters.categories.length}
+              onClick={() => setFilters((f) => ({ ...f, categories: [] }))}
+            >
               All
             </FilterTab>
             {CATEGORIES.slice(0, 3).map((c) => (
-              <FilterTab key={c} on={filters.categories.includes(c)} onClick={() => setCategory(c)}>
+              <FilterTab
+                key={c}
+                className="when-detailed"
+                on={filters.categories.includes(c)}
+                onClick={() => setCategory(c)}
+              >
                 {c}
               </FilterTab>
             ))}
@@ -197,32 +247,22 @@ export default function MapScreen() {
               : `Nothing matches all ${activePills.length} filters.`}
           </h2>
           <p className="prose" style={{ fontSize: 17.5, color: "var(--text-2)" }}>
-            {wider > filters.within && widened.length > 0
-              ? `Widening the distance to ${widerLabel} finds ${widened.length} of them.`
-              : relaxed.length > 0
-                ? `${relaxed.length} places match everything except the cost filter.`
-                : "Nothing nearby fits this combination."}
+            {remedies[0]?.note ?? "Nothing nearby fits this combination."}
           </p>
           <div style={{ display: "grid", gap: 10, paddingTop: 8 }}>
-            {wider > filters.within && widened.length > 0 && (
+            {/* The likeliest way back is the filled button; the rest are
+                offered, not urged. */}
+            {remedies.map((remedy, i) => (
               <button
+                key={remedy.id}
                 type="button"
-                className="btn sm"
-                onClick={() => setFilters((f) => ({ ...f, within: wider }))}
+                className={i === 0 ? "btn sm" : "btn sm ghost"}
+                onClick={remedy.fix}
               >
-                Widen to {widerLabel}
+                {remedy.label}
               </button>
-            )}
-            {filters.cost !== "any" && relaxed.length > 0 && (
-              <button
-                type="button"
-                className="btn sm ghost"
-                onClick={() => setFilters((f) => ({ ...f, cost: "any" }))}
-              >
-                Allow paid entry
-              </button>
-            )}
-            <button type="button" className="linkbtn clay" onClick={() => setFilters(DEFAULT_FILTERS)}>
+            ))}
+            <button type="button" className="linkbtn clay" onClick={() => setFilters(defaults)}>
               Clear all filters
             </button>
           </div>
@@ -286,6 +326,10 @@ export default function MapScreen() {
                 {selected.category} · {formatMiles(selected.miles)} ·{" "}
                 {selected.price_level === 0 ? "No charge" : "Some charge"}
               </div>
+              {/* The one line on this card that is about right now rather than
+                  about the place in general, so it survives simpler screens
+                  when the rows below it don't. */}
+              <Soon slug={selected.id} />
             </div>
             <div style={{ textAlign: "right" }}>
               <div className="score" style={{ fontSize: 38, lineHeight: 0.9 }}>
@@ -295,7 +339,10 @@ export default function MapScreen() {
             </div>
           </div>
 
-          <div className="pad" style={{ paddingTop: 12 }}>
+          {/* Name, distance, score and the two buttons are the card. Everything
+              between is supporting detail, and simpler screens drop it — the
+              detail screen still carries all of it. */}
+          <div className="pad when-detailed" style={{ paddingTop: 12 }}>
             <SheetRow label="Google rating">
               {selected.rating == null ? (
                 "Not rated"
@@ -341,7 +388,8 @@ export default function MapScreen() {
           <FilterSheet
             filters={filters}
             setFilters={setFilters}
-            interests={profile.interests ?? []}
+            defaults={defaults}
+            interests={interests}
             count={visible.length}
             onDone={() => setSheet(false)}
           />
@@ -374,6 +422,31 @@ function FilterTab({ on, children, ...rest }) {
   );
 }
 
+// Only libraries have a feed, so most places show nothing here.
+function Soon({ slug }) {
+  const event = nextEvent(slug);
+  if (!event) return null;
+
+  return (
+    <div style={{ display: "flex", gap: 8, alignItems: "baseline", paddingTop: 7 }}>
+      <span className="eyebrow moss" style={{ flex: "none" }}>
+        {whenLabel(event.start)}
+      </span>
+      <span
+        style={{
+          fontSize: 16,
+          color: "var(--text-2)",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+        }}
+      >
+        {event.title}
+      </span>
+    </div>
+  );
+}
+
 function SheetRow({ label, children }) {
   return (
     <div
@@ -392,7 +465,7 @@ function SheetRow({ label, children }) {
   );
 }
 
-function FilterSheet({ filters, setFilters, interests, count, onDone }) {
+function FilterSheet({ filters, setFilters, defaults, interests, count, onDone }) {
   return (
     <div className="sheet">
       <div
@@ -417,7 +490,7 @@ function FilterSheet({ filters, setFilters, interests, count, onDone }) {
             fontSize: 14,
             letterSpacing: ".01em",
           }}
-          onClick={() => setFilters(DEFAULT_FILTERS)}
+          onClick={() => setFilters(defaults)}
         >
           Reset
         </button>

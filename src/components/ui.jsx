@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useApp } from "../lib/store";
 
 /* ── Icons ────────────────────────────────────────────────────────
    One stroked 24×24 set, from the design. `filled` applies to the
@@ -142,31 +143,41 @@ export function SaveButton({ saved, onClick, size = 54, bare = false, label }) {
    without going back to the map, or open the whole of it.            */
 
 /**
- * Step buttons and the list toggle. A step button is dropped at the end it
- * would run past, but keeps its slot, so the count under it never shifts.
+ * Steps through the ranking and opens the whole of it. This used to be a
+ * full-width row inside the card, which spent 37pt of a 390pt screen on two
+ * arrows and a count. It is a tab now: one bordered group riding the card's
+ * top rule, so it reads as part of the card and costs the card nothing.
+ *
+ * The count is the control that opens the list — the reader's position in the
+ * ranking and the way to see the rest of it are the same thing. At either end
+ * the arrow is disabled rather than dropped, so the group keeps its shape.
  */
 export function SheetNav({ index, count, onStep, onOpenList, listLabel }) {
   return (
     <div className="sheetnav">
-      <span className="slot">
-        {index > 0 && (
-          <button type="button" className="step" aria-label="Previous place" onClick={() => onStep(-1)}>
-            ‹
-          </button>
-        )}
-      </span>
-      <span className="slot">
-        {index < count - 1 && (
-          <button type="button" className="step" aria-label="Next place" onClick={() => onStep(1)}>
-            ›
-          </button>
-        )}
-      </span>
-      <span className="where">
-        {index + 1} of {count}
-      </span>
-      <button type="button" className="sheetopen" onClick={onOpenList}>
-        {listLabel}
+      <button
+        type="button"
+        className="step"
+        disabled={index <= 0}
+        aria-label="Previous place"
+        onClick={() => onStep(-1)}
+      >
+        ‹
+      </button>
+      <button type="button" className="count" onClick={onOpenList} aria-label={listLabel}>
+        <b>{index + 1}</b>
+        <span aria-hidden="true"> / </span>
+        <span className="sr-only">of </span>
+        {count}
+      </button>
+      <button
+        type="button"
+        className="step"
+        disabled={index >= count - 1}
+        aria-label="Next place"
+        onClick={() => onStep(1)}
+      >
+        ›
       </button>
     </div>
   );
@@ -211,8 +222,14 @@ export function RankedList({ places, currentId, onPick, meta, need = false }) {
 /* The 390 × 844 frame. On a real phone it's just the viewport; the status
    bar only appears in the desktop preview frame, never on device. It used to
    read a fixed 9:41 — it shows the actual clock now, so nothing on screen is
-   a prop. */
+   a prop.
+
+   It also carries the reader's display settings, because every screen is
+   inside one. `--ui-scale` drives a `zoom` on the frame's children rather
+   than a font-size: this codebase sizes type in px inline, and inline px
+   ignores a root font-size, so nothing else reaches all of it. */
 export function Device({ tone = "paper", children }) {
+  const { profile } = useApp();
   const [now, setNow] = useState(clockTime);
 
   useEffect(() => {
@@ -220,13 +237,72 @@ export function Device({ tone = "paper", children }) {
     return () => clearInterval(timer);
   }, []);
 
+  const scale = profile?.text_scale ?? 1;
+
   return (
-    <div className={`device on-${tone}`}>
+    <div
+      className={`device on-${tone}${profile?.simple_ui ? " simple" : ""}`}
+      style={scale === 1 ? undefined : { "--ui-scale": scale }}
+    >
       <div className="device-status" aria-hidden="true">
         <span>{now}</span>
         <span className="tick">▪▪▪ ⌁</span>
       </div>
       {children}
+    </div>
+  );
+}
+
+/* ── Display settings ─────────────────────────────────────────────
+   Shown twice: once in the profiler, where the age just entered picks
+   the opening answer, and again in the profile, where it is changed. */
+
+const TEXT_SCALES = [
+  { value: 1, label: "Standard" },
+  { value: 1.15, label: "Large" },
+  { value: 1.3, label: "Largest" },
+];
+
+/** What an age implies, before the reader says otherwise. */
+export function displayForAge(age) {
+  if (!Number.isFinite(age)) return { text_scale: 1, simple_ui: false };
+  if (age >= 70) return { text_scale: 1.3, simple_ui: true };
+  if (age >= 60) return { text_scale: 1.15, simple_ui: true };
+  return { text_scale: 1, simple_ui: false };
+}
+
+export function DisplayChoice({ value, onChange }) {
+  return (
+    <div style={{ display: "grid", gap: 16 }}>
+      <div style={{ display: "grid", gap: 10 }}>
+        <div className="eyebrow">Text size</div>
+        <div className="chips">
+          {TEXT_SCALES.map((size) => (
+            <Chip
+              key={size.value}
+              on={value.text_scale === size.value}
+              onClick={() => onChange({ ...value, text_scale: size.value })}
+              style={{ fontSize: 16.5 * size.value }}
+            >
+              {size.label}
+            </Chip>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ display: "grid", gap: 6 }}>
+        <div className="spread">
+          <div className="eyebrow">Simpler screens</div>
+          <Toggle
+            on={value.simple_ui}
+            label="Simpler screens"
+            onChange={(on) => onChange({ ...value, simple_ui: on })}
+          />
+        </div>
+        <div className="aside" style={{ fontSize: 15.5 }}>
+          Bigger buttons, and the secondary details on each place left out.
+        </div>
+      </div>
     </div>
   );
 }
