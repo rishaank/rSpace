@@ -1,17 +1,11 @@
 {
-  "generated": "2026-08-14T23:26:56.877Z",
+  "generated": "2026-08-15T03:44:27.222Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 734,
+  "count": 733,
   "by_slug": {
     "almaden-library": [
-      {
-        "title": "Almaden Teens Reach Meeting",
-        "start": "2026-08-14T23:30:00.000Z",
-        "end": "2026-08-15T00:30:00Z",
-        "registration": false
-      },
       {
         "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
         "start": "2026-08-15T07:00:00.000Z",
@@ -194,12 +188,6 @@
       }
     ],
     "alviso-library": [
-      {
-        "title": "AnatoKidz",
-        "start": "2026-08-14T23:30:00.000Z",
-        "end": "2026-08-15T00:30:00Z",
-        "registration": false
-      },
       {
         "title": "Saturday Crafternoons",
         "start": "2026-08-15T22:00:00.000Z",
@@ -427,12 +415,6 @@
     ],
     "berryessa-library": [
       {
-        "title": "English Language Learner (ELL) Conversation Club",
-        "start": "2026-08-14T23:30:00.000Z",
-        "end": "2026-08-15T00:30:00Z",
-        "registration": false
-      },
-      {
         "title": "普通话使用者的英语学习者（ELL）会话俱乐部 / ELL Conversation Club for Mandarin Speakers",
         "start": "2026-08-15T17:30:00.000Z",
         "end": "2026-08-15T18:30:00Z",
@@ -629,6 +611,12 @@
         "start": "2026-08-28T21:00:00.000Z",
         "end": "2026-08-28T23:30:00Z",
         "registration": false
+      },
+      {
+        "title": "English Language Learner (ELL) Conversation Club",
+        "start": "2026-08-28T23:30:00.000Z",
+        "end": "2026-08-29T00:30:00Z",
+        "registration": false
       }
     ],
     "biblioteca-latinoamericana-library": [
@@ -790,12 +778,6 @@
       }
     ],
     "calabazas-library": [
-      {
-        "title": "Junior Dance Hour",
-        "start": "2026-08-14T23:30:00.000Z",
-        "end": "2026-08-15T00:30:00Z",
-        "registration": false
-      },
       {
         "title": "Family Storytime & Stay and Play",
         "start": "2026-08-15T17:30:00.000Z",
@@ -1004,6 +986,12 @@
         "title": "Basic English Conversation",
         "start": "2026-08-28T23:00:00.000Z",
         "end": "2026-08-29T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Junior Dance Hour",
+        "start": "2026-08-28T23:30:00.000Z",
+        "end": "2026-08-29T00:30:00Z",
         "registration": false
       }
     ],
@@ -1867,6 +1855,12 @@
         "registration": false
       },
       {
+        "title": "Music and Movement for Adults",
+        "start": "2026-08-23T22:00:00.000Z",
+        "end": "2026-08-23T23:30:00Z",
+        "registration": false
+      },
+      {
         "title": "Knitting/Crocheting/Tatting/Bobbin Lace Club",
         "start": "2026-08-24T23:30:00.000Z",
         "end": "2026-08-25T00:30:00Z",
@@ -2263,12 +2257,6 @@
     ],
     "evergreen-library": [
       {
-        "title": "Vietnamese Storytime & Craft-Kể chuyện và làm thủ công bằng tiếng Việt",
-        "start": "2026-08-14T23:30:00.000Z",
-        "end": "2026-08-15T00:30:00Z",
-        "registration": false
-      },
-      {
         "title": "Crochet Club",
         "start": "2026-08-15T19:00:00.000Z",
         "end": "2026-08-15T20:00:00Z",
@@ -2378,12 +2366,6 @@
       }
     ],
     "hillview-library": [
-      {
-        "title": "U.S. Citizenship Mock Interview Practice / Práctica de entrevista simulada para la ciudadanía estadounidense",
-        "start": "2026-08-14T23:30:00.000Z",
-        "end": "2026-08-15T00:30:00Z",
-        "registration": false
-      },
       {
         "title": "Hillview - Overfelt Adult Education ESL Class",
         "start": "2026-08-15T17:30:00.000Z",
@@ -2562,6 +2544,12 @@
         "title": "U.S. Citizenship Mock Interview Practice / Práctica de entrevista simulada para la ciudadanía estadounidense",
         "start": "2026-08-28T00:30:00.000Z",
         "end": "2026-08-28T01:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "U.S. Citizenship Mock Interview Practice / Práctica de entrevista simulada para la ciudadanía estadounidense",
+        "start": "2026-08-28T23:30:00.000Z",
+        "end": "2026-08-29T00:30:00Z",
         "registration": false
       }
     ],
@@ -3211,6 +3199,12 @@
         "registration": false
       },
       {
+        "title": "Santa Teresa Junior Math Club",
+        "start": "2026-08-24T23:30:00.000Z",
+        "end": "2026-08-25T00:30:00Z",
+        "registration": false
+      },
+      {
         "title": "Community Puzzle Swap",
         "start": "2026-08-25T07:00:00.000Z",
         "end": "2026-08-26T06:59:59Z",
@@ -3268,6 +3262,12 @@
         "title": "Community Puzzle Swap",
         "start": "2026-08-28T07:00:00.000Z",
         "end": "2026-08-29T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "1,000 Books Before Kindergarten Library Picnic Storytime",
+        "start": "2026-08-28T23:30:00.000Z",
+        "end": "2026-08-29T00:00:00Z",
         "registration": false
       }
     ],
@@ -3744,12 +3744,6 @@
       }
     ],
     "village-square-library": [
-      {
-        "title": "Video Game Conversation Club",
-        "start": "2026-08-14T23:30:00.000Z",
-        "end": "2026-08-15T00:30:00Z",
-        "registration": false
-      },
       {
         "title": "Piano Basics & Music Principles ",
         "start": "2026-08-15T17:00:00.000Z",
