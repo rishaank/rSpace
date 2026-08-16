@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-16T15:27:16.145Z",
+  "generated": "2026-08-16T19:25:11.239Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 728,
+  "count": 730,
   "by_slug": {
     "almaden-library": [
       {
@@ -182,12 +182,6 @@
       }
     ],
     "alviso-library": [
-      {
-        "title": "Reading to Children",
-        "start": "2026-08-16T21:00:00.000Z",
-        "end": "2026-08-16T22:00:00Z",
-        "registration": false
-      },
       {
         "title": "STEM Sundays: AI Learning with LEGOS",
         "start": "2026-08-16T22:00:00.000Z",
@@ -2229,6 +2223,12 @@
         "start": "2026-08-29T22:00:00.000Z",
         "end": "2026-08-29T23:00:00Z",
         "registration": false
+      },
+      {
+        "title": "OneinMath: Math Program for K-3rd at Educational Park",
+        "start": "2026-08-30T19:00:00.000Z",
+        "end": "2026-08-30T20:00:00Z",
+        "registration": false
       }
     ],
     "evergreen-library": [
@@ -2344,6 +2344,12 @@
         "title": "LEGO® Fun",
         "start": "2026-08-29T22:30:00.000Z",
         "end": "2026-08-29T23:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "OneInMath: Math Program for K-3rd at Evergreen Library",
+        "start": "2026-08-30T19:00:00.000Z",
+        "end": "2026-08-30T20:00:00Z",
         "registration": false
       }
     ],
@@ -2538,6 +2544,12 @@
         "title": "Lucha Libro",
         "start": "2026-08-29T20:00:00.000Z",
         "end": "2026-08-29T22:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "English & Math Tutoring ",
+        "start": "2026-08-30T19:00:00.000Z",
+        "end": "2026-08-30T21:00:00Z",
         "registration": false
       }
     ],
