@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-16T07:35:37.336Z",
+  "generated": "2026-08-16T15:27:16.145Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 729,
+  "count": 728,
   "by_slug": {
     "almaden-library": [
       {
@@ -508,12 +508,6 @@
         "title": "Reading to Children",
         "start": "2026-08-22T18:00:00.000Z",
         "end": "2026-08-22T18:30:00Z",
-        "registration": false
-      },
-      {
-        "title": "Reading to Children",
-        "start": "2026-08-23T23:00:00.000Z",
-        "end": "2026-08-23T23:30:00Z",
         "registration": false
       },
       {
