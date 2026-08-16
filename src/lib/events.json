@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-15T23:25:23.871Z",
+  "generated": "2026-08-16T03:52:47.476Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
@@ -1619,12 +1619,6 @@
     ],
     "dr-roberto-cruz-alum-rock-library": [
       {
-        "title": "Language and Culture Swap",
-        "start": "2026-08-15T23:30:00.000Z",
-        "end": "2026-08-16T00:30:00Z",
-        "registration": false
-      },
-      {
         "title": "Art Club",
         "start": "2026-08-16T20:00:00.000Z",
         "end": "2026-08-16T22:00:00Z",
@@ -1754,6 +1748,12 @@
         "title": "Practice Spanish Speaking Skills for Spanish Language Learners",
         "start": "2026-08-29T22:00:00.000Z",
         "end": "2026-08-29T23:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Language and Culture Swap",
+        "start": "2026-08-29T23:30:00.000Z",
+        "end": "2026-08-30T00:30:00Z",
         "registration": false
       }
     ],
