@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-16T23:24:56.899Z",
+  "generated": "2026-08-17T07:56:26.171Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
@@ -1131,12 +1131,6 @@
     ],
     "dr-martin-luther-king-jr-library": [
       {
-        "title": "Bay Area Comics and Comix Exhibition",
-        "start": "2026-08-17T07:00:00.000Z",
-        "end": "2026-08-18T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "One-on-One Job Assistance",
         "start": "2026-08-17T18:00:00.000Z",
         "end": "2026-08-17T20:00:00Z",
@@ -1602,6 +1596,12 @@
         "title": "Indoor Family Storytime + Stay & Play",
         "start": "2026-08-30T23:00:00.000Z",
         "end": "2026-08-31T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Bay Area Comics and Comix Exhibition",
+        "start": "2026-08-31T07:00:00.000Z",
+        "end": "2026-09-01T06:59:59Z",
         "registration": false
       }
     ],
@@ -2787,12 +2787,6 @@
     ],
     "pearl-avenue-library": [
       {
-        "title": "I SPY: Back to School Scavenger Hunt",
-        "start": "2026-08-17T07:00:00.000Z",
-        "end": "2026-08-18T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Tech Mentor / Computer & iPad Assistance",
         "start": "2026-08-17T23:00:00.000Z",
         "end": "2026-08-18T01:00:00Z",
@@ -2935,6 +2929,12 @@
         "start": "2026-08-30T07:00:00.000Z",
         "end": "2026-08-31T06:59:59Z",
         "registration": false
+      },
+      {
+        "title": "I SPY: Back to School Scavenger Hunt",
+        "start": "2026-08-31T07:00:00.000Z",
+        "end": "2026-09-01T06:59:59Z",
+        "registration": false
       }
     ],
     "rose-garden-library": [
@@ -3072,12 +3072,6 @@
       }
     ],
     "santa-teresa-library": [
-      {
-        "title": "Community Puzzle Swap",
-        "start": "2026-08-17T07:00:00.000Z",
-        "end": "2026-08-18T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Community Puzzle Swap",
         "start": "2026-08-18T07:00:00.000Z",
@@ -3262,6 +3256,12 @@
         "title": "Community Puzzle Swap",
         "start": "2026-08-30T07:00:00.000Z",
         "end": "2026-08-31T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "Community Puzzle Swap",
+        "start": "2026-08-31T07:00:00.000Z",
+        "end": "2026-09-01T06:59:59Z",
         "registration": false
       }
     ],
@@ -3868,12 +3868,6 @@
     "vineland-library": [
       {
         "title": "Make a Wish for Tanabata/Star Festival!",
-        "start": "2026-08-17T07:00:00.000Z",
-        "end": "2026-08-18T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "Make a Wish for Tanabata/Star Festival!",
         "start": "2026-08-18T07:00:00.000Z",
         "end": "2026-08-19T06:59:59Z",
         "registration": false
@@ -4140,6 +4134,12 @@
         "title": "STEM Fun: Builders Club",
         "start": "2026-08-30T20:30:00.000Z",
         "end": "2026-08-30T21:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Make a Wish for Tanabata/Star Festival!",
+        "start": "2026-08-31T07:00:00.000Z",
+        "end": "2026-09-01T06:59:59Z",
         "registration": false
       }
     ],
