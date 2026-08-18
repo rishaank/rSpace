@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-18T03:49:43.160Z",
+  "generated": "2026-08-18T07:43:06.209Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 722,
+  "count": 721,
   "by_slug": {
     "almaden-library": [
       {
@@ -1107,12 +1107,6 @@
     ],
     "dr-martin-luther-king-jr-library": [
       {
-        "title": "Bay Area Comics and Comix Exhibition",
-        "start": "2026-08-18T07:00:00.000Z",
-        "end": "2026-08-19T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Teens Reach: Help Us BTS",
         "start": "2026-08-18T23:00:00.000Z",
         "end": "2026-08-19T01:00:00Z",
@@ -1572,6 +1566,12 @@
         "title": "Reading Buddies with Grant",
         "start": "2026-09-01T00:00:00.000Z",
         "end": "2026-09-01T01:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Bay Area Comics and Comix Exhibition",
+        "start": "2026-09-01T07:00:00.000Z",
+        "end": "2026-09-02T06:59:59Z",
         "registration": false
       }
     ],
@@ -2739,12 +2739,6 @@
     ],
     "pearl-avenue-library": [
       {
-        "title": "I SPY: Back to School Scavenger Hunt",
-        "start": "2026-08-18T07:00:00.000Z",
-        "end": "2026-08-19T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Creative Writing Workshop",
         "start": "2026-08-18T23:00:00.000Z",
         "end": "2026-08-19T00:00:00Z",
@@ -3025,12 +3019,6 @@
     ],
     "santa-teresa-library": [
       {
-        "title": "Community Puzzle Swap",
-        "start": "2026-08-18T07:00:00.000Z",
-        "end": "2026-08-19T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "ELL (English Language Learner) Conversation Club",
         "start": "2026-08-18T18:00:00.000Z",
         "end": "2026-08-18T19:00:00Z",
@@ -3215,15 +3203,15 @@
         "start": "2026-08-31T07:00:00.000Z",
         "end": "2026-09-01T06:59:59Z",
         "registration": false
+      },
+      {
+        "title": "Community Puzzle Swap",
+        "start": "2026-09-01T07:00:00.000Z",
+        "end": "2026-09-02T06:59:59Z",
+        "registration": false
       }
     ],
     "seven-trees-library": [
-      {
-        "title": "1:1 Tech Mentor Appointment",
-        "start": "2026-08-18T07:00:00.000Z",
-        "end": "2026-08-19T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Infant & Toddler Storytime at Seven Trees",
         "start": "2026-08-18T18:00:00.000Z",
@@ -3492,6 +3480,18 @@
         "title": "Family Storytime + Stay & Play",
         "start": "2026-09-01T00:30:00.000Z",
         "end": "2026-09-01T01:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "1K Books Book Buddy Mailbox ",
+        "start": "2026-09-01T07:00:00.000Z",
+        "end": "2026-10-01T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "1:1 Tech Mentor Appointment",
+        "start": "2026-09-01T07:00:00.000Z",
+        "end": "2026-09-02T06:59:59Z",
         "registration": false
       }
     ],
@@ -3813,18 +3813,6 @@
     ],
     "vineland-library": [
       {
-        "title": "Make a Wish for Tanabata/Star Festival!",
-        "start": "2026-08-18T07:00:00.000Z",
-        "end": "2026-08-19T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "eBook Help: For Seniors",
-        "start": "2026-08-18T07:00:00.000Z",
-        "end": "2026-08-19T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Crochet & Knitting Club",
         "start": "2026-08-18T18:00:00.000Z",
         "end": "2026-08-18T19:30:00Z",
@@ -4086,6 +4074,12 @@
         "title": "Make a Wish for Tanabata/Star Festival!",
         "start": "2026-08-31T07:00:00.000Z",
         "end": "2026-09-01T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "eBook Help: For Seniors",
+        "start": "2026-09-01T07:00:00.000Z",
+        "end": "2026-09-02T06:59:59Z",
         "registration": false
       }
     ],
