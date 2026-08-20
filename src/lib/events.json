@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-20T03:51:25.506Z",
+  "generated": "2026-08-20T07:45:54.634Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 708,
+  "count": 706,
   "by_slug": {
     "almaden-library": [
       {
@@ -1017,12 +1017,6 @@
     ],
     "dr-martin-luther-king-jr-library": [
       {
-        "title": "Bay Area Comics and Comix Exhibition",
-        "start": "2026-08-20T07:00:00.000Z",
-        "end": "2026-08-21T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Tech Mentor",
         "start": "2026-08-20T17:00:00.000Z",
         "end": "2026-08-20T19:00:00Z",
@@ -1440,6 +1434,12 @@
         "title": "Indoor Music and Movement",
         "start": "2026-09-03T00:30:00.000Z",
         "end": "2026-09-03T01:15:00Z",
+        "registration": false
+      },
+      {
+        "title": "Bay Area Comics and Comix Exhibition",
+        "start": "2026-09-03T07:00:00.000Z",
+        "end": "2026-09-04T06:59:59Z",
         "registration": false
       }
     ],
@@ -2625,12 +2625,6 @@
     ],
     "pearl-avenue-library": [
       {
-        "title": "I SPY: Back to School Scavenger Hunt",
-        "start": "2026-08-20T07:00:00.000Z",
-        "end": "2026-08-21T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Pearl Avenue Teens Reach Meeting",
         "start": "2026-08-21T00:00:00.000Z",
         "end": "2026-08-21T01:00:00Z",
@@ -2911,12 +2905,6 @@
     ],
     "santa-teresa-library": [
       {
-        "title": "Community Puzzle Swap",
-        "start": "2026-08-20T07:00:00.000Z",
-        "end": "2026-08-21T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Indoor Family Storytime",
         "start": "2026-08-20T18:00:00.000Z",
         "end": "2026-08-20T18:30:00Z",
@@ -3107,15 +3095,15 @@
         "start": "2026-09-02T18:00:00.000Z",
         "end": "2026-09-02T19:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Community Puzzle Swap",
+        "start": "2026-09-03T07:00:00.000Z",
+        "end": "2026-09-04T06:59:59Z",
+        "registration": false
       }
     ],
     "seven-trees-library": [
-      {
-        "title": "1:1 Tech Mentor Appointment",
-        "start": "2026-08-20T07:00:00.000Z",
-        "end": "2026-08-21T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Mahjong Club",
         "start": "2026-08-20T17:00:00.000Z",
@@ -3384,6 +3372,12 @@
         "title": "Family Storytime + Stay & Play",
         "start": "2026-09-03T00:30:00.000Z",
         "end": "2026-09-03T01:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "1:1 Tech Mentor Appointment",
+        "start": "2026-09-03T07:00:00.000Z",
+        "end": "2026-09-04T06:59:59Z",
         "registration": false
       }
     ],
@@ -3717,24 +3711,6 @@
     ],
     "vineland-library": [
       {
-        "title": "3D Printing On Demand",
-        "start": "2026-08-20T07:00:00.000Z",
-        "end": "2026-08-21T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "Make a Wish for Tanabata/Star Festival!",
-        "start": "2026-08-20T07:00:00.000Z",
-        "end": "2026-08-21T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "eBook Help: For Seniors",
-        "start": "2026-08-20T07:00:00.000Z",
-        "end": "2026-08-21T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "ELL Beginning English: The Basics",
         "start": "2026-08-20T17:30:00.000Z",
         "end": "2026-08-20T18:30:00Z",
@@ -3978,6 +3954,18 @@
         "title": "Reading to Children",
         "start": "2026-09-02T17:30:00.000Z",
         "end": "2026-09-02T18:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "3D Printing On Demand",
+        "start": "2026-09-03T07:00:00.000Z",
+        "end": "2026-09-04T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "eBook Help: For Seniors",
+        "start": "2026-09-03T07:00:00.000Z",
+        "end": "2026-09-04T06:59:59Z",
         "registration": false
       }
     ],
