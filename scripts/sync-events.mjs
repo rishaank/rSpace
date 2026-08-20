@@ -42,10 +42,24 @@ const MAX_PAGES = 60;
 // directory, and the file grows for no one.
 const HORIZON_DAYS = 14;
 
+// The feed serves the occasional 500 — one page out of ~34 failing took the
+// whole run down and mailed a failure, six times a day against an upstream
+// that was fine again seconds later. A page is only really missing if it
+// fails three times in a row; anything less than that is worth waiting out.
+// Still throws after that, because half a walk is a truncated events.json and
+// a stale file is better than a wrong one.
 async function fetchPage(page) {
-  const response = await fetch(`${FEED}?limit=${PAGE_SIZE}&page=${page}`);
-  if (!response.ok) throw new Error(`HTTP ${response.status} on page ${page}`);
-  return response.json();
+  for (let attempt = 1; ; attempt++) {
+    try {
+      const response = await fetch(`${FEED}?limit=${PAGE_SIZE}&page=${page}`);
+      if (!response.ok) throw new Error(`HTTP ${response.status} on page ${page}`);
+      return await response.json();
+    } catch (error) {
+      if (attempt === 3) throw error;
+      console.error(`${error.message} — retrying (${attempt}/3)`);
+      await new Promise((resolve) => setTimeout(resolve, attempt * 3000));
+    }
+  }
 }
 
 /**
