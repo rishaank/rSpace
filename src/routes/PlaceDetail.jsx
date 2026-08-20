@@ -3,6 +3,13 @@ import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { hasMapsKey, placePhoto, transitMinutes } from "../lib/google";
 import { EVENTS_SOURCE, eventsFor, whenLabel } from "../lib/events";
+import {
+  BELLARMINE_SOURCE,
+  BELLARMINE_URL,
+  clubsFor,
+  milesFromCampus,
+  reasonFor,
+} from "../lib/bellarmine";
 import { FACTORS, formatMiles, scorePlace } from "../lib/scoring";
 import { Alarm, Device, Meter, SaveButton, Stars } from "../components/ui";
 
@@ -144,6 +151,8 @@ export default function PlaceDetail() {
 
         <Happening slug={merged.id} />
 
+        <Clubs place={merged} />
+
         {merged.quote && (
           <div className="pad" style={{ padding: "16px 24px 24px" }}>
             <blockquote className="quote">
@@ -236,6 +245,78 @@ function Happening({ slug }) {
 
       <p className="aside" style={{ fontSize: 15.5, paddingTop: 9 }}>
         From {EVENTS_SOURCE}.
+      </p>
+    </div>
+  );
+}
+
+/**
+ * The Bellarmine clubs that could hold a meeting here.
+ *
+ * Same rule as Happening above: absent on the places nothing matches, rather
+ * than an empty panel implying no one at school would come. A club is listed
+ * because the city publishes that this site has the thing the club does —
+ * Pickleball Club against the city's pickleball courts, Chess Club against
+ * its game tables, the four talk-and-table tabs against a library — so every
+ * row can say why it is here.
+ *
+ * Distance is measured from campus, not from the reader's home. The score
+ * above already answers "how far is this from where I live"; a club meeting
+ * starts at the last bell, and that is a different question.
+ */
+function Clubs({ place }) {
+  const clubs = clubsFor(place.id);
+  if (!clubs.length) return null;
+
+  const shown = clubs.slice(0, 8);
+  const miles = milesFromCampus(place);
+
+  return (
+    <div className="pad" style={{ paddingTop: 18 }}>
+      <div className="section-head">
+        <span>Bellarmine clubs</span>
+        <span>{clubs.length} could meet here</span>
+      </div>
+
+      {shown.map((club, i) => {
+        const reason = reasonFor(club);
+        // A library matches 29 clubs for the same reason 29 times over, and
+        // printing it on every row turns the answer into wallpaper. The
+        // reason is a heading for the run of clubs under it, not a property
+        // of each one.
+        const heading = i === 0 || reason !== reasonFor(shown[i - 1]);
+
+        return (
+          <div
+            key={club.id}
+            style={{
+              display: "flex",
+              gap: 12,
+              alignItems: "baseline",
+              borderBottom: "1px solid var(--hairline)",
+              padding: "9px 0",
+            }}
+          >
+            <span className="grow" style={{ fontSize: 17, lineHeight: 1.35 }}>
+              {club.name}
+            </span>
+            {heading && (
+              <span className="meta" style={{ flex: "none", fontSize: 14, color: "var(--label)" }}>
+                {reason}
+              </span>
+            )}
+          </div>
+        );
+      })}
+
+      <p className="aside" style={{ fontSize: 15.5, paddingTop: 9 }}>
+        {clubs.length > shown.length && `And ${clubs.length - shown.length} more. `}
+        {miles != null && `Campus is ${formatMiles(miles)} away. `}
+        Roster from{" "}
+        <a href={BELLARMINE_URL} target="_blank" rel="noreferrer" style={{ color: "inherit" }}>
+          {BELLARMINE_SOURCE}
+        </a>
+        , which publishes no meeting times — so neither does this.
       </p>
     </div>
   );

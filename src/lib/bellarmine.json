@@ -1,0 +1,2039 @@
+{
+  "generated": "2026-08-20T01:27:23.908Z",
+  "source": "Bellarmine College Preparatory",
+  "url": "https://www.bcp.org/student-life/student-clubs-and-organizations",
+  "campus": {
+    "name": "Bellarmine College Preparatory",
+    "address": "960 W Hedding St, San Jose, CA 95126",
+    "lat": 37.3428035,
+    "lng": -121.9181034
+  },
+  "count": 79,
+  "placed": 41,
+  "places": 90,
+  "clubs": [
+    {
+      "id": "academic-research-mentoring",
+      "name": "Academic Research Mentoring",
+      "category": "Academic",
+      "contact": "sarriola@bcp.org",
+      "summary": "The focus of Academic Research Mentoring is to provide our members with opportunities to learn more about research, as well as to conduct their own academic research on topics which they express are passionate about.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "bellarmine-geography-club",
+      "name": "Bellarmine Geography Club",
+      "category": "Academic",
+      "contact": "jbiebel@bcp.org",
+      "summary": "We desire to teach geography to our fellow Bells in an entertaining format, create tolerance by learning more about the culture of other areas through the game Geoguessr, including architecture and religion, and to learn more about foreign languages and develop the ability to recognize and transliterate them.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "history-club",
+      "name": "History Club",
+      "category": "Academic",
+      "contact": "pmccrystle@bcp.org",
+      "summary": "Our goal is to have weekly presentations on various historical events, often selected through voting by the members of the club.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "tedx-club",
+      "name": "TEDx Club",
+      "category": "Academic",
+      "contact": "cmeyercord@bcp.org",
+      "summary": "\"The TEDx Club will focus on creating a space where students can explore and share powerful ideas through TEDx-style talks and workshops.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "bells-brushes",
+      "name": "Bells & Brushes",
+      "category": "Art",
+      "contact": "sbodnaruk@bcp.org",
+      "summary": "Bells and Brushes is a student collective united by a passion for the visual arts through drawing and painting.",
+      "needs": []
+    },
+    {
+      "id": "creative-writing-club",
+      "name": "Creative Writing Club",
+      "category": "Art",
+      "contact": "kknight@bcp.org",
+      "summary": "The Creative Writing Club is a space for students to express themselves through poetry, stories, and all kinds of writing.",
+      "needs": []
+    },
+    {
+      "id": "film-club",
+      "name": "Film Club",
+      "category": "Art",
+      "contact": "jlum@bcp.org",
+      "summary": "For the first month and a half of Film Club we will focus primarily on analyzing a curated selection of films in order to learn about the film-making topics such as shot composition, editing, visual storytelling, dialogue, atmosphere, and characters.",
+      "needs": []
+    },
+    {
+      "id": "photography-club",
+      "name": "Photography Club",
+      "category": "Art",
+      "contact": "wcrockett@bcp.org",
+      "summary": "Our club focus will be photography.",
+      "needs": []
+    },
+    {
+      "id": "the-fortissibros",
+      "name": "The Fortissibros",
+      "category": "Art",
+      "contact": "ncreech@bcp.org",
+      "summary": "Our club is an a cappella group that focuses on music from different genres, such as pop and rock, and provides an option for different music selections beyond traditional liturgical music.",
+      "needs": []
+    },
+    {
+      "id": "business-impact-club",
+      "name": "Business Impact Club",
+      "category": "Finance",
+      "contact": "mdelateur@bcp.org",
+      "summary": "Our club focuses on serving local organizations in the Bay Area that are not as well-known and could use assistance with financial tasks, specifically the writing and grant application process for funding.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "economics-club",
+      "name": "Economics Club",
+      "category": "Finance",
+      "contact": "parnold@bcp.org",
+      "summary": "We aim to provide an educational and fun experience for club members through high-level competitions and advanced economic concepts, going to the college level, cultivating an interest for economics and finance while also providing useful real-world knowledge of investing, wealth management, entrepreneurship, finance, etc.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "entrepreneurship-club",
+      "name": "Entrepreneurship Club",
+      "category": "Finance",
+      "contact": "jpalomino@bcp.org",
+      "summary": "We will be participating in a variety of competitions, activities, and events throughout the year.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "finance-club",
+      "name": "Finance Club",
+      "category": "Finance",
+      "contact": "parnold@bcp.org",
+      "summary": "Members of the Bellarmine Finance Club will actively participate in hands-on educational activities throughout the semester that focus on corporate finance, including financial accounting, financial planning and analysis (FP&A) and treasury.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "investment-club",
+      "name": "Investment Club",
+      "category": "Finance",
+      "contact": "ebuell@bcp.org",
+      "summary": "The focus of our club is to introduce students of all ages to the stock market while following the course work of the YIS organization.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "personal-finance-club",
+      "name": "Personal Finance Club",
+      "category": "Finance",
+      "contact": "bhernandez@bcp.org",
+      "summary": "In an age of rife financial illiteracy, we aim to ensure that every bell has the personal finance knowledge necessary to support themselves and their loved ones.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "career-club",
+      "name": "Career Club",
+      "category": "Finance",
+      "contact": "parnold@bcp.org",
+      "summary": "The focus of career club is to ensure students learn and discover different career paths through speakers, field trips and club events.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "anime-club",
+      "name": "Anime Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "apaige@bcp.org",
+      "summary": "Engagement Enhancement: Develop more interactive activities to increase member participation Technology Solutions: Create alternatives for activities that don't rely heavily on school WiFi Community Building: Strengthen connections between members through collaborative projects Content Exploration: Diversify the types of anime and related content explored Creative Expression: Provide opportunities for members to express their appreciation for anime.",
+      "needs": []
+    },
+    {
+      "id": "baking-club",
+      "name": "Baking Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "mdavis@bcp.org",
+      "summary": "The focus of the club will be to spread joy in and out of campus by baking for ourselves and others.",
+      "needs": []
+    },
+    {
+      "id": "bellbooks",
+      "name": "BellBooks",
+      "category": "Hobbies & Special Interests",
+      "contact": "pballesteros@bcp.org",
+      "summary": "Our club will meet every month to discuss our current book and share insights, our opinions, and suggestions.",
+      "needs": []
+    },
+    {
+      "id": "board-game-design-club",
+      "name": "Board Game Design Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "mhaven@bcp.org",
+      "summary": "From initial concept development to final playtesting, the Board Game Design Club will concentrate on the imaginative and cooperative process of creating unique tabletop games.",
+      "needs": [
+        {
+          "via": "amenity",
+          "value": "GAMETB"
+        }
+      ]
+    },
+    {
+      "id": "board-games-club",
+      "name": "Board Games Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "ewadkins@bcp.org",
+      "summary": "The focus of our club is to explore and enjoy a wide variety of board games—from strategic and competitive titles to lighthearted party games—with the goal of introducing students to new games and styles of play.",
+      "needs": [
+        {
+          "via": "amenity",
+          "value": "GAMETB"
+        },
+        {
+          "via": "amenity",
+          "value": "PNGPNG"
+        }
+      ]
+    },
+    {
+      "id": "car-club",
+      "name": "Car Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "ehaines@bcp.org",
+      "summary": "The focus of our club is to allow our members to connect with the Bay Area car community.",
+      "needs": []
+    },
+    {
+      "id": "chess-club",
+      "name": "Chess Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "djudnick@bcp.org",
+      "summary": "This year, Bellarmine Chess Club has two primary goals: to create opportunities for members to enhance their skills and to create a competitive team for interschool and scholastic events.",
+      "needs": [
+        {
+          "via": "amenity",
+          "value": "GAMETB"
+        }
+      ]
+    },
+    {
+      "id": "cooking-club",
+      "name": "Cooking Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "jlum@bcp.org",
+      "summary": "In Cooking Club, we plan on uniting Bellarmine brothers in the kitchen and cooking together.",
+      "needs": []
+    },
+    {
+      "id": "dj-club",
+      "name": "DJ Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "sbaysden@bcp.org",
+      "summary": "We hope that we can teach new members how DJing works, and how they can be apart of a community which values creativity.",
+      "needs": []
+    },
+    {
+      "id": "dungeons-and-dragons-club",
+      "name": "Dungeons and Dragons Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "apaige@bcp.org",
+      "summary": "For a personal story, the D&D club is how our founder made friends at Bellarmine his freshmen year.",
+      "needs": [
+        {
+          "via": "amenity",
+          "value": "GAMETB"
+        }
+      ]
+    },
+    {
+      "id": "e-bike-club",
+      "name": "E-Bike Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "mfoster@bcp.org",
+      "summary": "The Bellarmine Bike Club will focus on exploring and promoting the benefits of electric biking and standard biking as a sustainable, innovative, and fun form of transportation and recreation.",
+      "needs": []
+    },
+    {
+      "id": "epee-club",
+      "name": "Epee Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "catkins@bcp.org",
+      "summary": "1.",
+      "needs": []
+    },
+    {
+      "id": "fashion-and-design-club",
+      "name": "Fashion and Design Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "jdelcarlo@bcp.org",
+      "summary": "We want to help teach our peers how to make clothes, about the history and design of clothes, and for people who are interested in fashion to share their passions and outfits.",
+      "needs": []
+    },
+    {
+      "id": "fighting-game-club",
+      "name": "Fighting Game Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "mfoley@bcp.org",
+      "summary": "We gather together while playing fighting games to express parts of ourselves that normly people harbor inside and serve as an outlit for expression.",
+      "needs": []
+    },
+    {
+      "id": "magic-the-gathering-club",
+      "name": "Magic: The Gathering Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "kamurphy@bcp.org",
+      "summary": "Our core goals are enhanced events (draft tournaments), educational outreach for new players, and membership growth/retention.",
+      "needs": [
+        {
+          "via": "amenity",
+          "value": "GAMETB"
+        }
+      ]
+    },
+    {
+      "id": "mahjong-club",
+      "name": "Mahjong Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "djudnick@bcp.org",
+      "summary": "We aim to build an environment of inclusivity and encourage people of any ethnicity to learn about this traditional Chinese game.",
+      "needs": [
+        {
+          "via": "amenity",
+          "value": "GAMETB"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-club",
+      "name": "Pokémon Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "ccozort@bcp.org",
+      "summary": "Our club's focus is hosting various Pokémon events and tournaments during our CT hours.",
+      "needs": [
+        {
+          "via": "amenity",
+          "value": "GAMETB"
+        }
+      ]
+    },
+    {
+      "id": "railroad-club",
+      "name": "Railroad Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "kmcmahon@bcp.org",
+      "summary": "We endeavor to create a shared space where everyone with even the slightest interest in trains can come together to make new friends and share their opinions and stories about railroading.",
+      "needs": []
+    },
+    {
+      "id": "rocket-league-club",
+      "name": "Rocket League Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "mdavis@bcp.org",
+      "summary": "We'd like to build a community of students who enjoy Rocket League and start playing matches against other schools, either in scrimmages or in competitive matches.",
+      "needs": []
+    },
+    {
+      "id": "scale-model-building-club",
+      "name": "Scale Model Building Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "lyi@bcp.org",
+      "summary": "We just want to build various model kits with friends and other people who share the same interests.",
+      "needs": []
+    },
+    {
+      "id": "thrifting-club",
+      "name": "Thrifting Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "kamurphy@bcp.org",
+      "summary": "The Thrifting Club will focus on promoting sustainable fashion practices through thrift shopping as an environmentally responsible alternative to fast fashion.",
+      "needs": []
+    },
+    {
+      "id": "trader-joe-s-enthusiasts-club",
+      "name": "Trader Joe's Enthusiasts Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "gportillo@bcp.org",
+      "summary": "The focus of our club is to share our favorite Trader Joe’s exclusive products, and we hope to grow closer to each other and understand each other better.",
+      "needs": []
+    },
+    {
+      "id": "villainous-club",
+      "name": "Villainous Club",
+      "category": "Hobbies & Special Interests",
+      "contact": "xliu@bcp.org",
+      "summary": "I hope to create an open environment where members can just have a good time, hanging out and playing the Villainous Board game.",
+      "needs": [
+        {
+          "via": "amenity",
+          "value": "GAMETB"
+        }
+      ]
+    },
+    {
+      "id": "hsda-high-school-democrats-of-america",
+      "name": "HSDA (High School Democrats of America)",
+      "category": "Political Science",
+      "contact": "ebuell@bcp.org",
+      "summary": "Local chapters do most of the work for HSDA in terms of advocacy, organizing, mobilization, and engagement in politics and civics.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "lincoln-society",
+      "name": "Lincoln Society",
+      "category": "Political Science",
+      "contact": "egonzalez@bcp.org",
+      "summary": "We hold meetings every other week to discuss current events and politics.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "model-un-foreign-service-club",
+      "name": "Model UN & Foreign Service Club",
+      "category": "Political Science",
+      "contact": "rjemison@bcp.org",
+      "summary": "The fundamental goal of Model UN is to give Bellarmine students a unique and formative experience in international relations -- we do this through two primary methods.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "political-review",
+      "name": "Political Review",
+      "category": "Political Science",
+      "contact": "dsullivan@bcp.org",
+      "summary": "The focus of our club is discussions of social, political, and economic issues which can't be found anywhere else on campus.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "bcp-interact",
+      "name": "BCP Interact",
+      "category": "Service & Justice",
+      "contact": "bmcgarry@bcp.org",
+      "summary": "The focus of our Interact Club will be the growth of leadership, community service, and international understanding for students.",
+      "needs": []
+    },
+    {
+      "id": "bellarmine-advocacy-project-bap",
+      "name": "Bellarmine Advocacy Project (BAP)",
+      "category": "Service & Justice",
+      "contact": "mcardenas@bcp.org",
+      "summary": "Our club is an advocacy group that focuses on a specific topic of legislation each year and participates annually in the California Ignatian Summit to lobby at the state capitol for that legislation.",
+      "needs": []
+    },
+    {
+      "id": "students-for-palestine",
+      "name": "Students for Palestine",
+      "category": "Service & Justice",
+      "contact": "jbiebel@bcp.org",
+      "summary": "We will focus on two main aspects: education and relief.",
+      "needs": []
+    },
+    {
+      "id": "eco-friendly-and-alternative-transportation-club",
+      "name": "Eco-Friendly and Alternative Transportation Club",
+      "category": "Service & Justice",
+      "contact": "ewadkins@bcp.org",
+      "summary": "In the Eco-Friendly and Alternative Transit Club our goal is to educate and engage students in the idea of alternative transit methods that help the environment in the fight against climate change.",
+      "needs": []
+    },
+    {
+      "id": "faith-and-fellowship",
+      "name": "Faith and Fellowship",
+      "category": "Service & Justice",
+      "contact": "jquinn@bcp.org",
+      "summary": "Our Bible Study & Service Club aims to foster spiritual growth through regular Gospel study while building a supportive faith community that actively serves others.",
+      "needs": []
+    },
+    {
+      "id": "food4all",
+      "name": "Food4All",
+      "category": "Service & Justice",
+      "contact": "mmcdougall@bcp.org",
+      "summary": "Mainly, we would be taking unused, leftover food and ingredients from the Bellarmine cafeteria and Campbell farmers market in collection events and donating it.",
+      "needs": []
+    },
+    {
+      "id": "habitat-for-humanity-club",
+      "name": "Habitat for Humanity Club",
+      "category": "Service & Justice",
+      "contact": "nstibrich@bcp.org",
+      "summary": "Our club looks to help the nonprofit organization, Habitat for Humanity, through its service opportunities around the Bay Area to provide comfortable homes and lives for those in need.",
+      "needs": []
+    },
+    {
+      "id": "key-club",
+      "name": "Key Club",
+      "category": "Service & Justice",
+      "contact": "jmaloney@bcp.org",
+      "summary": "We hope to provide service within the community and at the same time help Bellarmine students to connect and develop meaningful relationships as well as grow leadership skills.",
+      "needs": []
+    },
+    {
+      "id": "kiva-club",
+      "name": "KIVA Club",
+      "category": "Service & Justice",
+      "contact": "bportillo@bcp.org",
+      "summary": "The Bellarmine KIVA Club will focus on supporting global entrepreneurs through microloans while teaching students about financial literacy and economic justice.",
+      "needs": []
+    },
+    {
+      "id": "badminton-club",
+      "name": "Badminton Club",
+      "category": "Sports",
+      "contact": "wvargas@bcp.org",
+      "summary": "We want to see the club become as a hub for both new, current, and old players.",
+      "needs": []
+    },
+    {
+      "id": "bellarmine-rugby",
+      "name": "Bellarmine Rugby",
+      "category": "Sports",
+      "contact": "jlewmunoz@bcp.org",
+      "summary": "Bellarmine Rugby is committed to fostering an inclusive, supportive, and competitive environment where students of all experience levels can learn to love the sport of rugby.",
+      "needs": []
+    },
+    {
+      "id": "college-sports-club",
+      "name": "College Sports Club",
+      "category": "Sports",
+      "contact": "lserrania2@bcp.org",
+      "summary": "We meet every Tuesday to discuss the past week of college sports and to make predictions about the upcoming week.",
+      "needs": []
+    },
+    {
+      "id": "cricket-club",
+      "name": "Cricket Club",
+      "category": "Sports",
+      "contact": "apagura@bcp.org",
+      "summary": "We want to create an environment, where people who play cricket and also watch cricket can express their passion for the game though meetings once a week, where we play mini cricket games that are very non-competitive, as we help include anyone.",
+      "needs": []
+    },
+    {
+      "id": "futsal-club",
+      "name": "Futsal Club",
+      "category": "Sports",
+      "contact": "efraney@bcp.org",
+      "summary": "\"The focus of the Bellarmine Futsal Club is to create a space where anyone can play soccer—regardless of whether they’re on the school team or not.",
+      "needs": [
+        {
+          "via": "amenity",
+          "value": "FUTSAL"
+        }
+      ]
+    },
+    {
+      "id": "pickleball-club",
+      "name": "Pickleball Club",
+      "category": "Sports",
+      "contact": "kmckinley@bcp.org",
+      "summary": "We provide opportunities to play Pickle Ball on campus during Community Time.",
+      "needs": [
+        {
+          "via": "amenity",
+          "value": "PICKLE"
+        }
+      ]
+    },
+    {
+      "id": "rock-climbing-club",
+      "name": "Rock Climbing Club",
+      "category": "Sports",
+      "contact": "jmilligan@bcp.org",
+      "summary": "We hope to be a club for all climbers and non-climbers that want to start which is able to bring together people and be able to go on trips together to enjoy climbing outside of our local area.",
+      "needs": []
+    },
+    {
+      "id": "skate-club",
+      "name": "Skate Club",
+      "category": "Sports",
+      "contact": "dmartin@bcp.org",
+      "summary": "The clubs focus will be community building, caring for the whole person, and connecting through a shared interest.",
+      "needs": [
+        {
+          "via": "amenity",
+          "value": "SKATE"
+        }
+      ]
+    },
+    {
+      "id": "ski-and-snowboard-club",
+      "name": "Ski and Snowboard Club",
+      "category": "Sports",
+      "contact": "vgao@bcp.org",
+      "summary": "The focus of the club is to have weekly meetings where we hold discussions and debates on various ski resorts, runs, terrain, etc.",
+      "needs": []
+    },
+    {
+      "id": "soccer-data-and-analytics-club",
+      "name": "Soccer Data and Analytics Club",
+      "category": "Sports",
+      "contact": "jmaloney@bcp.org",
+      "summary": "We plan on trying to accomplish broadening the soccer community at bellarmine by introducing different components of the game to newcomers.",
+      "needs": []
+    },
+    {
+      "id": "sports-analytics-club",
+      "name": "Sports Analytics Club",
+      "category": "Sports",
+      "contact": "jmaloney@bcp.org",
+      "summary": "We are a group of people who want to change the way we view sports by using analytics and math to create trends and make watching sports different by seeing it in an analytical perspective.",
+      "needs": []
+    },
+    {
+      "id": "sports-medicine-club",
+      "name": "Sports Medicine Club",
+      "category": "Sports",
+      "contact": "mmoreno@bcp.org",
+      "summary": "Mission Statement: To educate and inspire students to become interested in sports medicine and to provide hand-on activities and fun experiences focused on injury prevention, treatment, and the overall wellness of an athlete.",
+      "needs": []
+    },
+    {
+      "id": "volleyball-association",
+      "name": "Volleyball Association",
+      "category": "Sports",
+      "contact": "egonzalez@bcp.org",
+      "summary": "As stated in our mission statement, we hope to build an inclusive community to analyze film, arrange grass and beach gatherings, and cheer on local Bellarmine alumni Bay Area universities.",
+      "needs": [
+        {
+          "via": "amenity",
+          "value": "VOLL"
+        }
+      ]
+    },
+    {
+      "id": "ai-club",
+      "name": "AI Club",
+      "category": "STEM",
+      "contact": "ccozort@bcp.org",
+      "summary": "Our goal will be to educate people on architecture and how to start designing.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "architecture-club",
+      "name": "Architecture Club",
+      "category": "STEM",
+      "contact": "kamurphy@bcp.org",
+      "summary": "Our goal will be to educate people on architecture and how to start designing.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "biotech-club",
+      "name": "Biotech Club",
+      "category": "STEM",
+      "contact": "kmonaco@bcp.org",
+      "summary": "The Bellarmine Biotech Club will focus on educating students about the latest developments in biotechnology through interactive presentations, discussions, and guest speaker sessions from professionals in academia and industry.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "chemistry-enthusiasts-club",
+      "name": "Chemistry Enthusiasts Club",
+      "category": "STEM",
+      "contact": "wwinter@bcp.org",
+      "summary": "The Chemistry Club will focus on deepening students' understanding and appreciation of chemistry beyond what is taught in class.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "coding-for-good",
+      "name": "Coding for Good",
+      "category": "STEM",
+      "contact": "cmccullough@bcp.org",
+      "summary": "The focus of our club is to use coding to create applications, websites, and other tech-based projects that benefit the broader community.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "competitive-programming-club",
+      "name": "Competitive Programming Club",
+      "category": "STEM",
+      "contact": "blindemann@bcp.org",
+      "summary": "The Competitive Programming Club focuses on helping students become stronger problem-solvers through coding, algorithms, and logical thinking.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "game-development-club",
+      "name": "Game Development Club",
+      "category": "STEM",
+      "contact": "mfoley@bcp.org",
+      "summary": "During meetings, we will teach how to code games.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "hack-club",
+      "name": "Hack Club",
+      "category": "STEM",
+      "contact": "jpalomino@bcp.org",
+      "summary": "Our Hack Club chapter focuses on empowering students to explore creative coding through hands-on projects, collaborative problem-solving, and community-driven events.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "hosa",
+      "name": "HOSA",
+      "category": "STEM",
+      "contact": "ccolletti@bcp.org",
+      "summary": "\"Our HOSA chapter will focus on exploring healthcare careers, developing leadership through service, and building real-world skills that prepare students for future success in the medical field.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "math-club",
+      "name": "Math Club",
+      "category": "STEM",
+      "contact": "mfoster@bcp.org",
+      "summary": "The focus of the club is introducing students of all fields, interested in any subject area, to the beauty of mathematics.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "machine-learning-ml-club",
+      "name": "Machine Learning (ML) Club",
+      "category": "STEM",
+      "contact": "blindemann@bcp.org",
+      "summary": "Our club founded the Student Machine Learning Coalition to expand access to machine learning education.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "neuroscience-club",
+      "name": "Neuroscience Club",
+      "category": "STEM",
+      "contact": "sbaysden@bcp.org",
+      "summary": "We hope to explore many topics such as mental health, memory, sleep, neuroplasticity, and more.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "physics-club",
+      "name": "Physics Club",
+      "category": "STEM",
+      "contact": "pyav@bcp.org",
+      "summary": "Our club will blend interactive experiments, competition preparations (for events like the F=ma or physicsbowl), and discussions about the connection of foundational concepts to exploring the unknown.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    },
+    {
+      "id": "teen-biology-exploration-club",
+      "name": "Teen Biology Exploration Club",
+      "category": "STEM",
+      "contact": "mmanalastas@bcp.org",
+      "summary": "The focus of this club will be to explore the biological causes of issues that hinder teens, such as acne or excessive sweating.",
+      "needs": [
+        {
+          "via": "interest",
+          "value": "Reading"
+        }
+      ]
+    }
+  ],
+  "by_slug": {
+    "almaden-lake-park": [
+      "volleyball-association"
+    ],
+    "almaden-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "alum-rock-park": [
+      "volleyball-association"
+    ],
+    "alum-rock-park-cherry-flats-reservoir": [
+      "volleyball-association"
+    ],
+    "alviso-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "backesto-neighborhood-center": [
+      "volleyball-association"
+    ],
+    "backesto-park": [
+      "volleyball-association"
+    ],
+    "bascom-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "berryessa-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "bestor-art-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "biblioteca-latinoamericana-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "branham-park": [
+      "pickleball-club",
+      "volleyball-association"
+    ],
+    "calabazas-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "calabazas-neighborhood-center": [
+      "pickleball-club",
+      "volleyball-association"
+    ],
+    "calabazas-park": [
+      "pickleball-club",
+      "volleyball-association"
+    ],
+    "cambrian-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "camden-park": [
+      "pickleball-club"
+    ],
+    "cannery-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "canoas-park": [
+      "pickleball-club"
+    ],
+    "capitol-park": [
+      "futsal-club",
+      "volleyball-association"
+    ],
+    "capitol-park-neighborhood-center": [
+      "futsal-club",
+      "volleyball-association"
+    ],
+    "carolyn-norris-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "cataldi-park": [
+      "pickleball-club",
+      "volleyball-association"
+    ],
+    "columbus-park": [
+      "volleyball-association"
+    ],
+    "de-anza-park": [
+      "pickleball-club"
+    ],
+    "del-monte-park": [
+      "board-games-club"
+    ],
+    "doerr-park": [
+      "pickleball-club"
+    ],
+    "dr-martin-luther-king-jr-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "dr-roberto-cruz-alum-rock-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "east-san-jose-carnegie-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "edenvale-garden-park": [
+      "pickleball-club",
+      "volleyball-association"
+    ],
+    "edenvale-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "educational-park-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "elaine-richardson-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "evergreen-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "fuller-avenue-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "great-oaks-park": [
+      "skate-club"
+    ],
+    "groesbeck-hill-park": [
+      "pickleball-club",
+      "volleyball-association"
+    ],
+    "guadalupe-river-park-arena-green-east-confluence": [
+      "futsal-club",
+      "pickleball-club"
+    ],
+    "hathaway-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "heinlenville-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "hillview-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "houge-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "hummingbird-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "john-mise-park": [
+      "pickleball-club"
+    ],
+    "joyce-ellington-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "lake-cunningham-park": [
+      "skate-club",
+      "volleyball-association"
+    ],
+    "lone-hill-park": [
+      "pickleball-club"
+    ],
+    "mayfair-community-garden": [
+      "skate-club"
+    ],
+    "meadowfair-park": [
+      "volleyball-association"
+    ],
+    "metcalf-park": [
+      "volleyball-association"
+    ],
+    "mt-pleasant-neighborhood-library-bridge-branch": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "o-connor-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "parque-de-padre-mateo-sheedy": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "paul-moore-park": [
+      "pickleball-club"
+    ],
+    "payne-ave-friendship-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "pearl-avenue-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "plata-arroyo-park": [
+      "skate-club"
+    ],
+    "pueblo-de-dios-community-garden": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "raleigh-park": [
+      "volleyball-association"
+    ],
+    "river-glen-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club",
+      "pickleball-club",
+      "volleyball-association"
+    ],
+    "river-oaks-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "riverview-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "roberto-antonio-balermino-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "roosevelt-park": [
+      "skate-club"
+    ],
+    "rose-garden-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "ryland-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "santa-teresa-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "seven-trees-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "st-elizabeth-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "st-james-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "starbird-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "stonegate-park": [
+      "skate-club"
+    ],
+    "t-j-martin-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "tamien-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club",
+      "futsal-club"
+    ],
+    "tamien-park-phase-ii": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club",
+      "futsal-club"
+    ],
+    "the-beautiful-way-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "tully-community-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "village-square-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "vineland-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "vista-montana-1-acre": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "vista-park": [
+      "pickleball-club"
+    ],
+    "vista-park-neighborhood-center": [
+      "pickleball-club"
+    ],
+    "wallenberg-community-garden": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "wallenberg-park": [
+      "board-game-design-club",
+      "board-games-club",
+      "chess-club",
+      "dungeons-and-dragons-club",
+      "magic-the-gathering-club",
+      "mahjong-club",
+      "pokemon-club",
+      "villainous-club"
+    ],
+    "west-evergreen-park": [
+      "skate-club"
+    ],
+    "west-valley-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "william-lewis-manly-park": [
+      "board-games-club"
+    ],
+    "willow-glen-library": [
+      "academic-research-mentoring",
+      "bellarmine-geography-club",
+      "history-club",
+      "tedx-club",
+      "business-impact-club",
+      "economics-club",
+      "entrepreneurship-club",
+      "finance-club",
+      "investment-club",
+      "personal-finance-club",
+      "career-club",
+      "hsda-high-school-democrats-of-america",
+      "lincoln-society",
+      "model-un-foreign-service-club",
+      "political-review",
+      "ai-club",
+      "architecture-club",
+      "biotech-club",
+      "chemistry-enthusiasts-club",
+      "coding-for-good",
+      "competitive-programming-club",
+      "game-development-club",
+      "hack-club",
+      "hosa",
+      "math-club",
+      "machine-learning-ml-club",
+      "neuroscience-club",
+      "physics-club",
+      "teen-biology-exploration-club"
+    ],
+    "willow-street-frank-bramhall-park": [
+      "pickleball-club"
+    ]
+  }
+}
