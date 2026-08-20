@@ -1,21 +1,45 @@
 {
-  "generated": "2026-08-20T19:36:20.280Z",
+  "generated": "2026-08-20T23:30:53.779Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 708,
+  "count": 716,
   "by_slug": {
     "almaden-library": [
       {
-        "title": "Kids' Writing Club",
-        "start": "2026-08-20T23:30:00.000Z",
-        "end": "2026-08-21T00:30:00Z",
+        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
+        "start": "2026-08-21T07:00:00.000Z",
+        "end": "2026-08-22T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
+        "start": "2026-08-22T07:00:00.000Z",
+        "end": "2026-08-23T06:59:59Z",
         "registration": false
       },
       {
         "title": "Fiber Arts Circle at Almaden",
         "start": "2026-08-22T18:00:00.000Z",
         "end": "2026-08-22T20:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
+        "start": "2026-08-23T07:00:00.000Z",
+        "end": "2026-08-24T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
+        "start": "2026-08-24T07:00:00.000Z",
+        "end": "2026-08-25T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
+        "start": "2026-08-25T07:00:00.000Z",
+        "end": "2026-08-26T06:59:59Z",
         "registration": false
       },
       {
@@ -55,6 +79,12 @@
         "registration": false
       },
       {
+        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
+        "start": "2026-08-26T07:00:00.000Z",
+        "end": "2026-08-27T06:59:59Z",
+        "registration": false
+      },
+      {
         "title": "English Conversation Club",
         "start": "2026-08-26T17:00:00.000Z",
         "end": "2026-08-26T18:00:00Z",
@@ -79,6 +109,12 @@
         "registration": false
       },
       {
+        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
+        "start": "2026-08-27T07:00:00.000Z",
+        "end": "2026-08-28T06:59:59Z",
+        "registration": false
+      },
+      {
         "title": "Family Storytime",
         "start": "2026-08-27T17:15:00.000Z",
         "end": "2026-08-27T17:45:00Z",
@@ -94,6 +130,18 @@
         "title": "Artificial Intelligence (AI) for Academic Excellence",
         "start": "2026-08-28T00:30:00.000Z",
         "end": "2026-08-28T01:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
+        "start": "2026-08-28T07:00:00.000Z",
+        "end": "2026-08-29T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
+        "start": "2026-08-29T07:00:00.000Z",
+        "end": "2026-08-30T06:59:59Z",
         "registration": false
       },
       {
@@ -283,15 +331,15 @@
         "start": "2026-09-02T00:15:00.000Z",
         "end": "2026-09-02T01:15:00Z",
         "registration": false
+      },
+      {
+        "title": "Reading to Children",
+        "start": "2026-09-03T23:00:00.000Z",
+        "end": "2026-09-04T00:00:00Z",
+        "registration": false
       }
     ],
     "bascom-library": [
-      {
-        "title": "Chess Club for Kids ",
-        "start": "2026-08-20T23:00:00.000Z",
-        "end": "2026-08-21T00:30:00Z",
-        "registration": false
-      },
       {
         "title": "Reading to Children",
         "start": "2026-08-21T23:00:00.000Z",
@@ -348,12 +396,6 @@
       }
     ],
     "berryessa-library": [
-      {
-        "title": "Adult Work Space",
-        "start": "2026-08-20T21:00:00.000Z",
-        "end": "2026-08-20T23:30:00Z",
-        "registration": false
-      },
       {
         "title": "Robotics Adventure Workshop 3",
         "start": "2026-08-21T00:00:00.000Z",
@@ -521,6 +563,12 @@
         "start": "2026-09-03T18:00:00.000Z",
         "end": "2026-09-03T19:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Reading to Dogs",
+        "start": "2026-09-03T23:00:00.000Z",
+        "end": "2026-09-04T00:00:00Z",
+        "registration": false
       }
     ],
     "biblioteca-latinoamericana-library": [
@@ -634,24 +682,6 @@
       }
     ],
     "calabazas-library": [
-      {
-        "title": "Line Dancing for Beginners/Improvers",
-        "start": "2026-08-20T20:30:00.000Z",
-        "end": "2026-08-20T21:30:00Z",
-        "registration": false
-      },
-      {
-        "title": "Junior STEAM Club",
-        "start": "2026-08-20T22:30:00.000Z",
-        "end": "2026-08-20T23:15:00Z",
-        "registration": false
-      },
-      {
-        "title": "Junior STEAM Club",
-        "start": "2026-08-20T23:30:00.000Z",
-        "end": "2026-08-21T00:15:00Z",
-        "registration": false
-      },
       {
         "title": "Junior STEAM Club",
         "start": "2026-08-21T00:30:00.000Z",
@@ -830,6 +860,12 @@
         "title": "2nd_Mandarin Stories and Songs 亲子中文活動",
         "start": "2026-09-03T18:15:00.000Z",
         "end": "2026-09-03T18:45:00Z",
+        "registration": false
+      },
+      {
+        "title": "Line Dancing for Beginners/Improvers",
+        "start": "2026-09-03T20:30:00.000Z",
+        "end": "2026-09-03T21:30:00Z",
         "registration": false
       }
     ],
@@ -1913,18 +1949,6 @@
     ],
     "educational-park-library": [
       {
-        "title": "ESL Class for beginners (Level 0-1) / Clase de inglés para principiantes (Nivel 0-1)",
-        "start": "2026-08-20T20:00:00.000Z",
-        "end": "2026-08-20T21:30:00Z",
-        "registration": false
-      },
-      {
-        "title": "STEM Club",
-        "start": "2026-08-20T23:00:00.000Z",
-        "end": "2026-08-21T00:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Reading Buddies",
         "start": "2026-08-21T00:00:00.000Z",
         "end": "2026-08-21T01:00:00Z",
@@ -2085,6 +2109,12 @@
         "start": "2026-09-03T17:30:00.000Z",
         "end": "2026-09-03T18:45:00Z",
         "registration": false
+      },
+      {
+        "title": "ESL Class for beginners (Level 0-1) / Clase de inglés para principiantes (Nivel 0-1)",
+        "start": "2026-09-03T20:00:00.000Z",
+        "end": "2026-09-03T21:30:00Z",
+        "registration": false
       }
     ],
     "evergreen-library": [
@@ -2207,15 +2237,15 @@
         "start": "2026-09-03T19:00:00.000Z",
         "end": "2026-09-03T20:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Family Storytime + Stay & Play",
+        "start": "2026-09-03T23:30:00.000Z",
+        "end": "2026-09-04T00:30:00Z",
+        "registration": false
       }
     ],
     "hillview-library": [
-      {
-        "title": "Reading Together With a Librarian",
-        "start": "2026-08-20T23:00:00.000Z",
-        "end": "2026-08-21T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "1-on-1 Tech Help",
         "start": "2026-08-21T00:00:00.000Z",
@@ -3111,12 +3141,6 @@
     ],
     "seven-trees-library": [
       {
-        "title": "College Readiness",
-        "start": "2026-08-20T22:00:00.000Z",
-        "end": "2026-08-21T00:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Video Game Zone",
         "start": "2026-08-21T22:30:00.000Z",
         "end": "2026-08-22T00:00:00Z",
@@ -3395,12 +3419,6 @@
     ],
     "tully-community-library": [
       {
-        "title": "LEGO® Fun",
-        "start": "2026-08-20T23:00:00.000Z",
-        "end": "2026-08-21T00:00:00Z",
-        "registration": false
-      },
-      {
         "title": "ESL Writing Club",
         "start": "2026-08-21T23:00:00.000Z",
         "end": "2026-08-22T00:30:00Z",
@@ -3591,15 +3609,21 @@
         "start": "2026-09-03T17:00:00.000Z",
         "end": "2026-09-03T18:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Adult Craft: Mosaic Night Light",
+        "start": "2026-09-03T22:00:00.000Z",
+        "end": "2026-09-03T23:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "LEGO® Fun",
+        "start": "2026-09-03T23:00:00.000Z",
+        "end": "2026-09-04T00:00:00Z",
+        "registration": false
       }
     ],
     "village-square-library": [
-      {
-        "title": "Village Square Branch Monthly Teens Reach Meeting",
-        "start": "2026-08-20T23:30:00.000Z",
-        "end": "2026-08-21T00:30:00Z",
-        "registration": false
-      },
       {
         "title": "Friends of the Village Square Library Lobby Book Sale",
         "start": "2026-08-21T21:00:00.000Z",
@@ -3713,15 +3737,15 @@
         "start": "2026-09-03T17:00:00.000Z",
         "end": "2026-09-03T18:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Reading Buddies",
+        "start": "2026-09-03T23:15:00.000Z",
+        "end": "2026-09-04T00:00:00Z",
+        "registration": false
       }
     ],
     "vineland-library": [
-      {
-        "title": "ELL Advanced English: Conversation Club",
-        "start": "2026-08-20T20:00:00.000Z",
-        "end": "2026-08-20T21:00:00Z",
-        "registration": false
-      },
       {
         "title": "Volunteer Away Your Fines - Vineland",
         "start": "2026-08-21T00:00:00.000Z",
@@ -3973,15 +3997,21 @@
         "start": "2026-09-03T18:45:00.000Z",
         "end": "2026-09-03T19:45:00Z",
         "registration": false
+      },
+      {
+        "title": "ELL Advanced English: Conversation Club",
+        "start": "2026-09-03T20:00:00.000Z",
+        "end": "2026-09-03T21:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Digital Skills: One-On-One Help",
+        "start": "2026-09-03T23:00:00.000Z",
+        "end": "2026-09-04T00:30:00Z",
+        "registration": false
       }
     ],
     "west-valley-library": [
-      {
-        "title": "Reading Buddies",
-        "start": "2026-08-20T23:00:00.000Z",
-        "end": "2026-08-21T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "STEAM Club",
         "start": "2026-08-21T23:00:00.000Z",
@@ -4155,6 +4185,18 @@
         "start": "2026-09-03T18:00:00.000Z",
         "end": "2026-09-03T18:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Reading Buddies",
+        "start": "2026-09-03T23:00:00.000Z",
+        "end": "2026-09-04T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "West Valley Branch Teens Reach Meeting",
+        "start": "2026-09-03T23:30:00.000Z",
+        "end": "2026-09-04T00:30:00Z",
+        "registration": false
       }
     ],
     "willow-glen-library": [
@@ -4300,6 +4342,12 @@
         "title": "1 on 1 Tech Assistance",
         "start": "2026-09-03T18:00:00.000Z",
         "end": "2026-09-03T19:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Reading To Children at the Willow Glen Library",
+        "start": "2026-09-03T23:00:00.000Z",
+        "end": "2026-09-04T00:00:00Z",
         "registration": false
       }
     ]
