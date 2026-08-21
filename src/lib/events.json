@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-20T23:30:53.779Z",
+  "generated": "2026-08-21T03:54:30.687Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 716,
+  "count": 711,
   "by_slug": {
     "almaden-library": [
       {
@@ -397,12 +397,6 @@
     ],
     "berryessa-library": [
       {
-        "title": "Robotics Adventure Workshop 3",
-        "start": "2026-08-21T00:00:00.000Z",
-        "end": "2026-08-21T01:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Adult Work Space",
         "start": "2026-08-21T21:00:00.000Z",
         "end": "2026-08-21T23:30:00Z",
@@ -683,12 +677,6 @@
     ],
     "calabazas-library": [
       {
-        "title": "Junior STEAM Club",
-        "start": "2026-08-21T00:30:00.000Z",
-        "end": "2026-08-21T01:15:00Z",
-        "registration": false
-      },
-      {
         "title": "Basic English Conversation",
         "start": "2026-08-21T23:00:00.000Z",
         "end": "2026-08-22T00:00:00Z",
@@ -870,12 +858,6 @@
       }
     ],
     "cambrian-library": [
-      {
-        "title": "Sewing Machine Workshop for Beginners",
-        "start": "2026-08-21T00:00:00.000Z",
-        "end": "2026-08-21T01:30:00Z",
-        "registration": false
-      },
       {
         "title": "Jewelry Making-STEM",
         "start": "2026-08-21T23:00:00.000Z",
@@ -1481,12 +1463,6 @@
     ],
     "dr-roberto-cruz-alum-rock-library": [
       {
-        "title": "Financial Literacy for Teens",
-        "start": "2026-08-21T00:00:00.000Z",
-        "end": "2026-08-21T01:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Library Tech Help",
         "start": "2026-08-21T23:00:00.000Z",
         "end": "2026-08-22T00:30:00Z",
@@ -1719,12 +1695,6 @@
     ],
     "edenvale-library": [
       {
-        "title": "Tech Mentor at Edenvale Branch",
-        "start": "2026-08-21T00:00:00.000Z",
-        "end": "2026-08-21T01:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Resume Review & Interview Prepration",
         "start": "2026-08-21T22:30:00.000Z",
         "end": "2026-08-22T00:30:00Z",
@@ -1945,15 +1915,15 @@
         "start": "2026-09-03T17:30:00.000Z",
         "end": "2026-09-03T19:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Tech Mentor at Edenvale Branch",
+        "start": "2026-09-04T00:00:00.000Z",
+        "end": "2026-09-04T01:00:00Z",
+        "registration": false
       }
     ],
     "educational-park-library": [
-      {
-        "title": "Reading Buddies",
-        "start": "2026-08-21T00:00:00.000Z",
-        "end": "2026-08-21T01:00:00Z",
-        "registration": false
-      },
       {
         "title": "Music and Movement",
         "start": "2026-08-22T17:30:00.000Z",
@@ -2115,6 +2085,18 @@
         "start": "2026-09-03T20:00:00.000Z",
         "end": "2026-09-03T21:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Reading Buddies",
+        "start": "2026-09-04T00:00:00.000Z",
+        "end": "2026-09-04T01:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "ESL Classes with Evergreen Valley College (EVC) 502: Listening & Speaking",
+        "start": "2026-09-04T00:15:00.000Z",
+        "end": "2026-09-04T01:45:00Z",
+        "registration": false
       }
     ],
     "evergreen-library": [
@@ -2246,18 +2228,6 @@
       }
     ],
     "hillview-library": [
-      {
-        "title": "1-on-1 Tech Help",
-        "start": "2026-08-21T00:00:00.000Z",
-        "end": "2026-08-21T01:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "U.S. Citizenship Mock Interview Practice / Práctica de entrevista simulada para la ciudadanía estadounidense",
-        "start": "2026-08-21T00:30:00.000Z",
-        "end": "2026-08-21T01:30:00Z",
-        "registration": false
-      },
       {
         "title": "U.S. Citizenship Mock Interview Practice / Práctica de entrevista simulada para la ciudadanía estadounidense",
         "start": "2026-08-21T23:30:00.000Z",
@@ -2443,15 +2413,21 @@
         "start": "2026-09-03T18:00:00.000Z",
         "end": "2026-09-03T19:00:00Z",
         "registration": false
+      },
+      {
+        "title": "1-on-1 Tech Help",
+        "start": "2026-09-04T00:00:00.000Z",
+        "end": "2026-09-04T01:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "U.S. Citizenship Mock Interview Practice / Práctica de entrevista simulada para la ciudadanía estadounidense",
+        "start": "2026-09-04T00:30:00.000Z",
+        "end": "2026-09-04T01:30:00Z",
+        "registration": false
       }
     ],
     "joyce-ellington-library": [
-      {
-        "title": "Zumba Class for Kids",
-        "start": "2026-08-21T00:00:00.000Z",
-        "end": "2026-08-21T01:00:00Z",
-        "registration": false
-      },
       {
         "title": "Reading To Children",
         "start": "2026-08-22T17:15:00.000Z",
@@ -2559,6 +2535,12 @@
         "start": "2026-09-03T00:00:00.000Z",
         "end": "2026-09-03T01:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Volunteer Away Your Fines as a Branch Buddy",
+        "start": "2026-09-04T00:00:00.000Z",
+        "end": "2026-09-04T01:00:00Z",
+        "registration": false
       }
     ],
     "mt-pleasant-neighborhood-library-bridge-branch": [
@@ -2660,12 +2642,6 @@
       }
     ],
     "pearl-avenue-library": [
-      {
-        "title": "Pearl Avenue Teens Reach Meeting",
-        "start": "2026-08-21T00:00:00.000Z",
-        "end": "2026-08-21T01:00:00Z",
-        "registration": false
-      },
       {
         "title": "I SPY: Back to School Scavenger Hunt",
         "start": "2026-08-21T07:00:00.000Z",
@@ -2807,18 +2783,6 @@
     ],
     "rose-garden-library": [
       {
-        "title": "School of Fish Watercolor Workshop",
-        "start": "2026-08-21T00:00:00.000Z",
-        "end": "2026-08-21T01:30:00Z",
-        "registration": false
-      },
-      {
-        "title": "1 on 1 Tech Assistance / Asistencia Tecnología",
-        "start": "2026-08-21T00:00:00.000Z",
-        "end": "2026-08-21T01:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Friends of the Rose Garden Library Book Sale",
         "start": "2026-08-22T07:00:00.000Z",
         "end": "2026-08-23T06:59:59Z",
@@ -2930,6 +2894,12 @@
         "title": "Indoor Family Storytime",
         "start": "2026-09-02T18:00:00.000Z",
         "end": "2026-09-02T19:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "1 on 1 Tech Assistance / Asistencia Tecnología",
+        "start": "2026-09-04T00:00:00.000Z",
+        "end": "2026-09-04T01:00:00Z",
         "registration": false
       }
     ],
@@ -3621,6 +3591,12 @@
         "start": "2026-09-03T23:00:00.000Z",
         "end": "2026-09-04T00:00:00Z",
         "registration": false
+      },
+      {
+        "title": "ESL Classes with Evergreen Valley College (EVC) 502: Listening & Speaking",
+        "start": "2026-09-04T00:15:00.000Z",
+        "end": "2026-09-04T01:45:00Z",
+        "registration": false
       }
     ],
     "village-square-library": [
@@ -3746,12 +3722,6 @@
       }
     ],
     "vineland-library": [
-      {
-        "title": "Volunteer Away Your Fines - Vineland",
-        "start": "2026-08-21T00:00:00.000Z",
-        "end": "2026-08-21T01:00:00Z",
-        "registration": false
-      },
       {
         "title": "Make a Wish for Tanabata/Star Festival!",
         "start": "2026-08-21T07:00:00.000Z",
@@ -4197,15 +4167,15 @@
         "start": "2026-09-03T23:30:00.000Z",
         "end": "2026-09-04T00:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Reading to Children",
+        "start": "2026-09-04T00:00:00.000Z",
+        "end": "2026-09-04T01:00:00Z",
+        "registration": false
       }
     ],
     "willow-glen-library": [
-      {
-        "title": "Third Thursdays with Poetry Center San Jose",
-        "start": "2026-08-21T02:00:00.000Z",
-        "end": "2026-08-21T04:00:00Z",
-        "registration": false
-      },
       {
         "title": "Friday Fun: Poetry Workshop for Youth",
         "start": "2026-08-21T23:00:00.000Z",
