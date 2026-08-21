@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-21T07:48:33.050Z",
+  "generated": "2026-08-21T19:29:43.243Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
@@ -1029,24 +1029,6 @@
     ],
     "dr-martin-luther-king-jr-library": [
       {
-        "title": "Peer Support for MyConnectSV",
-        "start": "2026-08-21T16:30:00.000Z",
-        "end": "2026-08-21T19:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Tech Mentor",
-        "start": "2026-08-21T17:00:00.000Z",
-        "end": "2026-08-21T19:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Tech Mentor",
-        "start": "2026-08-21T19:00:00.000Z",
-        "end": "2026-08-21T21:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Teen Boot Camp 3: AI/ML and Cybersecurity for Real-World Applications",
         "start": "2026-08-21T23:00:00.000Z",
         "end": "2026-08-22T01:00:00Z",
@@ -1453,6 +1435,24 @@
         "start": "2026-09-04T07:00:00.000Z",
         "end": "2026-09-05T06:59:59Z",
         "registration": false
+      },
+      {
+        "title": "Tech Mentor",
+        "start": "2026-09-04T17:00:00.000Z",
+        "end": "2026-09-04T19:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Veterans of Life Write",
+        "start": "2026-09-04T17:00:00.000Z",
+        "end": "2026-09-04T20:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Tech Mentor",
+        "start": "2026-09-04T19:00:00.000Z",
+        "end": "2026-09-04T21:00:00Z",
+        "registration": false
       }
     ],
     "dr-roberto-cruz-alum-rock-library": [
@@ -1812,12 +1812,6 @@
         "title": "Back to School: Library Resources ",
         "start": "2026-08-28T23:00:00.000Z",
         "end": "2026-08-29T00:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "U.S. Citizenship Mock Interview Practice",
-        "start": "2026-08-29T17:30:00.000Z",
-        "end": "2026-08-29T18:30:00Z",
         "registration": false
       },
       {
@@ -2534,6 +2528,12 @@
         "title": "Volunteer Away Your Fines as a Branch Buddy",
         "start": "2026-09-04T00:00:00.000Z",
         "end": "2026-09-04T01:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Baby Lapsit Storytime at Joyce Ellington Branch ",
+        "start": "2026-09-04T19:15:00.000Z",
+        "end": "2026-09-04T19:45:00Z",
         "registration": false
       }
     ],
