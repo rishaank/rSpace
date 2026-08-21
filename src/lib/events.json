@@ -1,17 +1,11 @@
 {
-  "generated": "2026-08-21T03:54:30.687Z",
+  "generated": "2026-08-21T07:48:33.050Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 711,
+  "count": 708,
   "by_slug": {
     "almaden-library": [
-      {
-        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
-        "start": "2026-08-21T07:00:00.000Z",
-        "end": "2026-08-22T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
         "start": "2026-08-22T07:00:00.000Z",
@@ -1035,12 +1029,6 @@
     ],
     "dr-martin-luther-king-jr-library": [
       {
-        "title": "Bay Area Comics and Comix Exhibition",
-        "start": "2026-08-21T07:00:00.000Z",
-        "end": "2026-08-22T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Peer Support for MyConnectSV",
         "start": "2026-08-21T16:30:00.000Z",
         "end": "2026-08-21T19:00:00Z",
@@ -1458,6 +1446,12 @@
         "title": "Tech Mentor",
         "start": "2026-09-03T19:00:00.000Z",
         "end": "2026-09-03T21:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Bay Area Comics and Comix Exhibition",
+        "start": "2026-09-04T07:00:00.000Z",
+        "end": "2026-09-05T06:59:59Z",
         "registration": false
       }
     ],
@@ -2643,12 +2637,6 @@
     ],
     "pearl-avenue-library": [
       {
-        "title": "I SPY: Back to School Scavenger Hunt",
-        "start": "2026-08-21T07:00:00.000Z",
-        "end": "2026-08-22T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Friday Fun: Flapping Butterfly Craft",
         "start": "2026-08-21T23:00:00.000Z",
         "end": "2026-08-22T00:00:00Z",
@@ -2905,12 +2893,6 @@
     ],
     "santa-teresa-library": [
       {
-        "title": "Community Puzzle Swap",
-        "start": "2026-08-21T07:00:00.000Z",
-        "end": "2026-08-22T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Santa Teresa Teens Reach Meeting",
         "start": "2026-08-21T23:00:00.000Z",
         "end": "2026-08-22T00:00:00Z",
@@ -3106,6 +3088,12 @@
         "title": "Indoor Family Storytime",
         "start": "2026-09-03T18:00:00.000Z",
         "end": "2026-09-03T18:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Community Puzzle Swap",
+        "start": "2026-09-04T07:00:00.000Z",
+        "end": "2026-09-05T06:59:59Z",
         "registration": false
       }
     ],
@@ -3722,12 +3710,6 @@
       }
     ],
     "vineland-library": [
-      {
-        "title": "Make a Wish for Tanabata/Star Festival!",
-        "start": "2026-08-21T07:00:00.000Z",
-        "end": "2026-08-22T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Cricut Open Lab ",
         "start": "2026-08-21T23:00:00.000Z",
