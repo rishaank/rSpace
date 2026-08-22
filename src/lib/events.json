@@ -1,17 +1,11 @@
 {
-  "generated": "2026-08-22T03:46:41.842Z",
+  "generated": "2026-08-22T07:35:58.706Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 708,
+  "count": 704,
   "by_slug": {
     "almaden-library": [
-      {
-        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
-        "start": "2026-08-22T07:00:00.000Z",
-        "end": "2026-08-23T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Fiber Arts Circle at Almaden",
         "start": "2026-08-22T18:00:00.000Z",
@@ -1017,12 +1011,6 @@
     ],
     "dr-martin-luther-king-jr-library": [
       {
-        "title": "Bay Area Comics and Comix Exhibition",
-        "start": "2026-08-22T07:00:00.000Z",
-        "end": "2026-08-23T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Tech Mentor",
         "start": "2026-08-22T17:00:00.000Z",
         "end": "2026-08-22T19:00:00Z",
@@ -1434,6 +1422,12 @@
         "title": "Tech Mentor",
         "start": "2026-09-04T19:00:00.000Z",
         "end": "2026-09-04T21:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Bay Area Comics and Comix Exhibition",
+        "start": "2026-09-05T07:00:00.000Z",
+        "end": "2026-09-06T06:59:59Z",
         "registration": false
       }
     ],
@@ -2649,12 +2643,6 @@
     ],
     "pearl-avenue-library": [
       {
-        "title": "I SPY: Back to School Scavenger Hunt",
-        "start": "2026-08-22T07:00:00.000Z",
-        "end": "2026-08-23T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Breathing & Meditation: The Natural Path to Better Immunity and Restful Sleep",
         "start": "2026-08-22T17:30:00.000Z",
         "end": "2026-08-22T18:30:00Z",
@@ -2783,12 +2771,6 @@
     ],
     "rose-garden-library": [
       {
-        "title": "Friends of the Rose Garden Library Book Sale",
-        "start": "2026-08-22T07:00:00.000Z",
-        "end": "2026-08-23T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "English Language Learner (ELL) for Beginners/Inglés Para Principiantes (ELL)",
         "start": "2026-08-22T17:00:00.000Z",
         "end": "2026-08-22T18:30:00Z",
@@ -2904,12 +2886,6 @@
       }
     ],
     "santa-teresa-library": [
-      {
-        "title": "Community Puzzle Swap",
-        "start": "2026-08-22T07:00:00.000Z",
-        "end": "2026-08-23T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Community Game & Craft Day",
         "start": "2026-08-22T18:00:00.000Z",
@@ -3113,15 +3089,15 @@
         "start": "2026-09-04T23:30:00.000Z",
         "end": "2026-09-05T00:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Community Puzzle Swap",
+        "start": "2026-09-05T07:00:00.000Z",
+        "end": "2026-09-06T06:59:59Z",
+        "registration": false
       }
     ],
     "seven-trees-library": [
-      {
-        "title": "1:1 Tech Mentor Appointment",
-        "start": "2026-08-22T07:00:00.000Z",
-        "end": "2026-08-23T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Citizenship Study Group (In-person)",
         "start": "2026-08-22T21:00:00.000Z",
@@ -3390,6 +3366,12 @@
         "title": "ESL Conversation Club: Beginning (Tiếng Việt)",
         "start": "2026-09-04T23:00:00.000Z",
         "end": "2026-09-05T00:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "1:1 Tech Mentor Appointment",
+        "start": "2026-09-05T07:00:00.000Z",
+        "end": "2026-09-06T06:59:59Z",
         "registration": false
       }
     ],
@@ -3722,12 +3704,6 @@
       }
     ],
     "vineland-library": [
-      {
-        "title": "Make a Wish for Tanabata/Star Festival!",
-        "start": "2026-08-22T07:00:00.000Z",
-        "end": "2026-08-23T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Adult Craftivities",
         "start": "2026-08-22T17:30:00.000Z",
