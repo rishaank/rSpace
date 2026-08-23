@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-23T07:38:17.933Z",
+  "generated": "2026-08-23T19:26:22.466Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
@@ -810,12 +810,6 @@
       }
     ],
     "cambrian-library": [
-      {
-        "title": "Reading to Children with Vivian",
-        "start": "2026-08-23T20:00:00.000Z",
-        "end": "2026-08-23T21:00:00Z",
-        "registration": false
-      },
       {
         "title": "LEGO® Club",
         "start": "2026-08-23T22:00:00.000Z",
@@ -1647,12 +1641,6 @@
     ],
     "edenvale-library": [
       {
-        "title": "Nameless Anime Club",
-        "start": "2026-08-23T19:00:00.000Z",
-        "end": "2026-08-23T23:00:00Z",
-        "registration": false
-      },
-      {
         "title": "STEMventures: Aerospace Engineering",
         "start": "2026-08-24T23:30:00.000Z",
         "end": "2026-08-25T01:00:00Z",
@@ -1849,6 +1837,12 @@
         "start": "2026-09-05T17:30:00.000Z",
         "end": "2026-09-05T18:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Sunday Game Day",
+        "start": "2026-09-06T19:00:00.000Z",
+        "end": "2026-09-06T23:00:00Z",
+        "registration": false
       }
     ],
     "educational-park-library": [
@@ -2035,12 +2029,6 @@
     ],
     "evergreen-library": [
       {
-        "title": "OneInMath: Math Program for K-3rd at Evergreen Library",
-        "start": "2026-08-23T19:00:00.000Z",
-        "end": "2026-08-23T20:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Reading to Children ",
         "start": "2026-08-23T21:00:00.000Z",
         "end": "2026-08-23T22:00:00Z",
@@ -2159,15 +2147,15 @@
         "start": "2026-09-04T23:30:00.000Z",
         "end": "2026-09-05T00:30:00Z",
         "registration": false
+      },
+      {
+        "title": "OneInMath: Math Program for K-3rd at Evergreen Library",
+        "start": "2026-09-06T19:00:00.000Z",
+        "end": "2026-09-06T20:00:00Z",
+        "registration": false
       }
     ],
     "hillview-library": [
-      {
-        "title": "English & Math Tutoring ",
-        "start": "2026-08-23T19:00:00.000Z",
-        "end": "2026-08-23T21:00:00Z",
-        "registration": false
-      },
       {
         "title": "Family Storytime",
         "start": "2026-08-23T19:30:00.000Z",
@@ -2364,6 +2352,12 @@
         "title": "Reading to Furry Friends",
         "start": "2026-09-05T20:00:00.000Z",
         "end": "2026-09-05T21:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "English & Math Tutoring ",
+        "start": "2026-09-06T19:00:00.000Z",
+        "end": "2026-09-06T21:00:00Z",
         "registration": false
       }
     ],
@@ -4058,6 +4052,12 @@
         "title": "Reading Buddies",
         "start": "2026-09-05T23:00:00.000Z",
         "end": "2026-09-06T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Grab-and-Go: Mental Health Kits for Youth",
+        "start": "2026-09-06T19:00:00.000Z",
+        "end": "2026-09-07T00:00:00Z",
         "registration": false
       }
     ],
