@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-23T19:26:22.466Z",
+  "generated": "2026-08-23T23:26:48.643Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 692,
+  "count": 691,
   "by_slug": {
     "almaden-library": [
       {
@@ -237,18 +237,6 @@
     ],
     "alviso-library": [
       {
-        "title": "Reading to Children",
-        "start": "2026-08-23T21:00:00.000Z",
-        "end": "2026-08-23T22:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Math Festival",
-        "start": "2026-08-23T22:00:00.000Z",
-        "end": "2026-08-23T23:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Family Storytime + Stay & Play",
         "start": "2026-08-25T18:00:00.000Z",
         "end": "2026-08-25T19:00:00Z",
@@ -324,6 +312,18 @@
         "title": "Reading to Children",
         "start": "2026-09-05T22:00:00.000Z",
         "end": "2026-09-05T23:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Reading to Children",
+        "start": "2026-09-06T21:00:00.000Z",
+        "end": "2026-09-06T22:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "STEM Sundays",
+        "start": "2026-09-06T22:00:00.000Z",
+        "end": "2026-09-06T23:00:00Z",
         "registration": false
       }
     ],
@@ -539,15 +539,21 @@
         "start": "2026-09-05T18:00:00.000Z",
         "end": "2026-09-05T18:30:00Z",
         "registration": false
+      },
+      {
+        "title": "STEM: Balloon Car Derby",
+        "start": "2026-09-06T21:00:00.000Z",
+        "end": "2026-09-06T22:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Reading to Children",
+        "start": "2026-09-06T23:00:00.000Z",
+        "end": "2026-09-06T23:30:00Z",
+        "registration": false
       }
     ],
     "biblioteca-latinoamericana-library": [
-      {
-        "title": "Club de tejer en crochet || Crochet Club",
-        "start": "2026-08-23T20:00:00.000Z",
-        "end": "2026-08-23T21:00:00Z",
-        "registration": false
-      },
       {
         "title": "Reading Buddies / Amigos de la Lectura",
         "start": "2026-08-24T21:30:00.000Z",
@@ -642,6 +648,12 @@
         "title": "LEGO® Club - Club LEGO®",
         "start": "2026-09-05T22:00:00.000Z",
         "end": "2026-09-05T23:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "STEAM Sunday Extravaganza!",
+        "start": "2026-09-06T20:00:00.000Z",
+        "end": "2026-09-06T22:00:00Z",
         "registration": false
       }
     ],
@@ -811,12 +823,6 @@
     ],
     "cambrian-library": [
       {
-        "title": "LEGO® Club",
-        "start": "2026-08-23T22:00:00.000Z",
-        "end": "2026-08-23T23:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Reading to Children with Aysha",
         "start": "2026-08-24T22:00:00.000Z",
         "end": "2026-08-24T23:00:00Z",
@@ -983,33 +989,21 @@
         "start": "2026-09-05T20:00:00.000Z",
         "end": "2026-09-05T21:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Reading to Children with Vivian",
+        "start": "2026-09-06T20:00:00.000Z",
+        "end": "2026-09-06T21:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "LEGO® Club",
+        "start": "2026-09-06T22:00:00.000Z",
+        "end": "2026-09-06T23:00:00Z",
+        "registration": false
       }
     ],
     "dr-martin-luther-king-jr-library": [
-      {
-        "title": "Tech Mentor",
-        "start": "2026-08-23T20:00:00.000Z",
-        "end": "2026-08-23T22:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Teen Boot Camp 3: AI/ML and Cybersecurity for Real-World Applications",
-        "start": "2026-08-23T21:00:00.000Z",
-        "end": "2026-08-24T01:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Tech Mentor",
-        "start": "2026-08-23T22:00:00.000Z",
-        "end": "2026-08-24T01:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Indoor Family Storytime + Stay & Play",
-        "start": "2026-08-23T23:00:00.000Z",
-        "end": "2026-08-24T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Bay Area Comics and Comix Exhibition",
         "start": "2026-08-24T07:00:00.000Z",
@@ -1381,27 +1375,21 @@
         "start": "2026-09-06T07:00:00.000Z",
         "end": "2026-09-07T06:59:59Z",
         "registration": false
+      },
+      {
+        "title": "Tech Mentor",
+        "start": "2026-09-06T20:00:00.000Z",
+        "end": "2026-09-06T22:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Tech Mentor",
+        "start": "2026-09-06T22:00:00.000Z",
+        "end": "2026-09-07T01:00:00Z",
+        "registration": false
       }
     ],
     "dr-roberto-cruz-alum-rock-library": [
-      {
-        "title": "Art Club",
-        "start": "2026-08-23T20:00:00.000Z",
-        "end": "2026-08-23T22:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Basic English Level 0",
-        "start": "2026-08-23T21:00:00.000Z",
-        "end": "2026-08-23T22:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Basic English Level 1",
-        "start": "2026-08-23T22:00:00.000Z",
-        "end": "2026-08-23T23:00:00Z",
-        "registration": false
-      },
       {
         "title": "Maker Mondays: Sugar Scrub",
         "start": "2026-08-24T23:00:00.000Z",
@@ -1463,18 +1451,6 @@
         "registration": false
       },
       {
-        "title": "Basic English Level 0",
-        "start": "2026-08-30T21:00:00.000Z",
-        "end": "2026-08-30T22:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Basic English Level 1",
-        "start": "2026-08-30T22:00:00.000Z",
-        "end": "2026-08-30T23:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Practice Your Reading (For Adults)",
         "start": "2026-09-01T00:00:00.000Z",
         "end": "2026-09-01T01:00:00Z",
@@ -1533,21 +1509,27 @@
         "start": "2026-09-05T23:30:00.000Z",
         "end": "2026-09-06T00:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Art Club",
+        "start": "2026-09-06T20:00:00.000Z",
+        "end": "2026-09-06T22:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Basic English Level 0",
+        "start": "2026-09-06T21:00:00.000Z",
+        "end": "2026-09-06T22:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Basic English Level 1",
+        "start": "2026-09-06T22:00:00.000Z",
+        "end": "2026-09-06T23:00:00Z",
+        "registration": false
       }
     ],
     "east-san-jose-carnegie-library": [
-      {
-        "title": "Crafternoon for Adults, Tweens and Teens ",
-        "start": "2026-08-23T20:00:00.000Z",
-        "end": "2026-08-23T21:30:00Z",
-        "registration": false
-      },
-      {
-        "title": "Music and Movement for Adults",
-        "start": "2026-08-23T22:00:00.000Z",
-        "end": "2026-08-23T23:30:00Z",
-        "registration": false
-      },
       {
         "title": "Knitting/Crocheting/Tatting/Bobbin Lace Club",
         "start": "2026-08-24T23:30:00.000Z",
@@ -1847,18 +1829,6 @@
     ],
     "educational-park-library": [
       {
-        "title": "Lego® Club!",
-        "start": "2026-08-23T20:00:00.000Z",
-        "end": "2026-08-23T21:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "English Language Learners (ELL) Conversation Club",
-        "start": "2026-08-23T22:00:00.000Z",
-        "end": "2026-08-23T23:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Clases de inglés para Hispanos - Nivel 1",
         "start": "2026-08-25T00:00:00.000Z",
         "end": "2026-08-25T01:30:00Z",
@@ -2025,21 +1995,21 @@
         "start": "2026-09-05T17:30:00.000Z",
         "end": "2026-09-05T18:45:00Z",
         "registration": false
+      },
+      {
+        "title": "Lego® Club!",
+        "start": "2026-09-06T20:00:00.000Z",
+        "end": "2026-09-06T21:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "English Language Learners (ELL) Conversation Club",
+        "start": "2026-09-06T22:00:00.000Z",
+        "end": "2026-09-06T23:00:00Z",
+        "registration": false
       }
     ],
     "evergreen-library": [
-      {
-        "title": "Reading to Children ",
-        "start": "2026-08-23T21:00:00.000Z",
-        "end": "2026-08-23T22:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Family Storytime + Stay & Play",
-        "start": "2026-08-23T22:15:00.000Z",
-        "end": "2026-08-23T23:15:00Z",
-        "registration": false
-      },
       {
         "title": "Tech Mentor: One on One Computer Help ",
         "start": "2026-08-24T20:00:00.000Z",
@@ -2153,15 +2123,21 @@
         "start": "2026-09-06T19:00:00.000Z",
         "end": "2026-09-06T20:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Reading to Children ",
+        "start": "2026-09-06T21:00:00.000Z",
+        "end": "2026-09-06T22:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Family Storytime + Stay & Play",
+        "start": "2026-09-06T22:15:00.000Z",
+        "end": "2026-09-06T23:15:00Z",
+        "registration": false
       }
     ],
     "hillview-library": [
-      {
-        "title": "Family Storytime",
-        "start": "2026-08-23T19:30:00.000Z",
-        "end": "2026-08-23T20:30:00Z",
-        "registration": false
-      },
       {
         "title": "Game Zone",
         "start": "2026-08-24T22:30:00.000Z",
@@ -2359,15 +2335,15 @@
         "start": "2026-09-06T19:00:00.000Z",
         "end": "2026-09-06T21:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Family Storytime",
+        "start": "2026-09-06T19:30:00.000Z",
+        "end": "2026-09-06T20:30:00Z",
+        "registration": false
       }
     ],
     "joyce-ellington-library": [
-      {
-        "title": "OneInMath: Math Support for Grades K–3 at Joyce Ellington Branch",
-        "start": "2026-08-23T22:30:00.000Z",
-        "end": "2026-08-23T23:30:00Z",
-        "registration": false
-      },
       {
         "title": "Tech Mentor: One on One Computer Help",
         "start": "2026-08-24T20:00:00.000Z",
@@ -2474,6 +2450,12 @@
         "title": "Reading To Children",
         "start": "2026-09-05T17:15:00.000Z",
         "end": "2026-09-05T17:45:00Z",
+        "registration": false
+      },
+      {
+        "title": "OneInMath: Math Support for Grades K–3 at Joyce Ellington Branch",
+        "start": "2026-09-06T22:30:00.000Z",
+        "end": "2026-09-06T23:30:00Z",
         "registration": false
       }
     ],
@@ -3009,12 +2991,6 @@
     ],
     "seven-trees-library": [
       {
-        "title": "Board Game Zone",
-        "start": "2026-08-23T21:00:00.000Z",
-        "end": "2026-08-23T23:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Make It Mondays: Paper Plate Sun",
         "start": "2026-08-24T23:00:00.000Z",
         "end": "2026-08-25T00:00:00Z",
@@ -3289,15 +3265,15 @@
         "start": "2026-09-06T07:00:00.000Z",
         "end": "2026-09-07T06:59:59Z",
         "registration": false
+      },
+      {
+        "title": "Board Game Zone",
+        "start": "2026-09-06T21:00:00.000Z",
+        "end": "2026-09-06T23:00:00Z",
+        "registration": false
       }
     ],
     "tully-community-library": [
-      {
-        "title": "Family Games: Cards & Board Games",
-        "start": "2026-08-23T20:00:00.000Z",
-        "end": "2026-08-23T21:00:00Z",
-        "registration": false
-      },
       {
         "title": "Tech Help for Seniors",
         "start": "2026-08-24T23:00:00.000Z",
@@ -3501,6 +3477,12 @@
         "start": "2026-09-05T23:00:00.000Z",
         "end": "2026-09-06T00:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Family Games: Cards & Board Games",
+        "start": "2026-09-06T20:00:00.000Z",
+        "end": "2026-09-06T21:00:00Z",
+        "registration": false
       }
     ],
     "village-square-library": [
@@ -3626,12 +3608,6 @@
       }
     ],
     "vineland-library": [
-      {
-        "title": "STEM Fun: Builders Club",
-        "start": "2026-08-23T20:30:00.000Z",
-        "end": "2026-08-23T21:30:00Z",
-        "registration": false
-      },
       {
         "title": "Make a Wish for Tanabata/Star Festival!",
         "start": "2026-08-24T07:00:00.000Z",
@@ -3859,21 +3835,15 @@
         "start": "2026-09-05T21:00:00.000Z",
         "end": "2026-09-05T22:00:00Z",
         "registration": false
+      },
+      {
+        "title": "STEM Fun: Builders Club",
+        "start": "2026-09-06T20:30:00.000Z",
+        "end": "2026-09-06T21:30:00Z",
+        "registration": false
       }
     ],
     "west-valley-library": [
-      {
-        "title": "Sunday STEAM",
-        "start": "2026-08-23T20:00:00.000Z",
-        "end": "2026-08-23T21:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "One-on-One Computer Help with our Tech Mentor",
-        "start": "2026-08-23T22:00:00.000Z",
-        "end": "2026-08-23T23:00:00Z",
-        "registration": false
-      },
       {
         "title": "Line Dancing for Beginners/Improvers",
         "start": "2026-08-25T20:30:00.000Z",
@@ -4001,6 +3971,12 @@
         "registration": false
       },
       {
+        "title": "DIY Beaded Suncatchers: Crafts for adults and seniors",
+        "start": "2026-09-02T23:00:00.000Z",
+        "end": "2026-09-03T00:00:00Z",
+        "registration": false
+      },
+      {
         "title": "One-on-One Computer Help with our Tech Mentor",
         "start": "2026-09-02T23:00:00.000Z",
         "end": "2026-09-03T00:00:00Z",
@@ -4058,6 +4034,24 @@
         "title": "Grab-and-Go: Mental Health Kits for Youth",
         "start": "2026-09-06T19:00:00.000Z",
         "end": "2026-09-07T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Monthly STEM Workshop",
+        "start": "2026-09-06T20:00:00.000Z",
+        "end": "2026-09-06T21:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "NeuroSpark Brain Science Series",
+        "start": "2026-09-06T22:00:00.000Z",
+        "end": "2026-09-06T23:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "One-on-One Computer Help with our Tech Mentor",
+        "start": "2026-09-06T22:00:00.000Z",
+        "end": "2026-09-06T23:00:00Z",
         "registration": false
       }
     ],
