@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-22T23:26:07.916Z",
+  "generated": "2026-08-23T03:54:33.053Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
@@ -807,6 +807,12 @@
         "start": "2026-09-04T23:00:00.000Z",
         "end": "2026-09-05T00:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Adult Crafternoons",
+        "start": "2026-09-05T23:30:00.000Z",
+        "end": "2026-09-06T00:30:00Z",
+        "registration": false
       }
     ],
     "cambrian-library": [
@@ -1191,12 +1197,6 @@
         "registration": false
       },
       {
-        "title": "Tech Mentor",
-        "start": "2026-08-29T17:00:00.000Z",
-        "end": "2026-08-29T19:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Reading Buddies with Yash",
         "start": "2026-08-29T20:30:00.000Z",
         "end": "2026-08-29T22:00:00Z",
@@ -1397,12 +1397,6 @@
     ],
     "dr-roberto-cruz-alum-rock-library": [
       {
-        "title": "Language and Culture Swap",
-        "start": "2026-08-22T23:30:00.000Z",
-        "end": "2026-08-23T00:30:00Z",
-        "registration": false
-      },
-      {
         "title": "Art Club",
         "start": "2026-08-23T20:00:00.000Z",
         "end": "2026-08-23T22:00:00Z",
@@ -1544,6 +1538,12 @@
         "title": "Practice Spanish Speaking Skills for Spanish Language Learners",
         "start": "2026-09-05T22:00:00.000Z",
         "end": "2026-09-05T23:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Language and Culture Swap",
+        "start": "2026-09-05T23:30:00.000Z",
+        "end": "2026-09-06T00:30:00Z",
         "registration": false
       }
     ],
