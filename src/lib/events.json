@@ -1,17 +1,11 @@
 {
-  "generated": "2026-08-23T23:26:48.643Z",
+  "generated": "2026-08-24T08:00:32.006Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 691,
+  "count": 688,
   "by_slug": {
     "almaden-library": [
-      {
-        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
-        "start": "2026-08-24T07:00:00.000Z",
-        "end": "2026-08-25T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
         "start": "2026-08-25T07:00:00.000Z",
@@ -1005,12 +999,6 @@
     ],
     "dr-martin-luther-king-jr-library": [
       {
-        "title": "Bay Area Comics and Comix Exhibition",
-        "start": "2026-08-24T07:00:00.000Z",
-        "end": "2026-08-25T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "One-on-One Job Assistance",
         "start": "2026-08-24T18:00:00.000Z",
         "end": "2026-08-24T20:00:00Z",
@@ -1386,6 +1374,12 @@
         "title": "Tech Mentor",
         "start": "2026-09-06T22:00:00.000Z",
         "end": "2026-09-07T01:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Bay Area Comics and Comix Exhibition",
+        "start": "2026-09-07T07:00:00.000Z",
+        "end": "2026-09-08T06:59:59Z",
         "registration": false
       }
     ],
@@ -2547,12 +2541,6 @@
     ],
     "pearl-avenue-library": [
       {
-        "title": "I SPY: Back to School Scavenger Hunt",
-        "start": "2026-08-24T07:00:00.000Z",
-        "end": "2026-08-25T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Tech Mentor / Computer & iPad Assistance",
         "start": "2026-08-24T23:00:00.000Z",
         "end": "2026-08-25T01:00:00Z",
@@ -2779,12 +2767,6 @@
     ],
     "santa-teresa-library": [
       {
-        "title": "Community Puzzle Swap",
-        "start": "2026-08-24T07:00:00.000Z",
-        "end": "2026-08-25T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Santa Teresa Junior Math Club",
         "start": "2026-08-24T23:30:00.000Z",
         "end": "2026-08-25T00:30:00Z",
@@ -2986,6 +2968,12 @@
         "title": "Community Puzzle Swap",
         "start": "2026-09-06T07:00:00.000Z",
         "end": "2026-09-07T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "Community Puzzle Swap",
+        "start": "2026-09-07T07:00:00.000Z",
+        "end": "2026-09-08T06:59:59Z",
         "registration": false
       }
     ],
@@ -3608,12 +3596,6 @@
       }
     ],
     "vineland-library": [
-      {
-        "title": "Make a Wish for Tanabata/Star Festival!",
-        "start": "2026-08-24T07:00:00.000Z",
-        "end": "2026-08-25T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Make a Wish for Tanabata/Star Festival!",
         "start": "2026-08-25T07:00:00.000Z",
