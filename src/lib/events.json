@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-24T08:00:32.006Z",
+  "generated": "2026-08-24T19:34:13.650Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 688,
+  "count": 697,
   "by_slug": {
     "almaden-library": [
       {
@@ -567,7 +567,7 @@
         "registration": false
       },
       {
-        "title": "Asistencia Tecnologica y Ayuda Personalizada",
+        "title": "Asistencia tecnologica y ayuda personalizada",
         "start": "2026-08-25T23:00:00.000Z",
         "end": "2026-08-26T01:00:00Z",
         "registration": false
@@ -585,6 +585,12 @@
         "registration": false
       },
       {
+        "title": "Asistencia tecnologica y ayuda personalizada",
+        "start": "2026-08-27T23:00:00.000Z",
+        "end": "2026-08-28T00:00:00Z",
+        "registration": false
+      },
+      {
         "title": "Hazlo tu mismo (DIY) para adultos | Adult DIY",
         "start": "2026-08-28T19:00:00.000Z",
         "end": "2026-08-28T20:00:00Z",
@@ -593,6 +599,12 @@
       {
         "title": "Friday Family Game Zone",
         "start": "2026-08-28T22:30:00.000Z",
+        "end": "2026-08-29T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Asistencia tecnologica y ayuda personalizada",
+        "start": "2026-08-28T23:00:00.000Z",
         "end": "2026-08-29T00:00:00Z",
         "registration": false
       },
@@ -609,12 +621,6 @@
         "registration": false
       },
       {
-        "title": "Club de tejer en crochet || Crochet Club",
-        "start": "2026-08-30T20:00:00.000Z",
-        "end": "2026-08-30T21:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Volunteer Away Your Fines",
         "start": "2026-08-30T21:00:00.000Z",
         "end": "2026-08-30T22:00:00Z",
@@ -627,6 +633,24 @@
         "registration": false
       },
       {
+        "title": "Asistencia de búsqueda de trabajo y crear resumen (currículum)",
+        "start": "2026-09-01T17:30:00.000Z",
+        "end": "2026-09-01T19:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Asistencia tecnologica y ayuda personalizada",
+        "start": "2026-09-01T23:00:00.000Z",
+        "end": "2026-09-02T01:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "English Language Learner (ELL) Conversation Club: Intermediate",
+        "start": "2026-09-03T00:00:00.000Z",
+        "end": "2026-09-03T01:00:00Z",
+        "registration": false
+      },
+      {
         "title": "Wee Play Outdoors / Patio de Juego y Aprendizaje",
         "start": "2026-09-03T17:30:00.000Z",
         "end": "2026-09-03T18:30:00Z",
@@ -636,6 +660,24 @@
         "title": "Wee Play Outdoors / Patio de Juego y Aprendizaje",
         "start": "2026-09-03T17:30:00.000Z",
         "end": "2026-09-03T18:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Asistencia tecnologica y ayuda personalizada",
+        "start": "2026-09-03T23:00:00.000Z",
+        "end": "2026-09-04T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Asistencia tecnologica y ayuda personalizada",
+        "start": "2026-09-04T23:00:00.000Z",
+        "end": "2026-09-05T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Be a Scientist: Fossils",
+        "start": "2026-09-05T20:00:00.000Z",
+        "end": "2026-09-05T21:00:00Z",
         "registration": false
       },
       {
@@ -648,6 +690,12 @@
         "title": "STEAM Sunday Extravaganza!",
         "start": "2026-09-06T20:00:00.000Z",
         "end": "2026-09-06T22:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Club de tejer en crochet || Crochet Club",
+        "start": "2026-09-06T20:00:00.000Z",
+        "end": "2026-09-06T21:00:00Z",
         "registration": false
       }
     ],
@@ -998,12 +1046,6 @@
       }
     ],
     "dr-martin-luther-king-jr-library": [
-      {
-        "title": "One-on-One Job Assistance",
-        "start": "2026-08-24T18:00:00.000Z",
-        "end": "2026-08-24T20:00:00Z",
-        "registration": false
-      },
       {
         "title": "STEM Club: Sound/Hearing Investigation",
         "start": "2026-08-24T23:00:00.000Z",
@@ -2455,12 +2497,6 @@
     ],
     "mt-pleasant-neighborhood-library-bridge-branch": [
       {
-        "title": "Music and Movement",
-        "start": "2026-08-24T18:00:00.000Z",
-        "end": "2026-08-24T19:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Adaptive Activities Programming at Mount Pleasant Neighborhood Library",
         "start": "2026-08-26T16:30:00.000Z",
         "end": "2026-08-26T17:30:00Z",
@@ -2536,6 +2572,12 @@
         "title": "Friendly Stitchers",
         "start": "2026-09-05T17:30:00.000Z",
         "end": "2026-09-05T18:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Music and Movement",
+        "start": "2026-09-07T18:00:00.000Z",
+        "end": "2026-09-07T19:00:00Z",
         "registration": false
       }
     ],
@@ -2845,6 +2887,12 @@
         "registration": false
       },
       {
+        "title": "One-On-One Tech Help",
+        "start": "2026-08-29T17:00:00.000Z",
+        "end": "2026-08-29T19:00:00Z",
+        "registration": false
+      },
+      {
         "title": "Music and Movement",
         "start": "2026-08-29T18:00:00.000Z",
         "end": "2026-08-29T18:30:00Z",
@@ -2950,6 +2998,12 @@
         "title": "Community Puzzle Swap",
         "start": "2026-09-05T07:00:00.000Z",
         "end": "2026-09-06T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "One-On-One Tech Help",
+        "start": "2026-09-05T17:00:00.000Z",
+        "end": "2026-09-05T19:00:00Z",
         "registration": false
       },
       {
