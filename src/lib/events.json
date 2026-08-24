@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-24T19:34:13.650Z",
+  "generated": "2026-08-24T23:26:48.981Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 697,
+  "count": 683,
   "by_slug": {
     "almaden-library": [
       {
@@ -367,12 +367,6 @@
     ],
     "berryessa-library": [
       {
-        "title": "Adult Work Space",
-        "start": "2026-08-24T21:00:00.000Z",
-        "end": "2026-08-24T23:30:00Z",
-        "registration": false
-      },
-      {
         "title": "Baby and Me Time: Playdate for Children and Their Caregivers ",
         "start": "2026-08-25T18:00:00.000Z",
         "end": "2026-08-25T19:00:00Z",
@@ -548,12 +542,6 @@
       }
     ],
     "biblioteca-latinoamericana-library": [
-      {
-        "title": "Reading Buddies / Amigos de la Lectura",
-        "start": "2026-08-24T21:30:00.000Z",
-        "end": "2026-08-24T23:30:00Z",
-        "registration": false
-      },
       {
         "title": "Asistencia de búsqueda de trabajo y crear resumen (currículum)",
         "start": "2026-08-25T17:30:00.000Z",
@@ -865,18 +853,6 @@
     ],
     "cambrian-library": [
       {
-        "title": "Reading to Children with Aysha",
-        "start": "2026-08-24T22:00:00.000Z",
-        "end": "2026-08-24T23:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "One-On-One Reading Coach for Kids",
-        "start": "2026-08-24T23:00:00.000Z",
-        "end": "2026-08-25T00:00:00Z",
-        "registration": false
-      },
-      {
         "title": "ELL Conversation Club for Beginners",
         "start": "2026-08-24T23:30:00.000Z",
         "end": "2026-08-25T00:30:00Z",
@@ -1046,12 +1022,6 @@
       }
     ],
     "dr-martin-luther-king-jr-library": [
-      {
-        "title": "STEM Club: Sound/Hearing Investigation",
-        "start": "2026-08-24T23:00:00.000Z",
-        "end": "2026-08-25T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Reading Buddies with Grant",
         "start": "2026-08-25T00:00:00.000Z",
@@ -1426,12 +1396,6 @@
       }
     ],
     "dr-roberto-cruz-alum-rock-library": [
-      {
-        "title": "Maker Mondays: Sugar Scrub",
-        "start": "2026-08-24T23:00:00.000Z",
-        "end": "2026-08-25T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Family Storytime and Stay & Play",
         "start": "2026-08-25T18:00:00.000Z",
@@ -2048,12 +2012,6 @@
     "evergreen-library": [
       {
         "title": "Tech Mentor: One on One Computer Help ",
-        "start": "2026-08-24T20:00:00.000Z",
-        "end": "2026-08-24T22:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Tech Mentor: One on One Computer Help ",
         "start": "2026-08-25T20:00:00.000Z",
         "end": "2026-08-25T22:00:00Z",
         "registration": false
@@ -2174,18 +2132,6 @@
       }
     ],
     "hillview-library": [
-      {
-        "title": "Game Zone",
-        "start": "2026-08-24T22:30:00.000Z",
-        "end": "2026-08-24T23:30:00Z",
-        "registration": false
-      },
-      {
-        "title": "Chess for Beginners",
-        "start": "2026-08-24T23:00:00.000Z",
-        "end": "2026-08-25T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Gentle Yoga / Yoga Relajante ",
         "start": "2026-08-25T00:00:00.000Z",
@@ -2380,12 +2326,6 @@
       }
     ],
     "joyce-ellington-library": [
-      {
-        "title": "Tech Mentor: One on One Computer Help",
-        "start": "2026-08-24T20:00:00.000Z",
-        "end": "2026-08-25T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Music & Movement",
         "start": "2026-08-25T17:30:00.000Z",
@@ -2582,18 +2522,6 @@
       }
     ],
     "pearl-avenue-library": [
-      {
-        "title": "Tech Mentor / Computer & iPad Assistance",
-        "start": "2026-08-24T23:00:00.000Z",
-        "end": "2026-08-25T01:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "*Hybrid* Science Fiction Book Club",
-        "start": "2026-08-24T23:00:00.000Z",
-        "end": "2026-08-25T00:30:00Z",
-        "registration": false
-      },
       {
         "title": "I SPY: Back to School Scavenger Hunt",
         "start": "2026-08-25T07:00:00.000Z",
@@ -3033,12 +2961,6 @@
     ],
     "seven-trees-library": [
       {
-        "title": "Make It Mondays: Paper Plate Sun",
-        "start": "2026-08-24T23:00:00.000Z",
-        "end": "2026-08-25T00:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Family Storytime + Stay & Play",
         "start": "2026-08-25T00:30:00.000Z",
         "end": "2026-08-25T01:30:00Z",
@@ -3316,12 +3238,6 @@
       }
     ],
     "tully-community-library": [
-      {
-        "title": "Tech Help for Seniors",
-        "start": "2026-08-24T23:00:00.000Z",
-        "end": "2026-08-25T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Crochet Club",
         "start": "2026-08-24T23:30:00.000Z",
@@ -4093,12 +4009,6 @@
     ],
     "willow-glen-library": [
       {
-        "title": "Chess Club for Kids ",
-        "start": "2026-08-24T23:00:00.000Z",
-        "end": "2026-08-25T00:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Family Storytime",
         "start": "2026-08-25T18:00:00.000Z",
         "end": "2026-08-25T18:30:00Z",
@@ -4234,6 +4144,12 @@
         "title": "Saturday STEM: Build a Puff Mobile!",
         "start": "2026-09-05T21:00:00.000Z",
         "end": "2026-09-05T22:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Chess Club for Kids ",
+        "start": "2026-09-07T23:00:00.000Z",
+        "end": "2026-09-08T00:00:00Z",
         "registration": false
       }
     ]
