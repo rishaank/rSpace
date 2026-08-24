@@ -63,6 +63,17 @@ export function spending() {
   return buckets;
 }
 
+/**
+ * The cached value for `key` without making a call, or `undefined` when there
+ * is nothing fresh to hand back. Screens that only fetch on a tap use this to
+ * show what a previous visit already paid for, so the tap is never needed
+ * twice for the same place.
+ */
+export function peek(key) {
+  const hit = read().entries[key];
+  return hit && hit.until > Date.now() ? hit.value : undefined;
+}
+
 // Calls that have gone out but not come back, keyed the same way. A place
 // screen that asks for a photo and a transit time at once, or two components
 // asking for the same thing, must not buy it twice.

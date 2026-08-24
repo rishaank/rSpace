@@ -1,0 +1,1249 @@
+{
+  "generated": "2026-08-24",
+  "source": "U.S. Census Bureau TIGERweb, 2020 Census (public domain) · tigerweb.geo.census.gov",
+  "window": {
+    "xmin": -122.35,
+    "ymin": 36.85,
+    "xmax": -121.2,
+    "ymax": 37.55,
+    "spatialReference": {
+      "wkid": 4326
+    }
+  },
+  "cities": [
+    {
+      "name": "San José",
+      "incorporated": true,
+      "population": 1013240,
+      "lat": 37.29601,
+      "lng": -121.81455
+    },
+    {
+      "name": "Fremont",
+      "incorporated": true,
+      "population": 230504,
+      "lat": 37.49471,
+      "lng": -121.94115
+    },
+    {
+      "name": "Sunnyvale",
+      "incorporated": true,
+      "population": 155805,
+      "lat": 37.3858,
+      "lng": -122.02632
+    },
+    {
+      "name": "Santa Clara",
+      "incorporated": true,
+      "population": 127647,
+      "lat": 37.36462,
+      "lng": -121.96797
+    },
+    {
+      "name": "Redwood City",
+      "incorporated": true,
+      "population": 84292,
+      "lat": 37.51527,
+      "lng": -122.21367
+    },
+    {
+      "name": "Mountain View",
+      "incorporated": true,
+      "population": 82376,
+      "lat": 37.39969,
+      "lng": -122.07927
+    },
+    {
+      "name": "Milpitas",
+      "incorporated": true,
+      "population": 80273,
+      "lat": 37.43314,
+      "lng": -121.89093
+    },
+    {
+      "name": "Palo Alto",
+      "incorporated": true,
+      "population": 68572,
+      "lat": 37.39652,
+      "lng": -122.14309
+    },
+    {
+      "name": "Santa Cruz",
+      "incorporated": true,
+      "population": 62956,
+      "lat": 36.97438,
+      "lng": -122.03527
+    },
+    {
+      "name": "Cupertino",
+      "incorporated": true,
+      "population": 60381,
+      "lat": 37.3194,
+      "lng": -122.04496
+    },
+    {
+      "name": "Gilroy",
+      "incorporated": true,
+      "population": 59520,
+      "lat": 37.00641,
+      "lng": -121.58532
+    },
+    {
+      "name": "Watsonville",
+      "incorporated": true,
+      "population": 52590,
+      "lat": 36.91961,
+      "lng": -121.77025
+    },
+    {
+      "name": "Newark",
+      "incorporated": true,
+      "population": 47529,
+      "lat": 37.50403,
+      "lng": -122.03255
+    },
+    {
+      "name": "Morgan Hill",
+      "incorporated": true,
+      "population": 45483,
+      "lat": 37.13249,
+      "lng": -121.64189
+    },
+    {
+      "name": "Campbell",
+      "incorporated": true,
+      "population": 43959,
+      "lat": 37.28024,
+      "lng": -121.9533
+    },
+    {
+      "name": "Hollister",
+      "incorporated": true,
+      "population": 41678,
+      "lat": 36.8556,
+      "lng": -121.3986
+    },
+    {
+      "name": "Menlo Park",
+      "incorporated": true,
+      "population": 33780,
+      "lat": 37.47973,
+      "lng": -122.14805
+    },
+    {
+      "name": "Los Gatos",
+      "incorporated": true,
+      "population": 33529,
+      "lat": 37.22685,
+      "lng": -121.95551
+    },
+    {
+      "name": "Los Altos",
+      "incorporated": true,
+      "population": 31625,
+      "lat": 37.36843,
+      "lng": -122.09657
+    },
+    {
+      "name": "Saratoga",
+      "incorporated": true,
+      "population": 31051,
+      "lat": 37.26833,
+      "lng": -122.02622
+    },
+    {
+      "name": "San Carlos",
+      "incorporated": true,
+      "population": 30722,
+      "lat": 37.49903,
+      "lng": -122.26757
+    },
+    {
+      "name": "East Palo Alto",
+      "incorporated": true,
+      "population": 30034,
+      "lat": 37.46778,
+      "lng": -122.13255
+    },
+    {
+      "name": "Belmont",
+      "incorporated": true,
+      "population": 28335,
+      "lat": 37.5144,
+      "lng": -122.29448
+    },
+    {
+      "name": "Stanford",
+      "incorporated": false,
+      "population": 21150,
+      "lat": 37.42693,
+      "lng": -122.16774
+    },
+    {
+      "name": "Live Oak",
+      "incorporated": false,
+      "population": 17038,
+      "lat": 36.98602,
+      "lng": -121.98041
+    },
+    {
+      "name": "North Fair Oaks",
+      "incorporated": false,
+      "population": 14027,
+      "lat": 37.47543,
+      "lng": -122.20346
+    },
+    {
+      "name": "Scotts Valley",
+      "incorporated": true,
+      "population": 12224,
+      "lat": 37.0555,
+      "lng": -122.01177
+    },
+    {
+      "name": "Alum Rock",
+      "incorporated": false,
+      "population": 12042,
+      "lat": 37.36941,
+      "lng": -121.82381
+    },
+    {
+      "name": "Soquel",
+      "incorporated": false,
+      "population": 9980,
+      "lat": 36.99776,
+      "lng": -121.94825
+    },
+    {
+      "name": "Capitola",
+      "incorporated": true,
+      "population": 9938,
+      "lat": 36.97608,
+      "lng": -121.95401
+    },
+    {
+      "name": "Rio del Mar",
+      "incorporated": false,
+      "population": 9128,
+      "lat": 36.9579,
+      "lng": -121.88482
+    },
+    {
+      "name": "Los Altos Hills",
+      "incorporated": true,
+      "population": 8489,
+      "lat": 37.36692,
+      "lng": -122.13876
+    },
+    {
+      "name": "Interlaken",
+      "incorporated": false,
+      "population": 7368,
+      "lat": 36.94236,
+      "lng": -121.75896
+    },
+    {
+      "name": "Atherton",
+      "incorporated": true,
+      "population": 7188,
+      "lat": 37.45629,
+      "lng": -122.20146
+    },
+    {
+      "name": "San Martin",
+      "incorporated": false,
+      "population": 7008,
+      "lat": 37.08288,
+      "lng": -121.59632
+    },
+    {
+      "name": "East Foothills",
+      "incorporated": false,
+      "population": 6803,
+      "lat": 37.3826,
+      "lng": -121.81374
+    },
+    {
+      "name": "Aptos",
+      "incorporated": false,
+      "population": 6664,
+      "lat": 36.99115,
+      "lng": -121.89346
+    },
+    {
+      "name": "Ben Lomond",
+      "incorporated": false,
+      "population": 6337,
+      "lat": 37.07821,
+      "lng": -122.0881
+    },
+    {
+      "name": "Pleasure Point",
+      "incorporated": false,
+      "population": 5821,
+      "lat": 36.95972,
+      "lng": -121.97004
+    },
+    {
+      "name": "Boulder Creek",
+      "incorporated": false,
+      "population": 5429,
+      "lat": 37.1341,
+      "lng": -122.12721
+    },
+    {
+      "name": "Woodside",
+      "incorporated": true,
+      "population": 5309,
+      "lat": 37.42215,
+      "lng": -122.25859
+    },
+    {
+      "name": "Twin Lakes",
+      "incorporated": false,
+      "population": 4944,
+      "lat": 36.96152,
+      "lng": -121.9917
+    },
+    {
+      "name": "Burbank",
+      "incorporated": false,
+      "population": 4940,
+      "lat": 37.32111,
+      "lng": -121.93058
+    },
+    {
+      "name": "Felton",
+      "incorporated": false,
+      "population": 4489,
+      "lat": 37.03922,
+      "lng": -122.08076
+    },
+    {
+      "name": "Portola Valley",
+      "incorporated": true,
+      "population": 4456,
+      "lat": 37.36524,
+      "lng": -122.233
+    },
+    {
+      "name": "Emerald Lake Hills",
+      "incorporated": false,
+      "population": 4406,
+      "lat": 37.46566,
+      "lng": -122.26535
+    },
+    {
+      "name": "West Menlo Park",
+      "incorporated": false,
+      "population": 3930,
+      "lat": 37.43382,
+      "lng": -122.20342
+    },
+    {
+      "name": "Freedom",
+      "incorporated": false,
+      "population": 3835,
+      "lat": 36.94025,
+      "lng": -121.79525
+    },
+    {
+      "name": "Cambrian Park",
+      "incorporated": false,
+      "population": 3719,
+      "lat": 37.25629,
+      "lng": -121.92887
+    },
+    {
+      "name": "Loyola",
+      "incorporated": false,
+      "population": 3491,
+      "lat": 37.35033,
+      "lng": -122.09797
+    },
+    {
+      "name": "Monte Sereno",
+      "incorporated": true,
+      "population": 3479,
+      "lat": 37.24041,
+      "lng": -121.98823
+    },
+    {
+      "name": "Day Valley",
+      "incorporated": false,
+      "population": 3410,
+      "lat": 37.02544,
+      "lng": -121.85593
+    },
+    {
+      "name": "Seacliff",
+      "incorporated": false,
+      "population": 3280,
+      "lat": 36.97734,
+      "lng": -121.91861
+    },
+    {
+      "name": "Las Lomas",
+      "incorporated": false,
+      "population": 3046,
+      "lat": 36.86881,
+      "lng": -121.73161
+    },
+    {
+      "name": "Pajaro",
+      "incorporated": false,
+      "population": 2882,
+      "lat": 36.90166,
+      "lng": -121.74173
+    },
+    {
+      "name": "Bonny Doon",
+      "incorporated": false,
+      "population": 2868,
+      "lat": 37.04358,
+      "lng": -122.13697
+    },
+    {
+      "name": "Aromas",
+      "incorporated": false,
+      "population": 2708,
+      "lat": 36.87611,
+      "lng": -121.62974
+    },
+    {
+      "name": "Amesti",
+      "incorporated": false,
+      "population": 2637,
+      "lat": 36.95581,
+      "lng": -121.77756
+    },
+    {
+      "name": "La Selva Beach",
+      "incorporated": false,
+      "population": 2531,
+      "lat": 36.92737,
+      "lng": -121.8444
+    },
+    {
+      "name": "Lexington Hills",
+      "incorporated": false,
+      "population": 2492,
+      "lat": 37.159,
+      "lng": -121.98861
+    },
+    {
+      "name": "Aptos Hills-Larkin Valley",
+      "incorporated": false,
+      "population": 2383,
+      "lat": 36.96348,
+      "lng": -121.8352
+    },
+    {
+      "name": "Highlands",
+      "incorporated": false,
+      "population": 2359,
+      "lat": 37.52005,
+      "lng": -122.34592
+    },
+    {
+      "name": "Corralitos",
+      "incorporated": false,
+      "population": 2342,
+      "lat": 37.00064,
+      "lng": -121.77867
+    },
+    {
+      "name": "Brookdale",
+      "incorporated": false,
+      "population": 2043,
+      "lat": 37.10573,
+      "lng": -122.11062
+    },
+    {
+      "name": "Baywood Park",
+      "incorporated": false,
+      "population": 1693,
+      "lat": 37.52916,
+      "lng": -122.34164
+    },
+    {
+      "name": "Diablo Grande",
+      "incorporated": false,
+      "population": 1669,
+      "lat": 37.39905,
+      "lng": -121.26351
+    },
+    {
+      "name": "Ladera",
+      "incorporated": false,
+      "population": 1557,
+      "lat": 37.39987,
+      "lng": -122.19897
+    },
+    {
+      "name": "Lompico",
+      "incorporated": false,
+      "population": 1154,
+      "lat": 37.11388,
+      "lng": -122.05287
+    },
+    {
+      "name": "Mount Hermon",
+      "incorporated": false,
+      "population": 1110,
+      "lat": 37.05103,
+      "lng": -122.05335
+    },
+    {
+      "name": "Pasatiempo",
+      "incorporated": false,
+      "population": 1093,
+      "lat": 37.00334,
+      "lng": -122.02647
+    },
+    {
+      "name": "Fruitdale",
+      "incorporated": false,
+      "population": 989,
+      "lat": 37.31171,
+      "lng": -121.93577
+    },
+    {
+      "name": "La Honda",
+      "incorporated": false,
+      "population": 979,
+      "lat": 37.3177,
+      "lng": -122.2584
+    },
+    {
+      "name": "Zayante",
+      "incorporated": false,
+      "population": 729,
+      "lat": 37.08921,
+      "lng": -122.04086
+    },
+    {
+      "name": "Westley",
+      "incorporated": false,
+      "population": 575,
+      "lat": 37.54691,
+      "lng": -121.20092
+    },
+    {
+      "name": "Davenport",
+      "incorporated": false,
+      "population": 388,
+      "lat": 37.01778,
+      "lng": -122.18788
+    },
+    {
+      "name": "Paradise Park",
+      "incorporated": false,
+      "population": 367,
+      "lat": 37.0063,
+      "lng": -122.04241
+    },
+    {
+      "name": "Loma Mar",
+      "incorporated": false,
+      "population": 134,
+      "lat": 37.26578,
+      "lng": -122.30069
+    },
+    {
+      "name": "Pajaro Dunes",
+      "incorporated": false,
+      "population": 122,
+      "lat": 36.86821,
+      "lng": -121.8057
+    }
+  ],
+  "zips": [
+    {
+      "zip": "94002",
+      "city": "Belmont",
+      "lat": 37.51345,
+      "lng": -122.29682,
+      "population": 28513
+    },
+    {
+      "zip": "94020",
+      "city": "La Honda",
+      "lat": 37.26898,
+      "lng": -122.22155,
+      "population": 1732
+    },
+    {
+      "zip": "94021",
+      "city": "Loma Mar",
+      "lat": 37.25034,
+      "lng": -122.24964,
+      "population": 171
+    },
+    {
+      "zip": "94022",
+      "city": "Los Altos Hills",
+      "lat": 37.35536,
+      "lng": -122.14494,
+      "population": 20842
+    },
+    {
+      "zip": "94024",
+      "city": "Los Altos",
+      "lat": 37.35039,
+      "lng": -122.09869,
+      "population": 23263
+    },
+    {
+      "zip": "94025",
+      "city": "Menlo Park",
+      "lat": 37.45125,
+      "lng": -122.18234,
+      "population": 42354
+    },
+    {
+      "zip": "94027",
+      "city": "Atherton",
+      "lat": 37.45629,
+      "lng": -122.20146,
+      "population": 7270
+    },
+    {
+      "zip": "94028",
+      "city": "Portola Valley",
+      "lat": 37.37488,
+      "lng": -122.21267,
+      "population": 6904
+    },
+    {
+      "zip": "94040",
+      "city": "Mountain View",
+      "lat": 37.38027,
+      "lng": -122.08522,
+      "population": 36501
+    },
+    {
+      "zip": "94041",
+      "city": "Mountain View",
+      "lat": 37.38824,
+      "lng": -122.07535,
+      "population": 15604
+    },
+    {
+      "zip": "94043",
+      "city": "Mountain View",
+      "lat": 37.41191,
+      "lng": -122.06892,
+      "population": 31414
+    },
+    {
+      "zip": "94060",
+      "city": "Pescadero",
+      "lat": 37.24714,
+      "lng": -122.26166,
+      "population": 1513
+    },
+    {
+      "zip": "94061",
+      "city": "Redwood City",
+      "lat": 37.46115,
+      "lng": -122.23695,
+      "population": 36704
+    },
+    {
+      "zip": "94062",
+      "city": "Woodside",
+      "lat": 37.42296,
+      "lng": -122.28595,
+      "population": 26689
+    },
+    {
+      "zip": "94063",
+      "city": "North Fair Oaks",
+      "lat": 37.49889,
+      "lng": -122.19876,
+      "population": 35836
+    },
+    {
+      "zip": "94065",
+      "city": "Redwood City",
+      "lat": 37.53342,
+      "lng": -122.24956,
+      "population": 12781
+    },
+    {
+      "zip": "94070",
+      "city": "San Carlos",
+      "lat": 37.49647,
+      "lng": -122.27256,
+      "population": 31585
+    },
+    {
+      "zip": "94074",
+      "city": null,
+      "lat": 37.33171,
+      "lng": -122.34147,
+      "population": 282
+    },
+    {
+      "zip": "94085",
+      "city": "Sunnyvale",
+      "lat": 37.38862,
+      "lng": -122.01793,
+      "population": 24031
+    },
+    {
+      "zip": "94086",
+      "city": "Sunnyvale",
+      "lat": 37.37163,
+      "lng": -122.0232,
+      "population": 50175
+    },
+    {
+      "zip": "94087",
+      "city": "Sunnyvale",
+      "lat": 37.35161,
+      "lng": -122.03668,
+      "population": 58344
+    },
+    {
+      "zip": "94089",
+      "city": "Sunnyvale",
+      "lat": 37.4124,
+      "lng": -122.0156,
+      "population": 23255
+    },
+    {
+      "zip": "94301",
+      "city": "Palo Alto",
+      "lat": 37.44422,
+      "lng": -122.14985,
+      "population": 17299
+    },
+    {
+      "zip": "94303",
+      "city": "East Palo Alto",
+      "lat": 37.45788,
+      "lng": -122.1151,
+      "population": 48281
+    },
+    {
+      "zip": "94304",
+      "city": "Palo Alto",
+      "lat": 37.39725,
+      "lng": -122.16698,
+      "population": 4569
+    },
+    {
+      "zip": "94305",
+      "city": "Stanford",
+      "lat": 37.41826,
+      "lng": -122.17087,
+      "population": 20961
+    },
+    {
+      "zip": "94306",
+      "city": "Palo Alto",
+      "lat": 37.4162,
+      "lng": -122.13086,
+      "population": 28659
+    },
+    {
+      "zip": "94402",
+      "city": "San Mateo",
+      "lat": 37.5401,
+      "lng": -122.3301,
+      "population": 25879
+    },
+    {
+      "zip": "94403",
+      "city": "San Mateo",
+      "lat": 37.53845,
+      "lng": -122.30545,
+      "population": 45057
+    },
+    {
+      "zip": "94538",
+      "city": "Fremont",
+      "lat": 37.50137,
+      "lng": -121.95675,
+      "population": 66424
+    },
+    {
+      "zip": "94539",
+      "city": "Fremont",
+      "lat": 37.51629,
+      "lng": -121.91189,
+      "population": 54026
+    },
+    {
+      "zip": "94550",
+      "city": null,
+      "lat": 37.51994,
+      "lng": -121.57557,
+      "population": 49959
+    },
+    {
+      "zip": "94555",
+      "city": "Fremont",
+      "lat": 37.54758,
+      "lng": -122.09817,
+      "population": 36887
+    },
+    {
+      "zip": "94560",
+      "city": "Newark",
+      "lat": 37.50403,
+      "lng": -122.03255,
+      "population": 47533
+    },
+    {
+      "zip": "95002",
+      "city": "San José",
+      "lat": 37.4354,
+      "lng": -122.00697,
+      "population": 2039
+    },
+    {
+      "zip": "95003",
+      "city": "Rio del Mar",
+      "lat": 37.03116,
+      "lng": -121.86308,
+      "population": 24706
+    },
+    {
+      "zip": "95004",
+      "city": "Aromas",
+      "lat": 36.87611,
+      "lng": -121.62974,
+      "population": 4348
+    },
+    {
+      "zip": "95005",
+      "city": "Ben Lomond",
+      "lat": 37.09836,
+      "lng": -122.0893,
+      "population": 6551
+    },
+    {
+      "zip": "95006",
+      "city": "Boulder Creek",
+      "lat": 37.17127,
+      "lng": -122.14952,
+      "population": 9454
+    },
+    {
+      "zip": "95007",
+      "city": "Brookdale",
+      "lat": 37.11012,
+      "lng": -122.11434,
+      "population": 883
+    },
+    {
+      "zip": "95008",
+      "city": "Campbell",
+      "lat": 37.27917,
+      "lng": -121.95557,
+      "population": 49038
+    },
+    {
+      "zip": "95010",
+      "city": "Capitola",
+      "lat": 36.97635,
+      "lng": -121.95472,
+      "population": 9080
+    },
+    {
+      "zip": "95013",
+      "city": "San José",
+      "lat": 37.21532,
+      "lng": -121.73961,
+      "population": 108
+    },
+    {
+      "zip": "95014",
+      "city": "Cupertino",
+      "lat": 37.30944,
+      "lng": -122.08839,
+      "population": 62585
+    },
+    {
+      "zip": "95017",
+      "city": "Davenport",
+      "lat": 37.09508,
+      "lng": -122.23714,
+      "population": 969
+    },
+    {
+      "zip": "95018",
+      "city": "Felton",
+      "lat": 37.08407,
+      "lng": -122.05917,
+      "population": 8003
+    },
+    {
+      "zip": "95019",
+      "city": "Watsonville",
+      "lat": 36.93585,
+      "lng": -121.78448,
+      "population": 6603
+    },
+    {
+      "zip": "95020",
+      "city": "Gilroy",
+      "lat": 37.01621,
+      "lng": -121.55942,
+      "population": 68090
+    },
+    {
+      "zip": "95023",
+      "city": "Hollister",
+      "lat": 36.92442,
+      "lng": -121.28962,
+      "population": 56973
+    },
+    {
+      "zip": "95030",
+      "city": "Monte Sereno",
+      "lat": 37.22165,
+      "lng": -121.98324,
+      "population": 13585
+    },
+    {
+      "zip": "95032",
+      "city": "Los Gatos",
+      "lat": 37.17849,
+      "lng": -121.90185,
+      "population": 28109
+    },
+    {
+      "zip": "95033",
+      "city": "Lexington Hills",
+      "lat": 37.1581,
+      "lng": -121.9735,
+      "population": 9565
+    },
+    {
+      "zip": "95035",
+      "city": "Milpitas",
+      "lat": 37.4404,
+      "lng": -121.87469,
+      "population": 80440
+    },
+    {
+      "zip": "95037",
+      "city": "Morgan Hill",
+      "lat": 37.13181,
+      "lng": -121.68121,
+      "population": 53126
+    },
+    {
+      "zip": "95041",
+      "city": "Mount Hermon",
+      "lat": 37.05053,
+      "lng": -122.05828,
+      "population": 602
+    },
+    {
+      "zip": "95046",
+      "city": "San Martin",
+      "lat": 37.09931,
+      "lng": -121.59924,
+      "population": 6361
+    },
+    {
+      "zip": "95050",
+      "city": "Santa Clara",
+      "lat": 37.35043,
+      "lng": -121.95241,
+      "population": 39031
+    },
+    {
+      "zip": "95051",
+      "city": "Santa Clara",
+      "lat": 37.34831,
+      "lng": -121.98443,
+      "population": 61466
+    },
+    {
+      "zip": "95053",
+      "city": "Santa Clara",
+      "lat": 37.34846,
+      "lng": -121.93727,
+      "population": 2582
+    },
+    {
+      "zip": "95054",
+      "city": "Santa Clara",
+      "lat": 37.3931,
+      "lng": -121.9648,
+      "population": 25024
+    },
+    {
+      "zip": "95060",
+      "city": "Santa Cruz",
+      "lat": 36.99343,
+      "lng": -122.09816,
+      "population": 47931
+    },
+    {
+      "zip": "95062",
+      "city": "Pleasure Point",
+      "lat": 36.97397,
+      "lng": -121.98985,
+      "population": 36268
+    },
+    {
+      "zip": "95064",
+      "city": "Santa Cruz",
+      "lat": 36.9916,
+      "lng": -122.05887,
+      "population": 8806
+    },
+    {
+      "zip": "95065",
+      "city": "Live Oak",
+      "lat": 37.03224,
+      "lng": -121.9844,
+      "population": 8444
+    },
+    {
+      "zip": "95066",
+      "city": "Scotts Valley",
+      "lat": 37.0672,
+      "lng": -122.01452,
+      "population": 15483
+    },
+    {
+      "zip": "95070",
+      "city": "Saratoga",
+      "lat": 37.25493,
+      "lng": -122.05218,
+      "population": 32419
+    },
+    {
+      "zip": "95073",
+      "city": "Soquel",
+      "lat": 37.04068,
+      "lng": -121.93174,
+      "population": 10549
+    },
+    {
+      "zip": "95076",
+      "city": "Watsonville",
+      "lat": 36.94236,
+      "lng": -121.75896,
+      "population": 84433
+    },
+    {
+      "zip": "95110",
+      "city": "San José",
+      "lat": 37.34657,
+      "lng": -121.90975,
+      "population": 20495
+    },
+    {
+      "zip": "95111",
+      "city": "San José",
+      "lat": 37.28385,
+      "lng": -121.82687,
+      "population": 60593
+    },
+    {
+      "zip": "95112",
+      "city": "San José",
+      "lat": 37.3446,
+      "lng": -121.88344,
+      "population": 60754
+    },
+    {
+      "zip": "95113",
+      "city": "San José",
+      "lat": 37.33401,
+      "lng": -121.89044,
+      "population": 2658
+    },
+    {
+      "zip": "95116",
+      "city": "San José",
+      "lat": 37.35047,
+      "lng": -121.85255,
+      "population": 51222
+    },
+    {
+      "zip": "95117",
+      "city": "San José",
+      "lat": 37.31007,
+      "lng": -121.96218,
+      "population": 30137
+    },
+    {
+      "zip": "95118",
+      "city": "San José",
+      "lat": 37.25536,
+      "lng": -121.89191,
+      "population": 32764
+    },
+    {
+      "zip": "95119",
+      "city": "San José",
+      "lat": 37.22697,
+      "lng": -121.78868,
+      "population": 10050
+    },
+    {
+      "zip": "95120",
+      "city": "San José",
+      "lat": 37.18574,
+      "lng": -121.84275,
+      "population": 38341
+    },
+    {
+      "zip": "95121",
+      "city": "San José",
+      "lat": 37.30461,
+      "lng": -121.80977,
+      "population": 37609
+    },
+    {
+      "zip": "95122",
+      "city": "San José",
+      "lat": 37.32922,
+      "lng": -121.83482,
+      "population": 54056
+    },
+    {
+      "zip": "95123",
+      "city": "San José",
+      "lat": 37.24424,
+      "lng": -121.8316,
+      "population": 70040
+    },
+    {
+      "zip": "95124",
+      "city": "Cambrian Park",
+      "lat": 37.25683,
+      "lng": -121.92281,
+      "population": 50054
+    },
+    {
+      "zip": "95125",
+      "city": "San José",
+      "lat": 37.2956,
+      "lng": -121.89407,
+      "population": 54000
+    },
+    {
+      "zip": "95126",
+      "city": "San José",
+      "lat": 37.32692,
+      "lng": -121.91678,
+      "population": 37372
+    },
+    {
+      "zip": "95127",
+      "city": "Alum Rock",
+      "lat": 37.3719,
+      "lng": -121.7873,
+      "population": 63749
+    },
+    {
+      "zip": "95128",
+      "city": "Burbank",
+      "lat": 37.31588,
+      "lng": -121.93643,
+      "population": 34776
+    },
+    {
+      "zip": "95129",
+      "city": "San José",
+      "lat": 37.30596,
+      "lng": -122.00072,
+      "population": 41819
+    },
+    {
+      "zip": "95130",
+      "city": "San José",
+      "lat": 37.27768,
+      "lng": -121.98624,
+      "population": 13584
+    },
+    {
+      "zip": "95131",
+      "city": "San José",
+      "lat": 37.38727,
+      "lng": -121.89795,
+      "population": 30975
+    },
+    {
+      "zip": "95132",
+      "city": "San José",
+      "lat": 37.41841,
+      "lng": -121.78798,
+      "population": 40426
+    },
+    {
+      "zip": "95133",
+      "city": "San José",
+      "lat": 37.37172,
+      "lng": -121.86056,
+      "population": 30080
+    },
+    {
+      "zip": "95134",
+      "city": "San José",
+      "lat": 37.43002,
+      "lng": -121.94526,
+      "population": 29746
+    },
+    {
+      "zip": "95135",
+      "city": "San José",
+      "lat": 37.22336,
+      "lng": -121.52569,
+      "population": 20734
+    },
+    {
+      "zip": "95136",
+      "city": "San José",
+      "lat": 37.27262,
+      "lng": -121.85309,
+      "population": 45971
+    },
+    {
+      "zip": "95138",
+      "city": "San José",
+      "lat": 37.24551,
+      "lng": -121.74862,
+      "population": 19530
+    },
+    {
+      "zip": "95139",
+      "city": "San José",
+      "lat": 37.22488,
+      "lng": -121.76386,
+      "population": 6764
+    },
+    {
+      "zip": "95140",
+      "city": null,
+      "lat": 37.3506,
+      "lng": -121.64331,
+      "population": 276
+    },
+    {
+      "zip": "95148",
+      "city": "San José",
+      "lat": 37.33343,
+      "lng": -121.78167,
+      "population": 45819
+    },
+    {
+      "zip": "95363",
+      "city": "Patterson",
+      "lat": 37.37809,
+      "lng": -121.21142,
+      "population": 29309
+    }
+  ]
+}

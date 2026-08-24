@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useApp } from "../lib/store";
-import { hasMapsKey, placePhoto, transitMinutes } from "../lib/google";
+import { cachedPhoto, hasMapsKey, placePhoto, transitMinutes } from "../lib/google";
 import { EVENTS_SOURCE, eventsFor, whenLabel } from "../lib/events";
-import {
-  BELLARMINE_SOURCE,
-  BELLARMINE_URL,
-  clubsFor,
-  milesFromCampus,
-  reasonFor,
-} from "../lib/bellarmine";
+import { COMMUNITY_SOURCE, SOURCE } from "../lib/seed";
 import { FACTORS, formatMiles, scorePlace } from "../lib/scoring";
 import { Alarm, Device, Meter, SaveButton, Stars } from "../components/ui";
 
@@ -25,20 +19,24 @@ export default function PlaceDetail() {
 
   // The rating, review count, price, and quote already sit on the row —
   // refresh-places.mjs writes them from the listing, which keeps the two
-  // expensive Places tiers out of the render path entirely. What is left is
-  // the photo, which has no stored form, and the transit time, which depends
-  // on this user's origin. Both are cached in ./lib/cache.js.
+  // expensive Places tiers out of the render path entirely. The transit time
+  // is the only thing left that has to be asked for on arrival: the score
+  // below is incomplete without it, and Compute Routes is an Essentials call
+  // with 10,000 a month behind it.
+  //
+  // The photo is not fetched here. Place Photo bills at the Enterprise tier
+  // that has 1,000 a month, so it waits for a tap — see PhotoBand.
   useEffect(() => {
     if (!place || !hasMapsKey) return;
     let alive = true;
 
-    Promise.all([placePhoto(place), transitMinutes(origin, place)])
-      .then(([photo, minutes]) => {
+    transitMinutes(origin, place)
+      .then((minutes) => {
         if (!alive) return;
         // A null transit time is left null on purpose: the transport
         // component then drops out of the score and its weight spreads over
         // the rest, which is what the starred total below is reporting.
-        setLive({ photo, transit_minutes: minutes });
+        setLive({ transit_minutes: minutes });
         setStale(minutes == null);
       })
       .catch(() => alive && setStale(true));
@@ -57,30 +55,7 @@ export default function PlaceDetail() {
 
   return (
     <Device>
-      <div
-        style={{
-          height: 196,
-          flex: "none",
-          background: "#d5d8c6",
-          backgroundImage: merged.photo ? `url("${merged.photo}")` : undefined,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          position: "relative",
-          display: "flex",
-          alignItems: "flex-end",
-          padding: "0 22px 12px",
-        }}
-      >
-        <button
-          type="button"
-          className="btn ghost"
-          style={{ position: "absolute", top: 20, left: 20, width: 36, height: 36, background: "var(--paper)", fontSize: 17 }}
-          onClick={() => navigate(-1)}
-          aria-label="Go back"
-        >
-          ‹
-        </button>
-      </div>
+      <PhotoBand key={place.id} place={place} onBack={() => navigate(-1)} />
 
       <div className="scroll">
         {stale && (
@@ -108,7 +83,11 @@ export default function PlaceDetail() {
             {[
               place.address,
               miles != null && `${formatMiles(miles)} away`,
-              place.price_level === 0 ? "Free entry" : "Entry fee",
+              // Dropped rather than guessed when the price is unknown. Every
+              // city site is free and says so; OpenStreetMap publishes no
+              // price for a café, and "Entry fee" on a coffee shop was the
+              // old copy filling that silence with a claim.
+              place.price_level === 0 && "Free entry",
               place.hours,
             ]
               .filter(Boolean)
@@ -151,8 +130,6 @@ export default function PlaceDetail() {
 
         <Happening slug={merged.id} />
 
-        <Clubs place={merged} />
-
         {merged.quote && (
           <div className="pad" style={{ padding: "16px 24px 24px" }}>
             <blockquote className="quote">
@@ -167,6 +144,8 @@ export default function PlaceDetail() {
             </blockquote>
           </div>
         )}
+
+        <Provenance place={place} />
       </div>
 
       <div
@@ -190,6 +169,116 @@ export default function PlaceDetail() {
         <SaveButton saved={saved} onClick={() => toggleFavorite(place.id)} size={50} />
       </div>
     </Device>
+  );
+}
+
+/**
+ * Who says so. OpenStreetMap's licence asks for attribution wherever its data
+ * is shown, and the city's asks for it too — but the better reason to print
+ * this is that every number on the screen above is meant to be checkable, and
+ * a row links straight to the record it was built from.
+ */
+function Provenance({ place }) {
+  const osm = /^osm-(node|way|relation)-(\d+)$/.exec(place.source ?? "");
+
+  return (
+    <div className="pad" style={{ padding: "16px 24px 28px", borderTop: "1px solid var(--hairline)" }}>
+      <p className="aside" style={{ fontSize: 15.5 }}>
+        From{" "}
+        {osm ? (
+          <a
+            href={`https://www.openstreetmap.org/${osm[1]}/${osm[2]}`}
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: "inherit" }}
+          >
+            {COMMUNITY_SOURCE}
+          </a>
+        ) : (
+          SOURCE
+        )}
+        {place.rating != null && ". Rating, reviews and the quote above from Google"}.
+      </p>
+    </div>
+  );
+}
+
+/**
+ * The header band, and the one Google call on this screen that the reader
+ * starts themselves.
+ *
+ * Place Photo bills at the Enterprise tier — 1,000 requests a month for
+ * everybody who uses rSpace, not per person — and it used to fire on arrival,
+ * so stepping through the ranking spent the month's allowance on places
+ * nobody paused to look at. A tap is the whole difference between a photo
+ * somebody wanted and a photo that merely happened.
+ *
+ * A photo an earlier visit already bought is shown without asking: the cache
+ * holds it for a week, and `cachedPhoto` reads that without touching Google.
+ * So the tap is needed once per place, not once per visit.
+ */
+function PhotoBand({ place, onBack }) {
+  // undefined — never asked. null — asked, and there is nothing to show.
+  const [photo, setPhoto] = useState(() => cachedPhoto(place));
+  const [loading, setLoading] = useState(false);
+
+  const offer = hasMapsKey && place.google_place_id && photo === undefined;
+
+  async function load() {
+    setLoading(true);
+    setPhoto(await placePhoto(place));
+    setLoading(false);
+  }
+
+  return (
+    <div
+      style={{
+        height: 196,
+        flex: "none",
+        background: "#d5d8c6",
+        backgroundImage: photo ? `url("${photo}")` : undefined,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        position: "relative",
+        display: "flex",
+        alignItems: "flex-end",
+        justifyContent: "flex-end",
+        padding: "0 20px 16px",
+      }}
+    >
+      <button
+        type="button"
+        className="btn ghost"
+        style={{ position: "absolute", top: 20, left: 20, width: 36, height: 36, background: "var(--paper)", fontSize: 17 }}
+        onClick={onBack}
+        aria-label="Go back"
+      >
+        ‹
+      </button>
+
+      {offer && (
+        <button
+          type="button"
+          className="btn xs ghost"
+          style={{ width: "auto", padding: "0 16px", background: "var(--paper)" }}
+          disabled={loading}
+          onClick={load}
+        >
+          {loading ? "Loading…" : "Show photo"}
+        </button>
+      )}
+
+      {/* Google was asked and had nothing — or this browser has already spent
+          its share of the month. Either way there is no second tap to offer. */}
+      {photo === null && place.google_place_id && (
+        <span
+          className="eyebrow"
+          style={{ background: "var(--paper)", padding: "5px 9px", color: "var(--label)" }}
+        >
+          No photo
+        </span>
+      )}
+    </div>
   );
 }
 
@@ -245,78 +334,6 @@ function Happening({ slug }) {
 
       <p className="aside" style={{ fontSize: 15.5, paddingTop: 9 }}>
         From {EVENTS_SOURCE}.
-      </p>
-    </div>
-  );
-}
-
-/**
- * The Bellarmine clubs that could hold a meeting here.
- *
- * Same rule as Happening above: absent on the places nothing matches, rather
- * than an empty panel implying no one at school would come. A club is listed
- * because the city publishes that this site has the thing the club does —
- * Pickleball Club against the city's pickleball courts, Chess Club against
- * its game tables, the four talk-and-table tabs against a library — so every
- * row can say why it is here.
- *
- * Distance is measured from campus, not from the reader's home. The score
- * above already answers "how far is this from where I live"; a club meeting
- * starts at the last bell, and that is a different question.
- */
-function Clubs({ place }) {
-  const clubs = clubsFor(place.id);
-  if (!clubs.length) return null;
-
-  const shown = clubs.slice(0, 8);
-  const miles = milesFromCampus(place);
-
-  return (
-    <div className="pad" style={{ paddingTop: 18 }}>
-      <div className="section-head">
-        <span>Bellarmine clubs</span>
-        <span>{clubs.length} could meet here</span>
-      </div>
-
-      {shown.map((club, i) => {
-        const reason = reasonFor(club);
-        // A library matches 29 clubs for the same reason 29 times over, and
-        // printing it on every row turns the answer into wallpaper. The
-        // reason is a heading for the run of clubs under it, not a property
-        // of each one.
-        const heading = i === 0 || reason !== reasonFor(shown[i - 1]);
-
-        return (
-          <div
-            key={club.id}
-            style={{
-              display: "flex",
-              gap: 12,
-              alignItems: "baseline",
-              borderBottom: "1px solid var(--hairline)",
-              padding: "9px 0",
-            }}
-          >
-            <span className="grow" style={{ fontSize: 17, lineHeight: 1.35 }}>
-              {club.name}
-            </span>
-            {heading && (
-              <span className="meta" style={{ flex: "none", fontSize: 14, color: "var(--label)" }}>
-                {reason}
-              </span>
-            )}
-          </div>
-        );
-      })}
-
-      <p className="aside" style={{ fontSize: 15.5, paddingTop: 9 }}>
-        {clubs.length > shown.length && `And ${clubs.length - shown.length} more. `}
-        {miles != null && `Campus is ${formatMiles(miles)} away. `}
-        Roster from{" "}
-        <a href={BELLARMINE_URL} target="_blank" rel="noreferrer" style={{ color: "inherit" }}>
-          {BELLARMINE_SOURCE}
-        </a>
-        , which publishes no meeting times — so neither does this.
       </p>
     </div>
   );

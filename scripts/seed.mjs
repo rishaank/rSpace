@@ -3,15 +3,19 @@
 //
 //   SUPABASE_URL=… SUPABASE_SERVICE_ROLE_KEY=… node scripts/seed.mjs
 //
-// Regenerate the catalogue first with scripts/sync-sanjose.mjs. The invest
-// list has no table any more — it is derived from the city's published
+// Regenerate both halves first — scripts/sync-sanjose.mjs for the city's own
+// facilities and scripts/sync-community.mjs for the OpenStreetMap ones. They
+// share one table: `third_spaces` stores what a place is, not who published
+// it, and every row carries `source` saying which.
+//
+// The invest list has no table — it is derived from the city's published
 // assessments and ships with the build.
 
 import { createClient } from "@supabase/supabase-js";
 // Read the file rather than importing src/lib/seed.js: that module does a
 // plain JSON import, which Vite resolves and Node refuses without an import
 // attribute. See scripts/catalogue.mjs.
-import { readCatalogue } from "./catalogue.mjs";
+import { readCatalogue, readCommunity } from "./catalogue.mjs";
 
 const url = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -23,7 +27,7 @@ if (!url || !key) {
 
 const supabase = createClient(url, key);
 
-const places = readCatalogue().places.map(({ id, closed_on, ...rest }) => ({
+const places = [...readCatalogue().places, ...readCommunity().places].map(({ id, closed_on, ...rest }) => ({
   slug: id,
   closed_on: closed_on ?? null,
   ...rest,

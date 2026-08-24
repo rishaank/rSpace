@@ -147,9 +147,12 @@ const AMENITY_INTERESTS = {
   PICKLE: "Pickleball",
   TEN: "Tennis",
   TRACK: "Walking",
-  EXERC: "Walking",
-  PARC: "Walking",
-  VISTA: "Walking",
+  EXERC: "Fitness",
+  PARC: "Fitness",
+  VISTA: "Trails & nature",
+  BASE: "Baseball",
+  SOFT: "Baseball",
+  VOLL: "Volleyball",
   GAMETB: "Chess",
   PNGPNG: "Chess",
   ORNGARD: "Gardening",
@@ -164,9 +167,18 @@ const AMENITY_INTERESTS = {
   SAND: "Kids & family",
   RIDE: "Kids & family",
   TETHR: "Kids & family",
-  DOG: "Walking",
-  SKATE: "Sport",
-  BMX: "Sport",
+  DOG: "Dogs",
+  SKATE: "Skating",
+  BMX: "Skating",
+};
+
+// Some of what a place is for is in the park type rather than in any amenity
+// row: an open-space or trail parcel has nothing built on it to list, and it
+// is still the answer to "somewhere to walk".
+const PARK_TYPE_INTERESTS = {
+  NAT: ["Trails & nature", "Walking"],
+  TR: ["Trails & nature", "Walking"],
+  REG: ["Trails & nature"],
 };
 
 const AMENITY_LABELS = {
@@ -197,6 +209,7 @@ const AMENITY_LABELS = {
   HORSE: "horseshoe pits",
   FRISB: "a disc golf course",
   HAND: "handball courts",
+  BMX: "a BMX track",
 };
 
 // Amenities people gather around, as opposed to infrastructure like parking
@@ -378,11 +391,11 @@ function interactabilityFrom(amenities, extras = 0) {
   return Math.round((0.65 * variety + 0.35 * volume) * 100);
 }
 
-function interestsFrom(amenities) {
-  const found = new Set();
+function interestsFrom(amenities, parkType = null) {
+  const found = new Set(PARK_TYPE_INTERESTS[parkType] ?? []);
   for (const a of amenities) {
     const interest = AMENITY_INTERESTS[a.type];
-    if (interest && interest !== "Sport") found.add(interest);
+    if (interest) found.add(interest);
   }
   return [...found].sort();
 }
@@ -564,7 +577,7 @@ for (const { attributes: a, geometry } of parkRows) {
     price_level: 0,
     popularity: interactabilityFrom(amenities),
     amenities: [...new Set(amenities.map((x) => x.type))].sort(),
-    interests: interestsFrom(amenities),
+    interests: interestsFrom(amenities, a.PARKTYPE),
     parking_spaces: null,
     acres: a.ALLACRES ? Number(a.ALLACRES.toFixed(1)) : null,
     condition: assessment?.OVERALLSCORE != null ? Number(assessment.OVERALLSCORE.toFixed(3)) : null,
@@ -821,6 +834,11 @@ const catalogue = {
   generated: new Date().toISOString().slice(0, 10),
   source: "City of San José open data (CC-BY) · geo.sanjoseca.gov OPN_OpenDataService",
   layers: LAYERS,
+  // The vocabulary above, shipped with the rows it describes. The app reads
+  // it so a reader's own typed-in interest can be matched against what the
+  // city lists on the ground — "skate" finds a skate park even on the rows
+  // where Google's editorial line has replaced the amenity sentence.
+  amenity_labels: AMENITY_LABELS,
   neighborhoods: neighborhoodList,
   places,
   needs: needs.slice(0, 40),

@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../lib/store";
-import { INTEREST_GROUPS } from "../lib/seed";
-import { AppBar, Chip, Device } from "../components/ui";
+import { ALL_INTERESTS, INTEREST_GROUPS } from "../lib/seed";
+import { AppBar, Chip, CustomInterest, Device } from "../components/ui";
 
 // 08 · /onboarding/interests
 export default function OnboardingInterests() {
   const { profile, saveProfile } = useApp();
   const navigate = useNavigate();
   const [picked, setPicked] = useState(profile?.interests ?? []);
+
+  const custom = picked.filter((i) => !ALL_INTERESTS.includes(i));
 
   function toggle(item) {
     setPicked((prev) => (prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]));
@@ -50,6 +52,28 @@ export default function OnboardingInterests() {
               </div>
             </div>
           ))}
+
+          {/* Anything the five groups above do not have a word for. The
+              picked list can hold it whether or not it matches — what the
+              field will not do is let it be added without saying so. */}
+          <div style={{ borderTop: "1px solid var(--hairline)", paddingTop: 16 }}>
+            <CustomInterest picked={picked} onAdd={(interest) => setPicked((p) => [...p, interest])} />
+          </div>
+
+          {/* Typed interests are not in any group, so they would otherwise
+              vanish off the screen the moment they were added. */}
+          {custom.length > 0 && (
+            <div style={{ display: "grid", gap: 10 }}>
+              <div className="section-head">Your own</div>
+              <div className="chips">
+                {custom.map((item) => (
+                  <Chip key={item} on onClick={() => toggle(item)}>
+                    {item}
+                  </Chip>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="foot pad" style={{ padding: "16px 24px 34px", display: "grid", gap: 11 }}>

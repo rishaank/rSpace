@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useApp } from "../lib/store";
+import { countMatches } from "../lib/seed";
 
 /* ── Icons ────────────────────────────────────────────────────────
    One stroked 24×24 set, from the design. `filled` applies to the
@@ -400,6 +401,55 @@ export function Chip({ on, children, ...rest }) {
       {children}
       {on ? " ✓" : ""}
     </button>
+  );
+}
+
+/**
+ * A one-line field for an interest the built-in list does not carry, on both
+ * the profiler and the profile.
+ *
+ * The count is the point of it. A typed interest is matched against what the
+ * sources published about a place — its name, the sentence built from its
+ * amenity codes, the codes themselves — so "skate" finds nine places and
+ * "cricket" finds none, because the city has no code for cricket and nobody
+ * has mapped a pitch. Saying so here, before the interest is added, is the
+ * difference between an honest empty result and a map that mysteriously goes
+ * blank two screens later. Adding one that matches nothing is still allowed:
+ * it is the reader's profile, and being told is not the same as being stopped.
+ */
+export function CustomInterest({ picked, onAdd }) {
+  const [typed, setTyped] = useState("");
+
+  const value = typed.trim();
+  const already = picked.some((i) => i.toLowerCase() === value.toLowerCase());
+  const found = value.length >= 2 ? countMatches(value) : null;
+
+  function add() {
+    if (!value || already) return;
+    onAdd(value);
+    setTyped("");
+  }
+
+  return (
+    <Field
+      label="Or write your own"
+      placeholder="e.g. birdwatching"
+      value={typed}
+      onChange={(e) => setTyped(e.target.value)}
+      onKeyDown={(e) => e.key === "Enter" && add()}
+      hint={
+        already
+          ? "Already on your list."
+          : found == null
+            ? "Matched against what the city and OpenStreetMap say is at a place."
+            : `${found} place${found === 1 ? "" : "s"} match "${value}".`
+      }
+      adorn={
+        <button type="button" disabled={!value || already} onClick={add}>
+          Add
+        </button>
+      }
+    />
   );
 }
 

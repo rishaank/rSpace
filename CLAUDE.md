@@ -1,8 +1,9 @@
 # rSpace — working notes for Claude
 
 rSpace scores public "third spaces" in San José — parks, courts, libraries,
-community centers — against priorities each person sets themselves. It is
-Rishaan's entry for the Janyaa Social Innovation Challenge 2026.
+community centers, cafés, open space — against priorities each person sets
+themselves. It is Rishaan's entry for the Janyaa Social Innovation Challenge
+2026.
 
 Live: https://rspace-blush.vercel.app · Repo: https://github.com/rishaank/rSpace
 
@@ -16,8 +17,8 @@ Never run the dev server with `Bash`; use the Browser pane's preview tools.
 `.claude/launch.json` already defines the `rspace` server.
 
 The app works with **no** environment variables at all: the catalogue is
-generated at build time into `src/lib/catalogue.json` and accounts fall back to
-`localStorage`. `src/lib/data.js` is the only file that knows whether Supabase
+generated at build time into `src/lib/catalogue.json` and `community.json`,
+and accounts fall back to `localStorage`. `src/lib/data.js` is the only file that knows whether Supabase
 is configured — nothing above it branches.
 
 ## Stack and layout
@@ -29,8 +30,9 @@ learning Java; keep the code plain and skip clever abstractions.
 
 ```
 src/
-  lib/        scoring, catalogue.json + events.json (both generated),
-              Supabase + Google adapters, describe, cache, app store
+  lib/        scoring, the four generated files (catalogue.json,
+              community.json, events.json, geography.json), Supabase +
+              Google adapters, describe, cache, app store
   components/ ui.jsx (design primitives, icons, brand), MapCanvas, RankFactors
   routes/     one file per screen, each headed with its design number
 supabase/     schema and RLS
@@ -49,7 +51,7 @@ render rebuilds the map.
 
 | Component | Source | Normalisation |
 |---|---|---|
-| I — interactability | Count of social amenities the city lists on site | `popularity / 100` |
+| I — interactability | Count of social amenities the city lists on site (`null` on an OSM row) | `popularity / 100` |
 | D — distance | Haversine from the profile's neighborhood | `1 − miles / 8`, per request, never stored |
 | T — transport | Routes API, transit mode | `1 − minutes / 30` |
 | P — popularity | rating × review volume | `0.65·stars + 0.35·log-scaled reviews` |
@@ -80,38 +82,77 @@ a single lawn. Nothing on a row is hand-set any more.
 
 Interests filter the map; they never affect a score. That filter is **on by
 default** whenever the profile has any interests picked — the map opens on the
-places the reader said they would go out for, not on all 328. It cannot start
+places the reader said they would go out for, not on all 565. It cannot start
 on with an empty interest list, because it would match nothing and the map
 would open empty. When it does empty the map, "Look past my interests" is the
 first remedy the empty state offers, ahead of distance and cost.
 
+### Interests, picked and typed
+
+`INTEREST_GROUPS` in `src/lib/seed.js` is the picker's vocabulary, and there
+is one rule about it: **every option in it is carried by at least one place.**
+An option that matches nothing empties the map and gives the reader no way to
+tell a bad filter from a bad neighborhood. Two used to break the rule —
+"Volunteering", which nothing in the city's data could satisfy until
+`community.json` existed, and "Faith groups", which nothing still can, so it
+is gone.
+
+The list grew from 16 to 22 by fixing the mapping rather than by inventing
+words. `SKATE` and `BMX` used to map to a literal `"Sport"` that
+`interestsFrom` then threw away, so skate parks surfaced no interest at all;
+`BASE`, `SOFT` and `VOLL` mapped to nothing. `PARK_TYPE_INTERESTS` is new and
+reads the park *type* rather than an amenity row, because an open-space or
+trail parcel has nothing built on it to list and is still the answer to
+"somewhere to walk".
+
+A **typed** interest is matched differently, in `matchesInterests`. There is
+no set to test against, so it is matched against what the sources actually
+published about a place: its name, the sentence built from its amenity codes,
+the codes themselves through `catalogue.amenity_labels`, and its category. The
+picker reports the count *before* the interest is added — "7 places match
+skate", "0 places match cricket" — so an empty result is stated at the point
+the reader chooses it rather than discovered two screens later on a blank map.
+Adding one that matches nothing is still allowed: it is their profile, and
+being told is not the same as being stopped.
+
 ## Where the data comes from
 
-The catalogue is **generated, never hand-edited**. `src/lib/catalogue.json` is
-written by `scripts/sync-sanjose.mjs` from the City of San José's open data
-service, which is CC-BY, needs no key, and has no quota — so it can be re-run
-at will and costs nothing.
+Every place list is **generated, never hand-edited**, and there are two of
+them. `src/lib/catalogue.json` is the city's own property — parks, community
+centers, libraries — from the City of San José's open data service, which is
+CC-BY, needs no key, and has no quota. `src/lib/community.json` is everything
+a person spends an afternoon in that the city does *not* own, and so does not
+publish: independent cafés, the open space preserves the county and the
+Midpeninsula district run, and somewhere to volunteer. That comes from
+OpenStreetMap through Overpass — also free and keyless, but **ODbL, which
+requires attribution**, so the source string travels with the file and the
+profile screen and the detail screen both print it.
+
+`src/lib/seed.js` concatenates the two into `PLACES`. Nothing above it knows
+there were two files.
 
 ```bash
-node scripts/sync-sanjose.mjs     # city facts    (free, ~30s)
-node scripts/place-ids.mjs        # google ids    (free SKU, 32/day)
-node scripts/refresh-places.mjs   # google facts  (the paid tier — see below)
+node scripts/sync-sanjose.mjs     # city facts     (free, ~30s)
+node scripts/sync-community.mjs   # osm facts      (free, one request)
+node scripts/place-ids.mjs        # google ids     (free SKU, 32/day)
+node scripts/refresh-places.mjs   # google facts   (the paid tier — see below)
 node scripts/sync-events.mjs      # library events (free, ~30s — see below)
-node scripts/sync-bellarmine.mjs  # club roster   (free, one request)
+node scripts/sync-geography.mjs   # zips and towns (free; run once a decade)
 ```
 
 **These run on a schedule; you should rarely run them by hand.**
-`.github/workflows/refresh-catalogue.yml` runs the first three daily at 09:00
-UTC, pushes the rows to Supabase, and commits `catalogue.json`;
-`.github/workflows/refresh-events.yml` runs `sync-events.mjs` every four hours
-and commits `events.json`; `.github/workflows/refresh-clubs.yml` runs
-`sync-bellarmine.mjs` weekly on Monday at 10:00 UTC — an hour after the
-catalogue, because the club join reads it — and commits `bellarmine.json`. Since Vercel builds from the repo, those commits
-are the deploy. There is no server to run them on: rSpace is a static bundle,
-and both files are *build inputs*, so the schedule belongs to the build rather
-than the app.
+`.github/workflows/refresh-catalogue.yml` runs the first four daily at 09:00
+UTC, pushes the rows to Supabase, and commits `catalogue.json` and
+`community.json`; `.github/workflows/refresh-events.yml` runs `sync-events.mjs`
+every four hours and commits `events.json`. Since Vercel builds from the repo,
+those commits are the deploy. There is no server to run them on: rSpace is a
+static bundle, and the files are *build inputs*, so the schedule belongs to
+the build rather than the app.
 
-`sync-sanjose.mjs` is idempotent — two consecutive runs produce a byte-identical
+`sync-geography.mjs` is deliberately **not** scheduled. Its source is the 2020
+Census, which by definition does not change until 2030.
+
+Both catalogue generators are idempotent — two consecutive runs produce a byte-identical
 file. If that ever stops being true, something is fighting it for ownership of
 a field, which is what `refresh-places.mjs` overwriting the city's address used
 to do.
@@ -154,6 +195,50 @@ safe — 23 addresses here belong to more than one site, and it once put
 Almaden Community Center's rating and a named reviewer's words onto Parma
 Park. Anything ambiguous is dropped with a warning instead of guessed.
 
+### The OpenStreetMap half
+
+`sync-community.mjs` adds 236 places in three groups, and each one is defined
+by a rule over a *published tag* rather than by a list of names:
+
+| Group | Rule | Count |
+|---|---|---|
+| Food | `amenity=cafe` or `ice_cream` inside the city, **with no `brand*` tag** | ~202 |
+| Outdoors | `leisure=nature_reserve` where OSM says `access=yes` or `permissive`, plus `highway=trailhead` | ~30 |
+| Service | the organisations named in `VOLUNTEER_ORGS`, located by OSM | 4 |
+
+Three things about OSM that shape the file, and that are the opposite of how
+the city's service is treated:
+
+- **The city publishes an inventory; OSM publishes whatever a volunteer
+  mapped.** An absent tag therefore proves nothing, so every rule needs a tag
+  to be *present* before it claims anything. That matters most on open space:
+  half of `leisure=nature_reserve` around here is conservation easement and
+  habitat mitigation land — real, and closed — so a preserve has to say out
+  loud that it is open. That drops two thirds of them.
+- **The chain filter is `brand`, not a list of names.** `brand` and
+  `brand:wikidata` are OSM's own way of saying a shopfront is one of many, so
+  "small and local" is read off the data instead of being argued about here.
+  It takes 284 cafés down to 202 and it is what removes Starbucks and
+  Yogurtland while keeping Nirvana Soul.
+- `VOLUNTEER_ORGS` is the one hand-written table, and it holds *names only* —
+  what each org is, where it is, and what it is called all come back from OSM.
+  **Trash Punx is missing on purpose**: they run cleanups at a creek on a
+  Saturday, there is no site to map, and inventing a headquarters is the
+  class of claim this repo exists to have removed.
+
+Two known consequences, both accepted:
+
+- A community row carries `popularity: null` and `rating: null`, because
+  nothing counts amenities at a café and it has no `google_place_id`. Those
+  two components drop out and their weight redistributes, which is the same
+  path a degraded city row takes. A nearby café therefore scores on distance,
+  transit and cost alone. Measured from downtown: cafés are about half the
+  top 50 and none of the top 20, and their median is 57 against Sport's 65.
+- `Google Cafeteria, Marketplace` is in there. It is a private corporate
+  canteen, and OSM carries no tag saying so — no `access`, no `operator`.
+  Filtering it would mean a hand-written exclusion, which is the thing the
+  brand rule exists to avoid.
+
 ## Design system
 
 The source of truth is the Claude Design project (see "Design handoff" below).
@@ -170,6 +255,9 @@ buttons and tab labels, hairline rules instead of cards.
   `.sage`, plus `.section-head.strong` on ink. Colour is carrying meaning there.
 - `--pine` is the only action colour. `--clay` is only ever errors, warnings,
   destructive actions, and Adopt need-scores — never anything positive.
+  `.btn.ghost.clay` is the outlined form of it, used by Sign out and Delete my
+  account. Those two were italic `.linkbtn` text links, which read as
+  footnotes rather than as the account controls on the screen.
 - Icons are one stroked 24×24 set in `ui.jsx` (`heart`, `map`, `sapling`,
   `person`, `filters`). The heart is the save control everywhere — use
   `<SaveButton>`, never a `♡` glyph.
@@ -249,9 +337,9 @@ All of these cost real debugging time. Do not undo them.
 - The **Geocoding API is a separate product** and is not enabled on the key.
   Neighborhood names come from Places `addressComponents`, not the Geocoder.
 - Every Google call returns `null` on failure instead of throwing. Screens must
-  degrade — the profiler to the nearest seeded neighborhood, the address field
-  to the seeded list, the map to the drawn one. Silent hangs were the original
-  bug; never `await` a Google call without a fallback path.
+  degrade — the profiler to `src/lib/geography.js`, the address field to the
+  same, the map to the drawn one. Silent hangs were the original bug; never
+  `await` a Google call without a fallback path.
 
 The drawn "paper" map in `MapCanvas` is a first-class fallback, not a
 placeholder. It projects lat/lng into a band inset from the header and sheet.
@@ -293,6 +381,16 @@ So none of that is fetched at render time any more:
   and both go through `src/lib/cache.js`, which caches in `localStorage` and
   stops making calls once a per-browser monthly ceiling is hit. Concurrent
   asks for the same key share one request.
+- **The photo waits for a tap.** Place Photo is an *Enterprise* SKU, so its
+  allowance is 1,000 a month for everybody who uses rSpace, and it used to
+  fire on arriving at a detail screen — which meant stepping through the
+  ranking spent the month on places nobody paused to look at. `PhotoBand` in
+  `PlaceDetail.jsx` shows a "Show photo" button instead. A photo an earlier
+  visit already bought still appears immediately: `cachedPhoto()` reads the
+  cache synchronously and never calls Google, so the tap is needed once per
+  place, not once per visit. The transit time is *not* gated the same way —
+  it is an Essentials call with ten thousand behind it, and the score is
+  incomplete without it.
 - The address field passes an `AutocompleteSessionToken`. A whole
   type-then-pick sequence then bills as one **free** session instead of one
   charged request per keystroke — provided `resolveSuggestion` keeps to
@@ -301,6 +399,31 @@ So none of that is fetched at render time any more:
 The per-browser ceiling is a safety net, not a guarantee: it counts one
 browser, not everyone. The real hard stop is the per-day quota on the Cloud
 project, and it is now set.
+
+### Seeing what has actually been used
+
+Three places, in order of how much they tell you:
+
+1. **Google Cloud console → APIs & Services → Metrics**, filtered to the
+   Maps APIs, on project `nodal-unity-483903-g6`. Traffic by API and by
+   response code, up to 30 days. This is real usage, everybody's, and it is
+   the number that decides the bill.
+   `https://console.cloud.google.com/google/maps-apis/metrics?project=nodal-unity-483903-g6`
+2. **Google Maps Platform → Quotas**, same project. Shows each per-day cap
+   and how close today's traffic is to it — the caps in the table above are
+   the only thing that actually stops a runaway, since Maps is not eligible
+   for a Cloud spend cap. The `Any spend alert` budget on the billing account
+   ($1, first threshold 1%) is a tripwire that emails; it stops nothing.
+   `https://console.cloud.google.com/google/maps-apis/quotas?project=nodal-unity-483903-g6`
+3. **The profile screen**, bottom section. `spending()` in `src/lib/cache.js`
+   counts what *this browser* has spent against `BUDGETS` this month, and the
+   profile prints it under the four data sources. Useful for checking that a
+   change actually reduced calls — it is how the photo-on-tap change was
+   verified — but it is one browser and it says so.
+
+The two "usage" pages worth **not** confusing: Billing → Reports shows dollars
+after the $200 credit is applied and therefore reads $0 whatever happens, and
+the per-SKU breakdown only appears once something bills.
 
 ### The quotas that make this free
 
@@ -323,7 +446,8 @@ project `nodal-unity-483903-g6` (Janyaa rSpace Maps):
 Three traps worth remembering:
 
 - **Place Photo is an Enterprise SKU** (1,000/month), not Essentials. It is the
-  second most expensive thing the app can do after a Place Details refresh.
+  second most expensive thing the app can do after a Place Details refresh —
+  which is why it is now behind a tap rather than fired on view.
 - `GetPlaceRequest` is one quota covering three different jobs — the nightly
   refresh, the address picker's `fetchFields`, and the photo lookup. They share
   the same 30/day, which is why the workflow only asks for 25.
@@ -363,7 +487,7 @@ https://gateway.bibliocommons.com/v2/libraries/sjpl/events?limit=200&page=N
 
 No key, no quota, not a Google SKU, ~30s for a full pass. That is why it can
 run six times a day (`.github/workflows/refresh-events.yml`) while the Google
-scripts run once. **Only libraries have a feed**, so 25 places out of 328 have
+scripts run once. **Only libraries have a feed**, so 25 places out of 565 have
 events and the rest render nothing — absent is the honest state, not an empty
 "no events" panel implying the place is quiet.
 
@@ -397,81 +521,51 @@ Events are deliberately **not** part of the score. Every scoring input is
 measured and stable; a number that moved because it is Tuesday would be a
 different kind of claim. They are a badge, like interests.
 
-## Which clubs could meet where
+## Answering "where are you?"
 
-`src/lib/bellarmine.json` is Bellarmine College Prep's club roster joined to
-the catalogue, generated by `scripts/sync-bellarmine.mjs` and read through
-`src/lib/bellarmine.js`. It drives a "Somewhere my club could meet" toggle in
-the map's filter sheet, a row on the map sheet, and a "Bellarmine clubs"
-section on the detail screen.
+`src/lib/geography.json` is 98 ZIP codes and 78 towns across the South Bay,
+generated by `scripts/sync-geography.mjs` from the Census Bureau's TIGERweb
+service — public domain, no key, no quota — and read through
+`src/lib/geography.js`.
 
-rSpace's reader is a Bellarmine student, and this answers the one question the
-catalogue cannot: the city publishes what is on the ground at all 329 sites,
-but nothing in it knows what anyone at school is trying to do.
+It exists because the profiler could recognise **thirteen things**. The only
+offline fallback for the address field was `NEIGHBORHOODS`, the city's own
+planning areas, so a reader in Mountain View matched nothing and a reader who
+typed their ZIP matched nothing — on a field whose placeholder read "e.g.
+Japantown or 95112". Worse, on the location-denied screen the Continue button
+was gated on a `startsWith` match against those same thirteen, so typing a ZIP
+left it grey with no explanation.
 
-Source is bcp.org's own clubs page. Four things about it that cost time:
+It is now the **fast path, not only the fallback**. A ZIP or a town name is
+answered from this file in a keystroke, with no request at all — quicker than
+a round trip to Places and one fewer billable call. Google is asked only for
+what it is actually better at, a street address or a cross street, and the two
+lists are shown together rather than one replacing the other.
 
-- The club list is **not in the page HTML**. It is a Finalsite build, and the
-  tabs are fetched separately from `https://www.bcp.org/fs/elements/5248`.
-  That endpoint serves the rendered markup, needs no key and has no quota, so
-  this sits in the free re-runnable tier with the two city scripts rather than
-  anywhere near the paid Google ones.
-- **Mission Statement is not safe to read.** bcp.org has the Career Club's
-  mission pasted under Academic Research Mentoring, so the field is not
-  reliably about the club it sits under. `Club Description` always is, and is
-  what `summaryFor` reads; a handful of clubs (Bellarmine Rugby) skip the
-  labels entirely and get the first real paragraph instead.
-- **The page publishes no meeting times.** Not for one club out of 79 — there
-  is no "Meeting Times:" field anywhere in the markup. So the app says when a
-  club meets exactly as often as the school does, which is never. An early
-  pass inferred "Mondays, Wednesdays and Fridays after school" for Rugby out
-  of prose; that is how a summary becomes a claim, and it is gone.
-- The entity decoder is **explicit, and leaves unknown names alone**. A
-  catch-all `&[a-z]+;` → space is what first turned Pokémon Club into "Pok mon
-  Club".
+Three things in the generator that took work:
 
-The join is the interesting half, and it runs in the generator so the app
-reads an answer rather than re-deriving one over 329 places per render. Two
-mechanisms, both resolving to something San José publishes:
-
-| | Rule | Clubs |
-|---|---|---|
-| `CLUB_AMENITIES` | the city has a literal layer-554 code for what the club plays on | 12 |
-| `STUDY_CATEGORIES` | the four talk-and-table tabs → the 25 library rows, via the `Reading` interest | 29 |
-
-The rule for the first table is strict: **the amenity has to be the thing the
-club plays on.** Pickleball Club against `PICKLE`, Chess and the seven other
-tabletop clubs against `GAMETB`. The clubs that are missing are missing on
-purpose — the city has no code for badminton, cricket, fencing or climbing,
-and pointing Cricket Club at a soccer field would be the same class of guess
-as the hand-typed `popularity` score that `sync-sanjose.mjs` exists to have
-replaced. The second is the one judgement call in the file, and it is made
-**per category rather than per club** so it cannot be quietly tuned one club
-at a time.
-
-So 41 of 79 clubs have somewhere off campus to be, across 90 of 329 places.
-The other 38 match nothing, and that is reported rather than hidden — Cooking
-Club wants a kitchen and the city does record which community centres have
-one, but that flag lives on layer 187 and does not survive into
-`catalogue.json`, so it cannot be matched yet. Nothing in any dataset here
-says where Key Club serves.
-
-Two rules carried over from the rest of the app:
-
-- Clubs are **not** part of the score, for the same reason events are not.
-  They filter and they label; the five components are unchanged.
-- The filter is **off by default**, unlike the interest filter. A reader who
-  has not gone looking for it should not have the map quietly narrowed to a
-  school they may not attend.
-
-`clubsFor` sorts by reason and then by name, which is what lets the detail
-screen print "game tables" once above the eight clubs that want them instead
-of 29 rows of "somewhere to sit and talk". Campus distance is measured from
-960 W Hedding St, geocoded once against OpenStreetMap and written into the
-script, because the Geocoding API is not enabled on this project's key and a
-campus does not move. It is measured from campus and not from home on
-purpose: the score already answers "how far is this from where I live", and a
-club meeting starts at the last bell.
+- **TIGERweb publishes each geography several times over, once per vintage,
+  and only the Census 2020 copies answer a spatial query.** The ACS-vintage
+  layer ids return `Failed to execute query` for the byte-identical request.
+  Layer 7 (ZCTAs), 25 (incorporated places) and 26 (CDPs) are the working ones.
+- **Naming a ZIP is a question about people, and two simpler readings both
+  fail.** Which town contains the ZCTA's interior point answers "none" for a
+  third of them, because a ZCTA runs into the hills and its middle goes with
+  it — 95120 lands in open space above Almaden. Falling back to the nearest
+  boundary fixes those and breaks others: it put Los Gatos's 95032 in San
+  José. Taking whichever town covers the most *area* is wrong the other way:
+  most of 95037's square mileage is the empty half of Coyote Valley that San
+  José annexed, so area alone hands Morgan Hill's ZIP to San José. What works
+  is asking first whether a *town's own middle* is inside the ZIP — that is
+  what a suburb's ZIP is for — and only settling the leftovers, the ZIPs
+  carved out of one big city, on area. Three ZIPs still come back unnamed and
+  are shown as bare ZIPs; 95140 is Mount Hamilton and is not a suburb of
+  anywhere.
+- `nameForPoint()` ranks the thirteen districts and the 78 towns **together**,
+  and leaves San José itself out of the town list because its districts
+  already stand for it. The old `nearestNeighborhood()` could only ever answer
+  with one of the thirteen, so a phone in Mountain View was told it was in
+  Alviso.
 
 ## Where a place's words come from
 
@@ -514,6 +608,19 @@ RLS live in `supabase/migrations/0001_init.sql`.
 - `0004_display_settings.sql` **is applied**. It adds `text_scale` (1–1.3) and
   `simple_ui` to `profiles`, both with defaults, so every profile written
   before it reads back as the standard screen rather than as null.
+- `0005_community_places.sql` **is applied**. Two CHECK constraints were
+  written when the city's service was the only source and both reject the
+  OpenStreetMap rows: `category` was an enum without `Food` or `Outdoors`, and
+  `source` was an enum that cannot list an element id. `source` is now a
+  pattern (`osm-(node|way|relation)-\d+`) so an unrecognised source is still
+  rejected without enumerating four hundred thousand values.
+- **`listPlaces()` unions Supabase with the bundled catalogue**, Supabase
+  winning where it has the row. The generators commit to the repo and push to
+  Supabase in the same workflow run, so anything that widens the catalogue
+  leaves the table a step behind the bundle until the next run — without the
+  union those places are simply invisible to signed-in readers for a day.
+  `toggleFavorite` uses `maybeSingle()` for the same reason and returns
+  quietly when the row is not in the table yet; `single()` threw.
 - `0003_city_open_data.sql` **is applied**, and the catalogue is loaded — the
   live table holds the generated rows, not the old 26. Nine retired slugs were
   deleted; the two real favorites both pointed at `almaden-community-center`,
@@ -525,7 +632,9 @@ RLS live in `supabase/migrations/0001_init.sql`.
 - Supabase's own validator rejects `example.com` and `.test` addresses, so
   throwaway test accounts need a plausible domain. To test signed-in flows,
   insert a user into `auth.users` with `crypt(...)`, add a `profiles` row so the
-  `RequireProfile` guard passes, and delete it afterwards.
+  `RequireProfile` guard passes, and delete it afterwards. Signing up through
+  the UI works too, but the app's own delete only removes `profiles` — clear
+  `score_weights` and `auth.users` by hand afterwards.
 - The same Supabase org holds `janyaa-hub` (`sgjcliwmzshhkhjlbdjy`), an
   unrelated live app with real user data. **Never migrate into it.**
 
@@ -620,6 +729,15 @@ The app has since diverged from the handoff in two places, deliberately:
   overrule on the spot; touching either control stops the proposing. Kept on
   screen 05 rather than added as a sixth step so the four-step flow and the
   handoff numbering both stay intact.
+- Screen **13** now has a "Show photo" button in place of a photo that loaded
+  itself, and a provenance line at the foot naming the source — linked to the
+  exact OpenStreetMap element on the rows that came from there.
+- Screen **08 · /onboarding/interests** and screen **16 · /profile/edit** both
+  gained an "Or write your own" field under the chips, which reports how many
+  places a typed interest matches before it is added.
+- Screen **15 · /profile** gained a "Where this comes from" section: the four
+  generated sources with their dates, and what this browser has spent on
+  Google's two render-time calls this month.
 - Screens **11** and **20** turned the sheet's step row into a tab. `‹ 3 / 320 ›`
   now rides the sheet's top rule as one bordered group instead of spending a
   37pt row inside the card, and the count is the control that opens the full

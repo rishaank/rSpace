@@ -2,21 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { hasMapsKey, resolveSuggestion, suggestAddresses } from "../lib/google";
-import { NEIGHBORHOODS } from "../lib/seed";
+import { lookupPlaces, looksLikeZip } from "../lib/geography";
 import { Alarm, AppBar, Device, Field } from "../components/ui";
-
-// Without a Maps key the same field matches against the seeded neighborhoods,
-// so the flow still completes.
-function localSuggestions(query) {
-  const q = query.trim().toLowerCase();
-  if (q.length < 2) return [];
-  return NEIGHBORHOODS.filter((n) => n.name.toLowerCase().includes(q)).map((n) => ({
-    id: n.name,
-    main: n.name,
-    secondary: "San José, CA",
-    point: n,
-  }));
-}
 
 // 07 · /onboarding/place — Manual entry
 export default function OnboardingAddress() {
@@ -24,33 +11,55 @@ export default function OnboardingAddress() {
   const navigate = useNavigate();
 
   const [query, setQuery] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
+  const [remote, setRemote] = useState([]);
+  const [searching, setSearching] = useState(false);
   const [chosen, setChosen] = useState(null);
 
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
 
-  useEffect(() => {
-    if (!hasMapsKey) return setSuggestions(localSuggestions(query));
+  // ZIPs and town names are answered from the generated Census table, in a
+  // keystroke and with no request at all. Everything else — a street address,
+  // a cross street — is what Google is actually better at, and the two lists
+  // are shown together rather than one replacing the other.
+  const local = lookupPlaces(query);
+  const zipTyped = looksLikeZip(query);
 
+  useEffect(() => {
+    // A ZIP is already answered, exactly, by the table. Asking Places to
+    // autocomplete "9511" as well would spend a session on a worse answer.
+    if (!hasMapsKey || zipTyped || query.trim().length < 3) {
+      setRemote([]);
+      setSearching(false);
+      return;
+    }
+
+    setSearching(true);
     const timer = setTimeout(async () => {
       const found = await suggestAddresses(query);
-      // Google unreachable or the query matched nothing — the seeded
-      // neighborhoods still get the profiler finished.
-      setSuggestions(found.length ? found : localSuggestions(query));
+      setRemote(found);
+      setSearching(false);
     }, 220);
 
     return () => clearTimeout(timer);
-  }, [query]);
+  }, [query, zipTyped]);
+
+  // Local first: it is exact, and it is the half that works when Google does
+  // not. Duplicates are dropped on the visible name so "Mountain View" does
+  // not appear once from each source.
+  const seen = new Set(local.map((s) => s.main.toLowerCase()));
+  const suggestions = [...local, ...remote.filter((s) => !seen.has(s.main.toLowerCase()))];
 
   async function confirm() {
     if (!chosen) return;
     setBusy(true);
     setFailed(false);
 
-    // The full address is used once, to place the origin, then discarded.
+    // The full address is used once, to place the origin, then discarded. A
+    // local suggestion already carries its point, so confirming one costs
+    // nothing and cannot fail.
     const point = chosen.point
-      ? { lat: chosen.point.lat, lng: chosen.point.lng, location: `${chosen.main}, San José` }
+      ? { lat: chosen.point.lat, lng: chosen.point.lng, location: chosen.location }
       : await resolveSuggestion(chosen);
 
     if (!point) {
@@ -59,7 +68,7 @@ export default function OnboardingAddress() {
     }
 
     await saveProfile({
-      location: point.location ?? `${chosen.main}, San José`,
+      location: point.location ?? chosen.main,
       lat: point.lat,
       lng: point.lng,
     });
@@ -73,8 +82,8 @@ export default function OnboardingAddress() {
       <div className="scroll" style={{ display: "flex", flexDirection: "column" }}>
         <div className="pad" style={{ paddingTop: 24 }}>
           <Field
-            label="Address, cross street, or ZIP"
-            placeholder="1250 Lincoln Ave"
+            label="Address, ZIP, or town"
+            placeholder="95125, Mountain View, 1250 Lincoln Ave"
             value={query}
             autoFocus
             onChange={(e) => {
@@ -88,7 +97,8 @@ export default function OnboardingAddress() {
         {suggestions.length > 0 && (
           <div className="pad" style={{ paddingTop: 20 }}>
             <div className="section-head">
-              Suggestions {hasMapsKey ? "· Google Places" : "· San José neighborhoods"}
+              <span>Suggestions</span>
+              <span>{searching ? "Searching…" : `${suggestions.length} found`}</span>
             </div>
             {suggestions.map((s) => (
               <button
@@ -113,8 +123,8 @@ export default function OnboardingAddress() {
         <div className="pad" style={{ paddingTop: 22 }}>
           {failed ? (
             <Alarm title="Couldn't place that address">
-              We reached Google but couldn&rsquo;t pin that result. Pick another suggestion, or go
-              back and choose a neighborhood.
+              We reached Google but couldn&rsquo;t pin that result. Try your ZIP or your town
+              instead — those are answered from a stored table and always work.
             </Alarm>
           ) : (
             <div className="notice">

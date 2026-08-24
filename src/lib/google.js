@@ -10,10 +10,11 @@
 // reviews, and photos is only 1,000 calls — so ratings, review counts, price
 // levels, and quotes are not fetched here at all. They are pulled once by
 // scripts/refresh-places.mjs and stored on the row. What is left at runtime is
-// the photo and the transit time, both of which go through the cache in
+// the transit time, and the photo — which is itself an Enterprise call, so it
+// is made only when the reader taps for it. Both go through the cache in
 // ./cache.js and stop entirely once this browser has spent its allowance.
 
-import { DAY, HOUR, affordable, remember } from "./cache";
+import { DAY, HOUR, affordable, peek, remember } from "./cache";
 
 const key = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
@@ -21,6 +22,15 @@ const key = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 // cache cold, and the cache means a normal session never approaches them.
 const PHOTO_BUDGET = 60;
 const ROUTE_BUDGET = 400;
+
+// Named for the profile screen, which shows what this browser has spent
+// against them. It is a ceiling on one browser, not on everybody — the real
+// hard stop is the per-day quota on the Cloud project — but it is the only
+// half of the bill this app can see, so it is the half it reports.
+export const BUDGETS = [
+  { bucket: "photos", label: "Place photos", ceiling: PHOTO_BUDGET },
+  { bucket: "routes", label: "Transit times", ceiling: ROUTE_BUDGET },
+];
 
 export const hasMapsKey = Boolean(key);
 
@@ -183,21 +193,40 @@ export async function resolveSuggestion(suggestion) {
   }
 }
 
+function photoKey(place) {
+  return `photo:${place.google_place_id}`;
+}
+
+/**
+ * A photo this browser has already paid for, or undefined. Synchronous, and
+ * it never calls Google — the detail screen shows it straight away and only
+ * offers the button when there is nothing here.
+ */
+export function cachedPhoto(place) {
+  if (!place.google_place_id) return null;
+  return peek(photoKey(place));
+}
+
 /**
  * The photo for one seeded place, or null.
  *
  * Rows carry a real `google_place_id`, so this is a direct lookup rather than
  * a text search — one cheap request against a known listing instead of a
  * search over the whole corpus, and no chance of matching the wrong place.
- * The photo is the only thing still worth asking Google for at render time;
- * everything else on the detail screen already lives on the row.
+ *
+ * Place Photo is an **Enterprise** SKU: 1,000 calls a month across everybody,
+ * and it used to fire on every detail-screen view, so idly stepping through
+ * the ranking spent the month's allowance on photos nobody asked to see. It
+ * is now called only when the reader taps for it. What that costs is one tap;
+ * what it buys is that the 1,000 go to places somebody actually wanted to
+ * look at.
  */
 export async function placePhoto(place) {
   if (!place.google_place_id) return null;
 
   // A week is well inside the 30 days Google allows place content to be held,
   // and turns 26 places into 26 requests a week rather than 26 a session.
-  return remember(`photo:${place.google_place_id}`, 7 * DAY, async () => {
+  return remember(photoKey(place), 7 * DAY, async () => {
     const places = await library("places");
     if (!places) return null;
     if (!affordable("photos", PHOTO_BUDGET)) return null;

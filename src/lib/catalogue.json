@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-23",
+  "generated": "2026-08-24",
   "source": "City of San José open data (CC-BY) · geo.sanjoseca.gov OPN_OpenDataService",
   "layers": {
     "communityCenters": 187,
@@ -9,6 +9,36 @@
     "condition": 557,
     "equity": 548,
     "neighborhoods": 549
+  },
+  "amenity_labels": {
+    "BBALL": "basketball courts",
+    "SOCC": "soccer fields",
+    "FUTSAL": "futsal courts",
+    "BASE": "baseball diamonds",
+    "SOFT": "softball diamonds",
+    "TEN": "tennis courts",
+    "PICKLE": "pickleball courts",
+    "VOLL": "volleyball courts",
+    "POOL": "a pool",
+    "WATERPLY": "a water play area",
+    "SKATE": "a skate park",
+    "DOG": "a dog park",
+    "ORNGARD": "gardens",
+    "PICNIC": "picnic areas",
+    "PLAYTOT": "a toddler playground",
+    "PLAYYOUTH": "a youth playground",
+    "PLAYCOMB": "a playground",
+    "RESTROOM": "restrooms",
+    "EXERC": "an exercise station",
+    "TRACK": "a track",
+    "GAMETB": "game tables",
+    "AMP": "an amphitheatre",
+    "ART": "public art",
+    "BOCC": "bocce courts",
+    "HORSE": "horseshoe pits",
+    "FRISB": "a disc golf course",
+    "HAND": "handball courts",
+    "BMX": "a BMX track"
   },
   "neighborhoods": [
     {
@@ -190,7 +220,8 @@
         "Kids & family",
         "Music",
         "Swimming",
-        "Walking"
+        "Trails & nature",
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 62.8,
@@ -410,7 +441,8 @@
       "interests": [
         "Food & meals",
         "Kids & family",
-        "Walking"
+        "Trails & nature",
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 718.9,
@@ -452,7 +484,8 @@
       "interests": [
         "Food & meals",
         "Kids & family",
-        "Walking"
+        "Trails & nature",
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 79.4,
@@ -552,6 +585,7 @@
         "SOFT"
       ],
       "interests": [
+        "Baseball",
         "Food & meals",
         "Kids & family",
         "Soccer",
@@ -588,7 +622,7 @@
         "EXERC"
       ],
       "interests": [
-        "Walking"
+        "Fitness"
       ],
       "parking_spaces": null,
       "acres": 4,
@@ -623,7 +657,9 @@
         "SOFT"
       ],
       "interests": [
-        "Kids & family"
+        "Baseball",
+        "Kids & family",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 14.5,
@@ -701,12 +737,14 @@
         "VOLL"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
+        "Fitness",
         "Food & meals",
         "Kids & family",
         "Soccer",
         "Tennis",
-        "Walking"
+        "Volleyball"
       ],
       "parking_spaces": 0,
       "acres": null,
@@ -750,12 +788,14 @@
         "VOLL"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
+        "Fitness",
         "Food & meals",
         "Kids & family",
         "Soccer",
         "Tennis",
-        "Walking"
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 11.4,
@@ -1025,10 +1065,10 @@
       ],
       "interests": [
         "Art & craft",
+        "Fitness",
         "Food & meals",
         "Kids & family",
-        "Soccer",
-        "Walking"
+        "Soccer"
       ],
       "parking_spaces": null,
       "acres": 11.3,
@@ -1265,6 +1305,7 @@
         "SOFT"
       ],
       "interests": [
+        "Baseball",
         "Food & meals",
         "Kids & family",
         "Soccer"
@@ -1406,10 +1447,11 @@
       ],
       "interests": [
         "Basketball",
+        "Fitness",
         "Food & meals",
         "Kids & family",
         "Pickleball",
-        "Walking"
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 4.7,
@@ -1589,7 +1631,7 @@
         "DOG"
       ],
       "interests": [
-        "Walking"
+        "Dogs"
       ],
       "parking_spaces": null,
       "acres": 3.6,
@@ -1625,9 +1667,9 @@
         "PLAYCOMB"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 0.4,
@@ -1661,7 +1703,7 @@
         "DRINKF"
       ],
       "interests": [
-        "Walking"
+        "Dogs"
       ],
       "parking_spaces": null,
       "acres": 0.8,
@@ -1700,6 +1742,7 @@
         "SOFT"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
@@ -1745,6 +1788,7 @@
         "TEN"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
@@ -1863,12 +1907,15 @@
         "VOLL"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
         "Pickleball",
+        "Skating",
         "Soccer",
-        "Tennis"
+        "Tennis",
+        "Volleyball"
       ],
       "parking_spaces": 0,
       "acres": null,
@@ -1915,12 +1962,15 @@
         "VOLL"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
         "Pickleball",
+        "Skating",
         "Soccer",
-        "Tennis"
+        "Tennis",
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 17.3,
@@ -2128,8 +2178,8 @@
       ],
       "interests": [
         "Chess",
-        "Kids & family",
-        "Walking"
+        "Dogs",
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 1,
@@ -2210,7 +2260,7 @@
         "Art & craft",
         "Food & meals",
         "Kids & family",
-        "Walking"
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 1.3,
@@ -2252,11 +2302,13 @@
         "VOLL"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
+        "Fitness",
         "Food & meals",
         "Kids & family",
         "Soccer",
-        "Walking"
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 11.9,
@@ -2298,11 +2350,13 @@
         "VOLL"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
+        "Fitness",
         "Food & meals",
         "Kids & family",
         "Soccer",
-        "Walking"
+        "Volleyball"
       ],
       "parking_spaces": 27,
       "acres": null,
@@ -2429,12 +2483,13 @@
       "interests": [
         "Art & craft",
         "Basketball",
+        "Fitness",
         "Food & meals",
         "Kids & family",
         "Pickleball",
         "Soccer",
         "Tennis",
-        "Walking"
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 33.9,
@@ -2467,7 +2522,7 @@
         "VISTA"
       ],
       "interests": [
-        "Walking"
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 17,
@@ -2779,8 +2834,10 @@
         "VOLL"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
-        "Food & meals"
+        "Food & meals",
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 9.3,
@@ -2854,9 +2911,9 @@
         "PLAYYOUTH"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 2.7,
@@ -2893,9 +2950,9 @@
         "PLAYYOUTH"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 4,
@@ -3002,6 +3059,7 @@
         "TETHR"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
@@ -3076,9 +3134,9 @@
       "interests": [
         "Art & craft",
         "Chess",
+        "Dogs",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 5.5,
@@ -3147,7 +3205,7 @@
         "DOG"
       ],
       "interests": [
-        "Walking"
+        "Dogs"
       ],
       "parking_spaces": null,
       "acres": 0.4,
@@ -3187,6 +3245,7 @@
         "TEN"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
@@ -3400,7 +3459,9 @@
         "Kids & family",
         "Music",
         "Pickleball",
-        "Tennis"
+        "Tennis",
+        "Trails & nature",
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 19.1,
@@ -3540,7 +3601,8 @@
       ],
       "interests": [
         "Food & meals",
-        "Kids & family"
+        "Kids & family",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 38.4,
@@ -3641,9 +3703,10 @@
         "PLAYTOT"
       ],
       "interests": [
+        "Dogs",
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 2.2,
@@ -3890,9 +3953,9 @@
         "PLAYYOUTH"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 5.9,
@@ -3927,9 +3990,9 @@
         "PLAYTOT"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 0.5,
@@ -3970,6 +4033,7 @@
         "TEE"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
@@ -4006,7 +4070,7 @@
         "VISTA"
       ],
       "interests": [
-        "Walking"
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 7.2,
@@ -4087,7 +4151,7 @@
         "Kids & family",
         "Swimming",
         "Tennis",
-        "Walking"
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 12.2,
@@ -4123,6 +4187,7 @@
         "SOFT"
       ],
       "interests": [
+        "Baseball",
         "Food & meals",
         "Kids & family",
         "Soccer"
@@ -4225,6 +4290,7 @@
         "TEN"
       ],
       "interests": [
+        "Baseball",
         "Food & meals",
         "Kids & family",
         "Soccer",
@@ -4331,9 +4397,9 @@
         "PLAYYOUTH"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 1.6,
@@ -4407,9 +4473,11 @@
         "SOFT"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
+        "Skating",
         "Soccer"
       ],
       "parking_spaces": null,
@@ -4524,11 +4592,13 @@
       "interests": [
         "Art & craft",
         "Basketball",
+        "Fitness",
         "Food & meals",
         "Kids & family",
         "Pickleball",
         "Tennis",
-        "Walking"
+        "Trails & nature",
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 27.2,
@@ -4573,7 +4643,8 @@
         "Food & meals",
         "Kids & family",
         "Music",
-        "Swimming"
+        "Swimming",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 95.1,
@@ -4605,7 +4676,8 @@
         "ORNGARD"
       ],
       "interests": [
-        "Gardening"
+        "Gardening",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 4.7,
@@ -4637,7 +4709,8 @@
         "ORNGARD"
       ],
       "interests": [
-        "Gardening"
+        "Gardening",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 4.2,
@@ -4669,7 +4742,8 @@
         "ORNGARD"
       ],
       "interests": [
-        "Gardening"
+        "Gardening",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 2.8,
@@ -4703,7 +4777,7 @@
         "VISTA"
       ],
       "interests": [
-        "Walking"
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 50.6,
@@ -4772,7 +4846,8 @@
       "interests": [
         "Art & craft",
         "Food & meals",
-        "Kids & family"
+        "Kids & family",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 8.7,
@@ -4813,7 +4888,8 @@
         "Art & craft",
         "Pickleball",
         "Soccer",
-        "Tennis"
+        "Tennis",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 10,
@@ -4847,7 +4923,8 @@
         "OTHER"
       ],
       "interests": [
-        "Art & craft"
+        "Art & craft",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 2.7,
@@ -4881,7 +4958,8 @@
         "OTHER"
       ],
       "interests": [
-        "Art & craft"
+        "Art & craft",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 6,
@@ -4912,7 +4990,10 @@
       "amenities": [
         "GATE"
       ],
-      "interests": [],
+      "interests": [
+        "Trails & nature",
+        "Walking"
+      ],
       "parking_spaces": null,
       "acres": 2.6,
       "condition": null,
@@ -4942,7 +5023,10 @@
       "amenities": [
         "GATE"
       ],
-      "interests": [],
+      "interests": [
+        "Trails & nature",
+        "Walking"
+      ],
       "parking_spaces": null,
       "acres": 4.6,
       "condition": null,
@@ -4972,7 +5056,10 @@
       "amenities": [
         "DRINKF"
       ],
-      "interests": [],
+      "interests": [
+        "Trails & nature",
+        "Walking"
+      ],
       "parking_spaces": null,
       "acres": 47.4,
       "condition": null,
@@ -5002,7 +5089,10 @@
       "amenities": [
         "DRINKF"
       ],
-      "interests": [],
+      "interests": [
+        "Trails & nature",
+        "Walking"
+      ],
       "parking_spaces": null,
       "acres": 25.2,
       "condition": null,
@@ -5046,7 +5136,8 @@
         "Food & meals",
         "Kids & family",
         "Music",
-        "Swimming"
+        "Swimming",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 0.6,
@@ -5080,8 +5171,8 @@
         "PICNIC"
       ],
       "interests": [
-        "Food & meals",
-        "Walking"
+        "Fitness",
+        "Food & meals"
       ],
       "parking_spaces": null,
       "acres": 0.5,
@@ -5245,12 +5336,13 @@
         "TEE"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Chess",
+        "Fitness",
         "Food & meals",
         "Kids & family",
-        "Soccer",
-        "Walking"
+        "Soccer"
       ],
       "parking_spaces": null,
       "acres": 6.7,
@@ -5392,11 +5484,12 @@
         "SOFT"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
+        "Fitness",
         "Food & meals",
         "Kids & family",
-        "Soccer",
-        "Walking"
+        "Soccer"
       ],
       "parking_spaces": null,
       "acres": 14,
@@ -5442,11 +5535,11 @@
       "interests": [
         "Basketball",
         "Chess",
+        "Fitness",
         "Food & meals",
         "Kids & family",
         "Music",
-        "Tennis",
-        "Walking"
+        "Tennis"
       ],
       "parking_spaces": null,
       "acres": 12.1,
@@ -5598,7 +5691,7 @@
         "DOG"
       ],
       "interests": [
-        "Walking"
+        "Dogs"
       ],
       "parking_spaces": null,
       "acres": 0.6,
@@ -5634,9 +5727,9 @@
         "PLAYYOUTH"
       ],
       "interests": [
+        "Fitness",
         "Gardening",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 18.1,
@@ -5705,6 +5798,7 @@
         "SOFT"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
@@ -5816,7 +5910,8 @@
       ],
       "interests": [
         "Food & meals",
-        "Music"
+        "Music",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 121.1,
@@ -5857,7 +5952,8 @@
       "interests": [
         "Food & meals",
         "Kids & family",
-        "Music"
+        "Music",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 18.7,
@@ -5890,7 +5986,8 @@
         "WATERB"
       ],
       "interests": [
-        "Swimming"
+        "Swimming",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 8.6,
@@ -5922,7 +6019,9 @@
         "DRINKF",
         "PARKING"
       ],
-      "interests": [],
+      "interests": [
+        "Trails & nature"
+      ],
       "parking_spaces": null,
       "acres": 7.8,
       "condition": 0.84,
@@ -6112,12 +6211,15 @@
         "WATERB"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
         "Gardening",
         "Kids & family",
         "Music",
+        "Skating",
         "Swimming",
-        "Walking"
+        "Trails & nature",
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 206.7,
@@ -6148,7 +6250,9 @@
       "amenities": [
         "DRINKF"
       ],
-      "interests": [],
+      "interests": [
+        "Trails & nature"
+      ],
       "parking_spaces": null,
       "acres": 10,
       "condition": null,
@@ -6184,9 +6288,9 @@
         "PLAYYOUTH"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 6.5,
@@ -6224,9 +6328,9 @@
       ],
       "interests": [
         "Basketball",
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 6.1,
@@ -6336,6 +6440,8 @@
         "PARC"
       ],
       "interests": [
+        "Fitness",
+        "Trails & nature",
         "Walking"
       ],
       "parking_spaces": null,
@@ -6368,6 +6474,8 @@
         "PARC"
       ],
       "interests": [
+        "Fitness",
+        "Trails & nature",
         "Walking"
       ],
       "parking_spaces": null,
@@ -6400,6 +6508,8 @@
         "PARC"
       ],
       "interests": [
+        "Fitness",
+        "Trails & nature",
         "Walking"
       ],
       "parking_spaces": null,
@@ -6575,6 +6685,7 @@
         "TEN"
       ],
       "interests": [
+        "Baseball",
         "Food & meals",
         "Kids & family",
         "Soccer",
@@ -6739,7 +6850,9 @@
         "GATE",
         "SKATE"
       ],
-      "interests": [],
+      "interests": [
+        "Skating"
+      ],
       "parking_spaces": null,
       "acres": 3.4,
       "condition": null,
@@ -6894,7 +7007,8 @@
         "Basketball",
         "Food & meals",
         "Kids & family",
-        "Soccer"
+        "Soccer",
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 8.7,
@@ -7041,7 +7155,8 @@
       "interests": [
         "Basketball",
         "Food & meals",
-        "Kids & family"
+        "Kids & family",
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 6.2,
@@ -7103,8 +7218,8 @@
         "PLAYYOUTH"
       ],
       "interests": [
-        "Kids & family",
-        "Walking"
+        "Fitness",
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 4.8,
@@ -7137,7 +7252,7 @@
         "DRINKF"
       ],
       "interests": [
-        "Walking"
+        "Dogs"
       ],
       "parking_spaces": null,
       "acres": 0.3,
@@ -7171,8 +7286,8 @@
         "PICNIC"
       ],
       "interests": [
-        "Food & meals",
-        "Walking"
+        "Fitness",
+        "Food & meals"
       ],
       "parking_spaces": null,
       "acres": 6,
@@ -7204,7 +7319,7 @@
         "VISTA"
       ],
       "interests": [
-        "Walking"
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 74,
@@ -7483,10 +7598,10 @@
       ],
       "interests": [
         "Basketball",
+        "Fitness",
         "Food & meals",
         "Kids & family",
-        "Tennis",
-        "Walking"
+        "Tennis"
       ],
       "parking_spaces": null,
       "acres": 1.3,
@@ -7680,8 +7795,8 @@
       ],
       "interests": [
         "Chess",
-        "Kids & family",
-        "Walking"
+        "Fitness",
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 2.2,
@@ -7875,7 +7990,8 @@
         "Art & craft",
         "Food & meals",
         "Gardening",
-        "Swimming"
+        "Swimming",
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 32,
@@ -7910,6 +8026,7 @@
         "TRACK"
       ],
       "interests": [
+        "Baseball",
         "Walking"
       ],
       "parking_spaces": null,
@@ -7949,10 +8066,10 @@
       ],
       "interests": [
         "Basketball",
+        "Fitness",
         "Food & meals",
         "Kids & family",
-        "Tennis",
-        "Walking"
+        "Tennis"
       ],
       "parking_spaces": null,
       "acres": 4.4,
@@ -8019,8 +8136,8 @@
         "PLAYYOUTH"
       ],
       "interests": [
-        "Kids & family",
-        "Walking"
+        "Fitness",
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 2.8,
@@ -8247,6 +8364,7 @@
         "TETHR"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
@@ -8293,9 +8411,9 @@
       "interests": [
         "Basketball",
         "Chess",
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 1.9,
@@ -8391,10 +8509,10 @@
         "WATERB"
       ],
       "interests": [
+        "Dogs",
         "Food & meals",
         "Kids & family",
-        "Swimming",
-        "Walking"
+        "Swimming"
       ],
       "parking_spaces": null,
       "acres": 38.1,
@@ -8425,7 +8543,10 @@
       "amenities": [
         "DRINKF"
       ],
-      "interests": [],
+      "interests": [
+        "Trails & nature",
+        "Walking"
+      ],
       "parking_spaces": null,
       "acres": 17.4,
       "condition": null,
@@ -8455,7 +8576,10 @@
       "amenities": [
         "DRINKF"
       ],
-      "interests": [],
+      "interests": [
+        "Trails & nature",
+        "Walking"
+      ],
       "parking_spaces": null,
       "acres": 17.4,
       "condition": null,
@@ -8563,9 +8687,10 @@
       ],
       "interests": [
         "Basketball",
+        "Fitness",
         "Food & meals",
         "Kids & family",
-        "Walking"
+        "Skating"
       ],
       "parking_spaces": null,
       "acres": 6.4,
@@ -8681,9 +8806,9 @@
       "interests": [
         "Basketball",
         "Chess",
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 0.2,
@@ -8783,7 +8908,8 @@
         "PARC"
       ],
       "interests": [
-        "Walking"
+        "Dogs",
+        "Fitness"
       ],
       "parking_spaces": null,
       "acres": 0.1,
@@ -8822,9 +8948,10 @@
       ],
       "interests": [
         "Basketball",
+        "Fitness",
         "Food & meals",
         "Tennis",
-        "Walking"
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 5.4,
@@ -8865,6 +8992,7 @@
         "TEN"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Gardening",
@@ -8941,6 +9069,7 @@
         "SOFT"
       ],
       "interests": [
+        "Baseball",
         "Food & meals",
         "Kids & family"
       ],
@@ -9062,14 +9191,16 @@
         "VOLL"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Chess",
+        "Fitness",
         "Food & meals",
         "Kids & family",
         "Pickleball",
         "Soccer",
         "Tennis",
-        "Walking"
+        "Volleyball"
       ],
       "parking_spaces": null,
       "acres": 9.5,
@@ -9154,10 +9285,10 @@
       "interests": [
         "Basketball",
         "Chess",
+        "Fitness",
         "Food & meals",
         "Kids & family",
-        "Tennis",
-        "Walking"
+        "Tennis"
       ],
       "parking_spaces": null,
       "acres": 5.3,
@@ -9308,10 +9439,12 @@
       ],
       "interests": [
         "Art & craft",
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
         "Music",
+        "Skating",
         "Soccer"
       ],
       "parking_spaces": null,
@@ -9380,10 +9513,10 @@
         "WATERPLY"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
         "Kids & family",
-        "Swimming",
-        "Walking"
+        "Swimming"
       ],
       "parking_spaces": null,
       "acres": 1.4,
@@ -9547,7 +9680,7 @@
         "DRINKF"
       ],
       "interests": [
-        "Walking"
+        "Dogs"
       ],
       "parking_spaces": null,
       "acres": 0.2,
@@ -9590,10 +9723,10 @@
       "interests": [
         "Basketball",
         "Chess",
+        "Fitness",
         "Food & meals",
         "Kids & family",
-        "Swimming",
-        "Walking"
+        "Swimming"
       ],
       "parking_spaces": null,
       "acres": 3.6,
@@ -9794,7 +9927,7 @@
         "DOG"
       ],
       "interests": [
-        "Walking"
+        "Dogs"
       ],
       "parking_spaces": null,
       "acres": 0.6,
@@ -9832,9 +9965,9 @@
         "SAND"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 10.8,
@@ -9897,7 +10030,7 @@
         "DRINKF"
       ],
       "interests": [
-        "Walking"
+        "Dogs"
       ],
       "parking_spaces": null,
       "acres": 1.2,
@@ -9940,6 +10073,7 @@
         "TETHR"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
@@ -10040,9 +10174,9 @@
       ],
       "interests": [
         "Basketball",
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 8.2,
@@ -10113,9 +10247,9 @@
       ],
       "interests": [
         "Basketball",
+        "Fitness",
         "Food & meals",
-        "Tennis",
-        "Walking"
+        "Tennis"
       ],
       "parking_spaces": null,
       "acres": 53.8,
@@ -10153,9 +10287,9 @@
       ],
       "interests": [
         "Basketball",
+        "Fitness",
         "Food & meals",
-        "Tennis",
-        "Walking"
+        "Tennis"
       ],
       "parking_spaces": null,
       "acres": 1,
@@ -10192,9 +10326,9 @@
         "PLAYYOUTH"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 1.9,
@@ -10232,9 +10366,9 @@
       ],
       "interests": [
         "Basketball",
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 5.5,
@@ -10274,6 +10408,7 @@
         "TEN"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
@@ -10393,10 +10528,11 @@
       "interests": [
         "Art & craft",
         "Chess",
+        "Dogs",
+        "Fitness",
         "Food & meals",
         "Kids & family",
-        "Music",
-        "Walking"
+        "Music"
       ],
       "parking_spaces": null,
       "acres": 7.9,
@@ -10435,6 +10571,7 @@
         "SOFT"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Chess",
         "Food & meals",
@@ -10505,7 +10642,8 @@
       ],
       "interests": [
         "Food & meals",
-        "Kids & family"
+        "Kids & family",
+        "Skating"
       ],
       "parking_spaces": null,
       "acres": 3.2,
@@ -10625,11 +10763,11 @@
       "interests": [
         "Basketball",
         "Chess",
+        "Fitness",
         "Food & meals",
         "Kids & family",
         "Music",
-        "Soccer",
-        "Walking"
+        "Soccer"
       ],
       "parking_spaces": null,
       "acres": 1.6,
@@ -10673,11 +10811,11 @@
       "interests": [
         "Basketball",
         "Chess",
+        "Fitness",
         "Food & meals",
         "Kids & family",
         "Music",
-        "Soccer",
-        "Walking"
+        "Soccer"
       ],
       "parking_spaces": null,
       "acres": 2.3,
@@ -10857,11 +10995,11 @@
         "TEN"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
         "Kids & family",
         "Music",
-        "Tennis",
-        "Walking"
+        "Tennis"
       ],
       "parking_spaces": null,
       "acres": 7.7,
@@ -10894,8 +11032,8 @@
         "PICNIC"
       ],
       "interests": [
-        "Food & meals",
-        "Walking"
+        "Fitness",
+        "Food & meals"
       ],
       "parking_spaces": null,
       "acres": 0.3,
@@ -10932,8 +11070,9 @@
         "SOFT"
       ],
       "interests": [
-        "Food & meals",
-        "Walking"
+        "Baseball",
+        "Dogs",
+        "Food & meals"
       ],
       "parking_spaces": null,
       "acres": 10.7,
@@ -11069,7 +11208,7 @@
         "VISTA"
       ],
       "interests": [
-        "Walking"
+        "Trails & nature"
       ],
       "parking_spaces": null,
       "acres": 0.5,
@@ -11281,6 +11420,7 @@
         "SOFT"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
@@ -11326,6 +11466,7 @@
         "SOFT"
       ],
       "interests": [
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
@@ -11480,9 +11621,9 @@
         "SAND"
       ],
       "interests": [
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 3.3,
@@ -11515,8 +11656,8 @@
         "PICNIC"
       ],
       "interests": [
-        "Food & meals",
-        "Walking"
+        "Dogs",
+        "Food & meals"
       ],
       "parking_spaces": null,
       "acres": 1.7,
@@ -11592,9 +11733,10 @@
         "SOFT"
       ],
       "interests": [
+        "Baseball",
+        "Dogs",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 10.2,
@@ -11659,7 +11801,8 @@
       "interests": [
         "Basketball",
         "Food & meals",
-        "Kids & family"
+        "Kids & family",
+        "Skating"
       ],
       "parking_spaces": null,
       "acres": 1.1,
@@ -11929,6 +12072,7 @@
       ],
       "interests": [
         "Art & craft",
+        "Baseball",
         "Basketball",
         "Food & meals",
         "Kids & family",
@@ -11973,9 +12117,9 @@
       ],
       "interests": [
         "Basketball",
+        "Dogs",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 2.1,
@@ -12049,9 +12193,9 @@
       ],
       "interests": [
         "Basketball",
+        "Fitness",
         "Food & meals",
-        "Kids & family",
-        "Walking"
+        "Kids & family"
       ],
       "parking_spaces": null,
       "acres": 1.8,

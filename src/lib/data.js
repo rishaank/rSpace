@@ -174,10 +174,22 @@ export async function saveWeights(userId, weights) {
 
 // Returns closed places too — they stay reachable by link, and the store
 // keeps them off the map and out of scoring.
+//
+// Supabase wins where it has the row, and the bundled catalogue fills in the
+// rest. That union is not belt-and-braces: the generators commit to the repo
+// and push to Supabase in the same workflow run, and anything that widens the
+// catalogue — a new source, a schema change, a failed push — leaves the table
+// a step behind the bundle until the next run. Without the union those places
+// are simply invisible to signed-in readers for a day, which is how a feature
+// ships looking broken.
 export async function listPlaces() {
   if (hasSupabase) {
     const { data } = await supabase.from("third_spaces").select("*");
-    if (data?.length) return data.map((row) => ({ ...row, id: row.slug }));
+    if (data?.length) {
+      const rows = data.map((row) => ({ ...row, id: row.slug }));
+      const known = new Set(rows.map((row) => row.id));
+      return [...rows, ...PLACES.filter((place) => !known.has(place.id))];
+    }
   }
   return PLACES;
 }
@@ -201,7 +213,11 @@ export async function toggleFavorite(userId, slug, saved) {
       .from("third_spaces")
       .select("id")
       .eq("slug", slug)
-      .single();
+      .maybeSingle();
+    // A place the bundled catalogue has and the table has not caught up to
+    // yet — see listPlaces above. There is no row to key a favorite to, and
+    // `single()` used to throw here rather than say so.
+    if (!place) return;
     if (saved) {
       await supabase.from("favorites").insert({ user_id: userId, third_space_id: place.id });
     } else {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { ALL_INTERESTS } from "../lib/seed";
-import { AppBar, Device, DisplayChoice, Field } from "../components/ui";
+import { AppBar, CustomInterest, Device, DisplayChoice, Field } from "../components/ui";
 
 // 16 · /profile/edit
 export default function ProfileEdit() {
@@ -112,21 +112,30 @@ export default function ProfileEdit() {
             </div>
 
             {adding && (
-              <div className="chips" style={{ paddingTop: 4 }}>
-                {unpicked.map((interest) => (
-                  <button
-                    key={interest}
-                    type="button"
-                    className="chip"
-                    style={{ padding: "7px 13px", fontSize: 16.5 }}
-                    onClick={() => {
-                      setInterests((prev) => [...prev, interest]);
-                      setAdding(false);
-                    }}
-                  >
-                    {interest}
-                  </button>
-                ))}
+              <div style={{ display: "grid", gap: 14, paddingTop: 4 }}>
+                <div className="chips">
+                  {unpicked.map((interest) => (
+                    <button
+                      key={interest}
+                      type="button"
+                      className="chip"
+                      style={{ padding: "7px 13px", fontSize: 16.5 }}
+                      onClick={() => {
+                        setInterests((prev) => [...prev, interest]);
+                        setAdding(false);
+                      }}
+                    >
+                      {interest}
+                    </button>
+                  ))}
+                </div>
+                <CustomInterest
+                  picked={interests}
+                  onAdd={(interest) => {
+                    setInterests((prev) => [...prev, interest]);
+                    setAdding(false);
+                  }}
+                />
               </div>
             )}
           </div>
@@ -144,8 +153,7 @@ export default function ProfileEdit() {
         <div className="foot pad" style={{ padding: "16px 24px 32px", display: "grid", gap: 12 }}>
           <button
             type="button"
-            className="linkbtn clay"
-            style={{ borderTop: "1px solid var(--hairline)", paddingTop: 16 }}
+            className="btn xs ghost"
             onClick={async () => {
               await signOut();
               navigate("/");
@@ -176,8 +184,8 @@ export default function ProfileEdit() {
               </div>
             </div>
           ) : (
-            <button type="button" className="linkbtn clay" onClick={() => setConfirmDelete(true)}>
-              Delete my account and data
+            <button type="button" className="btn xs ghost clay" onClick={() => setConfirmDelete(true)}>
+              Delete my account
             </button>
           )}
         </div>

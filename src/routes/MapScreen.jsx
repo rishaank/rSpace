@@ -1,9 +1,8 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useApp } from "../lib/store";
-import { CATEGORIES } from "../lib/seed";
+import { CATEGORIES, matchesInterests } from "../lib/seed";
 import { nextEvent, whenLabel } from "../lib/events";
-import { CLUB_COUNT, PLACED_COUNT, clubsFor, hostsClubs } from "../lib/bellarmine";
 import { formatMiles } from "../lib/scoring";
 import {
   Chip,
@@ -30,7 +29,6 @@ const MAX_DISTANCE = 8;
 const DEFAULT_FILTERS = {
   categories: [],
   interestsOnly: false,
-  bellarmine: false,
   within: MAX_DISTANCE,
   cost: "any",
 };
@@ -47,8 +45,7 @@ function apply(places, filters, interests) {
   const ceiling = COSTS.find((c) => c.id === filters.cost).max;
   return places.filter((place) => {
     if (filters.categories.length && !filters.categories.includes(place.category)) return false;
-    if (filters.interestsOnly && !place.interests.some((i) => interests.includes(i))) return false;
-    if (filters.bellarmine && !hostsClubs(place.id)) return false;
+    if (filters.interestsOnly && !matchesInterests(place, interests)) return false;
     if (place.miles != null && place.miles > filters.within) return false;
     if ((place.price_level ?? 2) > ceiling) return false;
     return true;
@@ -82,7 +79,6 @@ export default function MapScreen() {
   const wider = Math.min(Math.max(filters.within * 2, 1), MAX_DISTANCE);
   const widerLabel = `${wider} ${wider === 1 ? "mile" : "miles"}`;
   const anyInterest = apply(ranked, { ...filters, interestsOnly: false }, interests);
-  const offCampus = apply(ranked, { ...filters, bellarmine: false }, interests);
   const widened = apply(ranked, { ...filters, within: wider }, interests);
   const relaxed = apply(ranked, { ...filters, cost: "any" }, interests);
 
@@ -93,13 +89,6 @@ export default function MapScreen() {
         label: "Look past my interests",
         note: `${anyInterest.length} places match everything except your interests.`,
         fix: () => setFilters((f) => ({ ...f, interestsOnly: false })),
-      },
-    filters.bellarmine &&
-      offCampus.length > 0 && {
-        id: "bellarmine",
-        label: "Show places with no club",
-        note: `${offCampus.length} places match everything except the Bellarmine filter.`,
-        fix: () => setFilters((f) => ({ ...f, bellarmine: false })),
       },
     wider > filters.within &&
       widened.length > 0 && {
@@ -133,11 +122,6 @@ export default function MapScreen() {
       id: "interests",
       label: "My interests",
       clear: () => setFilters((f) => ({ ...f, interestsOnly: false })),
-    },
-    filters.bellarmine && {
-      id: "bellarmine",
-      label: "Bellarmine clubs",
-      clear: () => setFilters((f) => ({ ...f, bellarmine: false })),
     },
   ].filter(Boolean);
 
@@ -373,7 +357,6 @@ export default function MapScreen() {
             {selected.neighborhood && (
               <SheetRow label="Neighborhood">{selected.neighborhood}</SheetRow>
             )}
-            <ClubRow slug={selected.id} />
             {selected.acres != null && <SheetRow label="Size">{selected.acres} acres</SheetRow>}
             {selected.summary && (
               <p className="aside" style={{ fontSize: 16, paddingTop: 8, fontStyle: "normal" }}>
@@ -464,19 +447,6 @@ function Soon({ slug }) {
   );
 }
 
-// Absent on the 239 places no club has a reason to be at, the same way Soon
-// is absent everywhere but a library.
-function ClubRow({ slug }) {
-  const clubs = clubsFor(slug);
-  if (!clubs.length) return null;
-
-  return (
-    <SheetRow label="Bellarmine clubs">
-      {clubs.length === 1 ? clubs[0].name : `${clubs.length} could meet here`}
-    </SheetRow>
-  );
-}
-
 function SheetRow({ label, children }) {
   return (
     <div
@@ -560,27 +530,6 @@ function FilterSheet({ filters, setFilters, defaults, interests, count, onDone }
           </div>
           <div className="aside" style={{ fontSize: 15.5 }}>
             {interests.length ? interests.join(", ").toLowerCase() : "No interests picked yet"}
-          </div>
-        </div>
-
-        {/* Off by default, unlike the interest filter: a reader who has not
-            gone looking for it should not have the map quietly narrowed to a
-            school they may not go to. The note carries the real numbers
-            rather than a promise, because the honest half of this filter is
-            how much it cannot reach — the city has no code for badminton,
-            cricket, fencing or climbing, so those clubs match nothing. */}
-        <div style={{ display: "grid", gap: 10, borderTop: "1px solid var(--hairline)", paddingTop: 16 }}>
-          <div className="spread">
-            <div className="eyebrow">Somewhere my club could meet</div>
-            <Toggle
-              on={filters.bellarmine}
-              label="Places a Bellarmine club could meet"
-              onChange={(on) => setFilters((f) => ({ ...f, bellarmine: on }))}
-            />
-          </div>
-          <div className="aside" style={{ fontSize: 15.5 }}>
-            {PLACED_COUNT} of Bellarmine&rsquo;s {CLUB_COUNT} clubs need something the city lists on
-            the ground — courts, game tables, a library table. The rest meet on campus.
           </div>
         </div>
 

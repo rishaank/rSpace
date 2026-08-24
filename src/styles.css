@@ -467,6 +467,19 @@ a {
   background: var(--pale);
 }
 
+/* Sign out and delete-account used to be italic text links, which read as
+   footnotes rather than as the two account controls on the screen. Clay is
+   the warning colour everywhere else in the app, so the destructive one
+   carries it and the merely-final one does not. */
+.btn.ghost.clay {
+  border-color: var(--clay);
+  color: var(--clay);
+}
+
+.btn.ghost.clay:active {
+  background: #f3e6e0;
+}
+
 .btn.paper {
   background: var(--paper);
   color: var(--ink);
@@ -604,6 +617,11 @@ a {
   color: var(--moss);
   cursor: pointer;
   padding: 0 2px 9px;
+}
+
+.field .adorn button[disabled] {
+  color: var(--text-5);
+  cursor: default;
 }
 
 .checks {

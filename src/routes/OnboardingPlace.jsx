@@ -2,15 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../lib/store";
 import { geolocate, hasMapsKey, neighborhoodFor } from "../lib/google";
-import { milesBetween } from "../lib/scoring";
+import { lookupPlaces, nameForPoint } from "../lib/geography";
 import { NEIGHBORHOODS } from "../lib/seed";
 import { Alarm, AppBar, Device, Field, Ticks } from "../components/ui";
-
-function nearestNeighborhood(point) {
-  return NEIGHBORHOODS.reduce((best, n) =>
-    milesBetween(point, n) < milesBetween(point, best) ? n : best
-  );
-}
 
 // 06 · /onboarding/place — Autodetect   ·   21 · Location permission denied
 export default function OnboardingPlace() {
@@ -30,10 +24,12 @@ export default function OnboardingPlace() {
       if (result.error) return setState("denied");
 
       // Reverse geocoding is a bonus: it needs the Geocoding API, which is a
-      // separate product. Without it we name the nearest known neighborhood.
-      const label =
-        (hasMapsKey ? await neighborhoodFor(result) : null) ??
-        `${nearestNeighborhood(result).name}, San José`;
+      // separate product. Without it the point is named from the generated
+      // geography — the nearest San José district, or the nearest town when
+      // the reader is outside the city. It used to answer with one of the
+      // thirteen districts whatever the point was, so a phone in Mountain
+      // View was told it was in Alviso.
+      const label = (hasMapsKey ? await neighborhoodFor(result) : null) ?? nameForPoint(result);
 
       if (!live) return;
       setDetected({ ...result, location: label });
@@ -54,10 +50,10 @@ export default function OnboardingPlace() {
     return commit({ location: `${n.name}, San José`, lat: n.lat, lng: n.lng });
   }
 
-  const query = typed.trim().toLowerCase();
-  const typedMatch = query
-    ? NEIGHBORHOODS.find((n) => n.name.toLowerCase().startsWith(query))
-    : null;
+  // Was a prefix match against the thirteen planning areas, which meant the
+  // field's own example — "e.g. Japantown or 95112" — could not be answered
+  // with the ZIP half of it, and Continue simply stayed grey.
+  const matches = lookupPlaces(typed);
 
   return (
     <Device>
@@ -88,8 +84,8 @@ export default function OnboardingPlace() {
 
             <div className="pad" style={{ paddingTop: 22 }}>
               <Field
-                label="Neighborhood or ZIP"
-                placeholder="e.g. Japantown or 95112"
+                label="Neighborhood, ZIP, or town"
+                placeholder="e.g. Japantown, 95112, or Mountain View"
                 value={typed}
                 onChange={(e) => setTyped(e.target.value)}
                 style={{ fontSize: 21 }}
@@ -97,27 +93,35 @@ export default function OnboardingPlace() {
             </div>
 
             <div className="pad" style={{ paddingTop: 22 }}>
-              <div className="section-head">Common choices</div>
-              {NEIGHBORHOODS.slice(0, 4).map((n) => (
-                <button key={n.name} type="button" className="rowlink" onClick={() => pickNeighborhood(n)}>
-                  <span>{n.name}</span>
+              <div className="section-head">
+                {matches.length ? "Matches" : "Common choices"}
+              </div>
+              {(matches.length
+                ? matches
+                : NEIGHBORHOODS.slice(0, 4).map((n) => ({
+                    id: n.name,
+                    main: n.name,
+                    secondary: "San José",
+                    point: n,
+                    location: `${n.name}, San José`,
+                  }))
+              ).map((m) => (
+                <button key={m.id} type="button" className="rowlink" onClick={() => commit({ ...m.point, location: m.location })}>
+                  <span>
+                    {m.main}
+                    <span className="meta" style={{ paddingLeft: 8 }}>
+                      {m.secondary}
+                    </span>
+                  </span>
                   <span className="chev">›</span>
                 </button>
               ))}
             </div>
 
-            <div className="foot pad" style={{ padding: "16px 24px 34px", display: "grid", gap: 12 }}>
+            <div className="foot pad" style={{ padding: "16px 24px 34px" }}>
               <p className="prose" style={{ textAlign: "center", fontSize: 16.5, fontStyle: "italic" }}>
                 Changed your mind? Turn location on in your browser settings and reload.
               </p>
-              <button
-                type="button"
-                className="btn"
-                disabled={!typedMatch}
-                onClick={() => typedMatch && pickNeighborhood(typedMatch)}
-              >
-                Continue
-              </button>
             </div>
           </>
         ) : (

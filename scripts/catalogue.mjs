@@ -8,9 +8,15 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
 const FILE = new URL("../src/lib/catalogue.json", import.meta.url);
+const COMMUNITY = new URL("../src/lib/community.json", import.meta.url);
 
 export function readCatalogue() {
   return JSON.parse(readFileSync(FILE, "utf8"));
+}
+
+/** The OpenStreetMap half, from scripts/sync-community.mjs. */
+export function readCommunity() {
+  return JSON.parse(readFileSync(COMMUNITY, "utf8"));
 }
 
 export function writeCatalogue(catalogue) {
