@@ -1,29 +1,11 @@
 {
-  "generated": "2026-08-25T23:29:31.811Z",
+  "generated": "2026-08-26T03:57:02.384Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 674,
+  "count": 667,
   "by_slug": {
     "almaden-library": [
-      {
-        "title": "Summer STEAM: Mental Math",
-        "start": "2026-08-25T23:30:00.000Z",
-        "end": "2026-08-26T00:30:00Z",
-        "registration": false
-      },
-      {
-        "title": "After-School STEaM at Almaden",
-        "start": "2026-08-25T23:30:00.000Z",
-        "end": "2026-08-26T00:30:00Z",
-        "registration": false
-      },
-      {
-        "title": "Bilingual Hindi-English Storytime द्विभाषी हिंदी-अंग्रेज़ी कहानी समय",
-        "start": "2026-08-26T00:45:00.000Z",
-        "end": "2026-08-26T01:30:00Z",
-        "registration": false
-      },
       {
         "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
         "start": "2026-08-26T07:00:00.000Z",
@@ -221,15 +203,15 @@
         "start": "2026-09-08T19:00:00.000Z",
         "end": "2026-09-08T23:00:00Z",
         "registration": false
+      },
+      {
+        "title": "After-School STEaM at Almaden",
+        "start": "2026-09-08T23:30:00.000Z",
+        "end": "2026-09-09T00:30:00Z",
+        "registration": false
       }
     ],
     "alviso-library": [
-      {
-        "title": "Intro to Ukulele for Adults",
-        "start": "2026-08-26T00:15:00.000Z",
-        "end": "2026-08-26T01:15:00Z",
-        "registration": false
-      },
       {
         "title": "Reading to Children",
         "start": "2026-08-26T23:00:00.000Z",
@@ -350,6 +332,12 @@
         "title": "Origami for Kids",
         "start": "2026-09-08T22:15:00.000Z",
         "end": "2026-09-08T23:15:00Z",
+        "registration": false
+      },
+      {
+        "title": "Writing Group for Teens",
+        "start": "2026-09-08T23:30:00.000Z",
+        "end": "2026-09-09T00:30:00Z",
         "registration": false
       }
     ],
@@ -665,12 +653,6 @@
     ],
     "calabazas-library": [
       {
-        "title": " Adult Activities at the Calabazas Branch",
-        "start": "2026-08-25T23:30:00.000Z",
-        "end": "2026-08-26T00:30:00Z",
-        "registration": false
-      },
-      {
         "title": "Family Storytime",
         "start": "2026-08-26T17:30:00.000Z",
         "end": "2026-08-26T18:00:00Z",
@@ -980,12 +962,6 @@
       }
     ],
     "dr-martin-luther-king-jr-library": [
-      {
-        "title": "Calligraphy Workshop",
-        "start": "2026-08-26T00:00:00.000Z",
-        "end": "2026-08-26T02:00:00Z",
-        "registration": false
-      },
       {
         "title": "Bay Area Comics and Comix Exhibition",
         "start": "2026-08-26T07:00:00.000Z",
@@ -1563,12 +1539,6 @@
     ],
     "edenvale-library": [
       {
-        "title": "U.S. Citizenship Mock Interview Practice",
-        "start": "2026-08-26T00:00:00.000Z",
-        "end": "2026-08-26T01:00:00Z",
-        "registration": false
-      },
-      {
         "title": "ESL Classes with Evergreen Valley College (EVC) - ESL 501: Reading & Writing 1",
         "start": "2026-08-26T17:30:00.000Z",
         "end": "2026-08-26T19:30:00Z",
@@ -1771,15 +1741,15 @@
         "start": "2026-09-08T23:00:00.000Z",
         "end": "2026-09-09T01:00:00Z",
         "registration": false
+      },
+      {
+        "title": "U.S. Citizenship Mock Interview Practice",
+        "start": "2026-09-09T00:00:00.000Z",
+        "end": "2026-09-09T01:00:00Z",
+        "registration": false
       }
     ],
     "educational-park-library": [
-      {
-        "title": "ESL Classes with Evergreen Valley College (EVC) 502: Listening & Speaking",
-        "start": "2026-08-26T00:15:00.000Z",
-        "end": "2026-08-26T01:45:00Z",
-        "registration": false
-      },
       {
         "title": "Wee Love Science: Bubbles!",
         "start": "2026-08-26T17:30:00.000Z",
@@ -1941,6 +1911,12 @@
         "start": "2026-09-06T22:00:00.000Z",
         "end": "2026-09-06T23:00:00Z",
         "registration": false
+      },
+      {
+        "title": "ESL Classes with Evergreen Valley College (EVC) 502: Listening & Speaking",
+        "start": "2026-09-09T00:15:00.000Z",
+        "end": "2026-09-09T01:45:00Z",
+        "registration": false
       }
     ],
     "evergreen-library": [
@@ -2066,18 +2042,6 @@
       }
     ],
     "hillview-library": [
-      {
-        "title": "1-on-1 Tech Help/ Asistencia Tecnológica",
-        "start": "2026-08-26T00:00:00.000Z",
-        "end": "2026-08-26T01:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "U.S. Citizenship Mock Interview Practice / Práctica de entrevista simulada para la ciudadanía estadounidense",
-        "start": "2026-08-26T00:30:00.000Z",
-        "end": "2026-08-26T01:30:00Z",
-        "registration": false
-      },
       {
         "title": "U.S. Citizenship Mock Interview Practice / Práctica de entrevista simulada para la ciudadanía estadounidense",
         "start": "2026-08-27T00:30:00.000Z",
@@ -2257,27 +2221,21 @@
         "start": "2026-09-08T00:00:00.000Z",
         "end": "2026-09-08T01:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Volunteer Away Your Fines",
+        "start": "2026-09-09T00:00:00.000Z",
+        "end": "2026-09-09T01:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "U.S. Citizenship Mock Interview Practice / Práctica de entrevista simulada para la ciudadanía estadounidense",
+        "start": "2026-09-09T00:30:00.000Z",
+        "end": "2026-09-09T01:30:00Z",
+        "registration": false
       }
     ],
     "joyce-ellington-library": [
-      {
-        "title": "Joyce Ellington Branch Library Family Open House",
-        "start": "2026-08-25T23:30:00.000Z",
-        "end": "2026-08-26T01:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "LEGO® Club",
-        "start": "2026-08-25T23:30:00.000Z",
-        "end": "2026-08-26T00:30:00Z",
-        "registration": false
-      },
-      {
-        "title": "Hey Balloon Lady: Balloon Creations",
-        "start": "2026-08-25T23:30:00.000Z",
-        "end": "2026-08-26T01:00:00Z",
-        "registration": false
-      },
       {
         "title": "Family Storytime ",
         "start": "2026-08-26T18:00:00.000Z",
@@ -2396,6 +2354,12 @@
         "title": "Music & Movement",
         "start": "2026-09-08T17:30:00.000Z",
         "end": "2026-09-08T18:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "LEGO® Club",
+        "start": "2026-09-08T23:30:00.000Z",
+        "end": "2026-09-09T00:30:00Z",
         "registration": false
       }
     ],
@@ -2919,12 +2883,6 @@
     ],
     "seven-trees-library": [
       {
-        "title": "LEGO® Club",
-        "start": "2026-08-25T23:30:00.000Z",
-        "end": "2026-08-26T00:30:00Z",
-        "registration": false
-      },
-      {
         "title": "1:1 Tech Mentor Appointment",
         "start": "2026-08-26T07:00:00.000Z",
         "end": "2026-08-27T06:59:59Z",
@@ -3187,15 +3145,15 @@
         "start": "2026-09-08T19:30:00.000Z",
         "end": "2026-09-08T22:30:00Z",
         "registration": false
+      },
+      {
+        "title": "LEGO® Club",
+        "start": "2026-09-08T23:30:00.000Z",
+        "end": "2026-09-09T00:30:00Z",
+        "registration": false
       }
     ],
     "tully-community-library": [
-      {
-        "title": "ESL Classes with Evergreen Valley College (EVC) 502: Listening & Speaking",
-        "start": "2026-08-26T00:15:00.000Z",
-        "end": "2026-08-26T01:45:00Z",
-        "registration": false
-      },
       {
         "title": "Peer Support for MyConnectSV",
         "start": "2026-08-26T17:00:00.000Z",
@@ -3393,6 +3351,12 @@
         "start": "2026-09-08T23:00:00.000Z",
         "end": "2026-09-09T00:00:00Z",
         "registration": false
+      },
+      {
+        "title": "ESL Classes with Evergreen Valley College (EVC) 502: Listening & Speaking",
+        "start": "2026-09-09T00:15:00.000Z",
+        "end": "2026-09-09T01:45:00Z",
+        "registration": false
       }
     ],
     "village-square-library": [
@@ -3524,12 +3488,6 @@
       }
     ],
     "vineland-library": [
-      {
-        "title": "Meet the 3D Printer",
-        "start": "2026-08-25T23:30:00.000Z",
-        "end": "2026-08-26T00:30:00Z",
-        "registration": false
-      },
       {
         "title": "Make a Wish for Tanabata/Star Festival!",
         "start": "2026-08-26T07:00:00.000Z",
@@ -3743,12 +3701,6 @@
     ],
     "west-valley-library": [
       {
-        "title": "Reading to Children",
-        "start": "2026-08-26T00:00:00.000Z",
-        "end": "2026-08-26T01:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Family Storytime",
         "start": "2026-08-26T18:00:00.000Z",
         "end": "2026-08-26T18:30:00Z",
@@ -3950,6 +3902,12 @@
         "title": "Line Dancing for Beginners/Improvers",
         "start": "2026-09-08T20:30:00.000Z",
         "end": "2026-09-08T22:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Reading to Children",
+        "start": "2026-09-09T00:00:00.000Z",
+        "end": "2026-09-09T01:00:00Z",
         "registration": false
       }
     ],
