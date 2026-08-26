@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-26T07:51:33.447Z",
+  "generated": "2026-08-26T16:22:30.660Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 664,
+  "count": 663,
   "by_slug": {
     "almaden-library": [
       {
@@ -662,12 +662,6 @@
         "title": "Volunteer Away Your Fines",
         "start": "2026-08-26T19:00:00.000Z",
         "end": "2026-08-26T20:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "STEAM Club",
-        "start": "2026-08-26T23:30:00.000Z",
-        "end": "2026-08-27T00:30:00Z",
         "registration": false
       },
       {
