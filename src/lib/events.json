@@ -1,23 +1,11 @@
 {
-  "generated": "2026-08-27T04:26:44.894Z",
+  "generated": "2026-08-27T18:10:51.626Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 660,
+  "count": 654,
   "by_slug": {
     "almaden-library": [
-      {
-        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
-        "start": "2026-08-27T07:00:00.000Z",
-        "end": "2026-08-28T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "Family Storytime",
-        "start": "2026-08-27T17:15:00.000Z",
-        "end": "2026-08-27T17:45:00Z",
-        "registration": false
-      },
       {
         "title": "Digital Skills: One-On-One Tech Help for Seniors",
         "start": "2026-08-27T19:00:00.000Z",
@@ -203,6 +191,12 @@
         "start": "2026-09-09T23:30:00.000Z",
         "end": "2026-09-10T00:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Family Storytime",
+        "start": "2026-09-10T17:15:00.000Z",
+        "end": "2026-09-10T17:45:00Z",
+        "registration": false
       }
     ],
     "alviso-library": [
@@ -287,12 +281,6 @@
     ],
     "bascom-library": [
       {
-        "title": "Family Storytime",
-        "start": "2026-08-27T17:30:00.000Z",
-        "end": "2026-08-27T18:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Reading to Children",
         "start": "2026-08-28T23:00:00.000Z",
         "end": "2026-08-29T00:00:00Z",
@@ -345,15 +333,15 @@
         "start": "2026-09-10T00:30:00.000Z",
         "end": "2026-09-10T01:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Rain & Water Storytime with Environmental Services",
+        "start": "2026-09-10T17:30:00.000Z",
+        "end": "2026-09-10T18:30:00Z",
+        "registration": false
       }
     ],
     "berryessa-library": [
-      {
-        "title": "Family Storytime ",
-        "start": "2026-08-27T18:00:00.000Z",
-        "end": "2026-08-27T19:00:00Z",
-        "registration": false
-      },
       {
         "title": "Adult Work Space",
         "start": "2026-08-27T21:00:00.000Z",
@@ -515,15 +503,15 @@
         "start": "2026-09-10T01:00:00.000Z",
         "end": "2026-09-10T01:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Family Storytime ",
+        "start": "2026-09-10T18:00:00.000Z",
+        "end": "2026-09-10T19:00:00Z",
+        "registration": false
       }
     ],
     "biblioteca-latinoamericana-library": [
-      {
-        "title": "Wee Play Outdoors / Patio de Juego y Aprendizaje",
-        "start": "2026-08-27T17:30:00.000Z",
-        "end": "2026-08-27T18:30:00Z",
-        "registration": false
-      },
       {
         "title": "Asistencia tecnologica y ayuda personalizada",
         "start": "2026-08-27T23:00:00.000Z",
@@ -655,15 +643,21 @@
         "start": "2026-09-10T00:00:00.000Z",
         "end": "2026-09-10T01:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Wee Play Outdoors / Patio de Juego y Aprendizaje",
+        "start": "2026-09-10T17:30:00.000Z",
+        "end": "2026-09-10T18:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Wee Play Outdoors / Patio de Juego y Aprendizaje",
+        "start": "2026-09-10T17:30:00.000Z",
+        "end": "2026-09-10T18:30:00Z",
+        "registration": false
       }
     ],
     "calabazas-library": [
-      {
-        "title": "2nd_Mandarin Stories and Songs 亲子中文活動",
-        "start": "2026-08-27T17:30:00.000Z",
-        "end": "2026-08-27T18:00:00Z",
-        "registration": false
-      },
       {
         "title": "2nd_Mandarin Stories and Songs 亲子中文活動",
         "start": "2026-08-27T18:15:00.000Z",
@@ -674,24 +668,6 @@
         "title": "Line Dancing for Beginners/Improvers",
         "start": "2026-08-27T20:30:00.000Z",
         "end": "2026-08-27T21:30:00Z",
-        "registration": false
-      },
-      {
-        "title": "Junior STEAM Club",
-        "start": "2026-08-27T22:30:00.000Z",
-        "end": "2026-08-27T23:15:00Z",
-        "registration": false
-      },
-      {
-        "title": "Junior STEAM Club",
-        "start": "2026-08-27T23:30:00.000Z",
-        "end": "2026-08-28T00:15:00Z",
-        "registration": false
-      },
-      {
-        "title": "Junior STEAM Club",
-        "start": "2026-08-28T00:30:00.000Z",
-        "end": "2026-08-28T01:15:00Z",
         "registration": false
       },
       {
@@ -783,15 +759,15 @@
         "start": "2026-09-08T20:30:00.000Z",
         "end": "2026-09-08T21:30:00Z",
         "registration": false
+      },
+      {
+        "title": "2nd_Mandarin Stories and Songs 亲子中文活動",
+        "start": "2026-09-10T17:30:00.000Z",
+        "end": "2026-09-10T18:00:00Z",
+        "registration": false
       }
     ],
     "cambrian-library": [
-      {
-        "title": "Family Storytime",
-        "start": "2026-08-27T18:00:00.000Z",
-        "end": "2026-08-27T19:00:00Z",
-        "registration": false
-      },
       {
         "title": "Jewelry Making-STEM",
         "start": "2026-08-28T23:00:00.000Z",
@@ -953,21 +929,15 @@
         "start": "2026-09-09T18:00:00.000Z",
         "end": "2026-09-09T19:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Family Storytime",
+        "start": "2026-09-10T18:00:00.000Z",
+        "end": "2026-09-10T19:00:00Z",
+        "registration": false
       }
     ],
     "dr-martin-luther-king-jr-library": [
-      {
-        "title": "Bay Area Comics and Comix Exhibition",
-        "start": "2026-08-27T07:00:00.000Z",
-        "end": "2026-08-28T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "Baby Lapsit Storytime + Stay & Play",
-        "start": "2026-08-27T18:00:00.000Z",
-        "end": "2026-08-27T19:00:00Z",
-        "registration": false
-      },
       {
         "title": "Tech Mentor",
         "start": "2026-08-27T19:00:00.000Z",
@@ -1291,6 +1261,24 @@
         "start": "2026-09-10T00:30:00.000Z",
         "end": "2026-09-10T01:15:00Z",
         "registration": false
+      },
+      {
+        "title": "Bay Area Comics and Comix Exhibition",
+        "start": "2026-09-10T07:00:00.000Z",
+        "end": "2026-09-11T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "Tech Mentor",
+        "start": "2026-09-10T17:00:00.000Z",
+        "end": "2026-09-10T19:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Baby Lapsit Storytime + Stay & Play",
+        "start": "2026-09-10T18:00:00.000Z",
+        "end": "2026-09-10T19:00:00Z",
+        "registration": false
       }
     ],
     "dr-roberto-cruz-alum-rock-library": [
@@ -1521,18 +1509,6 @@
     ],
     "edenvale-library": [
       {
-        "title": "In-Person English Language Learner (ELL) Conversation Club",
-        "start": "2026-08-27T17:00:00.000Z",
-        "end": "2026-08-27T18:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "ESL Classes with Evergreen Valley College (EVC) - ESL 501: Reading & Writing 1",
-        "start": "2026-08-27T17:30:00.000Z",
-        "end": "2026-08-27T19:30:00Z",
-        "registration": false
-      },
-      {
         "title": "Tech Mentor at Edenvale Branch",
         "start": "2026-08-28T00:00:00.000Z",
         "end": "2026-08-28T01:00:00Z",
@@ -1735,15 +1711,21 @@
         "start": "2026-09-10T00:00:00.000Z",
         "end": "2026-09-10T01:00:00Z",
         "registration": false
+      },
+      {
+        "title": "In-Person English Language Learner (ELL) Conversation Club",
+        "start": "2026-09-10T17:00:00.000Z",
+        "end": "2026-09-10T18:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "ESL Classes with Evergreen Valley College (EVC) - ESL 501: Reading & Writing 1",
+        "start": "2026-09-10T17:30:00.000Z",
+        "end": "2026-09-10T19:30:00Z",
+        "registration": false
       }
     ],
     "educational-park-library": [
-      {
-        "title": "Infant and Toddler Storytime",
-        "start": "2026-08-27T17:30:00.000Z",
-        "end": "2026-08-27T18:45:00Z",
-        "registration": false
-      },
       {
         "title": "ESL Class for beginners (Level 0-1) / Clase de inglés para principiantes (Nivel 0-1)",
         "start": "2026-08-27T20:00:00.000Z",
@@ -1917,6 +1899,12 @@
         "start": "2026-09-10T00:15:00.000Z",
         "end": "2026-09-10T01:45:00Z",
         "registration": false
+      },
+      {
+        "title": "Infant and Toddler Storytime",
+        "start": "2026-09-10T17:30:00.000Z",
+        "end": "2026-09-10T18:45:00Z",
+        "registration": false
       }
     ],
     "evergreen-library": [
@@ -2030,24 +2018,6 @@
       }
     ],
     "hillview-library": [
-      {
-        "title": "Bilingual Family Storytime/ Hora de Cuentos & Stay and Play",
-        "start": "2026-08-27T18:00:00.000Z",
-        "end": "2026-08-27T19:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Reading Together With a Librarian",
-        "start": "2026-08-27T23:00:00.000Z",
-        "end": "2026-08-28T00:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "1-on-1 Tech Help",
-        "start": "2026-08-28T00:00:00.000Z",
-        "end": "2026-08-28T01:00:00Z",
-        "registration": false
-      },
       {
         "title": "U.S. Citizenship Mock Interview Practice / Práctica de entrevista simulada para la ciudadanía estadounidense",
         "start": "2026-08-28T00:30:00.000Z",
@@ -2337,6 +2307,12 @@
         "start": "2026-09-09T18:00:00.000Z",
         "end": "2026-09-09T18:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Celebrating Hispanic Heritage Month Storytime",
+        "start": "2026-09-10T18:00:00.000Z",
+        "end": "2026-09-10T19:00:00Z",
+        "registration": false
       }
     ],
     "mt-pleasant-neighborhood-library-bridge-branch": [
@@ -2426,12 +2402,6 @@
       }
     ],
     "pearl-avenue-library": [
-      {
-        "title": "I SPY: Back to School Scavenger Hunt",
-        "start": "2026-08-27T07:00:00.000Z",
-        "end": "2026-08-28T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "I SPY: Back to School Scavenger Hunt",
         "start": "2026-08-28T07:00:00.000Z",
@@ -2641,18 +2611,6 @@
     ],
     "santa-teresa-library": [
       {
-        "title": "Community Puzzle Swap",
-        "start": "2026-08-27T07:00:00.000Z",
-        "end": "2026-08-28T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "Indoor Family Storytime",
-        "start": "2026-08-27T18:00:00.000Z",
-        "end": "2026-08-27T18:30:00Z",
-        "registration": false
-      },
-      {
         "title": "Messy Play: Erupting Volcanoes",
         "start": "2026-08-27T23:00:00.000Z",
         "end": "2026-08-28T00:00:00Z",
@@ -2849,21 +2807,21 @@
         "start": "2026-09-09T18:00:00.000Z",
         "end": "2026-09-09T19:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Community Puzzle Swap",
+        "start": "2026-09-10T07:00:00.000Z",
+        "end": "2026-09-11T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "Indoor Family Storytime",
+        "start": "2026-09-10T18:00:00.000Z",
+        "end": "2026-09-10T18:30:00Z",
+        "registration": false
       }
     ],
     "seven-trees-library": [
-      {
-        "title": "1:1 Tech Mentor Appointment",
-        "start": "2026-08-27T07:00:00.000Z",
-        "end": "2026-08-28T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "Mahjong Club",
-        "start": "2026-08-27T17:00:00.000Z",
-        "end": "2026-08-27T19:00:00Z",
-        "registration": false
-      },
       {
         "title": "Seven Trees Overfelt Adult Education ESL Class",
         "start": "2026-08-27T19:30:00.000Z",
@@ -3121,21 +3079,27 @@
         "start": "2026-09-10T00:30:00.000Z",
         "end": "2026-09-10T01:30:00Z",
         "registration": false
+      },
+      {
+        "title": "1:1 Tech Mentor Appointment",
+        "start": "2026-09-10T07:00:00.000Z",
+        "end": "2026-09-11T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "Mahjong Club",
+        "start": "2026-09-10T17:00:00.000Z",
+        "end": "2026-09-10T19:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Baby Lapsit Storytime",
+        "start": "2026-09-10T18:00:00.000Z",
+        "end": "2026-09-10T19:00:00Z",
+        "registration": false
       }
     ],
     "tully-community-library": [
-      {
-        "title": "Peer Support for MyConnectSV",
-        "start": "2026-08-27T17:00:00.000Z",
-        "end": "2026-08-27T20:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Tai Chi for Seniors",
-        "start": "2026-08-27T17:00:00.000Z",
-        "end": "2026-08-27T18:00:00Z",
-        "registration": false
-      },
       {
         "title": "LEGO® Fun",
         "start": "2026-08-27T23:00:00.000Z",
@@ -3321,15 +3285,15 @@
         "start": "2026-09-10T00:15:00.000Z",
         "end": "2026-09-10T01:45:00Z",
         "registration": false
+      },
+      {
+        "title": "Tai Chi for Seniors",
+        "start": "2026-09-10T17:00:00.000Z",
+        "end": "2026-09-10T18:00:00Z",
+        "registration": false
       }
     ],
     "village-square-library": [
-      {
-        "title": "INSIDERS: Activities at the Village Square Branch",
-        "start": "2026-08-27T17:00:00.000Z",
-        "end": "2026-08-27T18:00:00Z",
-        "registration": false
-      },
       {
         "title": "Reading Buddies",
         "start": "2026-08-27T23:15:00.000Z",
@@ -3443,33 +3407,15 @@
         "start": "2026-09-10T00:30:00.000Z",
         "end": "2026-09-10T01:30:00Z",
         "registration": false
+      },
+      {
+        "title": "INSIDERS: Activities at the Village Square Branch",
+        "start": "2026-09-10T17:00:00.000Z",
+        "end": "2026-09-10T18:00:00Z",
+        "registration": false
       }
     ],
     "vineland-library": [
-      {
-        "title": "3D Printing On Demand",
-        "start": "2026-08-27T07:00:00.000Z",
-        "end": "2026-08-28T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "Make a Wish for Tanabata/Star Festival!",
-        "start": "2026-08-27T07:00:00.000Z",
-        "end": "2026-08-28T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "eBook Help: For Seniors",
-        "start": "2026-08-27T07:00:00.000Z",
-        "end": "2026-08-28T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "ELL Beginning English: The Basics",
-        "start": "2026-08-27T17:30:00.000Z",
-        "end": "2026-08-27T18:30:00Z",
-        "registration": false
-      },
       {
         "title": "ELL Intermediate English: Grammar & Vocabulary Club",
         "start": "2026-08-27T18:45:00.000Z",
@@ -3649,15 +3595,27 @@
         "start": "2026-09-09T17:30:00.000Z",
         "end": "2026-09-09T18:30:00Z",
         "registration": false
+      },
+      {
+        "title": "3D Printing On Demand",
+        "start": "2026-09-10T07:00:00.000Z",
+        "end": "2026-09-11T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "eBook Help: For Seniors",
+        "start": "2026-09-10T07:00:00.000Z",
+        "end": "2026-09-11T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "ELL Beginning English: The Basics",
+        "start": "2026-09-10T17:30:00.000Z",
+        "end": "2026-09-10T18:30:00Z",
+        "registration": false
       }
     ],
     "west-valley-library": [
-      {
-        "title": "Reading to Children in Japanese にほんご　おはなし会",
-        "start": "2026-08-27T18:00:00.000Z",
-        "end": "2026-08-27T18:30:00Z",
-        "registration": false
-      },
       {
         "title": " Financial Literacy Discussion Group for Retirees",
         "start": "2026-08-27T20:00:00.000Z",
@@ -3867,15 +3825,15 @@
         "start": "2026-09-09T23:00:00.000Z",
         "end": "2026-09-10T00:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Reading to Children in Japanese にほんご　おはなし会",
+        "start": "2026-09-10T18:00:00.000Z",
+        "end": "2026-09-10T18:30:00Z",
+        "registration": false
       }
     ],
     "willow-glen-library": [
-      {
-        "title": "1 on 1 Tech Assistance",
-        "start": "2026-08-27T18:00:00.000Z",
-        "end": "2026-08-27T19:00:00Z",
-        "registration": false
-      },
       {
         "title": "Reading To Children at the Willow Glen Library",
         "start": "2026-08-27T23:00:00.000Z",
@@ -4012,6 +3970,12 @@
         "title": "Reading Buddy in English & Spanish",
         "start": "2026-09-09T23:00:00.000Z",
         "end": "2026-09-10T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Wee Love Art! ",
+        "start": "2026-09-10T18:00:00.000Z",
+        "end": "2026-09-10T19:00:00Z",
         "registration": false
       }
     ]
