@@ -1,17 +1,11 @@
 {
-  "generated": "2026-08-28T03:31:51.694Z",
+  "generated": "2026-08-28T19:21:02.520Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 651,
+  "count": 645,
   "by_slug": {
     "almaden-library": [
-      {
-        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
-        "start": "2026-08-28T07:00:00.000Z",
-        "end": "2026-08-29T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
         "start": "2026-08-29T07:00:00.000Z",
@@ -513,12 +507,6 @@
     ],
     "biblioteca-latinoamericana-library": [
       {
-        "title": "Hazlo tu mismo (DIY) para adultos | Adult DIY",
-        "start": "2026-08-28T19:00:00.000Z",
-        "end": "2026-08-28T20:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Friday Family Game Zone",
         "start": "2026-08-28T22:30:00.000Z",
         "end": "2026-08-29T00:00:00Z",
@@ -952,36 +940,6 @@
     "dr-martin-luther-king-jr-library": [
       {
         "title": "Bay Area Comics and Comix Exhibition",
-        "start": "2026-08-28T07:00:00.000Z",
-        "end": "2026-08-29T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "Peer Support for MyConnectSV",
-        "start": "2026-08-28T16:30:00.000Z",
-        "end": "2026-08-28T19:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Tech Mentor",
-        "start": "2026-08-28T17:00:00.000Z",
-        "end": "2026-08-28T19:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "*In Person* Mock Interview",
-        "start": "2026-08-28T19:00:00.000Z",
-        "end": "2026-08-28T20:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Tech Mentor",
-        "start": "2026-08-28T19:00:00.000Z",
-        "end": "2026-08-28T21:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Bay Area Comics and Comix Exhibition",
         "start": "2026-08-29T07:00:00.000Z",
         "end": "2026-08-30T06:59:59Z",
         "registration": false
@@ -1291,15 +1249,27 @@
         "start": "2026-09-10T19:00:00.000Z",
         "end": "2026-09-10T21:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Bay Area Comics and Comix Exhibition",
+        "start": "2026-09-11T07:00:00.000Z",
+        "end": "2026-09-12T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "Tech Mentor",
+        "start": "2026-09-11T17:00:00.000Z",
+        "end": "2026-09-11T19:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Tech Mentor",
+        "start": "2026-09-11T19:00:00.000Z",
+        "end": "2026-09-11T21:00:00Z",
+        "registration": false
       }
     ],
     "dr-roberto-cruz-alum-rock-library": [
-      {
-        "title": "3D Printing Open Hours",
-        "start": "2026-08-28T07:00:00.000Z",
-        "end": "2026-08-29T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Coffee and Puzzles (For Seniors)",
         "start": "2026-08-28T20:00:00.000Z",
@@ -1424,6 +1394,12 @@
         "title": "Crochet Club",
         "start": "2026-09-09T23:00:00.000Z",
         "end": "2026-09-10T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "3D Printing Open Hours",
+        "start": "2026-09-11T07:00:00.000Z",
+        "end": "2026-09-12T06:59:59Z",
         "registration": false
       }
     ],
@@ -2409,12 +2385,6 @@
     ],
     "pearl-avenue-library": [
       {
-        "title": "I SPY: Back to School Scavenger Hunt",
-        "start": "2026-08-28T07:00:00.000Z",
-        "end": "2026-08-29T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Friday Fun: Bingo",
         "start": "2026-08-28T23:00:00.000Z",
         "end": "2026-08-29T00:00:00Z",
@@ -2610,12 +2580,6 @@
       }
     ],
     "santa-teresa-library": [
-      {
-        "title": "Community Puzzle Swap",
-        "start": "2026-08-28T07:00:00.000Z",
-        "end": "2026-08-29T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "1,000 Books Before Kindergarten Library Picnic Storytime",
         "start": "2026-08-28T23:30:00.000Z",
@@ -2824,6 +2788,12 @@
         "title": "Santa Teresa Middle School Math Club",
         "start": "2026-09-11T00:30:00.000Z",
         "end": "2026-09-11T01:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Community Puzzle Swap",
+        "start": "2026-09-11T07:00:00.000Z",
+        "end": "2026-09-12T06:59:59Z",
         "registration": false
       }
     ],
@@ -3422,12 +3392,6 @@
       }
     ],
     "vineland-library": [
-      {
-        "title": "Make a Wish for Tanabata/Star Festival!",
-        "start": "2026-08-28T07:00:00.000Z",
-        "end": "2026-08-29T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Cricut Open Lab ",
         "start": "2026-08-28T23:00:00.000Z",
