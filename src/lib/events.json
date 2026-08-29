@@ -1,17 +1,11 @@
 {
-  "generated": "2026-08-29T04:05:38.993Z",
+  "generated": "2026-08-29T13:05:55.028Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 635,
+  "count": 632,
   "by_slug": {
     "almaden-library": [
-      {
-        "title": "\"Voices from WAR\" Exploring Human Experiences in War Exhibit",
-        "start": "2026-08-29T07:00:00.000Z",
-        "end": "2026-08-30T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Volunteer Away Your Fines",
         "start": "2026-08-29T17:15:00.000Z",
@@ -915,12 +909,6 @@
     ],
     "dr-martin-luther-king-jr-library": [
       {
-        "title": "Bay Area Comics and Comix Exhibition",
-        "start": "2026-08-29T07:00:00.000Z",
-        "end": "2026-08-30T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Reading Buddies with Yash",
         "start": "2026-08-29T20:30:00.000Z",
         "end": "2026-08-29T22:00:00Z",
@@ -1242,6 +1230,12 @@
         "title": "Tech Mentor",
         "start": "2026-09-11T19:00:00.000Z",
         "end": "2026-09-11T21:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Bay Area Comics and Comix Exhibition",
+        "start": "2026-09-12T07:00:00.000Z",
+        "end": "2026-09-13T06:59:59Z",
         "registration": false
       }
     ],
@@ -2337,12 +2331,6 @@
     ],
     "pearl-avenue-library": [
       {
-        "title": "I SPY: Back to School Scavenger Hunt",
-        "start": "2026-08-29T07:00:00.000Z",
-        "end": "2026-08-30T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Friends of the Pearl Avenue Branch Book Sale",
         "start": "2026-08-29T17:00:00.000Z",
         "end": "2026-08-29T22:00:00Z",
@@ -2538,12 +2526,6 @@
       }
     ],
     "santa-teresa-library": [
-      {
-        "title": "Community Puzzle Swap",
-        "start": "2026-08-29T07:00:00.000Z",
-        "end": "2026-08-30T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Music and Movement",
         "start": "2026-08-29T18:00:00.000Z",
@@ -2753,15 +2735,15 @@
         "start": "2026-09-11T23:00:00.000Z",
         "end": "2026-09-12T00:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Community Puzzle Swap",
+        "start": "2026-09-12T07:00:00.000Z",
+        "end": "2026-09-13T06:59:59Z",
+        "registration": false
       }
     ],
     "seven-trees-library": [
-      {
-        "title": "1:1 Tech Mentor Appointment",
-        "start": "2026-08-29T07:00:00.000Z",
-        "end": "2026-08-30T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "OneinMath: Math Program for K-3 at Seven Trees Library",
         "start": "2026-08-29T17:30:00.000Z",
@@ -3018,6 +3000,12 @@
         "title": "Video Game Zone",
         "start": "2026-09-11T22:30:00.000Z",
         "end": "2026-09-12T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "1:1 Tech Mentor Appointment",
+        "start": "2026-09-12T07:00:00.000Z",
+        "end": "2026-09-13T06:59:59Z",
         "registration": false
       }
     ],
@@ -3338,12 +3326,6 @@
       }
     ],
     "vineland-library": [
-      {
-        "title": "Make a Wish for Tanabata/Star Festival!",
-        "start": "2026-08-29T07:00:00.000Z",
-        "end": "2026-08-30T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Make a Wish for Tanabata/Star Festival!",
         "start": "2026-08-30T07:00:00.000Z",
