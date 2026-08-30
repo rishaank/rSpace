@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-28",
+  "generated": "2026-08-30",
   "source": "OpenStreetMap contributors (ODbL) · openstreetmap.org",
   "region": "37.15,-122.15,37.55,-121.55",
   "places": [
@@ -5277,36 +5277,6 @@
       "condition": null,
       "hours": null,
       "summary": "An independent café.",
-      "rating": null,
-      "reviews": 0,
-      "quote": null,
-      "quote_author": null,
-      "quote_rating": null
-    },
-    {
-      "id": "shaved-ice",
-      "source": "osm-node-6307716296",
-      "city_facility_id": null,
-      "city_location_id": null,
-      "google_place_id": null,
-      "name": "Shaved Ice",
-      "category": "Food",
-      "address": "1597 Meridian Avenue",
-      "lat": 37.294668,
-      "lng": -121.914042,
-      "neighborhood": null,
-      "district": "Willow Glen",
-      "price_level": null,
-      "popularity": null,
-      "amenities": [],
-      "interests": [
-        "Food & meals"
-      ],
-      "parking_spaces": null,
-      "acres": null,
-      "condition": null,
-      "hours": null,
-      "summary": "An independent dessert shop.",
       "rating": null,
       "reviews": 0,
       "quote": null,
