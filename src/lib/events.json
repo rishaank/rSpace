@@ -1,17 +1,11 @@
 {
-  "generated": "2026-08-29T21:34:57.572Z",
+  "generated": "2026-08-30T01:10:57.618Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 638,
+  "count": 637,
   "by_slug": {
     "almaden-library": [
-      {
-        "title": "3D Printing One-on-One Guided Support",
-        "start": "2026-08-29T23:00:00.000Z",
-        "end": "2026-08-30T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Basic English 1 Class",
         "start": "2026-09-01T17:00:00.000Z",
@@ -185,6 +179,18 @@
         "start": "2026-09-12T18:00:00.000Z",
         "end": "2026-09-12T20:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Artificial Intelligence (AI) Workplace Skills",
+        "start": "2026-09-12T23:00:00.000Z",
+        "end": "2026-09-13T00:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "3D Printing One-on-One Guided Support",
+        "start": "2026-09-12T23:00:00.000Z",
+        "end": "2026-09-13T00:00:00Z",
+        "registration": false
       }
     ],
     "alviso-library": [
@@ -264,6 +270,12 @@
         "title": "Digital Illustration Workshop with AACI YTI",
         "start": "2026-09-12T17:00:00.000Z",
         "end": "2026-09-12T18:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Reading to Children",
+        "start": "2026-09-12T22:00:00.000Z",
+        "end": "2026-09-12T23:00:00Z",
         "registration": false
       }
     ],
@@ -501,12 +513,6 @@
     ],
     "biblioteca-latinoamericana-library": [
       {
-        "title": "LEGO® Club - Club LEGO®",
-        "start": "2026-08-29T22:00:00.000Z",
-        "end": "2026-08-29T23:30:00Z",
-        "registration": false
-      },
-      {
         "title": "Sunday Crafternoon Extravaganza",
         "start": "2026-08-30T20:00:00.000Z",
         "end": "2026-08-30T22:00:00Z",
@@ -643,6 +649,12 @@
         "start": "2026-09-12T20:30:00.000Z",
         "end": "2026-09-12T21:30:00Z",
         "registration": false
+      },
+      {
+        "title": "LEGO® Club - Club LEGO®",
+        "start": "2026-09-12T22:00:00.000Z",
+        "end": "2026-09-12T23:30:00Z",
+        "registration": false
       }
     ],
     "calabazas-library": [
@@ -735,15 +747,15 @@
         "start": "2026-09-11T23:00:00.000Z",
         "end": "2026-09-12T00:00:00Z",
         "registration": false
+      },
+      {
+        "title": "3D Design & Printing",
+        "start": "2026-09-12T23:00:00.000Z",
+        "end": "2026-09-13T00:00:00Z",
+        "registration": false
       }
     ],
     "cambrian-library": [
-      {
-        "title": "Chess Club: Beginner to Intermediate",
-        "start": "2026-08-29T23:00:00.000Z",
-        "end": "2026-08-30T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Reading to Children with Vivian",
         "start": "2026-08-30T20:00:00.000Z",
@@ -1247,18 +1259,6 @@
     ],
     "dr-roberto-cruz-alum-rock-library": [
       {
-        "title": "Practice Spanish Speaking Skills for Spanish Language Learners",
-        "start": "2026-08-29T22:00:00.000Z",
-        "end": "2026-08-29T23:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Language and Culture Swap",
-        "start": "2026-08-29T23:30:00.000Z",
-        "end": "2026-08-30T00:30:00Z",
-        "registration": false
-      },
-      {
         "title": "Art Club",
         "start": "2026-08-30T20:00:00.000Z",
         "end": "2026-08-30T22:00:00Z",
@@ -1365,15 +1365,21 @@
         "start": "2026-09-12T18:30:00.000Z",
         "end": "2026-09-12T19:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Practice Spanish Speaking Skills for Spanish Language Learners",
+        "start": "2026-09-12T22:00:00.000Z",
+        "end": "2026-09-12T23:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Language and Culture Swap",
+        "start": "2026-09-12T23:30:00.000Z",
+        "end": "2026-09-13T00:30:00Z",
+        "registration": false
       }
     ],
     "east-san-jose-carnegie-library": [
-      {
-        "title": "Reading to Children with Volunteer Venkat (Hybrid: In-Person and Online)",
-        "start": "2026-08-29T22:00:00.000Z",
-        "end": "2026-08-29T23:00:00Z",
-        "registration": false
-      },
       {
         "title": "Knitting/Crocheting/Tatting/Bobbin Lace Club",
         "start": "2026-08-31T23:30:00.000Z",
@@ -1449,6 +1455,12 @@
       {
         "title": "Fun With Fiction: Creative Writing Party ",
         "start": "2026-09-12T21:00:00.000Z",
+        "end": "2026-09-12T23:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Reading to Children with Volunteer Venkat (Hybrid: In-Person and Online)",
+        "start": "2026-09-12T22:00:00.000Z",
         "end": "2026-09-12T23:00:00Z",
         "registration": false
       }
@@ -1667,12 +1679,6 @@
     ],
     "educational-park-library": [
       {
-        "title": "Adult Craft Club: Seashell Trinket Trays",
-        "start": "2026-08-29T22:00:00.000Z",
-        "end": "2026-08-29T23:00:00Z",
-        "registration": false
-      },
-      {
         "title": "OneinMath: Math Program for K-3rd at Educational Park",
         "start": "2026-08-30T19:00:00.000Z",
         "end": "2026-08-30T20:00:00Z",
@@ -1861,12 +1867,6 @@
     ],
     "evergreen-library": [
       {
-        "title": "LEGO® Fun",
-        "start": "2026-08-29T22:30:00.000Z",
-        "end": "2026-08-29T23:30:00Z",
-        "registration": false
-      },
-      {
         "title": "OneInMath: Math Program for K-3rd at Evergreen Library",
         "start": "2026-08-30T19:00:00.000Z",
         "end": "2026-08-30T20:00:00Z",
@@ -1966,6 +1966,12 @@
         "title": "Family Storytime + Stay & Play",
         "start": "2026-09-10T23:30:00.000Z",
         "end": "2026-09-11T00:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Music and Movement in Vietnamese and English and Craft/Múa Hát Song Ngữ Anh-Việt và Thủ công",
+        "start": "2026-09-12T23:30:00.000Z",
+        "end": "2026-09-13T00:30:00Z",
         "registration": false
       }
     ],
@@ -2533,12 +2539,6 @@
     ],
     "santa-teresa-library": [
       {
-        "title": "Teen Discussion/Presentation Program",
-        "start": "2026-08-29T23:00:00.000Z",
-        "end": "2026-08-30T00:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Community Puzzle Swap",
         "start": "2026-08-30T07:00:00.000Z",
         "end": "2026-08-31T06:59:59Z",
@@ -2756,12 +2756,6 @@
       }
     ],
     "seven-trees-library": [
-      {
-        "title": "Athena Project",
-        "start": "2026-08-29T22:00:00.000Z",
-        "end": "2026-08-29T23:00:00Z",
-        "registration": false
-      },
       {
         "title": "1:1 Tech Mentor Appointment",
         "start": "2026-08-30T07:00:00.000Z",
@@ -3017,12 +3011,6 @@
     ],
     "tully-community-library": [
       {
-        "title": "ESL Writing Club",
-        "start": "2026-08-29T23:00:00.000Z",
-        "end": "2026-08-30T00:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Family Games: Cards & Board Games",
         "start": "2026-08-30T20:00:00.000Z",
         "end": "2026-08-30T21:00:00Z",
@@ -3207,15 +3195,15 @@
         "start": "2026-09-12T17:30:00.000Z",
         "end": "2026-09-12T18:30:00Z",
         "registration": false
+      },
+      {
+        "title": "ESL Writing Club",
+        "start": "2026-09-12T23:00:00.000Z",
+        "end": "2026-09-13T00:00:00Z",
+        "registration": false
       }
     ],
     "village-square-library": [
-      {
-        "title": "OneinMath: Math Program for K-3rd at Village Square Branch",
-        "start": "2026-08-29T22:00:00.000Z",
-        "end": "2026-08-29T23:00:00Z",
-        "registration": false
-      },
       {
         "title": "ESL Conversation Club",
         "start": "2026-09-01T17:30:00.000Z",
@@ -3340,6 +3328,12 @@
         "title": "Brain Bloom: STEAM Club",
         "start": "2026-09-12T20:00:00.000Z",
         "end": "2026-09-12T21:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "OneinMath: Math Program for K-3rd at Village Square Branch",
+        "start": "2026-09-12T22:00:00.000Z",
+        "end": "2026-09-12T23:00:00Z",
         "registration": false
       }
     ],
@@ -3502,12 +3496,6 @@
       }
     ],
     "west-valley-library": [
-      {
-        "title": "Reading Buddies",
-        "start": "2026-08-29T23:00:00.000Z",
-        "end": "2026-08-30T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Math Festival at West Valley Branch Library",
         "start": "2026-08-30T21:00:00.000Z",
@@ -3716,6 +3704,12 @@
         "title": "Family Storytime",
         "start": "2026-09-12T18:00:00.000Z",
         "end": "2026-09-12T18:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Reading Buddies",
+        "start": "2026-09-12T23:00:00.000Z",
+        "end": "2026-09-13T00:00:00Z",
         "registration": false
       }
     ],
