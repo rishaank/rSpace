@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-30T21:53:13.328Z",
+  "generated": "2026-08-31T01:16:37.977Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 667,
+  "count": 668,
   "by_slug": {
     "almaden-library": [
       {
@@ -373,12 +373,6 @@
     ],
     "berryessa-library": [
       {
-        "title": "Reading to Children",
-        "start": "2026-08-30T23:00:00.000Z",
-        "end": "2026-08-30T23:30:00Z",
-        "registration": false
-      },
-      {
         "title": "English Language Learner (ELL) Conversation Club",
         "start": "2026-09-01T18:00:00.000Z",
         "end": "2026-09-01T19:00:00Z",
@@ -532,6 +526,12 @@
         "title": "Reading to Children",
         "start": "2026-09-12T18:00:00.000Z",
         "end": "2026-09-12T18:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Reading to Children",
+        "start": "2026-09-13T23:00:00.000Z",
+        "end": "2026-09-13T23:30:00Z",
         "registration": false
       }
     ],
@@ -829,12 +829,6 @@
     ],
     "cambrian-library": [
       {
-        "title": "LEGO® Club",
-        "start": "2026-08-30T22:00:00.000Z",
-        "end": "2026-08-30T23:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Reading to Children with Aysha",
         "start": "2026-08-31T22:00:00.000Z",
         "end": "2026-08-31T23:00:00Z",
@@ -995,21 +989,15 @@
         "start": "2026-09-13T21:00:00.000Z",
         "end": "2026-09-13T22:00:00Z",
         "registration": false
+      },
+      {
+        "title": "LEGO® Club",
+        "start": "2026-09-13T22:00:00.000Z",
+        "end": "2026-09-13T23:00:00Z",
+        "registration": false
       }
     ],
     "dr-martin-luther-king-jr-library": [
-      {
-        "title": "Tech Mentor",
-        "start": "2026-08-30T22:00:00.000Z",
-        "end": "2026-08-31T01:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Indoor Family Storytime + Stay & Play",
-        "start": "2026-08-30T23:00:00.000Z",
-        "end": "2026-08-31T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Bay Area Comics and Comix Exhibition",
         "start": "2026-08-31T07:00:00.000Z",
@@ -1333,6 +1321,18 @@
         "start": "2026-09-13T20:30:00.000Z",
         "end": "2026-09-13T22:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Tech Mentor",
+        "start": "2026-09-13T22:00:00.000Z",
+        "end": "2026-09-14T01:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Indoor Family Storytime + Stay & Play",
+        "start": "2026-09-13T23:00:00.000Z",
+        "end": "2026-09-14T00:00:00Z",
+        "registration": false
       }
     ],
     "dr-roberto-cruz-alum-rock-library": [
@@ -1461,6 +1461,12 @@
         "start": "2026-09-13T21:00:00.000Z",
         "end": "2026-09-13T22:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Basic English Level 1",
+        "start": "2026-09-13T22:00:00.000Z",
+        "end": "2026-09-13T23:00:00Z",
+        "registration": false
       }
     ],
     "east-san-jose-carnegie-library": [
@@ -1550,12 +1556,6 @@
       }
     ],
     "edenvale-library": [
-      {
-        "title": "Haopinaka Hawaiian Music and Dance",
-        "start": "2026-08-30T22:30:00.000Z",
-        "end": "2026-08-30T23:30:00Z",
-        "registration": false
-      },
       {
         "title": "STEMventures: Aerospace Engineering",
         "start": "2026-08-31T23:30:00.000Z",
@@ -1769,12 +1769,6 @@
     ],
     "educational-park-library": [
       {
-        "title": "English Language Learners (ELL) Conversation Club",
-        "start": "2026-08-30T22:00:00.000Z",
-        "end": "2026-08-30T23:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Clases de inglés para Hispanos - Nivel 1",
         "start": "2026-09-01T00:00:00.000Z",
         "end": "2026-09-01T01:30:00Z",
@@ -1983,15 +1977,15 @@
         "start": "2026-09-13T20:00:00.000Z",
         "end": "2026-09-13T21:00:00Z",
         "registration": false
+      },
+      {
+        "title": "English Language Learners (ELL) Conversation Club",
+        "start": "2026-09-13T22:00:00.000Z",
+        "end": "2026-09-13T23:00:00Z",
+        "registration": false
       }
     ],
     "evergreen-library": [
-      {
-        "title": "Family Storytime + Stay & Play",
-        "start": "2026-08-30T22:15:00.000Z",
-        "end": "2026-08-30T23:15:00Z",
-        "registration": false
-      },
       {
         "title": "Tech Mentor: One on One Computer Help ",
         "start": "2026-08-31T20:00:00.000Z",
@@ -2098,6 +2092,12 @@
         "title": "Reading to Children ",
         "start": "2026-09-13T21:00:00.000Z",
         "end": "2026-09-13T22:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Family Storytime + Stay & Play",
+        "start": "2026-09-13T22:15:00.000Z",
+        "end": "2026-09-13T23:15:00Z",
         "registration": false
       }
     ],
@@ -2303,12 +2303,6 @@
     ],
     "joyce-ellington-library": [
       {
-        "title": "OneInMath: Math Support for Grades K–3 at Joyce Ellington Branch",
-        "start": "2026-08-30T22:30:00.000Z",
-        "end": "2026-08-30T23:30:00Z",
-        "registration": false
-      },
-      {
         "title": "Tech Mentor: One on One Computer Help",
         "start": "2026-08-31T20:00:00.000Z",
         "end": "2026-09-01T00:00:00Z",
@@ -2414,6 +2408,12 @@
         "title": "Guided Meditation & Yoga for Wellness and Stress Relief",
         "start": "2026-09-12T21:00:00.000Z",
         "end": "2026-09-12T22:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "OneInMath: Math Support for Grades K–3 at Joyce Ellington Branch",
+        "start": "2026-09-13T22:30:00.000Z",
+        "end": "2026-09-13T23:30:00Z",
         "registration": false
       }
     ],
@@ -3890,6 +3890,12 @@
         "title": "West Valley Friends of the Library Book Sale",
         "start": "2026-09-13T19:00:00.000Z",
         "end": "2026-09-13T22:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "NeuroSpark Brain Science Series",
+        "start": "2026-09-13T22:00:00.000Z",
+        "end": "2026-09-13T23:00:00Z",
         "registration": false
       }
     ],
