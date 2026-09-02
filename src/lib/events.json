@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-02T00:55:31.641Z",
+  "generated": "2026-09-02T07:47:12.692Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 657,
+  "count": 660,
   "by_slug": {
     "almaden-library": [
       {
@@ -719,6 +719,12 @@
         "registration": false
       },
       {
+        "title": "STEAM Club",
+        "start": "2026-09-02T23:00:00.000Z",
+        "end": "2026-09-03T00:00:00Z",
+        "registration": false
+      },
+      {
         "title": "2nd_Mandarin Stories and Songs 亲子中文活動",
         "start": "2026-09-03T17:30:00.000Z",
         "end": "2026-09-03T18:00:00Z",
@@ -749,15 +755,21 @@
         "registration": false
       },
       {
+        "title": "Family STEAM",
+        "start": "2026-09-05T21:00:00.000Z",
+        "end": "2026-09-05T22:00:00Z",
+        "registration": false
+      },
+      {
         "title": "Adult Crafternoons",
         "start": "2026-09-05T23:30:00.000Z",
         "end": "2026-09-06T00:30:00Z",
         "registration": false
       },
       {
-        "title": "大朋友(50+)社區团体活动 ( Chinese Orchestra)",
+        "title": "大朋友(50+)社區团体活动 (Chinese Orchestra)",
         "start": "2026-09-08T20:30:00.000Z",
-        "end": "2026-09-08T21:30:00Z",
+        "end": "2026-09-08T22:30:00Z",
         "registration": false
       },
       {
@@ -770,6 +782,12 @@
         "title": "Family Storytime",
         "start": "2026-09-09T18:15:00.000Z",
         "end": "2026-09-09T18:45:00Z",
+        "registration": false
+      },
+      {
+        "title": "STEAM Club",
+        "start": "2026-09-09T23:00:00.000Z",
+        "end": "2026-09-10T00:00:00Z",
         "registration": false
       },
       {
@@ -815,6 +833,12 @@
         "registration": false
       },
       {
+        "title": "Family STEAM",
+        "start": "2026-09-12T21:00:00.000Z",
+        "end": "2026-09-12T22:00:00Z",
+        "registration": false
+      },
+      {
         "title": "3D Design & Printing",
         "start": "2026-09-12T22:30:00.000Z",
         "end": "2026-09-12T23:30:00Z",
@@ -839,9 +863,9 @@
         "registration": false
       },
       {
-        "title": "大朋友(50+)社區团体活动 ( Chinese Orchestra)",
+        "title": "大朋友(50+)社區团体活动 (Chinese Orchestra)",
         "start": "2026-09-15T20:30:00.000Z",
-        "end": "2026-09-15T21:30:00Z",
+        "end": "2026-09-15T22:30:00Z",
         "registration": false
       },
       {
@@ -1004,12 +1028,6 @@
       }
     ],
     "dr-martin-luther-king-jr-library": [
-      {
-        "title": "Bay Area Comics and Comix Exhibition",
-        "start": "2026-09-02T07:00:00.000Z",
-        "end": "2026-09-03T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Tech Mentor",
         "start": "2026-09-02T17:00:00.000Z",
@@ -1326,6 +1344,12 @@
         "title": "Teen Foodies: Mini Birthday Cake Cookies",
         "start": "2026-09-15T23:00:00.000Z",
         "end": "2026-09-16T01:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Bay Area Comics and Comix Exhibition",
+        "start": "2026-09-16T07:00:00.000Z",
+        "end": "2026-09-17T06:59:59Z",
         "registration": false
       }
     ],
@@ -1974,12 +1998,6 @@
       }
     ],
     "evergreen-library": [
-      {
-        "title": "Tiny Art Show!",
-        "start": "2026-09-02T07:00:00.000Z",
-        "end": "2026-10-01T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Tech Mentor: One on One Computer Help ",
         "start": "2026-09-02T19:00:00.000Z",
@@ -2641,12 +2659,6 @@
     ],
     "santa-teresa-library": [
       {
-        "title": "Community Puzzle Swap",
-        "start": "2026-09-02T07:00:00.000Z",
-        "end": "2026-09-03T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "ELL (English Language Learner) Conversation Club",
         "start": "2026-09-02T17:00:00.000Z",
         "end": "2026-09-02T18:00:00Z",
@@ -2861,15 +2873,15 @@
         "start": "2026-09-15T19:00:00.000Z",
         "end": "2026-09-15T21:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Community Puzzle Swap",
+        "start": "2026-09-16T07:00:00.000Z",
+        "end": "2026-09-17T06:59:59Z",
+        "registration": false
       }
     ],
     "seven-trees-library": [
-      {
-        "title": "1:1 Tech Mentor Appointment",
-        "start": "2026-09-02T07:00:00.000Z",
-        "end": "2026-09-03T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Playdates for Children and Their Caregivers",
         "start": "2026-09-02T18:00:00.000Z",
@@ -3132,6 +3144,12 @@
         "title": "LEGO® Club",
         "start": "2026-09-15T23:30:00.000Z",
         "end": "2026-09-16T00:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "1:1 Tech Mentor Appointment",
+        "start": "2026-09-16T07:00:00.000Z",
+        "end": "2026-09-17T06:59:59Z",
         "registration": false
       }
     ],
