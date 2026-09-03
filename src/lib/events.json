@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-03T01:02:04.741Z",
+  "generated": "2026-09-03T07:55:53.210Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 671,
+  "count": 670,
   "by_slug": {
     "almaden-library": [
       {
@@ -1101,12 +1101,6 @@
     ],
     "dr-martin-luther-king-jr-library": [
       {
-        "title": "Bay Area Comics and Comix Exhibition",
-        "start": "2026-09-03T07:00:00.000Z",
-        "end": "2026-09-04T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "Tech Mentor",
         "start": "2026-09-03T17:00:00.000Z",
         "end": "2026-09-03T19:00:00Z",
@@ -1428,6 +1422,12 @@
         "title": "Indoor Music and Movement",
         "start": "2026-09-17T00:30:00.000Z",
         "end": "2026-09-17T01:15:00Z",
+        "registration": false
+      },
+      {
+        "title": "Bay Area Comics and Comix Exhibition",
+        "start": "2026-09-17T07:00:00.000Z",
+        "end": "2026-09-18T06:59:59Z",
         "registration": false
       }
     ],
@@ -2553,12 +2553,6 @@
     ],
     "pearl-avenue-library": [
       {
-        "title": "San Jose Stamp Club ",
-        "start": "2026-09-03T01:45:00.000Z",
-        "end": "2026-09-03T02:45:00Z",
-        "registration": false
-      },
-      {
         "title": "Friday Fun : Tissue Flowers Making",
         "start": "2026-09-04T23:00:00.000Z",
         "end": "2026-09-05T00:00:00Z",
@@ -2736,12 +2730,6 @@
       }
     ],
     "santa-teresa-library": [
-      {
-        "title": "Community Puzzle Swap",
-        "start": "2026-09-03T07:00:00.000Z",
-        "end": "2026-09-04T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Rain & Water Storytime with Environmental Services",
         "start": "2026-09-03T18:00:00.000Z",
@@ -2951,15 +2939,15 @@
         "start": "2026-09-16T18:00:00.000Z",
         "end": "2026-09-16T19:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Community Puzzle Swap",
+        "start": "2026-09-17T07:00:00.000Z",
+        "end": "2026-09-18T06:59:59Z",
+        "registration": false
       }
     ],
     "seven-trees-library": [
-      {
-        "title": "1:1 Tech Mentor Appointment",
-        "start": "2026-09-03T07:00:00.000Z",
-        "end": "2026-09-04T06:59:59Z",
-        "registration": false
-      },
       {
         "title": "Mahjong Club",
         "start": "2026-09-03T17:00:00.000Z",
@@ -3222,6 +3210,12 @@
         "title": "Family Storytime + Stay & Play",
         "start": "2026-09-17T00:30:00.000Z",
         "end": "2026-09-17T01:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "1:1 Tech Mentor Appointment",
+        "start": "2026-09-17T07:00:00.000Z",
+        "end": "2026-09-18T06:59:59Z",
         "registration": false
       }
     ],
@@ -3567,18 +3561,6 @@
     ],
     "vineland-library": [
       {
-        "title": "3D Printing On Demand",
-        "start": "2026-09-03T07:00:00.000Z",
-        "end": "2026-09-04T06:59:59Z",
-        "registration": false
-      },
-      {
-        "title": "eBook Help: For Seniors",
-        "start": "2026-09-03T07:00:00.000Z",
-        "end": "2026-09-04T06:59:59Z",
-        "registration": false
-      },
-      {
         "title": "ELL Beginning English: The Basics",
         "start": "2026-09-03T17:30:00.000Z",
         "end": "2026-09-03T18:30:00Z",
@@ -3720,6 +3702,18 @@
         "title": "Vineland's Evening Book Club ",
         "start": "2026-09-17T01:00:00.000Z",
         "end": "2026-09-17T01:45:00Z",
+        "registration": false
+      },
+      {
+        "title": "3D Printing On Demand",
+        "start": "2026-09-17T07:00:00.000Z",
+        "end": "2026-09-18T06:59:59Z",
+        "registration": false
+      },
+      {
+        "title": "eBook Help: For Seniors",
+        "start": "2026-09-17T07:00:00.000Z",
+        "end": "2026-09-18T06:59:59Z",
         "registration": false
       }
     ],
