@@ -7,6 +7,13 @@ themselves. It is Rishaan's entry for the Janyaa Social Innovation Challenge
 
 Live: https://rspace-blush.vercel.app · Repo: https://github.com/rishaank/rSpace
 
+> **Dormant since 2026-09-03.** The Vercel project and the Supabase project are
+> paused, and both refresh workflows are disabled, so the live URL returns 503
+> and nothing runs on a schedule. Nothing was deleted and everything below is
+> still accurate for a running instance. Read `HIBERNATION.md` before changing
+> anything or waking it up. The three Google Maps APIs are disabled too, so
+> there is no surface left that can be called or billed.
+
 ## Run it
 
 ```bash
@@ -666,11 +673,25 @@ cd ~/Documents/GitHub/rSpace && npx vercel --prod    # only for a manual deploy
 
 ## Google Cloud
 
+Project `nodal-unity-483903-g6` ("Janyaa rSpace Maps") is owned by
+**sunil.kotian@gmail.com**. None of the other Google accounts signed in on
+Rishaan's machine can see it — signing in as anything else gives
+"You need additional access", which looks like a broken link and is not one.
+
 One key, restricted by HTTP referrer to the Vercel domains and
 `http://localhost:5173/*`. Enabled: Maps JavaScript, Places (New), Routes.
 Geocoding is **not** enabled and the app does not need it.
 
-Seven APIs are enabled in total and that is deliberate. Google turns on
+> **All three Maps APIs are disabled as of 2026-09-03** (see `HIBERNATION.md`).
+> The referrer restriction was never the thing protecting this key: a request
+> that merely sends `Referer: https://rspace-blush.vercel.app/` was accepted,
+> and the key shipped inside the public JS bundle, so the restriction only ever
+> stopped honest callers. Disabling the APIs is what actually stops it. The
+> key itself is untouched and still valid — re-enabling the three APIs is all
+> it takes to bring Google back.
+
+Seven APIs were enabled in total and that was deliberate — four now, with
+the three Maps APIs disabled above. Google turns on
 ~20 by default — BigQuery and its five satellites, Dataplex, Dataform,
 Datastore, Cloud SQL, Cloud Trace, Analytics Hub, and three Cloud Storage
 services — all of which showed no traffic over 30 days and none of which
