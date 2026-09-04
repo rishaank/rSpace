@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-03T21:36:39.293Z",
+  "generated": "2026-09-04T00:53:15.764Z",
   "source": "San José Public Library",
   "horizon_days": 14,
   "places": 25,
-  "count": 680,
+  "count": 682,
   "by_slug": {
     "almaden-library": [
       {
@@ -190,6 +190,12 @@
         "title": "Digital Skills: One-On-One Tech Help for Seniors",
         "start": "2026-09-17T19:00:00.000Z",
         "end": "2026-09-18T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Kids' Writing Club",
+        "start": "2026-09-17T23:30:00.000Z",
+        "end": "2026-09-18T00:30:00Z",
         "registration": false
       }
     ],
@@ -411,15 +417,15 @@
         "start": "2026-09-17T17:30:00.000Z",
         "end": "2026-09-17T18:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Chess Club for Kids ",
+        "start": "2026-09-17T23:00:00.000Z",
+        "end": "2026-09-18T00:30:00Z",
+        "registration": false
       }
     ],
     "berryessa-library": [
-      {
-        "title": "Reading to Dogs",
-        "start": "2026-09-03T23:00:00.000Z",
-        "end": "2026-09-04T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Movie Club",
         "start": "2026-09-04T23:00:00.000Z",
@@ -592,12 +598,6 @@
     "biblioteca-latinoamericana-library": [
       {
         "title": "Asistencia tecnologica y ayuda personalizada",
-        "start": "2026-09-03T23:00:00.000Z",
-        "end": "2026-09-04T00:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Asistencia tecnologica y ayuda personalizada",
         "start": "2026-09-04T23:00:00.000Z",
         "end": "2026-09-05T00:00:00Z",
         "registration": false
@@ -727,27 +727,27 @@
         "start": "2026-09-17T17:30:00.000Z",
         "end": "2026-09-17T18:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Library Card Passports- Drop-in Craft",
+        "start": "2026-09-17T22:30:00.000Z",
+        "end": "2026-09-18T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Asistencia tecnologica y ayuda personalizada",
+        "start": "2026-09-17T23:00:00.000Z",
+        "end": "2026-09-18T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Conceptos básicos de computacion",
+        "start": "2026-09-17T23:00:00.000Z",
+        "end": "2026-09-18T00:30:00Z",
+        "registration": false
       }
     ],
     "calabazas-library": [
-      {
-        "title": "Junior STEAM Club",
-        "start": "2026-09-03T22:30:00.000Z",
-        "end": "2026-09-03T23:15:00Z",
-        "registration": false
-      },
-      {
-        "title": "Junior STEAM Club",
-        "start": "2026-09-03T23:30:00.000Z",
-        "end": "2026-09-04T00:15:00Z",
-        "registration": false
-      },
-      {
-        "title": "Junior STEAM Club",
-        "start": "2026-09-04T00:30:00.000Z",
-        "end": "2026-09-04T01:15:00Z",
-        "registration": false
-      },
       {
         "title": "Basic English Conversation",
         "start": "2026-09-04T23:00:00.000Z",
@@ -939,6 +939,24 @@
         "start": "2026-09-17T20:30:00.000Z",
         "end": "2026-09-17T21:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Junior STEAM Club",
+        "start": "2026-09-17T22:30:00.000Z",
+        "end": "2026-09-17T23:15:00Z",
+        "registration": false
+      },
+      {
+        "title": "Junior STEAM Club",
+        "start": "2026-09-17T23:30:00.000Z",
+        "end": "2026-09-18T00:15:00Z",
+        "registration": false
+      },
+      {
+        "title": "Junior STEAM Club",
+        "start": "2026-09-18T00:30:00.000Z",
+        "end": "2026-09-18T01:15:00Z",
+        "registration": false
       }
     ],
     "cambrian-library": [
@@ -1084,6 +1102,12 @@
         "title": "Family Storytime",
         "start": "2026-09-17T18:00:00.000Z",
         "end": "2026-09-17T19:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "VietSteps, Moon Festival Lantern Craft and Mooncake Tasting",
+        "start": "2026-09-17T23:00:00.000Z",
+        "end": "2026-09-18T00:00:00Z",
         "registration": false
       }
     ],
@@ -1469,12 +1493,6 @@
         "registration": false
       },
       {
-        "title": "Messy STEAM",
-        "start": "2026-09-08T23:00:00.000Z",
-        "end": "2026-09-09T00:00:00Z",
-        "registration": false
-      },
-      {
         "title": "Crochet Club",
         "start": "2026-09-09T23:00:00.000Z",
         "end": "2026-09-10T00:00:00Z",
@@ -1646,12 +1664,6 @@
       }
     ],
     "edenvale-library": [
-      {
-        "title": "Tech Mentor at Edenvale Branch",
-        "start": "2026-09-04T00:00:00.000Z",
-        "end": "2026-09-04T01:00:00Z",
-        "registration": false
-      },
       {
         "title": "Resume Review & Interview Prepration",
         "start": "2026-09-04T22:30:00.000Z",
@@ -1861,27 +1873,15 @@
         "start": "2026-09-17T17:30:00.000Z",
         "end": "2026-09-17T19:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Tech Mentor at Edenvale Branch",
+        "start": "2026-09-18T00:00:00.000Z",
+        "end": "2026-09-18T01:00:00Z",
+        "registration": false
       }
     ],
     "educational-park-library": [
-      {
-        "title": "STEM Club",
-        "start": "2026-09-03T23:00:00.000Z",
-        "end": "2026-09-04T00:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "Reading Buddies",
-        "start": "2026-09-04T00:00:00.000Z",
-        "end": "2026-09-04T01:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "ESL Classes with Evergreen Valley College (EVC) 502: Listening & Speaking",
-        "start": "2026-09-04T00:15:00.000Z",
-        "end": "2026-09-04T01:45:00Z",
-        "registration": false
-      },
       {
         "title": "U.S. Citizenship Interview Practice",
         "start": "2026-09-04T20:00:00.000Z",
@@ -2085,15 +2085,27 @@
         "start": "2026-09-17T20:00:00.000Z",
         "end": "2026-09-17T21:30:00Z",
         "registration": false
+      },
+      {
+        "title": "STEM Club",
+        "start": "2026-09-17T23:00:00.000Z",
+        "end": "2026-09-18T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Reading Buddies",
+        "start": "2026-09-18T00:00:00.000Z",
+        "end": "2026-09-18T01:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "ESL Classes with Evergreen Valley College (EVC) 502: Listening & Speaking",
+        "start": "2026-09-18T00:15:00.000Z",
+        "end": "2026-09-18T01:45:00Z",
+        "registration": false
       }
     ],
     "evergreen-library": [
-      {
-        "title": "Family Storytime + Stay & Play",
-        "start": "2026-09-03T23:30:00.000Z",
-        "end": "2026-09-04T00:30:00Z",
-        "registration": false
-      },
       {
         "title": "Tiny Art for Kids & Teens",
         "start": "2026-09-04T23:30:00.000Z",
@@ -2204,24 +2216,6 @@
       }
     ],
     "hillview-library": [
-      {
-        "title": "Craft Tuesdays & Thursdays",
-        "start": "2026-09-03T22:00:00.000Z",
-        "end": "2026-09-03T23:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "1-on-1 Tech Help",
-        "start": "2026-09-04T00:00:00.000Z",
-        "end": "2026-09-04T01:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "U.S. Citizenship Mock Interview Practice / Práctica de entrevista simulada para la ciudadanía estadounidense",
-        "start": "2026-09-04T00:30:00.000Z",
-        "end": "2026-09-04T01:30:00Z",
-        "registration": false
-      },
       {
         "title": "Let's Make Button Pins!",
         "start": "2026-09-04T23:00:00.000Z",
@@ -2383,15 +2377,27 @@
         "start": "2026-09-17T18:00:00.000Z",
         "end": "2026-09-17T19:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Craft Tuesdays & Thursdays",
+        "start": "2026-09-17T22:00:00.000Z",
+        "end": "2026-09-17T23:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "1-on-1 Tech Help",
+        "start": "2026-09-18T00:00:00.000Z",
+        "end": "2026-09-18T01:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "U.S. Citizenship Mock Interview Practice / Práctica de entrevista simulada para la ciudadanía estadounidense",
+        "start": "2026-09-18T00:30:00.000Z",
+        "end": "2026-09-18T01:30:00Z",
+        "registration": false
       }
     ],
     "joyce-ellington-library": [
-      {
-        "title": "Volunteer Away Your Fines as a Branch Buddy",
-        "start": "2026-09-04T00:00:00.000Z",
-        "end": "2026-09-04T01:00:00Z",
-        "registration": false
-      },
       {
         "title": "Baby Lapsit Storytime at Joyce Ellington Branch ",
         "start": "2026-09-04T19:15:00.000Z",
@@ -2426,12 +2432,6 @@
         "title": "Music & Movement",
         "start": "2026-09-08T17:30:00.000Z",
         "end": "2026-09-08T18:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "LEGO® Club",
-        "start": "2026-09-08T23:30:00.000Z",
-        "end": "2026-09-09T00:30:00Z",
         "registration": false
       },
       {
@@ -2677,15 +2677,15 @@
         "start": "2026-09-16T18:00:00.000Z",
         "end": "2026-09-16T18:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Pearl Avenue Teens Reach Meeting",
+        "start": "2026-09-18T00:00:00.000Z",
+        "end": "2026-09-18T01:00:00Z",
+        "registration": false
       }
     ],
     "rose-garden-library": [
-      {
-        "title": "1 on 1 Tech Assistance / Asistencia Tecnología",
-        "start": "2026-09-04T00:00:00.000Z",
-        "end": "2026-09-04T01:00:00Z",
-        "registration": false
-      },
       {
         "title": "English Language Learner (ELL) for Beginners/Inglés Para Principiantes (ELL)",
         "start": "2026-09-05T17:00:00.000Z",
@@ -2804,6 +2804,12 @@
         "title": "Indoor Family Storytime",
         "start": "2026-09-16T18:00:00.000Z",
         "end": "2026-09-16T19:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "1 on 1 Tech Assistance / Asistencia Tecnología",
+        "start": "2026-09-18T00:00:00.000Z",
+        "end": "2026-09-18T01:00:00Z",
         "registration": false
       }
     ],
@@ -3016,6 +3022,18 @@
         "title": "Indoor Family Storytime",
         "start": "2026-09-17T18:00:00.000Z",
         "end": "2026-09-17T18:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Wee Love Art: Frida Kahlo",
+        "start": "2026-09-17T23:30:00.000Z",
+        "end": "2026-09-18T00:30:00Z",
+        "registration": false
+      },
+      {
+        "title": "Santa Teresa Middle School Math Club",
+        "start": "2026-09-18T00:30:00.000Z",
+        "end": "2026-09-18T01:30:00Z",
         "registration": false
       }
     ],
@@ -3293,24 +3311,6 @@
     ],
     "tully-community-library": [
       {
-        "title": "Adult Craft: Mosaic Night Light",
-        "start": "2026-09-03T22:00:00.000Z",
-        "end": "2026-09-03T23:30:00Z",
-        "registration": false
-      },
-      {
-        "title": "LEGO® Fun",
-        "start": "2026-09-03T23:00:00.000Z",
-        "end": "2026-09-04T00:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "ESL Classes with Evergreen Valley College (EVC) 502: Listening & Speaking",
-        "start": "2026-09-04T00:15:00.000Z",
-        "end": "2026-09-04T01:45:00Z",
-        "registration": false
-      },
-      {
         "title": "ESL Writing Club",
         "start": "2026-09-04T23:00:00.000Z",
         "end": "2026-09-05T00:30:00Z",
@@ -3489,15 +3489,21 @@
         "start": "2026-09-17T17:00:00.000Z",
         "end": "2026-09-17T18:00:00Z",
         "registration": false
+      },
+      {
+        "title": "LEGO® Fun",
+        "start": "2026-09-17T23:00:00.000Z",
+        "end": "2026-09-18T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "ESL Classes with Evergreen Valley College (EVC) 502: Listening & Speaking",
+        "start": "2026-09-18T00:15:00.000Z",
+        "end": "2026-09-18T01:45:00Z",
+        "registration": false
       }
     ],
     "village-square-library": [
-      {
-        "title": "Reading Buddies",
-        "start": "2026-09-03T23:15:00.000Z",
-        "end": "2026-09-04T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Wee Love Art: Frida Kahlo",
         "start": "2026-09-04T22:00:00.000Z",
@@ -3617,15 +3623,15 @@
         "start": "2026-09-17T17:00:00.000Z",
         "end": "2026-09-17T18:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Village Square Branch Monthly Teens Reach Meeting",
+        "start": "2026-09-17T23:30:00.000Z",
+        "end": "2026-09-18T00:30:00Z",
+        "registration": false
       }
     ],
     "vineland-library": [
-      {
-        "title": "Digital Skills: One-On-One Help",
-        "start": "2026-09-03T23:00:00.000Z",
-        "end": "2026-09-04T00:30:00Z",
-        "registration": false
-      },
       {
         "title": "Pawsitive Learning with Town Cats",
         "start": "2026-09-05T21:00:00.000Z",
@@ -3775,21 +3781,15 @@
         "start": "2026-09-17T20:00:00.000Z",
         "end": "2026-09-17T21:00:00Z",
         "registration": false
+      },
+      {
+        "title": "Volunteer Away Your Fines - Vineland",
+        "start": "2026-09-18T00:00:00.000Z",
+        "end": "2026-09-18T01:00:00Z",
+        "registration": false
       }
     ],
     "west-valley-library": [
-      {
-        "title": "Reading Buddies",
-        "start": "2026-09-03T23:00:00.000Z",
-        "end": "2026-09-04T00:00:00Z",
-        "registration": false
-      },
-      {
-        "title": "West Valley Branch Teens Reach Meeting",
-        "start": "2026-09-03T23:30:00.000Z",
-        "end": "2026-09-04T00:30:00Z",
-        "registration": false
-      },
       {
         "title": "STEAM Club",
         "start": "2026-09-04T23:00:00.000Z",
@@ -3975,15 +3975,21 @@
         "start": "2026-09-17T18:00:00.000Z",
         "end": "2026-09-17T18:30:00Z",
         "registration": false
+      },
+      {
+        "title": "Reading Buddies",
+        "start": "2026-09-17T23:00:00.000Z",
+        "end": "2026-09-18T00:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Reading to Children",
+        "start": "2026-09-18T00:00:00.000Z",
+        "end": "2026-09-18T01:00:00Z",
+        "registration": false
       }
     ],
     "willow-glen-library": [
-      {
-        "title": "Reading To Children at the Willow Glen Library",
-        "start": "2026-09-03T23:00:00.000Z",
-        "end": "2026-09-04T00:00:00Z",
-        "registration": false
-      },
       {
         "title": "Friday Fun: Board Games!",
         "start": "2026-09-04T23:00:00.000Z",
@@ -4132,6 +4138,12 @@
         "title": "1 on 1 Tech Assistance",
         "start": "2026-09-17T18:00:00.000Z",
         "end": "2026-09-17T19:00:00Z",
+        "registration": false
+      },
+      {
+        "title": "Reading To Children at the Willow Glen Library",
+        "start": "2026-09-17T23:00:00.000Z",
+        "end": "2026-09-18T00:00:00Z",
         "registration": false
       }
     ]
